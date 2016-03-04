@@ -2,26 +2,28 @@
 
 /**
  *
- * @copyright  2010-2013 izend.org
- * @version    3
+ * @copyright  2010-2013 (2016) izend.org
+ * @version    3 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php global $supported_languages; ?>
+<div class="btn-group btn-group-sm">
 <?php foreach ($supported_languages as $lang): ?>
 <?php if ($lang == 'fr'): ?>
-<input name="<?php echo $lang; ?>" type="submit" class="lang <?php echo $lang; ?> submit<?php if ($lang == $clang): ?> selected<?php endif; ?>" value="Français" />
+<button type="submit" class="btn <?php if ($lang == $clang): ?>btn-primary<?php else: ?>btn-default<?php endif; ?>" name="<?php echo $lang; ?>">Français</button>
 <?php elseif ($lang == 'en'): ?>
-<input name="<?php echo $lang; ?>" type="submit" class="lang <?php echo $lang; ?> submit<?php if ($lang == $clang): ?> selected<?php endif; ?>" value="English" />
+<button type="submit" class="btn <?php if ($lang == $clang): ?>btn-primary<?php else: ?>btn-default<?php endif; ?>" name="<?php echo $lang; ?>">English</button>
 <?php elseif ($lang == 'de'): ?>
-<input name="<?php echo $lang; ?>" type="submit" class="lang <?php echo $lang; ?> submit<?php if ($lang == $clang): ?> selected<?php endif; ?>" value="Deutsch" />
+<button type="submit" class="btn <?php if ($lang == $clang): ?>btn-primary<?php else: ?>btn-default<?php endif; ?>" name="<?php echo $lang; ?>">Deutsch</button>
 <?php elseif ($lang == 'it'): ?>
-<input name="<?php echo $lang; ?>" type="submit" class="lang <?php echo $lang; ?> submit<?php if ($lang == $clang): ?> selected<?php endif; ?>" value="Italiano" />
+<button type="submit" class="btn <?php if ($lang == $clang): ?>btn-primary<?php else: ?>btn-default<?php endif; ?>" name="<?php echo $lang; ?>">Italiano</button>
 <?php elseif ($lang == 'es'): ?>
-<input name="<?php echo $lang; ?>" type="submit" class="lang <?php echo $lang; ?> submit<?php if ($lang == $clang): ?> selected<?php endif; ?>" value="Español" />
+<button type="submit" class="btn <?php if ($lang == $clang): ?>btn-primary<?php else: ?>btn-default<?php endif; ?>" name="<?php echo $lang; ?>">Español</button>
 <?php elseif ($lang == 'ru'): ?>
-<input name="<?php echo $lang; ?>" type="submit" class="lang <?php echo $lang; ?> submit<?php if ($lang == $clang): ?> selected<?php endif; ?>" value="Pусский" />
+<button type="submit" class="btn <?php if ($lang == $clang): ?>btn-primary<?php else: ?>btn-default<?php endif; ?>" name="<?php echo $lang; ?>">Pусский</button>
 <?php elseif ($lang == 'ar'): ?>
-<input name="<?php echo $lang; ?>" type="submit" class="lang <?php echo $lang; ?> submit<?php if ($lang == $clang): ?> selected<?php endif; ?>" value="عربي" />
+<button type="submit" class="btn <?php if ($lang == $clang): ?>btn-primary<?php else: ?>btn-default<?php endif; ?>" name="<?php echo $lang; ?>">عربي</button>
 <?php endif; ?>
 <?php endforeach; ?>
+</div>

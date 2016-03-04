@@ -2,21 +2,18 @@
 
 /**
  *
- * @copyright  2012-2015 izend.org
- * @version    11
+ * @copyright  2012-2015 (2016) izend.org
+ * @version    11 (1)
  * @link       http://www.izend.org
  */
 ?>
-<span id="socialbar" class="menu noprint">
-<a class="facebook" href="https://www.facebook.com/pages/" target="_blank" title="Join us on Facebook"><span>Facebook</span></a>
-<a class="twitter" href="https://twitter.com/#!/" target="_blank" title="Follow us on Twitter"><span>Twitter</span></a>
-<a class="gplus" href="https://plus.google.com/" target="_blank" title="Stay in touch with Google+"><span>Google+</span></a>
-<a class="linkedin" href="http://www.linkedin.com/" target="_blank" title="Connect to our network on LinkedIn"><span>LinkedIn</span></a>
-<a class="youtube" href="https://www.youtube.com/channel/" target="_blank" title="Watch our videos on YouTube"><span>YouTube</span></a>
-<a class="pinterest" href="https://www.pinterest.com/" target="_blank" title="Look at our pins on Pinterest"><span>Pinterest</span></a>
-<a class="rss" href="<?php echo $base_path; ?>/en/rss" target="_blank" rel="nofollow" title="Subscribe to the RSS feed"><span>RSS</span></a>
-<a class="newsletter" href="<?php echo $base_path; ?>/en/newsletter/subscribe" rel="nofollow" title="Receive our newsletter"><span>Newsletter</span></a>
-</span>
-<script type="text/javascript">
-$('#socialbar a').hover(function() { $(this).animate({'opacity' : '0.5'}, 200); }, function() { $(this).animate({'opacity' : '1.0'}, 200); } );
-</script>
+<div id="socialbar" class="hidden-print">
+<a href="https://www.facebook.com/pages/" target="_blank" title="Join us on Facebook"><span class="social-facebook">Facebook</span></a>
+<a href="https://twitter.com/#!/" target="_blank" title="Follow us on Twitter"><span class="social-twitter">Twitter</span></a>
+<a href="https://plus.google.com/" target="_blank" title="Stay in touch with Google+"><span class="social-gplus">Google+</span></a>
+<a href="http://www.linkedin.com/" target="_blank" title="Connect to our network on LinkedIn"><span class="social-linkedin">LinkedIn</span></a>
+<a href="https://www.youtube.com/channel/" target="_blank" title="Watch our videos on YouTube"><span class="social-youtube">YouTube</span></a>
+<a href="https://www.pinterest.com/" target="_blank" title="Look at our pins on Pinterest"><span class="social-pinterest">Pinterest</span></a>
+<a href="<?php echo $base_path; ?>/en/rss" target="_blank" rel="nofollow" title="Subscribe to the RSS feed"><span class="social-rss">RSS</span></a>
+<a href="<?php echo $base_path; ?>/en/newsletter/subscribe" rel="nofollow" title="Receive our newsletter"><span class="social-newsletter">Newsletter</span></a>
+</div>

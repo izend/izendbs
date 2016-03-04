@@ -2,15 +2,21 @@
 
 /**
  *
- * @copyright  2010-2015 izend.org
- * @version    5
+ * @copyright  2010-2015 (2016) izend.org
+ * @version    5 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php if (!empty($search_url)): ?>
-<form id="searchinput" action="<?php echo $search_url; ?>" method="post">
-<input id="searchtext" name="searchtext" type="text" value="<?php echo htmlspecialchars($search_text, ENT_COMPAT, 'UTF-8'); ?>" />
-<input id="search" name="search" type="submit" value="Search" title="Search" />
+<form method="post" action="<?php echo $search_url; ?>" id="searchinput" role="search">
+<div class="form-group form-inline-auto">
+<div class="input-group">
+<input type="text" class="form-control" name="searchtext" id="searchtext" size="20" maxlength="100" value="<?php echo htmlspecialchars($search_text, ENT_COMPAT, 'UTF-8'); ?>" placeholder="Search" />
+<span class="input-group-btn">
+<button type="submit" class="btn btn-default" name="search" id="search"><span class="glyphicon glyphicon-search"></span></button>
+</span>
+</div>
+</div>
 </form>
 <?php if (!empty($suggest_url)): ?>
 <?php head('javascript', 'jquery-ui'); ?>

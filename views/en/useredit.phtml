@@ -2,122 +2,160 @@
 
 /**
  *
- * @copyright  2011-2014 izend.org
- * @version    20
+ * @copyright  2011-2014 (2016) izend.org
+ * @version    20 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php extract($errors); ?>
+<?php extract($infos); ?>
 <form action="" method="post">
 <input type="hidden" name="useredit_token" value="<?php echo $token; ?>" />
 <?php if ($user_accessed): ?>
 <input type="hidden" name="useredit_accessed" value="<?php echo $user_accessed; ?>" />
 <?php endif; ?>
 <?php if ($with_info): ?>
-<p class="inlabel<?php if ($missing_firstname): ?> inerror<?php endif; ?>">First name:</p>
-<p><input type="text" name="useredit_firstname" id="useredit_firstname" size="30" maxlength="100" title="First name" onkeypress="return focusonenter(event, 'useredit_lastname')" value="<?php echo htmlspecialchars($user_firstname, ENT_COMPAT, 'UTF-8'); ?>" /></p>
-<p class="inlabel<?php if ($missing_lastname): ?> inerror<?php endif; ?>">Last name:</p>
-<p><input type="text" name="useredit_lastname" id="useredit_lastname" size="30" maxlength="100" title="Last name" onkeypress="return focusonenter(event, '<?php echo $with_name ? 'useredit_name' : 'useredit_mail'; ?>')" value="<?php echo htmlspecialchars($user_lastname, ENT_COMPAT, 'UTF-8'); ?>" /></p>
+<div class="form-group<?php if ($missing_firstname): ?> has-error<?php endif; ?>">
+<label for="useredit_firstname">First name:</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="useredit_firstname" id="useredit_firstname" size="30" maxlength="100" placeholder="Fist name" value="<?php echo htmlspecialchars($user_firstname, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'useredit_lastname')" />
+</div>
+</div>
+<div class="form-group<?php if ($missing_lastname): ?> has-error<?php endif; ?>">
+<label for="useredit_lastname">Last name:</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="useredit_lastname" id="useredit_lastname" size="30" maxlength="100" placeholder="Last name" value="<?php echo htmlspecialchars($user_lastname, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, '<?php echo $with_name ? 'useredit_name' : 'useredit_mail'; ?>')" />
+</div>
+</div>
 <?php endif; ?>
 <?php if ($with_name): ?>
-<p class="inlabel<?php if ($missing_name or $bad_name or $duplicated_name): ?> inerror<?php endif; ?>">Identifier:</p>
-<p><input id="useredit_name" type="text" name="useredit_name" size="20" maxlength="20" title="2 to 20 letters" onkeypress="return submitonenter(event, 'useredit_modify')" value="<?php echo htmlspecialchars($user_name, ENT_COMPAT, 'UTF-8'); ?>" /><?php if ($user_name and !$bad_name): ?>&nbsp;<img class="avatar" src="<?php echo $base_path; ?>/avatars/<?php echo $user_name; ?>.png" alt="" width="24" height="24" /><?php endif; ?></p>
+<div class="form-group<?php if ($missing_name or $bad_name or $duplicated_name): ?> has-error<?php endif; ?>">
+<label for="useredit_name">Identifier:</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="useredit_name" id="useredit_name" size="20" maxlength="20" placeholder="2 to 20 letters" value="<?php echo htmlspecialchars($user_name, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'useredit_mail')" />
+<img class="hidden-xxs" src="<?php echo $base_path; ?>/avatars/<?php echo $user_name; ?>.png" alt="" width="24" height="24" title="<?php echo $user_name; ?>" />
+</div>
+</div>
 <?php else: ?>
 <input type="hidden" name="useredit_name" value="<?php echo htmlspecialchars($user_name, ENT_COMPAT, 'UTF-8'); ?>" />
 <?php endif; ?>
-<p class="inlabel<?php if ($missing_mail or $bad_mail or $duplicated_mail): ?> inerror<?php endif; ?>">Email address:</p>
-<p><input id="useredit_mail" type="text" name="useredit_mail" size="40" maxlength="100" title="name@domain.net" onkeypress="return submitonenter(event, 'useredit_modify')" value="<?php echo htmlspecialchars($user_mail, ENT_COMPAT, 'UTF-8'); ?>" /></p>
+<div class="form-group<?php if ($missing_mail or $bad_mail or $duplicated_mail): ?> has-error<?php endif; ?>">
+<label for="useredit_mail">Email address:</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="useredit_mail" id="useredit_mail" size="30" maxlength="100" placeholder="name@domain.net" value="<?php echo htmlspecialchars($user_mail, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'useredit_modify')" />
+</div>
+</div>
 <?php if ($with_role): ?>
+<div class="form-group">
 <?php $rolename=array('administrator' => 'administrator', 'writer' => 'writer', 'reader' => 'reader', 'moderator' => 'moderator'); ?>
-<p><?php foreach ($supported_roles as $role): ?><?php echo PHP_EOL; ?><input name="useredit_role[]" type="checkbox" value="<?php echo $role; ?>"<?php if ($user_role and in_array($role, $user_role)) echo ' checked="checked"'; ?> />&nbsp;<?php echo $rolename[$role]; ?><?php endforeach; ?><?php echo PHP_EOL; ?></p>
+<?php foreach ($supported_roles as $role): ?><label class="checkbox-inline"><input type="checkbox" name="useredit_role[]" value="<?php echo $role; ?>"<?php if ($user_role and in_array($role, $user_role)):?> checked="checked"<?php endif; ?> />&nbsp;<?php echo $rolename[$role]; ?></label><?php echo PHP_EOL; ?><?php endforeach; ?>
+</div>
 <?php endif; ?>
 <?php if ($with_website): ?>
-<p class="inlabel<?php if ($bad_website): ?> inerror<?php endif; ?>">Website:</p>
-<p><input id="useredit_website" type="text" name="useredit_website" size="40" maxlength="100" title="www.domain.com" onkeypress="return submitonenter(event, 'useredit_modify')" value="<?php echo htmlspecialchars($user_website, ENT_COMPAT, 'UTF-8'); ?>" /></p>
+<div class="form-group<?php if ($bad_website): ?> has-error<?php endif; ?>">
+<label for="useredit_website">Website:</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="useredit_website" id="useredit_website" size="30" maxlength="100" placeholder="www.domaine.com" value="<?php echo htmlspecialchars($user_website, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'useredit_modify')" />
+</div>
+</div>
 <?php else: ?>
 <input type="hidden" name="useredit_website" value="<?php echo htmlspecialchars($user_website, ENT_COMPAT, 'UTF-8'); ?>" />
 <?php endif; ?>
 <?php if ($with_timezone): ?>
-<p class="inlabel<?php if ($bad_timezone): ?> inerror<?php endif; ?>">Time zone:</p>
-<p><input id="useredit_timezone" type="text" name="useredit_timezone" size="40" maxlength="100" title="America/Chicago" onkeypress="return submitonenter(event, 'useredit_modify')" value="<?php echo htmlspecialchars($user_timezone, ENT_COMPAT, 'UTF-8'); ?>" /></p>
+<div class="form-group<?php if ($bad_timezone): ?> has-error<?php endif; ?>">
+<label for="useredit_timezone">Time zone:</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="useredit_timezone" id="useredit_timezone" size="30" maxlength="100" placeholder="America/Chicago" value="<?php echo htmlspecialchars($user_timezone, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'useredit_modify')" />
+</div>
+</div>
 <?php else: ?>
 <input type="hidden" name="useredit_timezone" value="<?php echo htmlspecialchars($user_timezone, ENT_COMPAT, 'UTF-8'); ?>" />
 <?php endif; ?>
 <?php if ($with_locale): ?>
-<p><?php foreach ($system_languages as $lang): ?><?php echo PHP_EOL; ?><input name="useredit_locale" type="radio" value="<?php echo $lang; ?>" title="<?php echo $lang; ?>"<?php if ($lang == $user_locale) echo ' checked="checked"'; ?> />&nbsp;<span class="lang <?php echo $lang; ?>" title="<?php echo $lang; ?>"><?php echo $lang; ?></span><?php endforeach; ?><?php echo PHP_EOL; ?></p>
+<div class="form-group">
+<?php foreach ($system_languages as $lang): ?><label class="radio-inline"><input type="radio" name="useredit_locale" value="<?php echo $lang; ?>" title="<?php echo $lang; ?>"<?php if ($lang == $user_locale): ?> checked="checked"<?php endif; ?> />&nbsp;<span class="lang-<?php echo $lang; ?>" title="<?php echo $lang; ?>"><?php echo $lang; ?></span></label><?php echo PHP_EOL; ?><?php endforeach; ?>
+</div>
 <?php else: ?>
 <input type="hidden" name="useredit_locale" value="<?php echo htmlspecialchars($user_locale, ENT_COMPAT, 'UTF-8'); ?>" />
 <?php endif; ?>
 <?php if ($with_status): ?>
+<div class="form-group">
 <fieldset id="useredit_status">
 <legend>Status</legend>
-<input name="useredit_active" type="checkbox" <?php if ($user_active) echo 'checked="checked"'; ?> />&nbsp;active
-<input name="useredit_banned" type="checkbox" <?php if ($user_banned) echo 'checked="checked"'; ?> />&nbsp;banned
+<label class="checkbox-inline">
+<input type="checkbox" name="useredit_active"<?php if ($user_active): ?> checked="checked"<?php endif; ?> />&nbsp;active
+</label>
+<label class="checkbox-inline">
+<input type="checkbox" name="useredit_banned"<?php if ($user_banned): ?> checked="checked"<?php endif; ?> />&nbsp;banned
+</label>
 </fieldset>
+</div>
 <?php if ($user_accessed): ?>
 <?php require_once 'dateen.php'; ?>
-<p><span id="useredit_accessed">Last access <?php echo longdate_en($user_accessed); ?> at <?php echo date('H:i', $user_accessed); ?></span></p>
+<p><small>Last access <?php echo longdate_en($user_accessed); ?> at <?php echo date('H:i', $user_accessed); ?></small></p>
 <?php endif; ?>
 <?php endif; ?>
-<p class="noprint">
+<div class="form-group">
 <?php if ($with_delete): ?>
 <?php if ($confirm_delete): ?>
-<input type="submit" class="submit submit_confirm" name="useredit_confirmdelete" id="useredit_confirmdelete" value="Confirm" />
+<button type="submit" class="btn btn-warning" name="useredit_confirmdelete" id="useredit_confirmdelete">Confirm</button>
 delete or
-<input type="submit" class="submit submit_cancel" name="useredit_cancel" id="useredit_cancel" value="Cancel" />
+<button type="submit" class="btn btn-default" name="useredit_cancel" id="useredit_cancel">Cancel</button>
 <?php else: ?>
-<input type="submit" class="submit submit_modify" name="useredit_modify" id="useredit_modify" value="Modify" />
+<button type="submit" class="btn <?php if ($internal_error or $missing_name or $bad_name or $duplicated_name or $missing_mail or $bad_mail or $duplicated_mail or $bad_role or $bad_website or $bad_timezone or $missing_locale or $bad_locale or $missing_lastname or $missing_firstname): ?>btn-danger<?php elseif ($account_modified): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="useredit_modify" id="useredit_modify">Modify</button>
 the profile or
-<input type="submit" class="submit submit_delete" name="useredit_delete" id="useredit_delete" value="Delete" />
+<button type="submit" class="btn btn-default" name="useredit_delete" id="useredit_delete">Delete</button>
 the account
 <?php endif; ?>
 <?php else: ?>
-<input type="submit" class="submit submit_modify" name="useredit_modify" id="useredit_modify" value="Modify" />
+<button type="submit" class="btn <?php if ($internal_error or $missing_name or $bad_name or $duplicated_name or $missing_mail or $bad_mail or $duplicated_mail or $bad_role or $bad_website or $bad_timezone or $missing_locale or $bad_locale or $missing_lastname or $missing_firstname): ?>btn-danger<?php elseif ($account_modified): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="useredit_modify" id="useredit_modify">Modify</button>
 <?php endif; ?>
-</p>
+</div>
 <?php if ($with_newpassword): ?>
-<p class="noprint inlabel<?php if ($missing_newpassword or $bad_newpassword): ?> inerror<?php endif; ?>">Password:</p>
-<p class="noprint"><input type="password" name="useredit_newpassword" id="useredit_newpassword" size="20" maxlength="20" title="at least 6 letters and digits" onkeypress="return submitonenter(event, 'useredit_change')" value="<?php echo htmlspecialchars($user_newpassword, ENT_COMPAT, 'UTF-8'); ?>" /></p>
-<p class="noprint"><input type="submit" class="submit submit_change" name="useredit_change" id="useredit_change" value="Change" /></p>
+<div class="form-group<?php if ($missing_newpassword or $bad_newpassword): ?> has-error<?php endif; ?>">
+<label for="useredit_newpassword">Password:</label>
+<div class="form-inline-auto">
+<input type="password" class="form-control" name="useredit_newpassword" id="useredit_newpassword" size="20" maxlength="20" placeholder="6 letters and digits" title="at least 6 letters and digits" value="<?php echo htmlspecialchars($user_newpassword, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'useredit_change')" />
+</div>
+</div>
+<div class="form-group">
+<button type="submit" class="btn <?php if ($internal_error or $missing_newpassword or $bad_newpassword): ?>btn-danger<?php elseif ($password_changed): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="useredit_change" id="useredit_change">Change</button>
+</div>
 <?php endif; ?>
 </form>
-<div class="errors">
 <?php if ($missing_lastname and $missing_firstname): ?>
-<p>A last name and a first name are required.</p>
+<p class="text-danger">A last name and a first name are required.</p>
 <?php else: ?>
 <?php if ($missing_lastname): ?>
-<p>A last name is required.</p>
+<p class="text-danger">A last name is required.</p>
 <?php endif; ?>
 <?php if ($missing_firstname): ?>
-<p>A first name is required.</p>
+<p class="text-danger">A first name is required.</p>
 <?php endif; ?>
 <?php endif; ?>
 <?php if ($missing_name): ?>
-<p>An identifier is required.</p>
+<p class="text-danger">An identifier is required.</p>
 <?php elseif ($bad_name): ?>
-<p>An identifier must contain between 2 and 20 letters.</p>
+<p class="text-danger">An identifier must contain between 2 and 20 letters.</p>
 <?php elseif ($duplicated_name): ?>
-<p>This identifier is already taken.</p>
+<p class="text-danger">This identifier is already taken.</p>
 <?php endif; ?>
 <?php if ($missing_mail): ?>
-<p>An email address is required.</p>
+<p class="text-danger">An email address is required.</p>
 <?php elseif ($bad_mail): ?>
-<p>The email address is invalid.</p>
+<p class="text-danger">The email address is invalid.</p>
 <?php elseif ($duplicated_mail): ?>
-<p>This email address is already being used.</p>
+<p class="text-danger">This email address is already being used.</p>
 <?php endif; ?>
 <?php if ($bad_timezone): ?>
-<p>The time zone is incorrect.</p>
+<p class="text-danger">The time zone is incorrect.</p>
 <?php endif; ?>
 <?php if ($bad_website): ?>
-<p>The URL of the website is invalid.</p>
+<p class="text-danger">The URL of the website is invalid.</p>
 <?php endif; ?>
 <?php if ($missing_newpassword or $bad_newpassword): ?>
-<p>Enter a combination of letters and digits of at least 6 characters.</p>
+<p class="text-danger">Enter a combination of letters and digits of at least 6 characters.</p>
 <?php endif; ?>
-</div>
-<?php extract($infos); ?>
-<div class="infos">
 <?php if ($internal_error): ?>
 <p>An internal error has occurred.
 <?php if ($contact_page): ?>If you can describe the problem, please <a href="<?php echo $contact_page; ?>" rel="nofollow">contact us</a>.<?php endif; ?></p>
@@ -128,7 +166,6 @@ the account
 <?php if ($password_changed): ?>
 <p>The password was changed.</p>
 <?php endif; ?>
-</div>
 <?php
 $focus=false;
 if ($missing_firstname) {

@@ -2,42 +2,53 @@
 
 /**
  *
- * @copyright  2010-2015 izend.org
- * @version    30
+ * @copyright  2010-2015 (2016) izend.org
+ * @version    30 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php extract($errors); ?>
 <h3<?php if ($thread_title): ?> title="<?php echo $thread_id; ?>"<?php endif; ?>><?php echo htmlspecialchars($thread_title ? $thread_title : $thread_id, ENT_COMPAT, 'UTF-8'); ?></h3>
-<form class="compact" action="" method="post">
+<form method="post">
 <input name="clang" type="hidden" value="<?php echo $clang; ?>" />
-<p>
+<span id="thread_hidy" class="hidy"></span>
+<div class="form-group">
 <?php echo $inlanguages; ?>
-<span id="thread_hidy" class="hidy">+</span>
-</p>
+</div>
 <div id="thread">
-<p>
-<input id="thread_title" name="thread_title" type="text" size="40" maxlength="100" value="<?php echo htmlspecialchars($thread_title, ENT_COMPAT, 'UTF-8'); ?>" title="Titre" onkeypress="return submitonenter(event, 'thread_edit')"/>
-<label>URL&nbsp;:</label>
-<input id="thread_name" name="thread_name" type="text" size="40" maxlength="100" value="<?php echo $thread_name; ?>" onkeypress="return submitonenter(event, 'thread_edit')"/>
-</p>
-<p><label>Extrait&nbsp;:</label></p>
-<p>
-<textarea name="thread_abstract" cols="80" rows="3"><?php echo htmlspecialchars($thread_abstract, ENT_COMPAT, 'UTF-8'); ?></textarea>
-<br/><span class="grippie btn_edit btn_grippie">===</span>
-</p>
-<p><label>Nuage&nbsp;:</label></p>
-<p>
-<textarea name="thread_cloud" cols="80" rows="2"><?php echo htmlspecialchars($thread_cloud, ENT_COMPAT, 'UTF-8'); ?></textarea>
-<br/><span class="grippie btn_edit btn_grippie">===</span>
-</p>
-<p><label>Image&nbsp;:</label></p>
-<p>
-<input name="thread_image" type="text" size="40" maxlength="200" value="<?php echo htmlspecialchars($thread_image, ENT_COMPAT, 'UTF-8'); ?>" title="Fichier" />
-</p>
-<p>
-<label>Type&nbsp;:</label>
-<select name="thread_type" size="1">
+<div class="form-group<?php if ($missing_new_node_title or $bad_new_node_title): ?> has-error<?php endif; ?>">
+<label for="thread_title">Titre</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="thread_title" id="thread_title" size="40" maxlength="100" value="<?php echo htmlspecialchars($thread_title, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'thread_edit')"/>
+</div>
+</div>
+<div class="form-group<?php if ($missing_thread_name or $bad_thread_name): ?> has-error<?php endif; ?>">
+<label for="thread_name">URL</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="thread_name" id="thread_name" size="40" maxlength="100" value="<?php echo htmlspecialchars($thread_name, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'thread_edit')"/>
+</div>
+</div>
+<div class="form-group">
+<label for="thread_abstract">Extrait</label>
+<div class="form-inline-auto">
+<textarea class="form-control" name="thread_abstract" id="thread_abstract" cols="80" rows="3"><?php echo htmlspecialchars($thread_abstract, ENT_COMPAT, 'UTF-8'); ?></textarea>
+</div>
+</div>
+<div class="form-group">
+<label for="thread_cloud">Nuage</label>
+<div class="form-inline-auto">
+<textarea class="form-control" name="thread_cloud" id="thread_cloud" cols="80" rows="2"><?php echo htmlspecialchars($thread_cloud, ENT_COMPAT, 'UTF-8'); ?></textarea>
+</div>
+</div>
+<div class="form-group">
+<label for="thread_image">Image</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="thread_image" id="thread_image" size="40" maxlength="200" value="<?php echo htmlspecialchars($thread_image, ENT_COMPAT, 'UTF-8'); ?>"/>
+</div>
+</div>
+<div class="form-group form-inline-auto">
+<label for="thread_type">Type</label>
+<select class="form-control" name="thread_type" size="1">
 <option value="thread"<?php if ($thread_type == 'thread'): ?> selected="selected"<?php endif; ?>>Fil</option>
 <?php foreach ($supported_threads as $type): ?>
 <?php if ($type == 'folder'): ?>
@@ -53,112 +64,131 @@
 <?php endif; ?>
 <?php endforeach; ?>
 </select>
-</p>
-<fieldset id="thread_options">
-<legend>Options</legend>
-<span class="nowrap"><input id="thread_search" name="thread_search" type="checkbox"<?php if ($thread_search): ?> checked="checked"<?php endif; ?> /><label for="thread_search"><span class="btn_edit btn_search">recherche</span></label></span>
-<span class="nowrap"><input id="thread_tag" name="thread_tag" type="checkbox"<?php if ($thread_tag): ?> checked="checked"<?php endif; ?> /><label for="thread_tag"><span class="btn_edit btn_tag">nuage</span></label></span>
-<span class="nowrap"><input id="thread_visits" name="thread_visits" type="checkbox"<?php if ($thread_visits): ?> checked="checked"<?php endif; ?> /><label for="thread_visits"><span class="btn_edit btn_visits">visites</span></label></span>
-<span class="nowrap"><input id="thread_comment" name="thread_comment" type="checkbox"<?php if ($thread_comment): ?> checked="checked"<?php endif; ?> /><label for="thread_comment"><span class="btn_edit btn_comment">commenter</span></label></span>
-<span class="nowrap"><input id="thread_morecomment" name="thread_morecomment" type="checkbox"<?php if ($thread_morecomment): ?> checked="checked"<?php endif; ?> /><label for="thread_morecomment"><span class="btn_edit btn_morecomment">commenter+</span></label></span>
-<span class="nowrap"><input id="thread_vote" name="thread_vote" type="checkbox"<?php if ($thread_vote): ?> checked="checked"<?php endif; ?> /><label for="thread_vote"><span class="btn_edit btn_vote">voter</span></label></span>
-<span class="nowrap"><input id="thread_morevote" name="thread_morevote" type="checkbox"<?php if ($thread_morevote): ?> checked="checked"<?php endif; ?> /><label for="thread_morevote"><span class="btn_edit btn_morevote">voter+</span></label></span>
-<span class="nowrap"><input id="thread_ilike" name="thread_ilike" type="checkbox"<?php if ($thread_ilike): ?> checked="checked"<?php endif; ?> /><label for="thread_ilike"><span class="btn_edit btn_ilike">facebook</span></label></span>
-<span class="nowrap"><input id="thread_tweet" name="thread_tweet" type="checkbox"<?php if ($thread_tweet): ?> checked="checked"<?php endif; ?> /><label for="thread_tweet"><span class="btn_edit btn_tweet">twitter</span></label></span>
-<span class="nowrap"><input id="thread_plusone" name="thread_plusone" type="checkbox"<?php if ($thread_plusone): ?> checked="checked"<?php endif; ?> /><label for="thread_plusone"><span class="btn_edit btn_plusone">google+</span></label></span>
-<span class="nowrap"><input id="thread_linkedin" name="thread_linkedin" type="checkbox"<?php if ($thread_linkedin): ?> checked="checked"<?php endif; ?> /><label for="thread_linkedin"><span class="btn_edit btn_linkedin">linkedin</span></label></span>
-<span class="nowrap"><input id="thread_pinit" name="thread_pinit" type="checkbox"<?php if ($thread_pinit): ?> checked="checked"<?php endif; ?> /><label for="thread_pinit"><span class="btn_edit btn_pinit">pinit</span></label></span>
-</fieldset>
-<p>
-<input class="submit submit_edit" id="thread_edit" name="thread_edit" type="submit" value="Éditer" />
-</p>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-	$('.grippie').each(function() {
-		var grippie = $(this);
-		var textarea = grippie.prev().prev();
-		var offset;
-
-		grippie.mousedown(startDrag);
-
-	    function startDrag(e) {
-	      offset = textarea.height() - e.pageY;
-	      textarea.css('opacity', 0.25);
-	      $(document).mousemove(performDrag).mouseup(endDrag);
-	      return false;
-	    }
-
-	    function performDrag(e) {
-	      textarea.height(Math.max(32, offset + e.pageY) + 'px');
-	      return false;
-	    }
-
-	    function endDrag(e) {
-	      $(document).unbind('mousemove', performDrag).unbind('mouseup', endDrag);
-	      textarea.css('opacity', 1);
-	    }
-	});
-});
-</script>
+<fieldset>
+<legend>Options</legend>
+<div class="form-group form-inline">
+<div class="form-group checkbox-group">
+<div class="checkbox-inline">
+<label for="thread_search"><input id="thread_search" name="thread_search" type="checkbox"<?php if ($thread_search): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_search">recherche</span></label>
+</div>
+<div class="checkbox-inline">
+<label for="thread_tag"><input id="thread_tag" name="thread_tag" type="checkbox"<?php if ($thread_tag): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_tag">nuage</span></label>
+</div>
+<div class="checkbox-inline">
+<label for="thread_visits"><input id="thread_visits" name="thread_visits" type="checkbox"<?php if ($thread_visits): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_visits">visites</span></label>
+</div>
+</div>
+<div class="form-group checkbox-group">
+<div class="checkbox-inline">
+<label for="thread_comment"><input id="thread_comment" name="thread_comment" type="checkbox"<?php if ($thread_comment): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_comment">commenter</span></label>
+</div>
+<div class="checkbox-inline">
+<label for="thread_morecomment"><input id="thread_morecomment" name="thread_morecomment" type="checkbox"<?php if ($thread_morecomment): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_morecomment">commenter+</span></label>
+</div>
+<div class="checkbox-inline">
+<label for="thread_vote"><input id="thread_vote" name="thread_vote" type="checkbox"<?php if ($thread_vote): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_vote">vote</span></label>
+</div>
+<div class="checkbox-inline">
+<label for="thread_morevote"><input id="thread_morevote" name="thread_morevote" type="checkbox"<?php if ($thread_morevote): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_morevote">vote+</span></label>
+</div>
+</div>
+<div class="form-group checkbox-group">
+<div class="checkbox-inline">
+<label for="thread_ilike"><input id="thread_ilike" name="thread_ilike" type="checkbox"<?php if ($thread_ilike): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_ilike">facebook</span></label>
+</div>
+<div class="checkbox-inline">
+<label for="thread_tweet"><input id="thread_tweet" name="thread_tweet" type="checkbox"<?php if ($thread_tweet): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_tweet">twitter</span></label>
+</div>
+<div class="checkbox-inline">
+<label for="thread_plusone"><input id="thread_plusone" name="thread_plusone" type="checkbox"<?php if ($thread_plusone): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_plusone">google+</span></label>
+</div>
+<div class="checkbox-inline">
+<label for="thread_linkedin"><input id="thread_linkedin" name="thread_linkedin" type="checkbox"<?php if ($thread_linkedin): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_linkedin">linkedin</span></label>
+</div>
+<div class="checkbox-inline">
+<label for="thread_pinit"><input id="thread_pinit" name="thread_pinitv" type="checkbox"<?php if ($thread_pinit): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_pinit">pinit</span></label>
+</div>
+</div>
+</div>
+</fieldset>
+<div class="form-group">
+<button type="submit" class="btn <?php if ($missing_thread_name or $bad_thread_name or $missing_thread_type or $bad_thread_type): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="thread_edit" id="thread_edit">Éditer</button>
+</div>
+</div>
 <h4>Contenu</h4>
-<p>
-<input class="submit submit_add" id="node_create" name="node_create" type="submit" value="Ajouter" />
-le contenu
-<input id="new_node_title" name="new_node_title" type="text" size="50" maxlength="100" value="<?php echo htmlspecialchars($new_node_title, ENT_COMPAT, 'UTF-8'); ?>" title="Titre" onkeypress="return focusonenter(event, 'new_node_number')"/>
-<span class="nowrap">
-#
-<input id="new_node_number" name="new_node_number" type="text" size="2" maxlength="3" value="<?php echo htmlspecialchars($new_node_number, ENT_COMPAT, 'UTF-8'); ?>" title="Numéro" onkeypress="return submitonenter(event, 'node_create')"/>
-</span>
 <?php if ($thread_contents): ?>
-<span id="threadcontent_hidy" class="hidy">+</span>
+<span id="threadcontent_hidy" class="hidy"></span>
 <?php endif; ?>
-</p>
+<div class="form-group form-inline">
+<div class="form-group">
+<button type="submit" class="btn <?php if ($missing_new_node_title or $bad_new_node_title or $bad_new_node_number): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="node_create" id="node_create">Ajouter</button>
+<span class="form-control-static">le contenu</span>
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="new_node_title" id="new_node_title" size="30" maxlength="100" placeholder="Titre" value="<?php echo htmlspecialchars($new_node_title, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'new_node_number')" />
+</div>
+<div class="form-group form-inline-auto">
+<span class="form-control-static">#</span>
+<input type="text" class="form-control" name="new_node_number" id="new_node_number" size="2" maxlength="3" value="<?php echo htmlspecialchars($new_node_number, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'node_create')" />
+</div>
+</div>
 <?php if ($thread_contents): ?>
 <div id="threadcontent">
 <fieldset class="block">
 <legend>Sommaire</legend>
-<table cellpadding="2" cellspacing="0">
-<tbody>
+<div class="form-group">
 <?php
 $i=1;
 $maxlen=strlen(count($thread_contents))+1;
-foreach ($thread_contents as $c) {
+foreach ($thread_contents as $c):
 	extract($c);	/* pos, node_id, node_title, node_url, node_number, node_ignored */
 	$node_url .= '?' . 'clang=' . $clang;
 ?>
-<tr>
-<td><input name="p[<?php echo $i; ?>]" type="text" size="2" maxlength="<?php echo $maxlen; ?>" value="<?php echo $pos; ?>" /></td>
-<td><a href="<?php echo $node_url; ?>" title="<?php echo $node_id; ?>"><?php echo $node_title ? htmlspecialchars($node_title, ENT_COMPAT, 'UTF-8') : $node_id; ?></a></td>
-<?php if ($node_ignored): ?>
-<td><span class="btn_edit btn_ignored">X</span></td>
-<?php endif; ?>
-</tr>
-<?php
-	$i++;
-}
-?>
-</tbody>
-</table>
-</fieldset>
-<p>
-<input class="submit submit_sort" id="thread_reorder" name="thread_reorder" type="submit" value="Trier" />
-le fil ou
-<input class="submit submit_hide" id="node_hide" name="node_hide" type="submit" value="Cacher" />
-<input class="submit submit_show" id="node_show" name="node_show" type="submit" value="Montrer" />
-<input class="submit submit_copy" id="node_copy" name="node_copy" type="submit" value="Copier" />
-<input class="submit submit_delete" id="node_delete" name="node_delete" type="submit" value="Supprimer" />
-le contenu
-<span class="nowrap">
-#
-<input id="old_node_number" name="old_node_number" type="text" size="2" maxlength="3" value="<?php echo htmlspecialchars($old_node_number, ENT_COMPAT, 'UTF-8'); ?>" title="Numéro" onkeypress="return submitonenter(event, 'node_delete')"/>
+<div class="form-group form-inline <?php if ($node_ignored): ?> bg-ignored<?php endif; ?>">
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control input-sm" name="p[<?php echo $i; ?>]" size="2" maxlength="<?php echo $maxlen; ?>" value="<?php echo $pos; ?>" />
+</div>
+<span class="form-control-static">
+<a href="<?php echo $node_url; ?>" title="<?php echo $node_id; ?>"><?php echo $node_title ? htmlspecialchars($node_title, ENT_COMPAT, 'UTF-8') : $node_id; ?></a>
 </span>
+</div>
+<?php $i++; ?>
+<?php endforeach; ?>
+</div>
+</fieldset>
 <?php if ($confirm_delete_node): ?>
-<input class="submit submit_confirm" id="node_confirmdelete" name="node_confirmdelete" type="submit" value="Confirmer" />
-<?php endif; ?>
-</p>
+<input name="old_node_number" type="hidden" value="<?php echo $old_node_number; ?>" />
+<div class="form-group form-inline">
+<div class="form-group">
+<button type="submit" class="btn btn-default" name="node_canceldelete" id="node_canceldelete">Annuler</button>
+<span class="form-control-static">ou</span>
+<button type="submit" class="btn btn-warning" name="node_confirmdelete" id="node_confirmdelete">Confirmer</button>
+</div>
+<div class="form-group">
+<span class="form-control-static">la suppression du contenu <strong><?php echo $old_node_number; ?></strong></span>
+</div>
+</div>
+<?php else: ?>
+<div class="form-group form-inline">
+<div class="form-group">
+<button type="submit" class="btn btn-default" name="thread_reorder" id="thread_reorder">Trier</button>
+<span class="form-control-static">le fil ou</span>
+</div>
+<div class="form-group form-inline">
+<button type="submit" class="btn <?php if ($missing_old_node_number or $bad_old_node_number): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="node_hide" id="node_hide">Cacher</button>
+<button type="submit" class="btn <?php if ($missing_old_node_number or $bad_old_node_number): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="node_show" id="node_show">Montrer</button>
+<button type="submit" class="btn <?php if ($missing_new_node_title or $bad_new_node_title or $bad_new_node_number): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="node_copy" id="node_copy">Copier</button>
+<button type="submit" class="btn <?php if ($missing_old_node_number or $bad_old_node_number): ?>btn-danger<?php elseif ($confirm_delete_node): ?>btn-warning<?php else: ?>btn-default<?php endif; ?>" name="node_delete" id="node_delete">Supprimer</button>
+</div>
+<div class="form-group form-inline-auto">
+<span class="form-control-static">le contenu #</span>
+<input type="text" class="form-control" name="old_node_number" id="old_node_number" size="2" maxlength="3" placeholder="" value="<?php echo htmlspecialchars($old_node_number, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'node_delete')" />
+</div>
 </div>
 <?php endif; ?>
+<?php endif; ?>
+</div>
 </form>
 <?php head('javascript', 'jquery.cookie'); ?>
 <script type="text/javascript">

@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    23
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    23 (1)
  * @link       http://www.izend.org
  */
 
@@ -12,8 +12,6 @@ require_once 'userhasrole.php';
 require_once 'models/thread.inc';
 
 function bookpage($lang, $book, $page) {
-	global $with_toolbar;
-
 	$book_id = thread_id($book);
 	if (!$book_id) {
 		return run('error/notfound', $lang);
@@ -119,7 +117,7 @@ function bookpage($lang, $book, $page) {
 		$next_page_url=url('book', $lang) . '/'. $book_name . '/'. ($next_node_name ? $next_node_name : $next_node_id);
 	}
 
-	$besocial=$sharebar=false;
+	$besocial=false;
 	if ($page_contents or $page_comment) {
 		$ilike=$thread_ilike && $node_ilike;
 		$tweetit=$thread_tweet && $node_tweet;
@@ -135,7 +133,7 @@ function bookpage($lang, $book, $page) {
 			$pinit_image=$node_image;
 			$pinit=$pinit_text && $pinit_image ? compact('pinit_text', 'pinit_image') : false;
 		}
-		list($besocial, $sharebar) = socialize($lang, compact('ilike', 'tweetit', 'plusone', 'linkedin', 'pinit'));
+		$besocial = socialize($lang, compact('ilike', 'tweetit', 'plusone', 'linkedin', 'pinit'));
 	}
 
 	$content = view('bookpage', false, compact('page_id', 'page_title', 'page_contents', 'page_comment', 'page_number', 'prev_page_url', 'prev_page_label', 'next_page_url', 'next_page_label', 'besocial', 'vote', 'visits'));
@@ -166,10 +164,9 @@ function bookpage($lang, $book, $page) {
 	$edit=user_has_role('writer') ? url('bookedit', $_SESSION['user']['locale']) . '/'. $book_id . '/' . $page_id . '?' . 'clang=' . $lang : false;
 	$validate=url('book', $lang) . '/'. $book_name . '/' . $page_name;
 
-	$banner = build('banner', $lang, $with_toolbar ? compact('headline', 'search') : compact('headline', 'edit', 'validate', 'search'));
-	$toolbar = $with_toolbar ? build('toolbar', $lang, compact('edit', 'validate')) : false;
+	$banner = build('banner', $lang, compact('headline', 'edit', 'validate', 'search'));
 
-	$output = layout('standard', compact('sharebar', 'toolbar', 'banner', 'content', 'sidebar'));
+	$output = layout('standard', compact('lang', 'banner', 'content', 'sidebar'));
 
 	return $output;
 }

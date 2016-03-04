@@ -2,29 +2,34 @@
 
 /**
  *
- * @copyright  2010-2013 izend.org
- * @version    16
+ * @copyright  2010-2013 (2016) izend.org
+ * @version    16 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php extract($errors); ?>
 <h3><?php echo htmlspecialchars($site_title ? $site_title : $sitename, ENT_COMPAT, 'UTF-8'); ?></h3>
-<form class="compact" action="" method="post">
+<form method="post">
 <input name="clang" type="hidden" value="<?php echo $clang; ?>" />
-<p>
+<?php if ($confirm_delete_thread): ?>
+<input name="old_thread_number" type="hidden" value="<?php echo $old_thread_number; ?>" />
+<?php endif; ?>
+<div class="form-group">
 <?php echo $inlanguages; ?>
-</p>
-<p>
-<input class="submit submit_add" id="thread_create" name="thread_create" type="submit" value="Add" />
-thread
-<input id="new_thread_title" name="new_thread_title" type="text" size="40" maxlength="100" value="<?php echo htmlspecialchars($new_thread_title, ENT_COMPAT, 'UTF-8'); ?>" title="Title" title="Titre" onkeypress="return focusonenter(event, 'new_thread_number')"/>
-<span class="nowrap">
-#
-<input id="new_thread_number" name="new_thread_number" type="text" size="2" maxlength="3" value="<?php echo htmlspecialchars($new_thread_number, ENT_COMPAT, 'UTF-8'); ?>" title="Number" onkeypress="return submitonenter(event, 'thread_create')"/>
-</span>
-<span class="nowrap">
-type
-<select name="new_thread_type" size="1">
+</div>
+<div class="form-group form-inline">
+<div class="form-group">
+<button type="submit" class="btn <?php if ($missing_new_thread_title or $missing_new_thread_name or $bad_new_thread_name or $bad_new_thread_number): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="thread_create" id="thread_create">Add</button>
+<span class="form-control-static">thread</span>
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="new_thread_title" id="new_thread_title" size="30" maxlength="100" placeholder="Title" value="<?php echo htmlspecialchars($new_thread_title, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'new_thread_number')" />
+</div>
+<div class="form-group form-inline-auto">
+<span class="form-control-static">#</span>
+<input type="text" class="form-control" name="new_thread_number" id="new_thread_number" size="2" maxlength="3" value="<?php echo htmlspecialchars($new_thread_title, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'thread_create')" />
+<span class="form-control-static">type</span>
+<select class="form-control" name="new_thread_type" size="1">
 <option value="thread"<?php if ($new_thread_type == 'thread'): ?> selected="selected"<?php endif; ?>>Thread</option>
 <?php foreach ($supported_threads as $type): ?>
 <?php if ($type == 'folder'): ?>
@@ -40,43 +45,52 @@ type
 <?php endif; ?>
 <?php endforeach; ?>
 </select>
-</span>
-</p>
+</div>
+</div>
 <?php if ($thread_list): ?>
-<fieldset class="block">
+<fieldset>
 <legend>Catalog</legend>
-<table cellpadding="2" cellspacing="0">
-<tbody>
+<div class="form-group">
 <?php
-$i=1;
-foreach ($thread_list as $tr) {
+foreach ($thread_list as $i => $tr):
 	extract($tr);	/* pos, thread_id, thread_title, thread_number, thread_url */
 	$thread_url .= '?' . 'clang=' . $clang;
 ?>
-<tr>
-<td><input name="p[<?php echo $i; ?>]" type="text" size="2" maxlength="3" value="<?php echo $pos; ?>" /></td>
-<td><a href="<?php echo $thread_url; ?>" title="<?php echo $thread_id; ?>"><?php echo $thread_title ? htmlspecialchars($thread_title, ENT_COMPAT, 'UTF-8') : $thread_id; ?></a></td>
-</tr>
-<?php
-	$i++;
-}
-?>
-</tbody>
-</table>
-</fieldset>
-<p>
-<input class="submit submit submit_sort" id="threadlist_reorder" name="threadlist_reorder" type="submit" value="Sort" />
-contents or
-<input class="submit submit submit_delete" id="thread_delete" name="thread_delete" type="submit" value="Delete" />
-thread
-<span class="nowrap">
-#
-<input id="old_thread_number" name="old_thread_number" type="text" size="2" maxlength="3" value="<?php echo htmlspecialchars($old_thread_number, ENT_COMPAT, 'UTF-8'); ?>" title="Number" onkeypress="return submitonenter(event, 'thread_delete')"/>
+<div class="form-group form-inline">
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control input-sm" name="p[<?php echo $i; ?>]" size="2" maxlength="3" value="<?php echo $pos; ?>" />
+</div>
+<span class="form-control-static">
+<a href="<?php echo $thread_url; ?>" title="<?php echo $thread_id; ?>"><?php echo $thread_title ? htmlspecialchars($thread_title, ENT_COMPAT, 'UTF-8') : $thread_id; ?></a>
 </span>
+</div>
+<?php endforeach; ?>
+</div>
+</fieldset>
 <?php if ($confirm_delete_thread): ?>
-<input class="submit submit submit_confirm" id="thread_confirmdelete" name="thread_confirmdelete" type="submit" value="Confirm" />
+<div class="form-group form-inline">
+<div class="form-group">
+<button type="submit" class="btn btn-default" name="thread_canceldelete" id="thread_canceldelete">Cancel</button>
+<span class="form-control-static">or</span>
+<button type="submit" class="btn btn-warning" name="thread_confirmdelete" id="thread_confirmdelete">Confirm</button>
+</div>
+<div class="form-group">
+<span class="form-control-static">deleting thread <strong><?php echo $old_thread_number; ?></strong></span>
+</div>
+</div>
+<?php else: ?>
+<div class="form-group form-inline">
+<div class="form-group">
+<button type="submit" class="btn btn-default" name="threadlist_reorder" id="threadlist_reorder">Sort</button>
+<span class="form-control-static">contents or</span>
+</div>
+<div class="form-group form-inline-auto">
+<button type="submit" class="btn <?php if ($missing_old_thread_number or $bad_old_thread_number): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="thread_delete" id="thread_delete">Delete</button>
+<span class="form-control-static">thread #</span>
+<input type="text" class="form-control" name="old_thread_number" id="old_thread_number" size="2" maxlength="3" placeholder="" value="<?php echo htmlspecialchars($old_thread_number, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'thread_delete')" />
+</div>
+</div>
 <?php endif; ?>
-</p>
 <?php endif; ?>
 </form>
 <?php

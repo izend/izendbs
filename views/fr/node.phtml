@@ -2,28 +2,29 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    9
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    9 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php require_once 'datefr.php'; ?>
+<div id="node">
 <h3><?php echo htmlspecialchars($node_title ? $node_title : $node_id, ENT_COMPAT, 'UTF-8'); ?></h3>
-<p class="info"><?php echo longdatetime_fr($node_modified); ?></p>
+<p><?php echo longdatetime_fr($node_modified); ?></p>
 <?php if ($node_abstract): ?>
 <h5>Extrait</h5>
-<p><?php echo htmlspecialchars($node_abstract, ENT_COMPAT, 'UTF-8'); ?></p>
+<p class="text-info"><?php echo htmlspecialchars($node_abstract, ENT_COMPAT, 'UTF-8'); ?></p>
 <?php endif; ?>
 <?php if ($node_cloud): ?>
 <h6>Nuage</h6>
-<p class="small"><?php echo htmlspecialchars($node_cloud, ENT_COMPAT, 'UTF-8'); ?></p>
+<p class="text-info"><?php echo htmlspecialchars($node_cloud, ENT_COMPAT, 'UTF-8'); ?></p>
 <?php endif; ?>
 <?php if ($node_image): ?>
 <h6>Image</h6>
-<p><img id="node_image" src="<?php echo str_replace('%2F', '/', urlencode($node_image)); ?>" alt="<?php echo htmlspecialchars($node_image, ENT_COMPAT, 'UTF-8'); ?>" /></p>
+<p><img class="img-360" src="<?php echo str_replace('%2F', '/', urlencode($node_image)); ?>" alt="<?php echo htmlspecialchars($node_image, ENT_COMPAT, 'UTF-8'); ?>" /></p>
 <?php endif; ?>
 <?php if ($node_visits or $node_comment or $node_morecomment or $node_vote or $node_morevote or $node_ilike or $node_tweet or $node_plusone or $node_linkedin or $node_pinit): ?>
-<fieldset id="node_options">
+<fieldset>
 <legend>Options</legend>
 <div class="hbar">
 <?php if ($node_visits): ?><span class="btn_edit btn_visits">visites</span><?php endif; ?>
@@ -41,5 +42,8 @@
 <?php endif; ?>
 <?php if ($node_contents): ?>
 <h4>Contenu</h4>
+<div id="nodecontent">
 <?php echo $node_contents; ?>
+</div>
 <?php endif; ?>
+</div>

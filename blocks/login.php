@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    19
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    19 (1)
  * @link       http://www.izend.org
  */
 
@@ -179,11 +179,10 @@ function login($lang) {
 			break;
 	}
 
-	$connectbar=false;
+	$facebook_login_url=false;
 	if ($with_facebook) {
 		$scope='email';
 		$facebook_login_url=$facebook->getLoginUrl(compact('scope'));
-		$connectbar=view('connect', $lang, compact('facebook_login_url'));
 	}
 
 	$password_page=$with_newpassword ? url('password', $lang) : false;
@@ -193,7 +192,7 @@ function login($lang) {
 
 	$errors = compact('missing_code', 'bad_code', 'missing_login', 'bad_login', 'missing_password', 'access_denied');
 
-	$output = view('login', $lang, compact('token', 'connectbar', 'with_captcha', 'with_name', 'password_page', 'newuser_page', 'login', 'errors'));
+	$output = view('login', $lang, compact('token', 'with_facebook', 'facebook_login_url', 'with_captcha', 'with_name', 'password_page', 'newuser_page', 'login', 'errors'));
 
 	return $output;
 }

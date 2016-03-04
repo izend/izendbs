@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2013 izend.org
- * @version    14
+ * @copyright  2010-2013 (2016) izend.org
+ * @version    14 (1)
  * @link       http://www.izend.org
  */
 
@@ -12,7 +12,7 @@ require_once 'userhasrole.php';
 require_once 'models/node.inc';
 
 function home($lang) {
-	global $root_node, $request_path, $with_toolbar, $sitename, $siteshot;
+	global $root_node, $request_path, $sitename, $siteshot;
 
 	if (!$root_node) {
 		return run('error/internalerror', $lang);
@@ -42,7 +42,7 @@ function home($lang) {
 
 	$page_contents = build('nodecontent', $lang, $root_node);
 
-	$besocial=$sharebar=false;
+	$besocial=false;
 	if ($page_contents) {
 		$ilike=$node_ilike;
 		$tweetit=$node_tweet;
@@ -61,7 +61,7 @@ function home($lang) {
 				$pinit=$pinit_text && $pinit_image ? compact('pinit_text', 'pinit_image') : false;
 			}
 		}
-		list($besocial, $sharebar) = socialize($lang, compact('ilike', 'tweetit', 'plusone', 'linkedin', 'pinit'));
+		$besocial = socialize($lang, compact('ilike', 'tweetit', 'plusone', 'linkedin', 'pinit'));
 	}
 
 	$content = view('home', false, compact('page_contents', 'besocial'));
@@ -70,9 +70,12 @@ function home($lang) {
 	$contact=$account=$admin=$donate=true;
 	$edit=user_has_role('writer') ? url('editpage', $_SESSION['user']['locale']) . '/'. $root_node . '?' . 'clang=' . $lang : false;
 	$validate=url('home', $lang);
+	$search_text='';
+	$search_url=url('search', $lang);
+	$suggest_url=url('suggest', $lang);
+	$search=compact('search_url', 'search_text', 'suggest_url');
 
-	$banner = build('banner', $lang, $with_toolbar ? compact('languages', 'contact', 'account', 'admin', 'donate') : compact('languages', 'contact', 'account', 'admin', 'donate', 'edit', 'validate'));
-	$toolbar = $with_toolbar ? build('toolbar', $lang, compact('edit', 'validate')) : false;
+	$banner = build('banner', $lang, compact('languages', 'contact', 'account', 'admin', 'search', 'donate', 'edit', 'validate'));
 
 	$search_text='';
 	$search_url=url('search', $lang);
@@ -80,11 +83,13 @@ function home($lang) {
 	$search=view('searchinput', $lang, compact('search_url', 'search_text', 'suggest_url'));
 	$sidebar = view('sidebar', false, compact('search'));
 
-	$contact_page=url('contact', $lang);
-	$newsletter_page=false;
-	$footer = view('footer', $lang, compact('contact_page', 'newsletter_page'));
+	$languages=true;
+	$contact=true;
+	$newsletter=false;
+	$account=$admin=true;
+	$footer = build('footer', $lang, compact('languages', 'contact', 'newsletter', 'account', 'admin'));
 
-	$output = layout('standard', compact('footer', 'banner', 'content', 'sidebar', 'sharebar', 'toolbar'));
+	$output = layout('standard', compact('lang', 'banner', 'content', 'footer', 'sidebar'));
 
 	return $output;
 }

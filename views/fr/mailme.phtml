@@ -2,68 +2,83 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    15
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    15 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php extract($errors); ?>
-<form action="" method="post">
+<?php extract($infos); ?>
+<form method="post">
 <input type="hidden" name="mailme_token" value="<?php echo $token; ?>" />
-<p class="inlabel<?php if ($missing_mail or $bad_mail): ?> inerror<?php endif; ?>">Quelle est votre adresse d'email&nbsp;?</p>
-<p><input type="text" name="mailme_mail" id="mailme_mail" size="40" maxlength="100" title="Email" onkeypress="return focusonenter(event, 'mailme_subject')" value="<?php echo htmlspecialchars($mail, ENT_COMPAT, 'UTF-8'); ?>" /></p>
-<p class="info">Votre adresse d'email est strictement confidentielle.</p>
-<p class="inlabel<?php if ($missing_subject or $bad_subject or $missing_message): ?> inerror<?php endif; ?>">Tapez le sujet et le texte de votre message&nbsp;:</p>
-<p><input type="text" name="mailme_subject" id="mailme_subject" size="40" maxlength="100" title="Sujet" onkeypress="return focusonenter(event, 'mailme_message')" value="<?php echo htmlspecialchars($subject, ENT_COMPAT, 'UTF-8'); ?>" /></p>
-<p><textarea name="mailme_message" id="mailme_message" cols="50" rows="5" title="Texte"><?php echo htmlspecialchars($message, ENT_COMPAT, 'UTF-8'); ?></textarea>
-<br/><span class="grippie btn_edit btn_grippie">===</span></p>
+<div class="form-group<?php if ($missing_mail or $bad_mail): ?> has-error<?php endif; ?>">
+<label for="mailme_mail">Quelle est votre adresse d'email&nbsp;?</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="mailme_mail" id="mailme_mail" size="40" maxlength="100" placeholder="Email" value="<?php echo htmlspecialchars($mail, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'mailme_subject')" />
+</div>
+<span class="help-block">Votre adresse d'email est strictement confidentielle.</span>
+</div>
+<div class="form-group<?php if ($missing_subject or $bad_subject or $missing_message): ?> has-error<?php endif; ?>">
+<label for="mailme_subject">Tapez le sujet et le texte de votre message&nbsp;:</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="mailme_subject" id="mailme_subject" size="40" maxlength="100" placeholder="Sujet" value="<?php echo htmlspecialchars($subject, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'mailme_message')" />
+</div>
+</div>
+<div class="form-group form-inline-auto<?php if ($missing_message): ?> has-error<?php endif; ?>">
+<textarea class="form-control" name="mailme_message" id="mailme_message" cols="60" rows="5" placeholder="Texte"><?php echo htmlspecialchars($message, ENT_COMPAT, 'UTF-8'); ?></textarea>
+</div>
 <?php if ($with_appointment): ?>
-<p>
-<span class="inlabel<?php if ($bad_appointment): ?> inerror<?php endif; ?>">Rendez-vous le</span>
-<input type="text" name="mailme_date" id="mailme_date" title="aaaa-mm-jj" onkeypress="return focusonenter(event, 'mailme_code')" value="<?php echo htmlspecialchars($date, ENT_COMPAT, 'UTF-8'); ?>" />
-<span class="inlabel<?php if ($bad_appointment): ?> inerror<?php endif; ?>">à</span>
-<select id="mailme_hour" name="mailme_hour" size="1">
+<div class="form-group form-inline<?php if ($bad_appointment): ?> has-error<?php endif; ?>">
+<div class="form-group form-inline-auto">
+<span class="form-control-static"><strong>Rendez-vous le</strong></span>
+<input type="text" class="form-control" name="mailme_date" id="mailme_date" placeholder="aaaa-mm-jj" value="<?php echo htmlspecialchars($date, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'mailme_code')" />
+</div>
+<div class="form-group form-inline-auto">
+<span class="form-control-static"><strong>à</strong></span>
+<select class="form-control" id="mailme_hour" name="mailme_hour" size="1">
 <?php foreach (range(8, 18, 1) as $hh): ?>
 <option value="<?php echo $hh; ?>"<?php if ($hour == $hh): ?> selected="selected"<?php endif; ?>><?php echo $hh > 9 ? $hh : '0' . $hh; ?></option>
 <?php endforeach; ?>
 </select>
-<span class="inlabel<?php if ($bad_appointment): ?> inerror<?php endif; ?>">:</span>
-<select id="mailme_minute" name="mailme_minute" size="1">
+<span class="form-control-static"><strong>:</strong></span>
+<select class="form-control" id="mailme_minute" name="mailme_minute" size="1">
 <?php foreach (range(0, 45, 15) as $mm): ?>
 <option value="<?php echo $mm; ?>"<?php if ($minute == $mm): ?> selected="selected"<?php endif; ?>><?php echo $mm > 0 ? $mm : '0' . $mm; ?></option>
 <?php endforeach; ?>
 </select>
-</p>
+</div>
+</div>
 <?php endif; ?>
 <?php if ($with_captcha): ?>
-<p>
+<div class="form-group form-inline<?php if ($missing_code or $bad_code): ?> has-error<?php endif; ?>">
+<div class="form-group form-inline-auto">
 <img class="captcha" src="<?php echo $base_path; ?>/captcha/mailme" alt="" height="40" title="Code de vérification" />
-:
-<input type="text" name="mailme_code" id="mailme_code" size="4" maxlength="4" title="4 lettres" onkeypress="return submitonenter(event, 'mailme_send')" value="" />
-</p>
-<?php endif; ?>
-<p><input type="submit" class="submit submit_send" name="mailme_send" id="mailme_send" value="Envoyer" /></p>
-</form>
-<div class="errors">
-<?php if ($missing_code): ?>
-<p>Entrez le code de vérification affiché dans l'image.</p>
-<?php elseif ($bad_code): ?>
-<p>Le code de vérification est incorrect.</p>
-<?php endif; ?>
+<span class="form-control-static">:</span>
 </div>
-<?php extract($infos); ?>
-<div class="infos">
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="mailme_code" id="mailme_code" size="4" maxlength="4" title="4 lettres" value="" autocomplete="off" onkeypress="return submitonenter(event, 'mailme_send')" />
+</div>
+</div>
+<?php endif; ?>
+<div class="form-group">
+<button type="submit" class="btn <?php if ($internal_error or $missing_code or $bad_code or $missing_mail or $bad_mail or $missing_subject or $bad_subject or $missing_message or $bad_appointment): ?>btn-danger<?php elseif ($email_sent): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="mailme_send" id="mailme_send">Envoyer</button>
+</div>
+</form>
+<?php if ($missing_code): ?>
+<p class="text-danger">Entrez le code de vérification affiché dans l'image.</p>
+<?php elseif ($bad_code): ?>
+<p class="text-danger">Le code de vérification est incorrect.</p>
+<?php endif; ?>
 <?php if ($internal_error): ?>
-<p>Une erreur interne s'est produite.</p>
+<p class="text-danger">Une erreur interne s'est produite.</p>
 <?php endif; ?>
 <?php if ($email_sent): ?>
-<p>Votre message a bien été envoyé.
+<p>Votre message a été envoyé au webmestre.
 <?php if ($home_page): ?>
 Pour revenir à la page d'accueil, <a href="<?php echo $home_page; ?>">cliquez ici</a>.
 <?php endif; ?>
 </p>
 <?php endif; ?>
-</div>
 <?php if ($with_appointment): ?>
 <?php head('javascript', 'jquery-ui'); ?>
 <?php head('javascript', 'jquery.ui.datepicker-fr'); ?>
@@ -74,34 +89,6 @@ $(document).ready(function() {
 });
 </script>
 <?php endif; ?>
-<script type="text/javascript">
-$(document).ready(function() {
-	$('.grippie').each(function() {
-		var grippie = $(this);
-		var textarea = grippie.prev().prev();
-		var offset;
-
-		grippie.mousedown(startDrag);
-
-	    function startDrag(e) {
-	      offset = textarea.height() - e.pageY;
-	      textarea.css('opacity', 0.25);
-	      $(document).mousemove(performDrag).mouseup(endDrag);
-	      return false;
-	    }
-
-	    function performDrag(e) {
-	      textarea.height(Math.max(32, offset + e.pageY) + 'px');
-	      return false;
-	    }
-
-	    function endDrag(e) {
-	      $(document).unbind('mousemove', performDrag).unbind('mouseup', endDrag);
-	      textarea.css('opacity', 1);
-	    }
-	});
-});
-</script>
 <?php
 $focus=false;
 if ($missing_code or $bad_code) {

@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2011-2014 izend.org
- * @version    13
+ * @copyright  2011-2014 (2016) izend.org
+ * @version    13 (1)
  * @link       http://www.izend.org
  */
 
@@ -247,6 +247,10 @@ function useredit($lang, $user_id) {
 					$bad_locale=true;
 				}
 			}
+
+			if ($user_banned) {
+				$user_active=false;
+			}
 			break;
 
 		case 'change':
@@ -361,7 +365,7 @@ function useredit($lang, $user_id) {
 
 	$_SESSION['useredit_token'] = $token = token_id();
 
-	$errors = compact('missing_name', 'bad_name', 'duplicated_name', 'missing_mail', 'bad_mail', 'duplicated_mail', 'bad_timezone', 'bad_website', 'missing_locale', 'bad_locale', 'missing_newpassword', 'bad_newpassword', 'missing_lastname', 'missing_firstname', 'internal_error', 'contact_page');
+	$errors = compact('missing_name', 'bad_name', 'duplicated_name', 'missing_mail', 'bad_mail', 'duplicated_mail', 'bad_timezone', 'bad_website', 'bad_role', 'missing_locale', 'bad_locale', 'missing_newpassword', 'bad_newpassword', 'missing_lastname', 'missing_firstname', 'internal_error', 'contact_page');
 	$infos = compact('account_modified', 'password_changed');
 
 	$output = view('useredit', $lang, compact('token', 'errors', 'infos', 'with_name', 'user_name', 'user_mail', 'with_timezone', 'user_timezone', 'with_website', 'user_website', 'with_role', 'user_role', 'supported_roles', 'with_locale', 'user_locale', 'with_status', 'user_banned', 'user_active', 'user_accessed', 'with_newpassword', 'user_newpassword', 'with_info', 'user_lastname', 'user_firstname', 'with_delete', 'confirm_delete'));

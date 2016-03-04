@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2012 izend.org
- * @version    3
+ * @copyright  2010-2012 (2016)izend.org
+ * @version    3 (1)
  * @link       http://www.izend.org
  */
 
@@ -16,7 +16,7 @@ function paymentaccepted($lang, $amount, $currency, $context) {
 
 	$content = view('paymentaccepted', $lang, compact('amount', 'currency'));
 
-	$output = layout('standard', compact('banner', 'content'));
+	$output = layout('standard', compact('lang', 'banner', 'content'));
 
 	return $output;
 }

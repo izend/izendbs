@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    19
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    19 (1)
  * @link       http://www.izend.org
  */
 
@@ -327,11 +327,10 @@ function register($lang) {
 			break;
 	}
 
-	$connectbar=false;
+	$facebook_login_url=false;
 	if ($with_facebook) {
 		$scope=$with_website ? 'email, user_website' : 'email';
 		$facebook_login_url=$facebook->getLoginUrl(compact('scope'));
-		$connectbar=view('connect', $lang, compact('facebook_login_url'));
 	}
 
 	if ($internal_error) {
@@ -346,7 +345,7 @@ function register($lang) {
 	$errors = compact('missing_name', 'bad_name', 'missing_mail', 'bad_mail', 'bad_website', 'missing_confirmation', 'missing_code', 'bad_code', 'duplicated_name', 'duplicated_mail', 'missing_password', 'bad_password', 'missing_lastname', 'missing_firstname', 'internal_error', 'contact_page');
 	$infos = compact('user_page');
 
-	$output = view('register', $lang, compact('token', 'connectbar', 'with_captcha', 'with_name', 'with_website', 'with_timezone', 'with_password', 'with_newsletter', 'with_confirmation', 'name', 'mail', 'website', 'timezone', 'password', 'with_info', 'lastname', 'firstname', 'newsletter', 'confirmed', 'account_created', 'errors', 'infos'));
+	$output = view('register', $lang, compact('token', 'with_facebook', 'facebook_login_url', 'with_captcha', 'with_name', 'with_website', 'with_timezone', 'with_password', 'with_newsletter', 'with_confirmation', 'name', 'mail', 'website', 'timezone', 'password', 'with_info', 'lastname', 'firstname', 'newsletter', 'confirmed', 'account_created', 'errors', 'infos'));
 
 	return $output;
 }

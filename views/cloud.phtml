@@ -2,25 +2,25 @@
 
 /**
  *
- * @copyright  2010-2013 izend.org
- * @version    5
+ * @copyright  2010-2013 (2016) izend.org
+ * @version    5 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php if($linklist): ?>
 <ul class="cloud">
 <?php if($index): ?>
-<li><a class="btn_index" href="<?php echo $index; ?>" title="Index">Index</a></li>
+<li><a href="<?php echo $index; ?>" title="Index"><span class="glyphicon glyphicon-tag"></span></a></li>
 <?php endif; ?>
 <?php
 if (!$flat) {
-	$fontsizes = array('x-small', 'small', 'medium', 'large', 'x-large');
+	$fontsizes = array('text-x-small', 'text-small', 'text-medium', 'text-large', 'text-x-large');
 }
 foreach ($linklist as $link) {
 	extract($link);	/* name, count, url */
 	$span=!$flat ? $fontsizes[rand(0, count($fontsizes)-1)] : false;
 ?>
-<li><a href="<?php echo $url; ?>" title="<?php echo $count; ?>" rel="noindex, nofollow"><?php if ($span): ?><span class="<?php echo $span; ?>"><?php endif; ?><?php echo htmlspecialchars($name, ENT_NOQUOTES, 'UTF-8', false); ?><?php if ($span): ?></span><?php endif; ?></a></li>
+<li><a href="<?php echo $url; ?>" title="<?php echo $count; ?>" rel="nofollow"><?php if ($span): ?><span class="<?php echo $span; ?>"><?php endif; ?><?php echo htmlspecialchars($name, ENT_NOQUOTES, 'UTF-8', false); ?><?php if ($span): ?></span><?php endif; ?></a></li>
 <?php
 }
 ?>

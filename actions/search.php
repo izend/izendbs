@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2015 izend.org
- * @version    16
+ * @copyright  2010-2015 (2016) izend.org
+ * @version    16 (1)
  * @link       http://www.izend.org
  */
 
@@ -150,7 +150,7 @@ function search($lang, $arglist=false) {
 	head('keywords', false);
 	head('robots', 'noindex, nofollow');
 
-	$output = layout('standard', compact('banner', 'content', 'sidebar'));
+	$output = layout('standard', compact('lang', 'banner', 'content', 'sidebar'));
 
 	return $output;
 }

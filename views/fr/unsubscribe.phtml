@@ -2,65 +2,78 @@
 
 /**
  *
- * @copyright  2013-2014 izend.org
- * @version    2
+ * @copyright  2013-2014 (2016) izend.org
+ * @version    2 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php extract($errors); ?>
-<form action="" method="post">
+<?php extract($infos); ?>
+<form method="post">
 <input type="hidden" name="unsubscribe_token" value="<?php echo $token; ?>" />
-<p class="inlabel<?php if ($missing_mail or $bad_mail): ?> inerror<?php endif; ?>">Quelle est votre adresse d'email&nbsp;?</p>
-<p><input type="text" name="unsubscribe_mail" id="unsubscribe_mail" size="40" maxlength="100" title="nom@domaine.fr" onkeypress="return focusonenter(event, 'unsubscribe_code')" value="<?php echo htmlspecialchars($user_mail, ENT_COMPAT, 'UTF-8'); ?>" /></p>
-<p class="info">Votre adresse d'email est strictement confidentielle.</p>
-<p class="inlabel<?php if ($missing_confirmation): ?> inerror<?php endif; ?>">Merci de confirmer votre désinscription&nbsp;:</p>
-<p><input name="unsubscribe_confirmed" id="unsubscribe_confirmed" type="checkbox" title="Confirmation" <?php if ($confirmed) echo 'checked="checked"'; ?> />&nbsp;Je ne veux plus recevoir la lettre d'information par email</p>
+<div class="form-group<?php if ($missing_mail or $bad_mail or $unknown_mail): ?> has-error<?php endif; ?>">
+<label for="unsubscribe_mail">Quelle est votre adresse d'email&nbsp;?</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="unsubscribe_mail" id="unsubscribe_mail" size="40" maxlength="100" placeholder="nom@domaine.fr" value="<?php echo htmlspecialchars($user_mail, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'unsubscribe_code')" />
+</div>
+<span class="help-block">Votre adresse d'email est strictement confidentielle.</span>
+<div class="form-group<?php if ($missing_confirmation): ?> has-error<?php endif; ?>">
+<label for="unsubscribe_confirmed">Merci de confirmer votre désinscription&nbsp;:</label>
+<div class="checkbox">
+<label><input type="checkbox" name="unsubscribe_confirmed" id="unsubscribe_confirmed" title="Confirmation"<?php if ($confirmed): ?> checked="checked"<?php endif; ?> />&nbsp;Je ne veux plus recevoir la lettre d'information par email</label>
+</div>
+</div>
 <?php if ($with_captcha): ?>
-<p>
-<img src="<?php echo $base_path; ?>/captcha/unsubscribe" alt="" height="40" title="Code de vérification" />
-:
-<input type="text" name="unsubscribe_code" id="unsubscribe_code" size="4" maxlength="4" title="4 lettres" onkeypress="return submitonenter(event, 'unsubscribe_send')" value="" />
-</p>
+<div class="form-group form-inline<?php if ($missing_code or $bad_code): ?> has-error<?php endif; ?>">
+<div class="form-group form-inline-auto">
+<img class="captcha" src="<?php echo $base_path; ?>/captcha/unsubscribe" alt="" height="40" title="Code de vérification" />
+<span class="form-control-static">:</span>
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="unsubscribe_code" id="unsubscribe_code" size="4" maxlength="4" title="4 lettres" value="" autocomplete="off" onkeypress="return submitonenter(event, 'unsubscribe_send')" />
+</div>
+</div>
 <?php endif; ?>
-<p><input type="submit" class="submit submit_send" name="unsubscribe_send" id="unsubscribe_send" value="Envoyer" /></p>
+<div class="form-group">
+<button type="submit" class="btn <?php if ($internal_error or $missing_code or $bad_code or $missing_mail or $bad_mail or $unknown_mail or $missing_confirmation): ?>btn-danger<?php elseif ($email_registered): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="unsubscribe_send" id="unsubscribe_send">Envoyer</button>
+</div>
+</div>
 </form>
-<div class="errors">
 <?php if ($missing_code): ?>
-<p>Entrez le code de vérification affiché dans l'image.</p>
+<p class="text-danger">Entrez le code de vérification affiché dans l'image.</p>
 <?php elseif ($bad_code): ?>
-<p>Le code de vérification est incorrect.</p>
+<p class="text-danger">Le code de vérification est incorrect.</p>
 <?php endif; ?>
 <?php if ($missing_mail): ?>
-<p>Entrez une adresse d'email valide.</p>
+<p class="text-danger">Entrez une adresse d'email valide.</p>
 <?php elseif ($bad_mail): ?>
-<p>L'adresse d'email est incorrecte.</p>
+<p class="text-danger">L'adresse d'email est incorrecte.</p>
 <?php elseif ($unknown_mail): ?>
-<p>Cette adresse d'email n'est pas enregistrée.</p>
+<p class="text-danger">Cette adresse d'email n'est pas enregistrée.</p>
 <?php endif; ?>
 <?php if ($missing_confirmation): ?>
-<p>Cochez la case de confirmation.</p>
+<p class="text-danger">Cochez la case de confirmation.</p>
 <?php endif; ?>
-</div>
-<?php extract($infos); ?>
-<div class="infos">
 <?php if ($internal_error): ?>
 <p>Une erreur interne s'est produite.
 <?php if ($contact_page): ?>Si vous pouvez décrire le problème, merci de <a href="<?php echo $contact_page; ?>" rel="nofollow">nous contacter</a>.<?php endif; ?></p>
 <?php endif; ?>
 <?php if ($mail_unsubscribed): ?>
-<p>Un email de validation a été envoyé à votre adresse.</p>
+<p class="text-warning">Un email de validation a été envoyé à votre adresse.</p>
 <?php endif; ?>
 <?php if ($subscribe_page): ?>
 <p>Pour recevoir la lettre d'information, <a href="<?php echo $subscribe_page; ?>">cliquez ici</a>.</p>
 <?php endif; ?>
-</div>
 <?php
 $focus=false;
 if ($missing_code or $bad_code) {
 	$focus='#unsubscribe_code';
 }
-else if ($missing_mail or $bad_mail) {
+else if ($missing_mail or $bad_mail or $unknown_mail) {
 	$focus='#unsubscribe_mail';
+}
+else if ($missing_confirmation) {
+	$focus='#unsubscribe_code';
 }
 ?>
 <?php if ($focus): ?>

@@ -2,12 +2,12 @@
 
 /**
  *
- * @copyright  2010-2015 izend.org
- * @version    7
+ * @copyright  2010-2015 (2016) izend.org
+ * @version    7 (1)
  * @link       http://www.izend.org
  */
 
-function besocial($lang, $components, $sharemode, $shareline=false) {
+function besocial($lang, $components, $sharemode) {
 	$ilike=$tweetit=$plusone=$linkedin=$pinit=false;
 
 	extract($components);	/* ilike, tweetit, plusone, linkedin, pinit */

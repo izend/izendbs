@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2013 izend.org
- * @version    14
+ * @copyright  2010-2013 (2016) izend.org
+ * @version    14 (1)
  * @link       http://www.izend.org
  */
 
@@ -12,8 +12,6 @@ require_once 'userhasrole.php';
 require_once 'models/thread.inc';
 
 function booksummary($lang, $book) {
-	global $with_toolbar;
-
 	$book_id = thread_id($book);
 	if (!$book_id) {
 		return run('error/notfound', $lang);
@@ -69,7 +67,7 @@ function booksummary($lang, $book) {
 		$vote=build('vote', $lang, $book_id, 'thread', $nomore);
 	}
 
-	$besocial=$sharebar=false;
+	$besocial=false;
 	if ($book_contents) {
 		$ilike=$thread_ilike;
 		$tweetit=$thread_tweet;
@@ -85,7 +83,7 @@ function booksummary($lang, $book) {
 			$pinit_image=$thread_image;
 			$pinit=$pinit_text && $pinit_image ? compact('pinit_text', 'pinit_image') : false;
 		}
-		list($besocial, $sharebar) = socialize($lang, compact('ilike', 'tweetit', 'plusone', 'linkedin', 'pinit'));
+		$besocial = socialize($lang, compact('ilike', 'tweetit', 'plusone', 'linkedin', 'pinit'));
 	}
 
 	$content = view('booksummary', false, compact('book_id', 'book_title', 'book_abstract', 'book_contents', 'besocial', 'vote'));
@@ -116,10 +114,9 @@ function booksummary($lang, $book) {
 	$edit=user_has_role('writer') ? url('bookedit', $_SESSION['user']['locale']) . '/'. $book_id . '?' . 'clang=' . $lang : false;
 	$validate=url('book', $lang) . '/'. $book_name;
 
-	$banner = build('banner', $lang, $with_toolbar ? compact('headline', 'search') : compact('headline', 'edit', 'validate', 'search'));
-	$toolbar = $with_toolbar ? build('toolbar', $lang, compact('edit', 'validate')) : false;
+	$banner = build('banner', $lang, compact('headline', 'edit', 'validate', 'search'));
 
-	$output = layout('standard', compact('sharebar', 'toolbar', 'banner', 'sidebar', 'content'));
+	$output = layout('standard', compact('lang', 'banner', 'content', 'sidebar'));
 
 	return $output;
 }

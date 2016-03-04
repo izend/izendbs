@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    14
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    14 (1)
  * @link       http://www.izend.org
  */
 
@@ -11,7 +11,7 @@ require_once 'userhasrole.php';
 require_once 'models/thread.inc';
 
 function threadsummary($lang, $thread) {
-	global $system_languages, $with_toolbar;
+	global $system_languages;
 
 	if (!user_has_role('writer')) {
 		return run('error/unauthorized', $lang);
@@ -71,14 +71,11 @@ function threadsummary($lang, $thread) {
 
 	$edit=user_has_role('writer') ? url('threadedit', $_SESSION['user']['locale']) . '/'. $thread_id . '?' . 'clang=' . $lang : false;
 
-	$banner = build('banner', $lang, $with_toolbar ? compact('headline') : compact('headline', 'edit'));
-
-	$scroll=true;
-	$toolbar = $with_toolbar ? build('toolbar', $lang, compact('edit', 'scroll')) : false;
+	$banner = build('banner', $lang, compact('headline', 'edit'));
 
 	$content = view('threadsummary', $slang, compact('thread_id', 'thread_title', 'thread_abstract', 'thread_cloud', 'thread_image', 'thread_visits', 'thread_search', 'thread_tag', 'thread_comment', 'thread_morecomment', 'thread_vote', 'thread_morevote', 'thread_ilike', 'thread_tweet', 'thread_plusone', 'thread_linkedin', 'thread_pinit', 'thread_created', 'thread_modified', 'thread_contents'));
 
-	$output = layout('viewing', compact('toolbar', 'banner', 'content', 'sidebar'));
+	$output = layout('viewing', compact('lang', 'banner', 'content', 'sidebar'));
 
 	return $output;
 }

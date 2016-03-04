@@ -2,13 +2,13 @@
 
 /**
  *
- * @copyright  2010-2015 izend.org
- * @version    10
+ * @copyright  2010-2015 (2016) izend.org
+ * @version    10 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php if ($mode == 'lite'): ?>
-<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($base_url . '/' . $request_path); ?>" target="_blank" title="Share on Facebook"><span>Facebook</span></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($base_url . '/' . $request_path); ?>" target="_blank" title="Share on Facebook"><span class="social-facebook">Facebook</span></a>
 <?php else: ?>
 <?php $id = uniqid('id'); ?>
 <div id="<?php echo $id; ?>"></div>

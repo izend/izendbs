@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    8
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    8 (1)
  * @link       http://www.izend.org
  */
 
@@ -20,7 +20,7 @@ function searchlist($lang, $rsearch, $taglist) {
 		$wordlist = preg_split('/\s+/', $node_cloud, -1, PREG_SPLIT_NO_EMPTY);
 		foreach ($wordlist as $w) {
 			$tag=htmlspecialchars($w, ENT_COMPAT, 'UTF-8');
-			$link_cloud[]=in_array($w, $taglist) ? "<span class=\"tag\">$tag</span>" : $tag;
+			$link_cloud[]=in_array($w, $taglist) ? "<span class=\"text-success text-large\">$tag</span>" : $tag;
 		}
 		$link_cloud=implode(' ', $link_cloud);
 

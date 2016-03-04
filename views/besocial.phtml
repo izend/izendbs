@@ -2,13 +2,13 @@
 
 /**
  *
- * @copyright  2010-2016 izend.org
- * @version    10
+ * @copyright  2010-2016 (2016) izend.org
+ * @version    10 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php if ($ilike or $tweetit or $plusone or $linkedin or $pinit): ?>
-<ul<?php if ($shareline): ?> id="shareline"<?php endif; ?> class="besocial <?php echo $sharemode; ?>">
+<ul class="list-inline hidden-print besocial <?php echo $sharemode; ?>">
 <?php if ($sharemode == 'lite'): ?>
 <?php if ($ilike): ?>
 <li class="facebook">
@@ -63,9 +63,7 @@
 <?php endif; ?>
 <?php endif; ?>
 </ul>
-<?php if ($shareline): ?>
 <script type="text/javascript">
-$(document).ready(function() {$('#shareline').show();});
+$(document).ready(function() {$('.besocial').show();});
 </script>
-<?php endif; ?>
 <?php endif; ?>

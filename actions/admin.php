@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2012-2014 izend.org
- * @version    6
+ * @copyright  2012-2014 (2016) izend.org
+ * @version    6 (1)
  * @link       http://www.izend.org
  */
 
@@ -37,7 +37,7 @@ function admin($lang) {
 	$usersearch = build('usersearch', $lang);
 	$content = view('admin', $lang, compact('newuser_page', 'newsletter_page', 'balance', 'usersearch', 'upload'));
 
-	$output = layout('standard', compact('banner', 'content'));
+	$output = layout('standard', compact('lang', 'banner', 'content'));
 
 	return $output;
 }

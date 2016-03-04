@@ -2,44 +2,52 @@
 
 /**
  *
- * @copyright  2012-2013 izend.org
- * @version    4
+ * @copyright  2012-2013 (2016) izend.org
+ * @version    4 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php require_once 'dateen.php'; ?>
 <div id="newsletterpage">
 <h3><?php echo htmlspecialchars($page_title ? $page_title : $page_id, ENT_COMPAT, 'UTF-8'); ?></h3>
-<p class="navigation menu">
+<?php if ($next_page_url or $prev_page_url): ?>
+<p>
 <?php if ($prev_page_url): ?>
-<a class="previous" href="<?php echo $prev_page_url; ?>"><span>&lt;</span></a>
-<a href="<?php echo $prev_page_url; ?>"><?php echo htmlspecialchars($prev_page_label, ENT_COMPAT, 'UTF-8'); ?></a>
+&larr;&nbsp;<a href="<?php echo $prev_page_url; ?>"><?php echo htmlspecialchars($prev_page_label, ENT_COMPAT, 'UTF-8'); ?></a>
 <?php endif; ?>
 <?php if ($next_page_url and $prev_page_url): ?>
 &nbsp;|&nbsp;
 <?php endif; ?>
 <?php if ($next_page_url): ?>
-<a href="<?php echo $next_page_url; ?>"><?php echo htmlspecialchars($next_page_label, ENT_COMPAT, 'UTF-8'); ?></a>
-<a class="next" href="<?php echo $next_page_url; ?>"><span>&gt;</span></a>
+<a href="<?php echo $next_page_url; ?>"><?php echo htmlspecialchars($next_page_label, ENT_COMPAT, 'UTF-8'); ?></a>&nbsp;&rarr;
 <?php endif; ?>
 </p>
-<p class="info"><?php echo longdatetime_en($page_modified); ?></p>
+<?php endif; ?>
+<p><?php echo longdatetime_en($page_modified); ?></p>
 <?php if ($postnews): ?>
 <?php echo $postnews; ?>
 <?php endif; ?>
 <?php if ($message_html): ?>
+<div id="newsletterpage_html">
 <?php echo $message_html; ?>
+</div>
 <?php endif; ?>
 <?php if ($message_text): ?>
+<div id="newsletterpage_text">
 <pre><code><?php echo $message_text; ?></code></pre>
+</div>
 <?php endif; ?>
 <?php if ($with_mail): ?>
-<form class="noprint" action="" method="post">
-<p>
-<input type="submit" class="submit submit_send" name="newsletterpage_send" id="newsletterpage_send" value="Send" />
-to
-<input type="text" name="newsletterpage_mailto" id="newsletterpage_mailto" size="40" maxlength="100" title="name@domain.net" onkeypress="return submitonenter(event, 'newsletterpage_send')" value="<?php echo htmlspecialchars($mailto, ENT_COMPAT, 'UTF-8'); ?>" />
-</p>
+<form method="post">
+<div class="form-group form-inline">
+<div class="form-group">
+<button type="submit" class="btn <?php if ($missing_mail or $bad_mail): ?>btn-danger<?php elseif ($email_sent): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="newsletterpage_send" id="newsletterpage_send">Send</button>
+<span class="form-control-static">to</span>
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="newsletterpage_mailto" id="newsletterpage_mailto" size="30" maxlength="100" placeholder="Email" value="<?php echo htmlspecialchars($mailto, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'newsletterpage_send')" />
+</div>
+</div>
 </form>
 <?php endif; ?>
 <?php if ($email_sent): ?>

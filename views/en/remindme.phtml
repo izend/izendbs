@@ -2,46 +2,50 @@
 
 /**
  *
- * @copyright  2010-2013 izend.org
- * @version    10
+ * @copyright  2010-2013 (2016) izend.org
+ * @version    10 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php extract($errors); ?>
-<form action="" method="post">
+<?php extract($infos); ?>
+<form method="post">
 <input type="hidden" name="remindme_token" value="<?php echo $token; ?>" />
-<p class="inlabel<?php if ($missing_login or $bad_login): ?> inerror<?php endif; ?>"><?php if ($with_name): ?>What is your connection name?<?php else: ?>What is your email address?<?php endif; ?></p>
-<p><input type="text" name="remindme_login" id="remindme_login" size="40" maxlength="100" title="Identifier" onkeypress="return focusonenter(event, 'remindme_code')" value="<?php echo htmlspecialchars($login, ENT_COMPAT, 'UTF-8'); ?>" /></p>
+<div class="form-group<?php if ($missing_login or $bad_login): ?> has-error<?php endif; ?>">
+<label for="remindme_login"><?php if ($with_name): ?>What is your connection name?<?php else: ?>What is your email address?<?php endif; ?></label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="remindme_login" id="remindme_login" size="40" maxlength="100" placeholder="Identifier" value="<?php echo htmlspecialchars($login, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'remindme_code')" />
+</div>
 <?php if ($with_name): ?>
-<p class="info">You may also enter your email address.</p>
-<?php endif; ?>
-<p><input name="remindme_confirmed" id="remindme_confirmed" type="checkbox" title="Confirmation" <?php if ($confirmed) echo 'checked="checked"'; ?> />&nbsp;I want to receive a new password</p>
-<?php if ($with_captcha): ?>
-<p>
-<img src="<?php echo $base_path; ?>/captcha/remindme" alt="" height="40" title="Verification code" />
-:
-<input type="text" name="remindme_code" id="remindme_code" size="4" maxlength="4" title="4 letters" onkeypress="return submitonenter(event, 'remindme_send')" value="" />
-</p>
-<?php endif; ?>
-<p><input type="submit" class="submit submit_send" name="remindme_send" id="remindme_send" value="Send" /></p>
-</form>
-<div class="errors">
-<?php if ($missing_code): ?>
-<p>Enter the verification code displayed in the image.</p>
-<?php elseif ($bad_code): ?>
-<p>The verification code is incorrect.</p>
-<?php endif; ?>
-<?php if ($missing_login): ?>
-<p>You haven't typed your identifier.</p>
-<?php elseif ($bad_login): ?>
-<p>The identifier is not valid.</p>
-<?php endif; ?>
-<?php if ($missing_confirmation): ?>
-<p>Check the confirmation box.</p>
+<span class="help-block">You may also enter your email address.</span>
 <?php endif; ?>
 </div>
-<?php extract($infos); ?>
-<div class="infos">
+<div class="checkbox<?php if ($missing_confirmation): ?> has-error<?php endif; ?>">
+<label><input type="checkbox" name="remindme_confirmed" id="remindme_confirmed" title="Confirmation"<?php if ($confirmed): ?> checked="checked"<?php endif; ?> />&nbsp;I want to receive a new password</label>
+</div>
+<?php if ($with_captcha): ?>
+<div class="form-group form-inline<?php if ($missing_code or $bad_code): ?> has-error<?php endif; ?>">
+<div class="form-group form-inline-auto">
+<img class="captcha" src="<?php echo $base_path; ?>/captcha/remindme" alt="" height="40" title="Verification code" />
+<span class="form-control-static">:</span>
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="remindme_code" id="remindme_code" size="4" maxlength="4" title="4 letters" value="" autocomplete="off" onkeypress="return submitonenter(event, 'remindme_send')" />
+</div>
+</div>
+<?php endif; ?>
+<div class="form-group">
+<button type="submit" class="btn <?php if ($internal_error or $missing_code or $bad_code or $missing_login or $bad_login or $missing_confirmation): ?>btn-danger<?php elseif ($email_sent): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="remindme_send" id="remindme_send">Send</button>
+</div>
+</form>
+<?php if ($missing_code): ?>
+<p class="text-danger">Enter the verification code displayed in the image.</p>
+<?php elseif ($bad_code): ?>
+<p class="text-danger">The verification code is incorrect.</p>
+<?php endif; ?>
+<?php if ($missing_confirmation): ?>
+<p class="text-danger">Check the confirmation box.</p>
+<?php endif; ?>
 <?php if ($internal_error): ?>
 <p>An internal error has occurred.
 <?php if ($contact_page): ?>If you can describe the problem, please <a href="<?php echo $contact_page; ?>" rel="nofollow">contact us</a>.<?php endif; ?></p>
@@ -50,7 +54,6 @@
 <p>A new password has been sent to you by email.<br />
 To identify yourself, <a href="<?php echo $user_page; ?>">click here</a>.</p>
 <?php endif; ?>
-</div>
 <?php
 $focus=false;
 if ($missing_code or $bad_code) {
@@ -58,6 +61,9 @@ if ($missing_code or $bad_code) {
 }
 else if ($missing_login or $bad_login) {
 	$focus='#remindme_login';
+}
+else if ($missing_confirmation) {
+	$focus='#remindme_code';
 }
 ?>
 <?php if ($focus): ?>

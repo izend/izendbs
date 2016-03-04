@@ -2,29 +2,29 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    14
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    14 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php require_once 'datefr.php'; ?>
 <div id="threadsummary">
 <h3><?php echo $thread_title ? $thread_title : $thread_id; ?></h3>
-<p class="info"><?php echo longdatetime_fr($thread_modified); ?></p>
+<p><?php echo longdatetime_fr($thread_modified); ?></p>
 <?php if ($thread_abstract): ?>
 <h5>Extrait</h5>
-<p><?php echo htmlspecialchars($thread_abstract, ENT_COMPAT, 'UTF-8'); ?></p>
+<p class="text-info"><?php echo htmlspecialchars($thread_abstract, ENT_COMPAT, 'UTF-8'); ?></p>
 <?php endif; ?>
 <?php if ($thread_cloud): ?>
 <h6>Nuage</h6>
-<p class="small"><?php echo $thread_cloud; ?></p>
+<p class="text-info"><?php echo $thread_cloud; ?></p>
 <?php endif; ?>
 <?php if ($thread_image): ?>
 <h6>Image</h6>
-<p><img id="thread_image" src="<?php echo str_replace('%2F', '/', urlencode($thread_image)); ?>" alt="<?php echo htmlspecialchars($thread_image, ENT_COMPAT, 'UTF-8'); ?>" /></p>
+<p><img class="img-240" src="<?php echo str_replace('%2F', '/', urlencode($thread_image)); ?>" alt="<?php echo htmlspecialchars($thread_image, ENT_COMPAT, 'UTF-8'); ?>" /></p>
 <?php endif; ?>
 <?php if ($thread_search or $thread_tag or $thread_comment or $thread_morecomment or $thread_vote or $thread_morevote or $thread_ilike or $thread_tweet or $thread_plusone or $thread_linkedin or $thread_pinit): ?>
-<fieldset id="thread_options">
+<fieldset>
 <legend>Options</legend>
 <div class="hbar">
 <?php if ($thread_search): ?><span class="btn_edit btn_search">recherche</span><?php endif; ?>
@@ -44,10 +44,10 @@
 <?php endif; ?>
 <h4>Contenu</h4>
 <?php if ($thread_contents): ?>
-<ol>
+<ol class="list-auto">
 <?php foreach ($thread_contents as $c): ?>
 <?php extract($c);	/* node_title node_url node_ignored */ ?>
-<li><a href="<?php echo $node_url; ?>"><?php echo htmlspecialchars($node_title ? $node_title : $node_id, ENT_COMPAT, 'UTF-8'); ?></a><?php if ($node_ignored): ?> <span class="btn_edit btn_ignored">X</span><?php endif; ?></li>
+<li<?php if ($node_ignored): ?> class="bg-ignored"<?php endif; ?>><a href="<?php echo $node_url; ?>"><?php echo htmlspecialchars($node_title ? $node_title : $node_id, ENT_COMPAT, 'UTF-8'); ?></a></li>
 <?php endforeach; ?>
 </ol>
 <?php endif; ?>

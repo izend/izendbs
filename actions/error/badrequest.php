@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2012 izend.org
- * @version    1
+ * @copyright  2010-2012 (2016) izend.org
+ * @version    1 (1)
  * @link       http://www.izend.org
  */
 
@@ -17,7 +17,7 @@ function badrequest($lang) {
 	$contact_page=url('contact', $lang);
 	$content = view('error/badrequest', $lang, compact('contact_page'));
 
-	$output = layout('standard', compact('banner', 'content'));
+	$output = layout('standard', compact('lang', 'banner', 'content'));
 
 	header('HTTP/1.1 400 Bad Request');
 

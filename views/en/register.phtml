@@ -2,13 +2,14 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    17
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    17 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php extract($errors); ?>
-<form action="" method="post">
+<?php extract($infos); ?>
+<form method="post">
 <input type="hidden" name="register_token" value="<?php echo $token; ?>" />
 <?php if ($with_timezone): ?>
 <?php if ($timezone): ?>
@@ -23,88 +24,101 @@ $('input[name=register_timezone]').val(tz.name());
 <?php endif; ?>
 <?php endif; ?>
 <?php if ($with_info): ?>
-<p class="inlabel<?php if ($missing_firstname): ?> inerror<?php endif; ?>">What is your first name?</p>
-<p><input type="text" name="register_firstname" id="register_firstname" size="30" maxlength="100" title="First name" onkeypress="return focusonenter(event, 'register_lastname')" value="<?php echo htmlspecialchars($firstname, ENT_COMPAT, 'UTF-8'); ?>" /></p>
-<p class="inlabel<?php if ($missing_lastname): ?> inerror<?php endif; ?>">And your last name?</p>
-<p><input type="text" name="register_lastname" id="register_lastname" size="30" maxlength="100" title="Last name" onkeypress="return focusonenter(event, '<?php echo $with_name ? 'register_name' : 'register_mail'; ?>')" value="<?php echo htmlspecialchars($lastname, ENT_COMPAT, 'UTF-8'); ?>" /></p>
+<div class="form-group<?php if ($missing_firstname): ?> has-error<?php endif; ?>">
+<label for="register_firstname">What is your first name?</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="register_firstname" id="register_firstname" size="30" maxlength="100" placeholder="First name" value="<?php echo htmlspecialchars($firstname, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'register_lastname')" />
+</div>
+</div>
+<div class="form-group<?php if ($missing_lastname): ?> has-error<?php endif; ?>">
+<label for="register_lastname">And your last name?</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="register_lastname" id="register_lastname" size="30" maxlength="100" placeholder="Last name" value="<?php echo htmlspecialchars($lastname, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, '<?php echo $with_name ? 'register_name' : 'register_mail'; ?>')" />
+</div>
+</div>
 <?php endif; ?>
 <?php if ($with_name): ?>
-<p class="inlabel<?php if ($missing_name or $bad_name or $duplicated_name): ?> inerror<?php endif; ?>">What identifier do you want?</p>
-<p><input type="text" name="register_name" id="register_name" size="20" maxlength="20" title="Identifier" onkeypress="return focusonenter(event, 'register_mail')" value="<?php echo htmlspecialchars($name, ENT_COMPAT, 'UTF-8'); ?>" /><?php if ($account_created): ?>&nbsp;<img src="<?php echo $base_path; ?>/avatars/<?php echo $name; ?>.png" alt="" width="24" height="24" title="<?php echo $name; ?>" /><?php endif; ?></p>
-<p class="info">Choose a pseudo with between 2 and 20 letters.</p>
-<?php endif; ?>
-<p class="inlabel<?php if ($missing_mail or $bad_mail or $duplicated_mail): ?> inerror<?php endif; ?>">What is your email address?</p>
-<p><input type="text" name="register_mail" id="register_mail" size="30" maxlength="100" title="Email" onkeypress="return focusonenter(event, '<?php echo $with_password ? 'register_password' : 'register_code'; ?>')" value="<?php echo htmlspecialchars($mail, ENT_COMPAT, 'UTF-8'); ?>" />
-<?php if ($connectbar): ?>
-<?php echo $connectbar; ?>
-<?php endif; ?>
-</p>
-<p class="info">Your password will be sent to this address.</p>
-<?php if ($with_website): ?>
-<p class="inlabel<?php if ($bad_website): ?> inerror<?php endif; ?>">Do you have a website?</p>
-<p><input type="text" name="register_website" id="register_website" size="40" maxlength="100" title="www.domain.com" onkeypress="return focusonenter(event, '<?php echo $with_password ? 'register_password' : 'register_code'; ?>')" value="<?php echo htmlspecialchars($website, ENT_COMPAT, 'UTF-8'); ?>" /></p>
-<?php endif; ?>
-<?php if ($with_password): ?>
-<p class="inlabel<?php if ($missing_password or $bad_password): ?> inerror<?php endif; ?>">Choose a password:</p>
-<p><input type="text" name="register_password" id="register_password" size="20" maxlength="20" title="Password" onkeypress="return focusonenter(event, 'register_code')" value="<?php echo htmlspecialchars($password, ENT_COMPAT, 'UTF-8'); ?>" /></p>
-<p class="info">Enter at least 6 characters including 1 digit.</p>
-<?php endif; ?>
-<?php if ($with_newsletter): ?>
-<p><input type="checkbox" name="register_newsletter" id="register_newsletter" title="Infolettre"<?php if ($newsletter): ?> checked="checked"<?php endif; ?> />&nbsp;I want to receive the newsletter by email</p>
-<?php endif; ?>
-<?php if ($with_confirmation): ?>
-<p><input type="checkbox" name="register_confirmed" id="register_confirmed" title="Confirmation"<?php if ($confirmed): ?> checked="checked"<?php endif; ?> />&nbsp;I wish to create an account</p>
-<?php endif; ?>
-<?php if ($with_captcha): ?>
-<p>
-<img src="<?php echo $base_path; ?>/captcha/register" alt="" height="40" title="Verification code" />
-:
-<input type="text" name="register_code" id="register_code" size="4" maxlength="4" title="4 letters" onkeypress="return submitonenter(event, 'register_register')" value="" />
-</p>
-<?php endif; ?>
-<p><input type="submit" class="submit submit_send" name="register_register" id="register_register" value="Send" /></p>
-</form>
-<div class="error">
-<?php if ($missing_code): ?>
-<p>Enter the verification code displayed in the image.</p>
-<?php elseif ($bad_code): ?>
-<p>The verification code is incorrect.</p>
-<?php endif; ?>
-<?php if ($missing_lastname and $missing_firstname): ?>
-<p>A last name and a first name are required.</p>
-<?php else: ?>
-<?php if ($missing_lastname): ?>
-<p>A last name is required.</p>
-<?php endif; ?>
-<?php if ($missing_firstname): ?>
-<p>A first name is required.</p>
-<?php endif; ?>
-<?php endif; ?>
-<?php if ($missing_name): ?>
-<p>You haven't typed your identifier.</p>
-<?php elseif ($bad_name): ?>
-<p>An identifier must contain between 2 and 20 letters.</p>
-<?php elseif ($duplicated_name): ?>
-<p>This identifier is already taken.</p>
-<?php endif; ?>
-<?php if ($missing_mail): ?>
-<p>Don't forget your email address.</p>
-<?php elseif ($bad_mail): ?>
-<p>The email address is invalid.</p>
-<?php elseif ($duplicated_mail): ?>
-<p>This email address is already being used.</p>
-<?php endif; ?>
-<?php if ($missing_password): ?>
-<p>You haven't entered a password.</p>
-<?php elseif ($bad_password): ?>
-<p>A password must contain a digit and at least 6 characters.</p>
-<?php endif; ?>
-<?php if ($missing_confirmation): ?>
-<p>Check the confirmation box.</p>
+<div class="form-group<?php if ($missing_name or $bad_name or $duplicated_name): ?> has-error<?php endif; ?>">
+<label for="register_name">What identifier do you want?</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="register_name" id="register_name" size="20" maxlength="20" placeholder="Identifier" value="<?php echo htmlspecialchars($name, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'register_mail')" />
+<?php if ($account_created): ?>
+<img class="hidden-xxs" src="<?php echo $base_path; ?>/avatars/<?php echo $name; ?>.png" alt="" width="24" height="24" title="<?php echo $name; ?>" />
 <?php endif; ?>
 </div>
-<?php extract($infos); ?>
-<div class="infos">
+<span class="help-block">Choose a pseudo with between 2 and 20 letters.</span>
+</div>
+<?php endif; ?>
+<div class="form-group<?php if ($missing_mail or $bad_mail or $duplicated_mail): ?> has-error<?php endif; ?>">
+<label for="register_mail">What is your email address?</label>
+<div class="form-inline-auto">
+<?php if ($facebook_login_url): ?>
+<div class="input-group">
+<?php endif; ?>
+<input type="text" class="form-control" name="register_mail" id="register_mail" size="30" maxlength="100" placeholder="Email" value="<?php echo htmlspecialchars($mail, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, '<?php echo $with_website ? 'register_website' : ($with_password ? 'register_password' : 'register_code'); ?>')" />
+<?php if ($with_facebook): ?>
+<span class="input-group-addon social"><a href="<?php echo $facebook_login_url; ?>" title="Connect with Facebook"><span class="social-facebook">Facebook</span></a></span>
+</div>
+<?php endif; ?>
+</div>
+<span class="help-block">Your password will be sent to this address.</span>
+</div>
+<?php if ($with_website): ?>
+<div class="form-group<?php if ($bad_website): ?> has-error<?php endif; ?>">
+<label for="register_website">Do you have a website?</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="register_website" id="register_website" size="30" maxlength="100" placeholder="www.domaine.com" value="<?php echo htmlspecialchars($website, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, '<?php echo $with_password ? 'register_password' : 'register_code'; ?>')" />
+</div>
+</div>
+<?php endif; ?>
+<?php if ($with_password): ?>
+<div class="form-group<?php if ($missing_password or $bad_password): ?> has-error<?php endif; ?>">
+<label for="register_password">Choose a password:</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="register_password" id="register_password" size="20" maxlength="20" placeholder="Password" value="<?php echo htmlspecialchars($password, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'register_code')" />
+</div>
+<span class="help-block">Enter at least 6 characters including 1 digit.</span>
+</div>
+<?php endif; ?>
+<?php if ($with_newsletter): ?>
+<div class="checkbox">
+<label><input type="checkbox" name="register_newsletter" id="register_newsletter" title="Newsletter"<?php if ($newsletter): ?> checked="checked"<?php endif; ?> />&nbsp;I want to receive the newsletter by email</label>
+</div>
+<?php endif; ?>
+<?php if ($with_confirmation): ?>
+<div class="checkbox<?php if ($missing_confirmation): ?> has-error<?php endif; ?>">
+<label><input type="checkbox" name="register_confirmed" id="register_confirmed" title="Confirmation"<?php if ($confirmed): ?> checked="checked"<?php endif; ?> />&nbsp;I wish to create an account</label>
+</div>
+<?php endif; ?>
+<?php if ($with_captcha): ?>
+<div class="form-group form-inline<?php if ($missing_code or $bad_code): ?> has-error<?php endif; ?>">
+<div class="form-group form-inline-auto">
+<img class="captcha" src="<?php echo $base_path; ?>/captcha/register" alt="" height="40" title="Verification code" />
+<span class="form-control-static">:</span>
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="register_code" id="register_code" size="4" maxlength="4" title="4 letters" value="" autocomplete="off" onkeypress="return submitonenter(event, 'register_register')" />
+</div>
+</div>
+<?php endif; ?>
+<div class="form-group">
+<button type="submit" class="btn <?php if ($internal_error or $missing_code or $bad_code or $missing_name or $bad_name or $duplicated_name or $missing_mail or $bad_mail or $duplicated_mail or $bad_website or $missing_password or $bad_password or $missing_lastname or $missing_firstname or $missing_confirmation): ?>btn-danger<?php elseif ($account_created): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="register_register" id="register_register">Send</button>
+</div>
+</form>
+<?php if ($missing_code): ?>
+<p class="text-danger">Enter the verification code displayed in the image.</p>
+<?php elseif ($bad_code): ?>
+<p class="text-danger">The verification code is incorrect.</p>
+<?php endif; ?>
+<?php if ($duplicated_name): ?>
+<p class="text-danger">This identifier is already taken.</p>
+<?php endif; ?>
+<?php if ($duplicated_mail): ?>
+<p class="text-danger">This email address is already being used.</p>
+<?php endif; ?>
+<?php if ($missing_confirmation): ?>
+<p class="text-danger">Check the confirmation box.</p>
+<?php endif; ?>
 <?php if ($internal_error): ?>
 <p>An internal error has occurred.
 <?php if ($contact_page): ?>If you can describe the problem, please <a href="<?php echo $contact_page; ?>" rel="nofollow">contact us</a>.<?php endif; ?></p>
@@ -113,7 +127,6 @@ $('input[name=register_timezone]').val(tz.name());
 <p>Your account has been created. Your password has been emailed to your address.<br />
 To identify yourself, <a href="<?php echo $user_page; ?>">click here</a>.</p>
 <?php endif; ?>
-</div>
 <?php
 $focus=false;
 if ($missing_code or $bad_code) {
@@ -136,6 +149,9 @@ else if ($bad_website) {
 }
 else if ($missing_password or $bad_password) {
 	$focus='#register_password';
+}
+else if ($missing_confirmation) {
+	$focus='#register_code';
 }
 ?>
 <?php if ($focus): ?>

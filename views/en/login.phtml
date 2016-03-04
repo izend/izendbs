@@ -2,54 +2,69 @@
 
 /**
  *
- * @copyright  2010-2013 izend.org
- * @version    9
+ * @copyright  2010-2013 (2016) izend.org
+ * @version    9 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php extract($errors); ?>
-<form action="" method="post">
+<form method="post">
 <input type="hidden" name="login_token" value="<?php echo $token; ?>" />
-<p class="inlabel<?php if ($missing_login or $bad_login): ?> inerror<?php endif; ?>"><?php if ($with_name): ?>What is your connection name?<?php else: ?>What is your email address?<?php endif; ?></p>
-<p><input type="text" name="login_login" id="login_login" size="30" maxlength="100" title="Identifier" onkeypress="return focusonenter(event, 'login_password')" value="<?php echo htmlspecialchars($login, ENT_COMPAT, 'UTF-8'); ?>" />
-<?php if ($connectbar): ?>
-<?php echo $connectbar; ?>
+<div class="form-group<?php if ($missing_login or $bad_login): ?> has-error<?php endif; ?>">
+<label for="login_login"><?php if ($with_name): ?>What is your connection name&nbsp;?<?php else: ?>What is your email address&nbsp;?<?php endif; ?></label>
+<div class="form-inline-auto">
+<?php if ($facebook_login_url): ?>
+<div class="input-group">
 <?php endif; ?>
-</p>
-<?php if ($with_name): ?>
-<p class="info">You may also enter your email address.</p>
-<?php endif; ?>
-<p class="inlabel<?php if ($missing_password or $access_denied): ?> inerror<?php endif; ?>">And your access key?</p>
-<p><input type="password" name="login_password" id="login_password" size="20" maxlength="20" title="Password" onkeypress="<?php if ($with_captcha): ?>return focusonenter(event, 'login_code')<?php else: ?>return submitonenter(event, 'login_enter')<?php endif; ?>" /></p>
-<?php if ($password_page): ?>
-<p class="info link">If you have forgotten your password, <a href="<?php echo $password_page; ?>" rel="nofollow">click here</a>.</p>
-<?php endif; ?>
-<?php if ($with_captcha): ?>
-<p>
-<img src="<?php echo $base_path; ?>/captcha/login" alt="" height="40" title="Verification code" />
-:
-<input type="text" name="login_code" id="login_code" size="4" maxlength="4" title="4 letters" onkeypress="return submitonenter(event, 'login_enter')" value="" />
-</p>
-<?php endif; ?>
-<p><input type="submit" class="submit submit_enter" name="login_enter" id="login_enter" value="Enter" /></p>
-<?php if ($newuser_page): ?>
-<p class="info link">To create your personal account, <a href="<?php echo $newuser_page; ?>" rel="nofollow">click here</a>.</p>
-<?php endif; ?>
-</form>
-<div class="errors">
-<?php if ($missing_code): ?>
-<p>Enter the verification code displayed in the image.</p>
-<?php elseif ($bad_code): ?>
-<p>The verification code is incorrect.</p>
-<?php endif; ?>
-<?php if ($missing_login or $missing_password): ?>
-<p>Enter your identifier and your password.</p>
-<?php elseif ($bad_login): ?>
-<p>The identifier is invalid.</p>
-<?php elseif ($access_denied): ?>
-<p>Access denied.</p>
+<input type="text" class="form-control" name="login_login" id="login_login" size="30" maxlength="100" placeholder="Identifier" value="<?php echo htmlspecialchars($login, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'login_password')" />
+<?php if ($with_facebook): ?>
+<span class="input-group-addon social"><a href="<?php echo $facebook_login_url; ?>" title="Connect with Facebook"><span class="social-facebook">Facebook</span></a></span>
+</div>
 <?php endif; ?>
 </div>
+<?php if ($with_name): ?>
+<span class="help-block">You may also enter your email address.</span>
+<?php endif; ?>
+</div>
+<div class="form-group<?php if ($missing_password or $access_denied): ?> has-error<?php endif; ?>">
+<label for="login_password">And your access key?</label>
+<div class="form-inline-auto">
+<input type="password" class="form-control" name="login_password" id="login_password" size="20" maxlength="20" placeholder="Mot de passe" onkeypress="<?php if ($with_captcha): ?>return focusonenter(event, 'login_code')<?php else: ?>return submitonenter(event, 'login_enter')<?php endif; ?>" />
+</div>
+<?php if ($password_page): ?>
+<span class="help-block">If you have forgotten your password, <a href="<?php echo $password_page; ?>" rel="nofollow">click here</a>.</span>
+<?php endif; ?>
+</div>
+<?php if ($with_captcha): ?>
+<div class="form-group form-inline<?php if ($missing_code or $bad_code): ?> has-error<?php endif; ?>">
+<div class="form-group form-inline-auto">
+<img class="captcha" src="<?php echo $base_path; ?>/captcha/login" alt="" height="40" title="Verification code" />
+<span class="form-control-static">:</span>
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="login_code" id="login_code" size="4" maxlength="4" title="4 letters" value="" autocomplete="off" onkeypress="return submitonenter(event, 'login_enter')" />
+</div>
+</div>
+<?php endif; ?>
+<div class="form-group">
+<button type="submit" class="btn <?php if ($internal_error or $missing_code or $bad_code or $missing_login or $bad_login or $missing_password): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="login_enter" id="login_enter">Enter</button>
+</div>
+</form>
+<?php if ($newuser_page): ?>
+<p>To create your personal account, <a href="<?php echo $newuser_page; ?>" rel="nofollow">click here</a>.</p>
+<?php endif; ?>
+<?php if ($missing_code): ?>
+<p class="text-danger">Enter the verification code displayed in the image.</p>
+<?php elseif ($bad_code): ?>
+<p class="text-danger">The verification code is incorrect.</p>
+<?php endif; ?>
+<?php if ($missing_login or $missing_password): ?>
+<p class="text-danger">Enter your identifier and your password.</p>
+<?php elseif ($bad_login): ?>
+<p class="text-danger">The identifier is invalid.</p>
+<?php elseif ($access_denied): ?>
+<p class="text-danger">Access denied.</p>
+<?php endif; ?>
 <?php
 $focus=false;
 if ($missing_code or $bad_code) {

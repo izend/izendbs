@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    13
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    13 (1)
  * @link       http://www.izend.org
  */
 
@@ -14,7 +14,7 @@ require_once 'userprofile.php';
 require_once 'models/thread.inc';
 
 function threadeditall($lang, $clang) {
-	global $supported_threads, $with_toolbar;
+	global $supported_threads;
 
 	if (!user_has_role('writer')) {
 		return run('error/unauthorized', $lang);
@@ -33,6 +33,9 @@ function threadeditall($lang, $clang) {
 		$action='delete';
 		$confirmed=true;
 	}
+	else if (isset($_POST['thread_canceldelete'])) {
+		$action='cancel';
+	}
 	else if (isset($_POST['threadlist_reorder'])) {
 		$action='reorder';
 	}
@@ -49,6 +52,7 @@ function threadeditall($lang, $clang) {
 		case 'create':
 		case 'delete':
 		case 'reorder':
+		case 'cancel':
 			if (isset($_POST['new_thread_title'])) {
 				$new_thread_title=readarg($_POST['new_thread_title']);
 			}
@@ -249,10 +253,7 @@ function threadeditall($lang, $clang) {
 
 	$view=url('thread', $clang) . '?' . 'slang=' . $lang;
 
-	$banner = build('banner', $lang, $with_toolbar ? compact('headline') : compact('headline', 'view'));
-
-	$scroll=true;
-	$toolbar = $with_toolbar ? build('toolbar', $lang, compact('view', 'scroll')) : false;
+	$banner = build('banner', $lang, compact('headline', 'view'));
 
 	$inlanguages=view('inlanguages', false, compact('clang'));
 
@@ -260,7 +261,7 @@ function threadeditall($lang, $clang) {
 
 	$content = view('editing/threadeditall', $lang, compact('clang', 'site_title', 'inlanguages', 'supported_threads', 'thread_list', 'new_thread_title', 'new_thread_type', 'new_thread_number', 'old_thread_number', 'confirm_delete_thread', 'errors'));
 
-	$output = layout('editing', compact('toolbar', 'banner', 'content'));
+	$output = layout('editing', compact('lang', 'banner', 'content'));
 
 	return $output;
 }

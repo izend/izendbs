@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    24
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    24 (1)
  * @link       http://www.izend.org
  */
 
@@ -12,7 +12,7 @@ require_once 'userhasrole.php';
 require_once 'models/thread.inc';
 
 function story($lang, $arglist=false) {
-	global $request_path, $with_toolbar;
+	global $request_path;
 
 	$story=$page=false;
 
@@ -116,7 +116,7 @@ function story($lang, $arglist=false) {
 		$visits=build('visits', $lang, $page_id, $nomore);
 	}
 
-	$besocial=$sharebar=false;
+	$besocial=false;
 	if ($page_contents or $page_comment) {
 		$ilike=$thread_ilike && $node_ilike;
 		$tweetit=$thread_tweet && $node_tweet;
@@ -132,7 +132,7 @@ function story($lang, $arglist=false) {
 			$pinit_image=$node_image;
 			$pinit=$pinit_text && $pinit_image ? compact('pinit_text', 'pinit_image') : false;
 		}
-		list($besocial, $sharebar) = socialize($lang, compact('ilike', 'tweetit', 'plusone', 'linkedin', 'pinit'));
+		$besocial = socialize($lang, compact('ilike', 'tweetit', 'plusone', 'linkedin', 'pinit'));
 	}
 
 	$content = view('storycontent', false, compact('page_id', 'page_title', 'page_contents', 'page_comment', 'page_number', 'besocial', 'vote', 'visits'));
@@ -179,10 +179,9 @@ function story($lang, $arglist=false) {
 	$edit=user_has_role('writer') ? url('storyedit', $_SESSION['user']['locale']) . '/'. $story_id . '/' . $page_id . '?' . 'clang=' . $lang : false;
 	$validate=url('story', $lang) . '/' . $story_name . '/' . $page_name;
 
-	$banner = build('banner', $lang, $with_toolbar ? compact('headline', 'search') : compact('headline', 'edit', 'validate', 'search'));
-	$toolbar = $with_toolbar ? build('toolbar', $lang, compact('edit', 'validate')) : false;
+	$banner = build('banner', $lang, compact('headline', 'edit', 'validate', 'search'));
 
-	$output = layout('standard', compact('sharebar', 'toolbar', 'banner', 'sidebar', 'content'));
+	$output = layout('standard', compact('lang', 'banner', 'content', 'sidebar'));
 
 	return $output;
 }

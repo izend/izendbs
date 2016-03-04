@@ -2,42 +2,42 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    12
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    12 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php require_once 'dateen.php'; ?>
 <div id="threadnode">
 <h3><?php echo htmlspecialchars($node_title ? $node_title : $node_id, ENT_COMPAT, 'UTF-8'); ?></h3>
-<p class="navigation menu">
+<?php if ($next_node_url or $prev_node_url): ?>
+<p>
 <?php if ($prev_node_url): ?>
-<a class="previous" href="<?php echo $prev_node_url; ?>"><span>&lt;</span></a>
-<a href="<?php echo $prev_node_url; ?>"><?php echo htmlspecialchars($prev_node_label, ENT_COMPAT, 'UTF-8'); ?></a>
+&larr;&nbsp;<a href="<?php echo $prev_node_url; ?>"><?php echo htmlspecialchars($prev_node_label, ENT_COMPAT, 'UTF-8'); ?></a>
 <?php endif; ?>
 <?php if ($next_node_url and $prev_node_url): ?>
 &nbsp;|&nbsp;
 <?php endif; ?>
 <?php if ($next_node_url): ?>
-<a href="<?php echo $next_node_url; ?>"><?php echo htmlspecialchars($next_node_label, ENT_COMPAT, 'UTF-8'); ?></a>
-<a class="next" href="<?php echo $next_node_url; ?>"><span>&gt;</span></a>
+<a href="<?php echo $next_node_url; ?>"><?php echo htmlspecialchars($next_node_label, ENT_COMPAT, 'UTF-8'); ?></a>&nbsp;&rarr;
 <?php endif; ?>
 </p>
-<p class="info"><?php echo longdatetime_en($node_modified); ?></p>
+<?php endif; ?>
+<p><?php echo longdatetime_en($node_modified); ?></p>
 <?php if ($node_abstract): ?>
 <h5>Abstract</h5>
-<p><?php echo $node_abstract; ?></p>
+<p class="text-info"><?php echo $node_abstract; ?></p>
 <?php endif; ?>
 <?php if ($node_cloud): ?>
 <h6>Cloud</h6>
-<p class="small"><?php echo htmlspecialchars($node_cloud, ENT_COMPAT, 'UTF-8'); ?></p>
+<p class="text-info"><?php echo htmlspecialchars($node_cloud, ENT_COMPAT, 'UTF-8'); ?></p>
 <?php endif; ?>
 <?php if ($node_image): ?>
 <h6>Image</h6>
-<p><img id="node_image" src="<?php echo str_replace('%2F', '/', urlencode($node_image)); ?>" alt="<?php echo htmlspecialchars($node_image, ENT_COMPAT, 'UTF-8'); ?>" /></p>
+<p><img class="img-360" src="<?php echo str_replace('%2F', '/', urlencode($node_image)); ?>" alt="<?php echo htmlspecialchars($node_image, ENT_COMPAT, 'UTF-8'); ?>" /></p>
 <?php endif; ?>
 <?php if ($node_visits or $node_comment or $node_morecomment or $node_vote or $node_morevote or $node_ilike or $node_tweet or $node_plusone or $node_linkedin or $node_pinit): ?>
-<fieldset id="node_options">
+<fieldset>
 <legend>Options</legend>
 <div class="hbar">
 <?php if ($node_visits): ?><span class="btn_edit btn_visits">visits</span><?php endif; ?>

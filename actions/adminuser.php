@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2011 izend.org
- * @version    1
+ * @copyright  2011 (2016) izend.org
+ * @version    1 (1)
  * @link       http://www.izend.org
  */
 
@@ -48,7 +48,7 @@ function adminuser($lang, $arglist=false) {
 
 	$content = view('adminuser', $lang, compact('useredit'));
 
-	$output = layout('standard', compact('banner', 'content'));
+	$output = layout('standard', compact('lang', 'banner', 'content'));
 
 	return $output;
 }

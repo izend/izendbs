@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2016 izend.org
- * @version    11
+ * @copyright  2010-2016 (2016) izend.org
+ * @version    11 (1)
  * @link       http://www.izend.org
  */
 ?>
@@ -12,9 +12,9 @@
 <?php if ($comments or $newcomment or $user_page): ?>
 <?php extract($errors); ?>
 <div id="comments">
-<h4<?php if (!$comments): ?> class="noprint"<?php endif; ?>>Comments</h4>
+<h4<?php if (!$comments): ?> class="hidden-print"<?php endif; ?>>Comments</h4>
 <?php if ($moderated or $newcomment): ?>
-<form action="#pagemark" method="post">
+<form method="post">
 <input type="hidden" name="comment_token" value="<?php echo $token; ?>" />
 <?php endif; ?>
 <?php if ($comments): ?>
@@ -27,13 +27,15 @@ foreach ($comments as $c) {
 	extract($c);	/* comment_id, comment_text, comment_user_name, comment_mail, comment_created */
 ?>
 <?php if ($id and $comment_id == $id): ?>
-<div id="pagemark"></div>
-<div id="oldcomment" class="noprint">
+<div id="oldcomment">
 <?php endif; ?>
-<p class="headline"><span class="longdate"><?php echo longdate_en($comment_created); ?> at <?php echo date('H:i', $comment_created); ?></span>
-<?php if ($moderated === true or (is_array($moderated) and in_array($comment_id, $moderated))): ?><input class="moderate noprint" name="comment_moderate" type="submit" value="<?php echo $comment_id; ?>" title="Edit" /><?php endif; ?>
+<p class="headline">
+<span class="longdate"><?php echo longdate_en($comment_created); ?> at <?php echo date('H:i', $comment_created); ?></span>
+<?php if ($moderated === true or (is_array($moderated) and in_array($comment_id, $moderated))): ?>
+<button type="submit" class="btn btn-lg btn-blank" name="comment_moderate" value="<?php echo $comment_id; ?>" title="Edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+<?php endif; ?>
 <?php if (true): ?>
-<?php if ($comment_user_name): ?><span class="signature"><span class="author"> by <?php if ($comment_user_website): ?><a href="http://<?php echo $comment_user_website; ?>" title="<?php echo $comment_user_website; ?>"><?php endif; ?><?php echo $comment_user_name; ?><?php if ($comment_user_website): ?></a><?php endif; ?></span>&nbsp;<?php if ($comment_user_website): ?><a href="http://<?php echo $comment_user_website; ?>"><?php endif; ?><img class="avatar noprint" src="/avatars/<?php echo $comment_user_name; ?>.png" alt="" title="<?php echo $comment_user_name; ?><?php if ($comment_user_website): ?> - <?php echo $comment_user_website; ?><?php endif; ?>" /><?php if ($comment_user_website): ?></a><?php endif; ?></span><?php endif; ?>
+<?php if ($comment_user_name): ?><span class="signature"><span class="author"> by <?php if ($comment_user_website): ?><a href="http://<?php echo $comment_user_website; ?>" title="<?php echo $comment_user_website; ?>"><?php endif; ?><?php echo $comment_user_name; ?><?php if ($comment_user_website): ?></a><?php endif; ?></span>&nbsp;<?php if ($comment_user_website): ?><a href="http://<?php echo $comment_user_website; ?>"><?php endif; ?><img class="avatar" src="/avatars/<?php echo $comment_user_name; ?>.png" alt="" title="<?php echo $comment_user_name; ?><?php if ($comment_user_website): ?> - <?php echo $comment_user_website; ?><?php endif; ?>" /><?php if ($comment_user_website): ?></a><?php endif; ?></span><?php endif; ?>
 <?php else: ?>
 <?php if ($comment_user_lastname): ?><span class="signature"><span class="author"> by <?php if ($comment_user_website): ?><a href="http://<?php echo $comment_user_website; ?>"><?php endif; ?><?php if ($comment_user_firstname): ?><?php echo $comment_user_firstname; ?> <?php endif; ?><?php echo $comment_user_lastname; ?><?php if ($comment_user_website): ?></a><?php endif; ?></span></span><?php endif; ?>
 <?php endif; ?>
@@ -50,12 +52,12 @@ if (!$message) {
 </div>
 <?php endif; ?>
 <?php echo view('editcomment', 'en', compact('message', 'message_maxlen')); ?>
-<p>
-<input class="submit submit_modify" name="comment_modify" type="submit" value="Modify" />
-the comment or
-<input class="submit submit_delete" name="comment_delete" type="submit" value="Delete" />
-it
-</p>
+<div class="form-group">
+<button type="submit" class="btn <?php if ($missing_message or $message_too_long): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="comment_modify">Modify</button>
+<span class="form-control-static">the comment or</span>
+<button type="submit" class="btn btn-default" name="comment_delete">Delete</button>
+<span class="form-control-static">it</span>
+</div>
 </div>
 <?php else: ?>
 <div class="comment_text">
@@ -68,8 +70,7 @@ it
 ?>
 <?php endif; ?>
 <?php if ($newcomment): ?>
-<div id="pagemark"></div>
-<div id="newcomment" class="noprint">
+<div id="newcomment">
 <h6>Your comment:</h6>
 <?php if ($message and !$message_too_long): ?>
 <div class="comment_text">
@@ -79,39 +80,69 @@ it
 <?php echo view('editcomment', 'en', compact('message', 'message_maxlen')); ?>
 <?php if ($message): ?>
 <?php if ($with_captcha): ?>
-<p>
-<img src="<?php echo $base_path; ?>/captcha/comment" alt="" height="40" title="Verification code" />
-:
-<input type="text" name="comment_code" id="comment_code" size="4" maxlength="4" title="4 letters" onkeypress="return submitonenter(event, 'comment_validate')" value="" />
-</p>
+<div class="form-group form-inline<?php if ($missing_code or $bad_code): ?> has-error<?php endif; ?>">
+<div class="form-group form-inline-auto">
+<img class="captcha" src="<?php echo $base_path; ?>/captcha/comment" alt="" height="40" title="Verification code" />
+<span class="form-control-static">:</span>
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="comment_code" id="comment_code" size="4" maxlength="4" title="4 letters" value="" autocomplete="off" onkeypress="return submitonenter(event, 'comment_validate')" />
+</div>
+</div>
 <?php endif; ?>
-<p>
-<input class="submit submit_edit" name="comment_edit" type="submit" value="Edit" />
-the text or
-<input class="submit submit_validate" name="comment_validate" id="comment_validate" type="submit" value="Validate" />
-it
-</p>
+<div class="form-group">
+<button type="submit" class="btn <?php if ($message_too_long): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="comment_edit">Edit</button>
+<span class="form-control-static">the text or</span>
+<button type="submit" class="btn <?php if ($missing_code or $bad_code): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" id="comment_validate" name="comment_validate">Validate</button>
+<span class="form-control-static">it</span>
+</div>
 <?php else: ?>
-<p>
-<input class="submit submit_comment" name="comment_comment" type="submit" value="Comment" />
-</p>
+<div class="form-group">
+<button type="submit" class="btn <?php if ($missing_code or $bad_code or $missing_message or $message_too_long): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="comment_comment">Comment</button>
+</div>
 <?php endif; ?>
 </div>
 <?php endif; ?>
 <?php if ($moderated or $newcomment): ?>
 </form>
-<?php if ($with_captcha): ?>
-<div class="errors">
+<?php if ($message): ?>
 <?php if ($missing_code): ?>
-<p>Enter the verification code displayed in the image.</p>
+<p class="text-danger">Enter the verification code displayed in the image.</p>
 <?php elseif ($bad_code): ?>
-<p>The verification code is incorrect.</p>
+<p class="text-danger">The verification code is incorrect.</p>
 <?php endif; ?>
-</div>
+<?php endif; ?>
+<?php
+$scrollto=false;
+switch($action) {
+	case 'comment':
+	case 'validate':
+	case 'edit':
+		$scrollto='#newcomment';
+		break;
+	case 'moderate':
+		$scrollto='#oldcomment';
+		break;
+	case 'modify':
+	case 'delete':
+		$scrollto='#comments';
+		break;
+	default:
+		break;
+}
+?>
+<?php if ($scrollto): ?>
+<script type="text/javascript">
+$(function() {$('html, body').scrollTop($('<?php echo $scrollto; ?>').offset().top);});
+</script>
+<?php endif; ?>
 <?php
 $focus=false;
-if ($missing_code or $bad_code) {
+if ($message and ($missing_code or $bad_code)) {
 	$focus='#comment_code';
+}
+else if ($missing_message or $message_too_long) {
+	$focus='#comment_message';
 }
 ?>
 <?php if ($focus): ?>
@@ -120,9 +151,8 @@ $(function() {$('<?php echo $focus; ?>').focus();});
 </script>
 <?php endif; ?>
 <?php endif; ?>
-<?php endif; ?>
 <?php if ($user_page): ?>
-<p class="info noprint">To add a comment, <a href="<?php echo $user_page; ?>?r=<?php echo urlencode($node_url . '#pagemark'); ?>" rel="nofollow">click here</a>.</p>
+<p class="help-block">To add a comment, <a href="<?php echo $user_page; ?>?r=<?php echo urlencode($node_url); ?>" rel="nofollow">click here</a>.</p>
 <?php endif; ?>
 </div>
 <?php endif; ?>

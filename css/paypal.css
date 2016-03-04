@@ -1,0 +1,59 @@
+/**
+ *
+ * @copyright 2016 izend.org
+ * @version   1
+ * @link      http://www.izend.org
+ */
+
+/* paypal.css */
+
+[class^="paypal-"],
+[class*=" paypal-"] {
+	display: inline-block;
+	text-indent: -9999px;
+}
+.paypal-logo {
+	width: 100px;
+	height: 35px;
+	background-image: url(../logos/paypal.gif);}
+}
+.paypal-subscribe-en {
+	width: 91px;
+	height: 21px;
+	background-image:url(../images/paypal_subscribe_en.gif);
+}
+.paypal-donate-en {
+	width: 74px;
+	height: 21px;
+	background-image:url(../images/paypal_donate_en.gif);
+}
+.paypal-buy-en {
+	width: 86px;
+	height: 21px;
+	background-image:url(../images/paypal_buy_en.gif);
+}
+.paypal-pay-en {
+	width: 86px;
+	height: 21px;
+	background-image:url(../images/paypal_pay_en.gif);
+}
+.paypal-subscribe-fr {
+	width: 91px;
+	height: 21px;
+	background-image:url(../images/paypal_subscribe_fr.gif);
+}
+.paypal-donate-fr {
+	width: 91px;
+	height: 21px;
+	background-image:url(../images/paypal_donate_fr.gif);
+}
+.paypal-buy-fr {
+	width: 82px;
+	height: 21px;
+	background-image:url(../images/paypal_buy_fr.gif);
+}
+.paypal-pay-fr {
+	width: 69px;
+	height: 21px;
+	background-image:url(../images/paypal_pay_fr.gif);
+}

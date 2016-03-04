@@ -2,24 +2,22 @@
 
 /**
  *
- * @copyright  2010-2012 izend.org
- * @version    3
+ * @copyright  2010-2012 (2016) izend.org
+ * @version    3 (1)
  * @link       http://www.izend.org
  */
 ?>
 <h3<?php if ($node_title): ?> title="<?php echo $node_id; ?>"<?php endif; ?>><?php echo htmlspecialchars($node_title ? $node_title : $node_id , ENT_COMPAT, 'UTF-8'); ?></h3>
 <?php if ($next_node_url or $prev_node_url): ?>
-<p class="navigation menu">
+<p>
 <?php if ($prev_node_url): ?>
-<a class="previous" href="<?php echo $prev_node_url; ?>"><span>&lt;</span></a>
-<a href="<?php echo $prev_node_url; ?>"><?php echo htmlspecialchars($prev_node_label, ENT_COMPAT, 'UTF-8'); ?></a>
+&larr;&nbsp;<a href="<?php echo $prev_node_url; ?>"><?php echo htmlspecialchars($prev_node_label, ENT_COMPAT, 'UTF-8'); ?></a>
 <?php endif; ?>
 <?php if ($next_node_url and $prev_node_url): ?>
 &nbsp;|&nbsp;
 <?php endif; ?>
 <?php if ($next_node_url): ?>
-<a href="<?php echo $next_node_url; ?>"><?php echo htmlspecialchars($next_node_label, ENT_COMPAT, 'UTF-8'); ?></a>
-<a class="next" href="<?php echo $next_node_url; ?>"><span>&gt;</span></a>
+<a href="<?php echo $next_node_url; ?>"><?php echo htmlspecialchars($next_node_label, ENT_COMPAT, 'UTF-8'); ?></a>&nbsp;&rarr;
 <?php endif; ?>
 </p>
 <?php endif; ?>

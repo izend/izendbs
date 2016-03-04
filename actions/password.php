@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2011 izend.org
- * @version    1
+ * @copyright  2010-2011 (2016) izend.org
+ * @version    1 (1)
  * @link       http://www.izend.org
  */
 
@@ -19,7 +19,7 @@ function password($lang) {
 
 	$content = view('password', $lang, compact('remindme'));
 
-	$output = layout('standard', compact('banner', 'content'));
+	$output = layout('standard', compact('lang', 'banner', 'content'));
 
 	return $output;
 }

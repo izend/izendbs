@@ -2,12 +2,10 @@
 
 /**
  *
- * @copyright  2010-2015 izend.org
- * @version    42
+ * @copyright  2010-2015 (2016) izend.org
+ * @version    42 (1)
  * @link       http://www.izend.org
  */
-
-require_once 'ismobile.php';
 
 global $base_url, $base_path, $base_root;
 
@@ -43,7 +41,7 @@ $signature='izend.org - http://www.izend.org';
 
 global $socializing, $socializingmode;
 
-$socializing='inline';	// false, 'inline', 'bar', 'either', 'both'
+$socializing=true;
 $socializingmode='standard';       // 'standard', 'lite'
 
 global $facebookjssdk, $facebookid, $facebooksecret;
@@ -108,10 +106,6 @@ $contents_model = array(
 $supported_contents=array('text', 'infile', 'download', 'file', 'youtube', 'longtail');	// 'text', 'infile', 'download', 'file', 'youtube', 'longtail'
 
 $limited_contents=array('rss' => array('text'), 'newsletter' => array('text'));
-
-global $with_toolbar;
-
-$with_toolbar=is_mobile() ? false : true;
 
 global $search_all, $search_distance, $search_closest, $search_pertinence;
 

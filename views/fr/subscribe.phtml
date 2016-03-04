@@ -2,51 +2,66 @@
 
 /**
  *
- * @copyright  2012-2014 izend.org
- * @version    6
+ * @copyright  2012-2014 (2016) izend.org
+ * @version    6 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php extract($errors); ?>
-<form action="" method="post">
+<?php extract($infos); ?>
+<form method="post">
 <input type="hidden" name="subscribe_token" value="<?php echo $token; ?>" />
-<p class="inlabel<?php if ($missing_mail or $bad_mail or $duplicated_mail): ?> inerror<?php endif; ?>">Quelle est votre adresse d'email&nbsp;?</p>
-<p><input type="text" name="subscribe_mail" id="subscribe_mail" size="40" maxlength="100" title="nom@domaine.fr" onkeypress="return focusonenter(event, 'subscribe_code')" value="<?php echo htmlspecialchars($user_mail, ENT_COMPAT, 'UTF-8'); ?>" /></p>
-<p class="info">Votre adresse d'email est strictement confidentielle.</p>
+<div class="form-group<?php if ($missing_mail or $bad_mail or $duplicated_mail): ?> has-error<?php endif; ?>">
+<label for="subscribe_mail">Quelle est votre adresse d'email&nbsp;?</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="subscribe_mail" id="subscribe_mail" size="40" maxlength="100" placeholder="nom@domaine.fr" value="<?php echo htmlspecialchars($user_mail, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'subscribe_code')" />
+</div>
+<span class="help-block">Votre adresse d'email est strictement confidentielle.</span>
 <?php if ($with_locale): ?>
-<p class="inlabel">Dans quelle langue voulez-vous recevoir la lettre&nbsp;?</p>
-<p><?php foreach ($system_languages as $lang): ?><?php echo PHP_EOL; ?><input name="subscribe_locale" type="radio" value="<?php echo $lang; ?>" title="<?php echo $lang; ?>"<?php if ($lang == $user_locale) echo ' checked="checked"'; ?> />&nbsp;<span class="lang <?php echo $lang; ?>" title="<?php echo $lang; ?>"><?php echo $lang; ?></span><?php endforeach; ?><?php echo PHP_EOL; ?></p>
+<div class="form-group">
+<label>Dans quelle langue voulez-vous recevoir la lettre&nbsp;?</label>
+<div class="radio">
+<?php foreach ($system_languages as $lang): ?><label class="radio-inline"><input type="radio" name="subscribe_locale" value="<?php echo $lang; ?>" title="<?php echo $lang; ?>"<?php if ($lang == $user_locale): ?> checked="checked"<?php endif; ?> />&nbsp;<span class="lang-<?php echo $lang; ?>" title="<?php echo $lang; ?>"><?php echo $lang; ?></span></label><?php echo PHP_EOL; ?><?php endforeach; ?>
+</div>
+</div>
 <?php endif; ?>
-<p class="inlabel<?php if ($missing_confirmation): ?> inerror<?php endif; ?>">Merci de confirmer votre inscription&nbsp;:</p>
-<p><input name="subscribe_confirmed" id="subscribe_confirmed" type="checkbox" title="Confirmation" <?php if ($confirmed) echo 'checked="checked"'; ?> />&nbsp;Je veux recevoir la lettre d'information par email</p>
+<div class="form-group<?php if ($missing_confirmation): ?> has-error<?php endif; ?>">
+<label for="subscribe_confirmed">Merci de confirmer votre inscription&nbsp;:</label>
+<div class="checkbox">
+<label><input type="checkbox" name="subscribe_confirmed" id="subscribe_confirmed" title="Confirmation"<?php if ($confirmed): ?> checked="checked"<?php endif; ?> />&nbsp;Je veux recevoir la lettre d'information par email</label>
+</div>
+</div>
 <?php if ($with_captcha): ?>
-<p>
-<img src="<?php echo $base_path; ?>/captcha/subscribe" alt="" height="40" title="Code de vérification" />
-:
-<input type="text" name="subscribe_code" id="subscribe_code" size="4" maxlength="4" title="4 lettres" onkeypress="return submitonenter(event, 'subscribe_send')" value="" />
-</p>
+<div class="form-group form-inline<?php if ($missing_code or $bad_code): ?> has-error<?php endif; ?>">
+<div class="form-group form-inline-auto">
+<img class="captcha" src="<?php echo $base_path; ?>/captcha/subscribe" alt="" height="40" title="Code de vérification" />
+<span class="form-control-static">:</span>
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="subscribe_code" id="subscribe_code" size="4" maxlength="4" title="4 lettres" value="" autocomplete="off" onkeypress="return submitonenter(event, 'subscribe_send')" />
+</div>
+</div>
 <?php endif; ?>
-<p><input type="submit" class="submit submit_send" name="subscribe_send" id="subscribe_send" value="Envoyer" /></p>
+<div class="form-group">
+<button type="submit" class="btn <?php if ($internal_error or $missing_code or $bad_code or $missing_mail or $bad_mail or $duplicated_mail or $missing_confirmation): ?>btn-danger<?php elseif ($email_registered): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="subscribe_send" id="subscribe_send">Envoyer</button>
+</div>
+</div>
 </form>
-<div class="errors">
 <?php if ($missing_code): ?>
-<p>Entrez le code de vérification affiché dans l'image.</p>
+<p class="text-danger">Entrez le code de vérification affiché dans l'image.</p>
 <?php elseif ($bad_code): ?>
-<p>Le code de vérification est incorrect.</p>
+<p class="text-danger">Le code de vérification est incorrect.</p>
 <?php endif; ?>
 <?php if ($missing_mail): ?>
-<p>Entrez une adresse d'email valide.</p>
+<p class="text-danger">Entrez une adresse d'email valide.</p>
 <?php elseif ($bad_mail): ?>
-<p>L'adresse d'email est incorrecte.</p>
+<p class="text-danger">L'adresse d'email est incorrecte.</p>
 <?php elseif ($duplicated_mail): ?>
-<p>Cette adresse d'email est déjà enregistrée.</p>
+<p class="text-danger">Cette adresse d'email est déjà enregistrée.</p>
 <?php endif; ?>
 <?php if ($missing_confirmation): ?>
-<p>Cochez la case de confirmation.</p>
+<p class="text-danger">Cochez la case de confirmation.</p>
 <?php endif; ?>
-</div>
-<?php extract($infos); ?>
-<div class="infos">
 <?php if ($internal_error): ?>
 <p>Une erreur interne s'est produite.
 <?php if ($contact_page): ?>Si vous pouvez décrire le problème, merci de <a href="<?php echo $contact_page; ?>" rel="nofollow">nous contacter</a>.<?php endif; ?></p>
@@ -57,7 +72,6 @@
 <?php if ($unsubscribe_page): ?>
 <p>Pour ne plus recevoir la lettre d'information, <a href="<?php echo $unsubscribe_page; ?>">cliquez ici</a>.</p>
 <?php endif; ?>
-</div>
 <?php
 $focus=false;
 if ($missing_code or $bad_code) {
@@ -65,6 +79,9 @@ if ($missing_code or $bad_code) {
 }
 else if ($missing_mail or $bad_mail or $duplicated_mail) {
 	$focus='#subscribe_mail';
+}
+else if ($missing_confirmation) {
+	$focus='#subscribe_code';
 }
 ?>
 <?php if ($focus): ?>

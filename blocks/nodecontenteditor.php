@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2013 izend.org
- * @version    7
+ * @copyright  2010-2013 (2016) izend.org
+ * @version    7 (1)
  * @link       http://www.izend.org
  */
 
@@ -76,9 +76,13 @@ function nodecontenteditor($lang, $clang, $node_id, $content_types) {
 
 	switch($action) {
 		case 'create':
+			if (!$id and !$p) {
+				break;
+			}
+			/* fall thru */
 		case 'delete':
 		case 'modify':
-			if (!$id or !$p and ! (is_array($id) and is_array($p) and count($id) == count($p))) {
+			if (!$id or !$p or ! (is_array($id) and is_array($p) and count($id) == count($p))) {
 				$bad_contents=true;
 			}
 			else {
@@ -274,7 +278,7 @@ function nodecontenteditor($lang, $clang, $node_id, $content_types) {
 			break;
 	}
 
-	$errors = compact('missing_new_content_type', 'bad_new_content_type', 'bad_new_content_number', 'missing_old_content_number', 'bad_old_content_number');
+	$errors = compact('missing_new_content_type', 'bad_new_content_type', 'bad_new_content_number', 'missing_old_content_number', 'bad_old_content_number', 'bad_contents');
 
 	$output = view('editing/nodecontenteditor', $lang, compact('clang', 'content_types', 'new_content_type', 'new_content_number', 'old_content_number', 'node_contents', 'errors'));
 

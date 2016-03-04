@@ -2,13 +2,13 @@
 
 /**
  *
- * @copyright  2010-2015 izend.org
- * @version    11
+ * @copyright  2010-2015 (2016) izend.org
+ * @version    11 (1)
  * @link       http://www.izend.org
  */
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<!DOCTYPE html>
+<html<?php if (!empty($lang)): ?> lang="<?php echo $lang; ?>"<?php endif; ?>>
 <head>
 <?php echo $head; ?>
 <?php global $googleanalyticsid; ?>
@@ -60,23 +60,17 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 </script>
 <?php endif; ?>
-<div id="standard">
-<?php echo $banner; ?>
-<div id="bannerline"></div>
-<div id="content">
-<?php if (!empty($sharebar)): ?>
-<?php echo $sharebar; ?>
+<?php if (true): ?>
+<div class="container">
 <?php endif; ?>
-<?php if (!empty($toolbar)): ?>
-<?php echo $toolbar; ?>
+<?php echo $banner; ?>
+<?php if (false): ?>
+<div class="container">
 <?php endif; ?>
 <?php if (!empty($sidebar)): ?>
 <?php echo $sidebar; ?>
 <?php endif; ?>
-<div id="body">
 <?php echo $content; ?>
-</div>
-</div>
 <?php if (!empty($footer)): ?>
 <?php echo $footer; ?>
 <?php endif; ?>

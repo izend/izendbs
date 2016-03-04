@@ -2,38 +2,54 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    5
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    5 (1)
  * @link       http://www.izend.org
  */
 ?>
-<div id="banner">
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+<div class="navbar-header">
+<?php if (!empty($menu) or !empty($languages) or !empty($donate)): ?>
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+<span class="sr-only">Navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<?php endif; ?>
 <?php echo $logo; ?>
-<?php if (!empty($menu) or !empty($languages)): ?>
-<div id="bannercontrols">
+</div>
+<?php if (!empty($menu) or !empty($languages) or !empty($donate) or !empty($search)): ?>
+<div class="collapse navbar-collapse" id="navbar-main">
 <?php if (!empty($menu)): ?>
 <?php echo $menu; ?>
+<?php endif; ?>
+<?php if (!empty($languages) or !empty($donate) or !empty($search)): ?>
+<?php if (true): ?>
+<?php if (!empty($search)): ?>
+<div class="navbar-form navbar-right">
+<?php echo $search; ?>
+</div>
+<?php endif; ?>
+<?php endif; ?>
+<?php if (false): ?>
+<?php if (!empty($headline)): ?>
+<div class="navbar-text navbar-right">
+<?php echo $headline; ?>
+</div>
+<?php endif; ?>
+<?php endif; ?>
+<div class="navbar-right">
+<?php if (!empty($donate)): ?>
+<?php echo $donate; ?>
 <?php endif; ?>
 <?php if (!empty($languages)): ?>
 <?php echo $languages; ?>
 <?php endif; ?>
 </div>
 <?php endif; ?>
-<?php if (!empty($search) or !empty($headline) or !empty($donate)): ?>
-<div id="bannertools">
-<?php if (false): ?>
-<?php if (!empty($search)): ?>
-<?php echo $search; ?>
-<?php endif; ?>
-<?php endif; ?>
-<?php if (true): ?>
-<?php if (!empty($headline)): ?>
-<?php echo $headline; ?>
-<?php endif; ?>
-<?php endif; ?>
-<?php if (!empty($donate)): ?>
-<?php echo $donate; ?>
-<?php endif; ?>
 </div>
 <?php endif; ?>
 </div>
+</nav>

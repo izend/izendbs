@@ -18,16 +18,10 @@ function create_db($db_admin_user, $db_admin_password, $db_host, $db_name, $db_u
 		$sql="CREATE DATABASE `$db_name` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
 		$db_conn->exec($sql);
 
-		$sql= <<<_SEP_
-INSERT INTO mysql.`user` (`Host`, `User`, `Password`, `ssl_cipher`, `x509_issuer`, `x509_subject`)
-VALUES ('$db_host', '$db_user', PASSWORD('$db_password'), '', '', '');
-_SEP_;
+		$sql="CREATE USER '$db_user'@'$db_host' IDENTIFIED BY '$db_password'";
 		$db_conn->exec($sql);
 
-		$sql= <<<_SEP_
-INSERT INTO mysql.`db` (`Host`, `Db`, `User`, `Select_priv`, `Insert_priv`, `Update_priv`, `Delete_priv`, `Create_priv`)
-VALUES ('$db_host', '$db_name', '$db_user', 'Y', 'Y', 'Y', 'Y', 'Y');
-_SEP_;
+		$sql="GRANT SELECT, INSERT, DELETE, UPDATE, DELETE, CREATE, DROP ON `$db_name`.* TO '$db_user'@'$db_host'";
 		$db_conn->exec($sql);
 
 		$sql="FLUSH PRIVILEGES";
@@ -461,8 +455,8 @@ _SEP_;
 
 		$sql= <<<_SEP_
 INSERT INTO `${db_prefix}content_text` (`content_id`, `locale`, `text`, `eval`) VALUES
-(1, 'fr', '<p>Votre site <b>iZend</b> est maintenant opérationnel.</p>\r\n<p class="readmore">Lisez la <a href="/fr/documentation">documentation</a>.</p>\r\n<p>Validé avec\r\n<span class="btn_browser" id="browser_firefox" title="Firefox">Firefox</span>,\r\n<span class="btn_browser" id="browser_chrome" title="Chrome">Chrome</span>,\r\n<span class="btn_browser" id="browser_safari" title="Safari">Safari</span>,\r\n<span class="btn_browser" id="browser_opera" title="Opera">Opera</span>\r\net\r\n<span class="nowrap"><span class="btn_browser" id="browser_ie" title="Internet Explorer">Internet Explorer</span>.</span></p>', '0'),
-(1, 'en', '<p>Your <b>iZend</b> site is now operational.</p>\r\n<p class="readmore">Read the <a href="/en/documentation">documentation</a>.</p>\r\n<p>Validated with <span class="btn_browser" id="browser_firefox" title="Firefox">Firefox</span>,\r\n<span class="btn_browser" id="browser_chrome" title="Chrome">Chrome</span>,\r\n<span class="btn_browser" id="browser_safari" title="Safari">Safari</span>,\r\n<span class="btn_browser" id="browser_opera" title="Opera">Opera</span>\r\nand\r\n<span class="nowrap"><span class="btn_browser" id="browser_ie" title="Internet Explorer">Internet Explorer</span>.</span></p>', '0'),
+(1, 'fr', '<p>Votre site <b>iZend</b> est maintenant opérationnel.</p>\r\n<p class="readmore">Lisez la <a href="/fr/documentation">documentation</a>.</p>\r\n<p>Validé avec\r\n<span class="browser-firefox" title="Firefox">Firefox</span>,\r\n<span class="browser-chrome" title="Chrome">Chrome</span>,\r\n<span class="browser-safari" title="Safari">Safari</span>,\r\n<span class="browser-opera" title="Opera">Opera</span>\r\net\r\n<span class="nowrap"><span class="browser-ie" title="Internet Explorer">Internet Explorer</span>.</span>\r\n</p>', '0'),
+(1, 'en', '<p>Your <b>iZend</b> site is now operational.</p>\r\n<p class="readmore">Read the <a href="/en/documentation">documentation</a>.</p>\r\n<p>Validated with\r\n<span class="browser-firefox" title="Firefox">Firefox</span>,\r\n<span class="browser-chrome" title="Chrome">Chrome</span>,\r\n<span class="browser-safari" title="Safari">Safari</span>,\r\n<span class="browser-opera" title="Opera">Opera</span>\r\nand\r\n<span class="nowrap"><span class="browser-ie" title="Internet Explorer">Internet Explorer</span>.</span>\r\n</p>', '0'),
 (2, 'fr', '<p class="readmore">Consultez la <a href="http://www.izend.org/fr/documentation">documentation en ligne</a>.</p>', '0'),
 (2, 'en', '<p class="readmore">Read the <a href="http://www.izend.org/en/documentation">on-line documentation</a>.</p>', '0');
 _SEP_;

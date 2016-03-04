@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2012-2013 izend.org
- * @version    2
+ * @copyright  2012-2013 (2016) izend.org
+ * @version    2 (1)
  * @link       http://www.izend.org
  */
 
@@ -19,7 +19,7 @@ function newslettersubscribe($lang) {
 
 	$content = view('newslettersubscribe', $lang, compact('subscribe'));
 
-	$output = layout('standard', compact('banner', 'content'));
+	$output = layout('standard', compact('lang', 'banner', 'content'));
 
 	return $output;
 }

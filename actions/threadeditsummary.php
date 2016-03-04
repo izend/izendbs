@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2015 izend.org
- * @version    22
+ * @copyright  2010-2015 (2016) izend.org
+ * @version    22 (1)
  * @link       http://www.izend.org
  */
 
@@ -14,7 +14,7 @@ require_once 'userprofile.php';
 require_once 'models/thread.inc';
 
 function threadeditsummary($lang, $clang, $thread) {
-	global $supported_threads, $with_toolbar;
+	global $supported_threads;
 
 	if (!user_has_role('writer')) {
 		return run('error/unauthorized', $lang);
@@ -46,6 +46,9 @@ function threadeditsummary($lang, $clang, $thread) {
 	else if (isset($_POST['node_confirmdelete'])) {
 		$action='delete';
 		$confirmed=true;
+	}
+	else if (isset($_POST['node_canceldelete'])) {
+		$action='cancel';
 	}
 	else if (isset($_POST['node_hide'])) {
 		$action='hide';
@@ -89,6 +92,7 @@ function threadeditsummary($lang, $clang, $thread) {
 		case 'hide':
 		case 'show':
 		case 'reorder':
+		case 'cancel':
 			if (isset($_POST['thread_type'])) {
 				$thread_type=readarg($_POST['thread_type']);
 			}
@@ -436,9 +440,7 @@ function threadeditsummary($lang, $clang, $thread) {
 	$headline = compact('headline_text', 'headline_url');
 	$view=$thread_name ? url('thread', $clang) . '/'. $thread_id . '?' . 'slang=' . $lang : false;
 
-	$scroll=true;
-	$banner = build('banner', $lang, $with_toolbar ? compact('headline') : compact('headline', 'view'));
-	$toolbar = $with_toolbar ? build('toolbar', $lang, compact('view', 'scroll')) : false;
+	$banner = build('banner', $lang, compact('headline', 'view'));
 
 	$title = view('headline', false, $headline);
 	$sidebar = view('sidebar', false, compact('title'));
@@ -449,7 +451,7 @@ function threadeditsummary($lang, $clang, $thread) {
 
 	$content = view('editing/threadeditsummary', $lang, compact('clang', 'inlanguages', 'supported_threads', 'thread_id', 'thread_type', 'thread_title', 'thread_name', 'thread_abstract', 'thread_cloud', 'thread_image', 'thread_visits', 'thread_search', 'thread_tag', 'thread_comment', 'thread_morecomment', 'thread_vote', 'thread_morevote', 'thread_ilike', 'thread_tweet', 'thread_plusone', 'thread_linkedin', 'thread_pinit', 'thread_contents', 'new_node_name', 'new_node_title', 'new_node_number', 'old_node_number', 'confirm_delete_node', 'errors'));
 
-	$output = layout('editing', compact('toolbar', 'banner', 'content', 'sidebar'));
+	$output = layout('editing', compact('lang', 'banner', 'content', 'sidebar'));
 
 	return $output;
 }

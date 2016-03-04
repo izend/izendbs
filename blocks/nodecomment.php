@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    10
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    10 (1)
  * @link       http://www.izend.org
  */
 
@@ -280,7 +280,7 @@ function nodecomment($lang, $node_id, $node_user_id, $node_url, $nomore) {
 
 	$errors = compact('missing_code', 'bad_code', 'missing_message', 'message_too_long');
 
-	$output = view('nodecomment', $lang, compact('token', 'with_captcha', 'comments', 'moderated', 'id', 'newcomment', 'message', 'message_maxlen', 'user_page', 'node_url', 'errors'));
+	$output = view('nodecomment', $lang, compact('token', 'action', 'with_captcha', 'comments', 'moderated', 'id', 'newcomment', 'message', 'message_maxlen', 'user_page', 'node_url', 'errors'));
 
 	return $output;
 }

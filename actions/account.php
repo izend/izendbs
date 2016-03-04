@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    4
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    4 (1)
  * @link       http://www.izend.org
  */
 
@@ -27,7 +27,7 @@ function account($lang) {
 
 	$content = view('account', $lang, compact('useredit'));
 
-	$output = layout('standard', compact('banner', 'content'));
+	$output = layout('standard', compact('lang', 'banner', 'content'));
 
 	return $output;
 }

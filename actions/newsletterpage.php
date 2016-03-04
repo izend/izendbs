@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2012-2014 izend.org
- * @version    6
+ * @copyright  2012-2014 (2016) izend.org
+ * @version    6 (1)
  * @link       http://www.izend.org
  */
 
@@ -15,8 +15,6 @@ require_once 'models/thread.inc';
 require_once 'models/newsletter.inc';
 
 function newsletterpage($lang, $newsletter, $page) {
-	global $with_toolbar;
-
 	$newsletter_id = thread_id($newsletter);
 	if (!$newsletter_id) {
 		return run('error/notfound', $lang);
@@ -166,10 +164,9 @@ function newsletterpage($lang, $newsletter, $page) {
 	$edit=user_has_role('writer') ? url('newsletteredit', $_SESSION['user']['locale']) . '/'. $newsletter_id . '/' . $page_id . '?' . 'clang=' . $lang : false;
 	$validate=url('newsletter', $lang) . '/' . $page_name;
 
-	$banner = build('banner', $lang, $with_toolbar ? compact('headline', 'search') : compact('headline', 'edit', 'validate', 'search'));
-	$toolbar = $with_toolbar ? build('toolbar', $lang, compact('edit', 'validate')) : false;
+	$banner = build('banner', $lang, compact('headline', 'edit', 'validate', 'search'));
 
-	$output = layout('standard', compact('toolbar', 'banner', 'content', 'sidebar'));
+	$output = layout('standard', compact('lang', 'banner', 'content', 'sidebar'));
 
 	return $output;
 }

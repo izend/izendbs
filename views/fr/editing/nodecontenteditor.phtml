@@ -2,23 +2,28 @@
 
 /**
  *
- * @copyright  2010-2015 izend.org
- * @version    20
+ * @copyright  2010-2015 (2016) izend.org
+ * @version    20 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php if($content_types or $node_contents): ?>
 <?php extract($errors); ?>
-<form action="" method="post">
+<form method="post">
 <input name="clang" type="hidden" value="<?php echo $clang; ?>" />
-<p>
-<?php if ($content_types) :?>
-<input class="submit submit_add" id="content_create" name="content_create" type="submit" value="Ajouter" />
-un type
+<span id="nodecontent_hidy" class="hidy"></span>
+<div class="form-group">
+<?php if ($content_types): ?>
+<div class="form-group form-inline">
+<div class="form-group">
+<button type="submit" class="btn <?php if ($missing_new_content_type or $bad_new_content_type or $bad_new_content_number): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="content_create" id="content_create">Ajouter</button>
+<span class="form-control-static">un type</span>
+</div>
 <?php
 $selected=$new_content_type ? $new_content_type : $content_types[0];
 ?>
-<select id="content_new_type" name="content_new_type" size="1">
+<div class="form-group form-inline-auto">
+<select class="form-control" name="content_new_type" size="1">
 <?php foreach ($content_types as $type): ?>
 <?php if ($type == 'text'): ?>
 <option value="text" <?php echo $selected == 'text' ? 'selected="selected"' : ''; ?>>Texte</option>
@@ -35,24 +40,26 @@ $selected=$new_content_type ? $new_content_type : $content_types[0];
 <?php endif; ?>
 <?php endforeach; ?>
 </select>
-<span class="nowrap">
-#
-<input id="content_new_number" name="content_new_number" type="text" size="2" maxlength="3" value="<?php echo htmlspecialchars($new_content_number, ENT_COMPAT, 'UTF-8'); ?>" title="Numéro"/>
-</span>
+<?php if ($node_contents): ?>
+<span class="form-control-static">#</span>
+<input type="text" class="form-control" name="content_new_number" id="content_new_number" size="2" maxlength="3" value="<?php echo htmlspecialchars($new_content_number, ENT_COMPAT, 'UTF-8'); ?>" />
+<?php endif; ?>
+</div>
 <?php endif; ?>
 <?php if ($node_contents): ?>
 <?php if ($content_types) :?>
-ou
+<div class="form-group form-inline-auto">
+<div class="form-group">
+<span class="form-control-static">ou</span>
+</div>
 <?php endif; ?>
-<input class="submit submit_delete" id="content_delete" name="content_delete" type="submit" value="Supprimer" />
-le
-<span class="nowrap">
-#
-<input id="content_old_number" name="content_old_number" type="text" size="2" maxlength="3" value="<?php echo htmlspecialchars($old_content_number, ENT_COMPAT, 'UTF-8'); ?>" title="Numéro"/>
-</span>
+<button type="submit" class="btn <?php if ($missing_old_content_number or $bad_old_content_number): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="content_delete" id="content_delete">Supprimer</button>
+<span class="form-control-static">le #</span>
+<input type="text" class="form-control" name="content_old_number" id="content_old_number" size="2" maxlength="3" placeholder="" value="<?php echo htmlspecialchars($old_content_number, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
 <?php endif; ?>
-<span id="nodecontent_hidy" class="hidy">+</span>
-</p>
+</div>
+</div>
 <?php if ($node_contents): ?>
 <div id="nodecontent">
 <?php
@@ -77,34 +84,17 @@ foreach ($node_contents as $c) {
 	$content_longtail_autostart=$content_longtail_repeat=false;
 	extract($c);	/* content_id content_number content_ignored content_type ... */
 ?>
-<p class="<?php echo $content_ignored ? 'ignored' : (($i % 2) ? 'odd' : 'even'); ?>">
+<div class="form-group form-inline-auto <?php echo $content_ignored ? 'bg-ignored' : (($i % 2) ? 'bg-odd' : 'bg-even'); ?>">
 <input name="content_id[<?php echo $i; ?>]" type="hidden" value="<?php echo $content_id; ?>"/>
-<input name="content_p[<?php echo $i; ?>]" type="text" size="2" maxlength="3" value="<?php echo htmlspecialchars($content_pos, ENT_COMPAT, 'UTF-8'); ?>"/>
-<input id="content_ignored[<?php echo $i; ?>]" name="content_ignored[<?php echo $i; ?>]" type="checkbox"<?php if ($content_ignored): ?> checked="checked"<?php endif; ?> /><label for="content_ignored[<?php echo $i; ?>]"><span class="btn_edit btn_ignored">ignoré</span></label>
-<?php switch ($content_type): ?>
-<?php case 'text': ?>
-<label>Texte&nbsp;:</label>
-<?php break; ?>
-<?php case 'infile': ?>
-<label>Insertion&nbsp;:</label>
-<?php break; ?>
-<?php case 'download': ?>
-<label>Téléchargement&nbsp;:</label>
-<?php break; ?>
-<?php case 'file': ?>
-<label>Fichier&nbsp;:</label>
-<?php break; ?>
-<?php case 'youtube': ?>
-<label>YouTube&nbsp;:</label>
-<?php break; ?>
-<?php case 'longtail': ?>
-<label>LongTail&nbsp;:</label>
-<?php break; ?>
-<?php endswitch; ?>
-</p>
+<input type="text" class="form-control" name="content_p[<?php echo $i; ?>]" size="2" maxlength="3" value="<?php echo htmlspecialchars($content_pos, ENT_COMPAT, 'UTF-8'); ?>" />
+<div class="checkbox-inline"><label><input name="content_ignored[<?php echo $i; ?>]" type="checkbox"<?php if ($content_ignored): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_ignored">ignoré</span></label></div>
+<?php $types=array('text' => 'Texte', 'infile' => 'Insertion', 'download' => 'Téléchargement','file' => 'Fichier', 'youtube' => 'YouTube', 'longtail' => 'Longtail'); ?>
+<span class="form-control-static"><strong><?php echo $types[$content_type]; ?></strong></span>
+</div>
 <?php switch ($content_type): ?>
 <?php case 'text': ?>
 <div class="tagbar">
+<span class="form-control-static">
 <span class="btn_edit btn_p" title="p" onclick="addtag('content_text_text_<?php echo $i; ?>', '&lt;p&gt;','&lt;/p&gt;')">&lt;p&gt;</span>
 <span class="btn_edit btn_b" title="b" onclick="addtag('content_text_text_<?php echo $i; ?>', '&lt;b&gt;','&lt;/b&gt;')">&lt;b&gt;</span>
 <span class="btn_edit btn_i" title="i" onclick="addtag('content_text_text_<?php echo $i; ?>', '&lt;i&gt;','&lt;/i&gt;')">&lt;i&gt;</span>
@@ -124,86 +114,140 @@ foreach ($node_contents as $c) {
 <span class="btn_edit btn_a" title="a" onclick="addtag('content_text_text_<?php echo $i; ?>', '&lt;a href=\x22#\x22&gt;','&lt;/a&gt;')">&lt;a&gt;</span>
 <span class="btn_edit btn_entquote" title="entquote" onclick="entquote('content_text_text_<?php echo $i; ?>')">entquote</span>
 <span class="btn_edit btn_striptags" title="striptags" onclick="striptags('content_text_text_<?php echo $i; ?>')">striptags</span>
-<span class="tagmore">
-<input id="content_text_eval[<?php echo $i; ?>]" name="content_text_eval[<?php echo $i; ?>]" type="checkbox"<?php if ($content_text_eval): ?> checked="checked"<?php endif; ?> /><label for="content_text_eval[<?php echo $i; ?>]"><span class="btn_edit btn_seval" title="seval">PHP</span></label>
+</span>
+<span class="checkbox-inline">
+<input name="content_text_eval[<?php echo $i; ?>]" type="checkbox"<?php if ($content_text_eval): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_seval" title="seval">PHP</span>
 </span>
 </div>
-<textarea id="content_text_text_<?php echo $i; ?>" name="content_text_text[<?php echo $i; ?>]" cols="100" rows="8"><?php echo htmlspecialchars($content_text_text, ENT_COMPAT, 'UTF-8'); ?></textarea>
-<br/><span class="grippie btn_edit btn_grippie">===</span>
+<div class="form-group form-inline-auto">
+<?php $ncols=100; $nrows=min(10, max(4, substr_count(wordwrap($content_text_text, $ncols), "\n")+1));?>
+<textarea class="form-control monospace" id="content_text_text_<?php echo $i; ?>" name="content_text_text[<?php echo $i; ?>]" cols="<?php echo $ncols; ?>" rows="<?php echo $nrows; ?>"><?php echo htmlspecialchars($content_text_text, ENT_COMPAT, 'UTF-8'); ?></textarea>
+</div>
 <?php break; ?>
 <?php case 'infile': ?>
-<p>
-<input name="content_infile_path[<?php echo $i; ?>]" type="text" size="40" maxlength="200" value="<?php echo htmlspecialchars($content_infile_path, ENT_COMPAT, 'UTF-8'); ?>" title="Fichier" />
-</p>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_infile_path[<?php echo $i; ?>]" size="30" maxlength="200" placeholder="Fichier" value="<?php echo htmlspecialchars($content_infile_path, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
 <?php break; ?>
 <?php case 'download': ?>
-<p>
-<input name="content_download_name[<?php echo $i; ?>]" type="text" size="20" maxlength="50" value="<?php echo htmlspecialchars($content_download_name, ENT_COMPAT, 'UTF-8'); ?>" title="Nom" />
-<input name="content_download_path[<?php echo $i; ?>]" type="text" size="40" maxlength="200" value="<?php echo htmlspecialchars($content_download_path, ENT_COMPAT, 'UTF-8'); ?>" title="Fichier" />
-</p>
+<div class="form-group form-inline">
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_download_name[<?php echo $i; ?>]" size="20" maxlength="50" placeholder="Nom" value="<?php echo htmlspecialchars($content_download_name, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_download_path[<?php echo $i; ?>]" size="30" maxlength="200" placeholder="Fichier" value="<?php echo htmlspecialchars($content_download_path, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
+</div>
 <?php break; ?>
 <?php case 'file': ?>
-<p>
-<input name="content_file_path[<?php echo $i; ?>]" type="text" size="40" maxlength="200" value="<?php echo htmlspecialchars($content_file_path, ENT_COMPAT, 'UTF-8'); ?>" title="Fichier" />
-<input name="content_file_start[<?php echo $i; ?>]" type="text" size="5" maxlength="5" value="<?php echo htmlspecialchars($content_file_start, ENT_COMPAT, 'UTF-8'); ?>" title="Début" />
-<input name="content_file_end[<?php echo $i; ?>]" type="text" size="5" maxlength="5" value="<?php echo htmlspecialchars($content_file_end, ENT_COMPAT, 'UTF-8'); ?>" title="Fin" />
-<input name="content_file_format[<?php echo $i; ?>]" type="text" size="10" maxlength="20" value="<?php echo htmlspecialchars($content_file_format, ENT_COMPAT, 'UTF-8'); ?>" title="Format" />
-<input id="content_file_lineno[<?php echo $i; ?>]" name="content_file_lineno[<?php echo $i; ?>]" type="checkbox"<?php if ($content_file_lineno): ?> checked="checked"<?php endif; ?> /><label for="content_file_lineno[<?php echo $i; ?>]"><span class="btn_edit btn_number" title="Numéroter">numéroter</span></label>
-</p>
+<div class="form-group form-inline">
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_file_path[<?php echo $i; ?>]" size="30" maxlength="200" placeholder="Fichier" value="<?php echo htmlspecialchars($content_file_path, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_file_start[<?php echo $i; ?>]" size="5" maxlength="5" placeholder="Début" value="<?php echo htmlspecialchars($content_file_start, ENT_COMPAT, 'UTF-8'); ?>" />
+<input type="text" class="form-control" name="content_file_end[<?php echo $i; ?>]" size="5" maxlength="5" placeholder="Fin" value="<?php echo htmlspecialchars($content_file_end, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_file_format[<?php echo $i; ?>]" size="10" maxlength="20" placeholder="Format" value="<?php echo htmlspecialchars($content_file_format, ENT_COMPAT, 'UTF-8'); ?>" />
+<div class="checkbox-inline">
+<label><input name="content_file_lineno[<?php echo $i; ?>]" type="checkbox"<?php if ($content_file_lineno): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_number" title="Numéroter">numéroter</span></label>
+</div>
+</div>
+</div>
 <?php break; ?>
 <?php case 'youtube': ?>
-<p>
-<input name="content_youtube_id[<?php echo $i; ?>]" type="text" size="11" maxlength="20" value="<?php echo htmlspecialchars($content_youtube_id, ENT_COMPAT, 'UTF-8'); ?>" title="Id" />
-<input name="content_youtube_width[<?php echo $i; ?>]" type="text" size="5" maxlength="5" value="<?php echo htmlspecialchars($content_youtube_width, ENT_COMPAT, 'UTF-8'); ?>" title="Largeur" />
-x
-<input name="content_youtube_height[<?php echo $i; ?>]" type="text" size="5" maxlength="5" value="<?php echo htmlspecialchars($content_youtube_height, ENT_COMPAT, 'UTF-8'); ?>" title="Hauteur" />
-<input id="content_youtube_autoplay[<?php echo $i; ?>]" name="content_youtube_autoplay[<?php echo $i; ?>]" type="checkbox"<?php if ($content_youtube_autoplay): ?> checked="checked"<?php endif; ?> /><label for="content_youtube_autoplay[<?php echo $i; ?>]"><span class="btn_edit btn_autoplay" title="Auto">auto</span></label>
-<select name="content_youtube_theme[<?php echo $i; ?>]" title="Thème">
+<div class="form-group form-inline">
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_youtube_id[<?php echo $i; ?>]" size="11" maxlength="20" placeholder="Id" value="<?php echo htmlspecialchars($content_youtube_id, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_youtube_width[<?php echo $i; ?>]" size="5" maxlength="5" placeholder="Largeur" value="<?php echo htmlspecialchars($content_youtube_width, ENT_COMPAT, 'UTF-8'); ?>" />
+<span class="form-control-static">x</span>
+<input type="text" class="form-control" name="content_youtube_height[<?php echo $i; ?>]" size="5" maxlength="5" placeholder="Hauteur" value="<?php echo htmlspecialchars($content_youtube_height, ENT_COMPAT, 'UTF-8'); ?>" />
+<div class="checkbox-inline">
+<label><input name="content_youtube_autoplay[<?php echo $i; ?>]" type="checkbox"<?php if ($content_youtube_autoplay): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_autoplay" title="Auto">auto</span></label>
+</div>
+</div>
+<div class="form-group form-inline-auto">
+<select class="form-control" name="content_youtube_theme[<?php echo $i; ?>]" size="1" title="Thème">
 <?php foreach (array('dark' => 'sombre', 'light' => 'clair') as $tm => $ts): ?>
 <option value="<?php echo $tm; ?>"<?php if ($content_youtube_theme == $tm) : ?> selected="selected"<?php endif; ?>><?php echo $ts; ?></option>
 <?php endforeach; ?>
 </select>
-<input id="content_youtube_controls[<?php echo $i; ?>]" name="content_youtube_controls[<?php echo $i; ?>]" type="checkbox"<?php if ($content_youtube_controls): ?> checked="checked"<?php endif; ?> /><label for="content_youtube_controls[<?php echo $i; ?>]"><span class="btn_edit btn_controls" title="Contrôles">contrôles</span></label>
-<input id="content_youtube_fs[<?php echo $i; ?>]" name="content_youtube_fs[<?php echo $i; ?>]" type="checkbox"<?php if ($content_youtube_fs): ?> checked="checked"<?php endif; ?> /><label for="content_youtube_fs[<?php echo $i; ?>]"><span class="btn_edit btn_fs" title="Plein écran">fs</span></label>
-<input id="content_youtube_rel[<?php echo $i; ?>]" name="content_youtube_rel[<?php echo $i; ?>]" type="checkbox"<?php if ($content_youtube_rel): ?> checked="checked"<?php endif; ?> /><label for="content_youtube_rel[<?php echo $i; ?>]"><span class="btn_edit btn_rel" title="Liens">liens</span></label>
-</p>
-<p>
-<input name="content_youtube_miniature[<?php echo $i; ?>]" type="text" size="40" maxlength="200" value="<?php echo htmlspecialchars($content_youtube_miniature, ENT_COMPAT, 'UTF-8'); ?>" title="Miniature" />
-<input name="content_youtube_title[<?php echo $i; ?>]" type="text" size="40" maxlength="200" value="<?php echo htmlspecialchars($content_youtube_title, ENT_COMPAT, 'UTF-8'); ?>" title="Titre" />
-</p>
+<div class="checkbox-inline">
+<label><input name="content_youtube_controls[<?php echo $i; ?>]" type="checkbox"<?php if ($content_youtube_controls): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_controls" title="Contrôles">contrôles</span></label>
+</div>
+<div class="checkbox-inline">
+<label><input name="content_youtube_fs[<?php echo $i; ?>]" type="checkbox"<?php if ($content_youtube_fs): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_fs" title="Plein écran">fs</span></label>
+</div>
+<div class="checkbox-inline">
+<label><input name="content_youtube_rel[<?php echo $i; ?>]" type="checkbox"<?php if ($content_youtube_rel): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_rel" title="Liens">liens</span></label>
+</div>
+</div>
+</div>
+<div class="form-group form-inline">
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_youtube_miniature[<?php echo $i; ?>]" size="30" maxlength="200" placeholder="Miniature" value="<?php echo htmlspecialchars($content_youtube_miniature, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_youtube_title[<?php echo $i; ?>]" size="30" maxlength="200" placeholder="Titre" value="<?php echo htmlspecialchars($content_youtube_title, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
+</div>
 <?php break; ?>
 <?php case 'longtail': ?>
-<p>
-<input name="content_longtail_file[<?php echo $i; ?>]" type="text" size="40" maxlength="200" value="<?php echo htmlspecialchars($content_longtail_file, ENT_COMPAT, 'UTF-8'); ?>" title="Fichier" />
-<input name="content_longtail_width[<?php echo $i; ?>]" type="text" size="5" maxlength="5" value="<?php echo htmlspecialchars($content_longtail_width, ENT_COMPAT, 'UTF-8'); ?>" title="Largeur" />
-x
-<input name="content_longtail_height[<?php echo $i; ?>]" type="text" size="5" maxlength="5" value="<?php echo htmlspecialchars($content_longtail_height, ENT_COMPAT, 'UTF-8'); ?>" title="Hauteur" />
-<span class="btn_edit btn_time">Durée :</span>
-<input name="content_longtail_duration[<?php echo $i; ?>]" type="text" size="5" maxlength="5" value="<?php echo htmlspecialchars($content_longtail_duration, ENT_COMPAT, 'UTF-8'); ?>" title="Durée" />
-<input id="content_longtail_autostart[<?php echo $i; ?>]" name="content_longtail_autostart[<?php echo $i; ?>]" type="checkbox"<?php if ($content_longtail_autostart): ?> checked="checked"<?php endif; ?> /><label for="content_longtail_autostart[<?php echo $i; ?>]"><span class="btn_edit btn_autostart" title="Auto">auto</span></label><input id="content_longtail_repeat[<?php echo $i; ?>]" name="content_longtail_repeat[<?php echo $i; ?>]" type="checkbox"<?php if ($content_longtail_repeat): ?> checked="checked"<?php endif; ?> /><label for="content_longtail_repeat[<?php echo $i; ?>]"><span class="btn_edit btn_repeat" title="Boucle">boucle</span></label>
-</p>
-<p>
-<input name="content_longtail_image[<?php echo $i; ?>]" type="text" size="40" maxlength="200" value="<?php echo htmlspecialchars($content_longtail_image, ENT_COMPAT, 'UTF-8'); ?>" title="Image" />
-<input id="content_longtail_icons[<?php echo $i; ?>]" name="content_longtail_icons[<?php echo $i; ?>]" type="checkbox"<?php if ($content_longtail_icons): ?> checked="checked"<?php endif; ?> /><label for="content_longtail_icons[<?php echo $i; ?>]"><span class="btn_edit btn_playicon" title="Icônes">icônes</span></label>
-</p>
-<p>
-<input name="content_longtail_skin[<?php echo $i; ?>]" type="text" size="40" maxlength="200" value="<?php echo htmlspecialchars($content_longtail_skin, ENT_COMPAT, 'UTF-8'); ?>" title="Habillage" />
-<select name="content_longtail_controlbar[<?php echo $i; ?>]" title="Barre de contrôle">
+<div class="form-group form-inline">
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_longtail_file[<?php echo $i; ?>]" size="30" maxlength="200" placeholder="Fichier" value="<?php echo htmlspecialchars($content_longtail_file, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_longtail_width[<?php echo $i; ?>]" size="5" maxlength="5" placeholder="Largeur" value="<?php echo htmlspecialchars($content_longtail_width, ENT_COMPAT, 'UTF-8'); ?>" />
+<span class="form-control-static">x</span>
+<input type="text" class="form-control" name="content_longtail_height[<?php echo $i; ?>]" size="5" maxlength="5" placeholder="Hauteur" value="<?php echo htmlspecialchars($content_longtail_height, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
+<div class="form-group form-inline-auto">
+<span class="form-control-static">&rarr;</span>
+<input type="text" class="form-control" name="content_longtail_duration[<?php echo $i; ?>]" size="5" maxlength="5" placeholder="Durée" value="<?php echo htmlspecialchars($content_longtail_duration, ENT_COMPAT, 'UTF-8'); ?>" />
+<div class="checkbox-inline">
+<label><input name="content_longtail_autostart[<?php echo $i; ?>]" type="checkbox"<?php if ($content_longtail_autostart): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_autostart" title="Auto">auto</span></label>
+</div>
+<div class="checkbox-inline">
+<label><input name="content_longtail_repeat[<?php echo $i; ?>]" type="checkbox"<?php if ($content_longtail_repeat): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_repeat" title="Boucle">boucle</span></label>
+</div>
+</div>
+</div>
+<div class="form-group form-inline">
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_longtail_image[<?php echo $i; ?>]" size="30" maxlength="200" placeholder="Image" value="<?php echo htmlspecialchars($content_longtail_image, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
+<div class="form-group">
+<div class="checkbox-inline">
+<label><input name="content_longtail_icons[<?php echo $i; ?>]" type="checkbox"<?php if ($content_longtail_icons): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_playicon" title="Icônes">icônes</span></label>
+</div>
+</div>
+</div>
+<div class="form-group form-inline">
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="content_longtail_skin[<?php echo $i; ?>]" size="30" maxlength="200" placeholder="Habillage" value="<?php echo htmlspecialchars($content_longtail_skin, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
+<div class="form-group form-inline-auto">
+<select class="form-control" name="content_longtail_controlbar[<?php echo $i; ?>]" size="1" title="Barre de contrôle">
 <?php foreach (array('none' => 'aucune', 'over' => 'au dessus', 'top' => 'en haut', 'bottom' => 'en bas') as $cb => $tr): ?>
 <option value="<?php echo $cb; ?>"<?php if ($content_longtail_controlbar == $cb) : ?> selected="selected"<?php endif; ?>><?php echo $tr; ?></option>
 <?php endforeach; ?>
 </select>
-</p>
+</div>
+</div>
 <?php break; ?>
 <?php endswitch; ?>
 <?php
 	$i++;
 }
 ?>
-<p>
-<input class="submit submit_modify" id="content_modify" name="content_modify" type="submit" value="Modifier" />
-le contenu
-</p>
+<div class="form-group">
+<button type="submit" class="btn <?php if ($bad_contents): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="content_modify" id="content_modify">Modifier</button>
+<span class="form-control-static">le contenu</span>
+</div>
 </div>
 <?php endif; ?>
 </form>
@@ -232,32 +276,4 @@ else if ($missing_old_content_number or $bad_old_content_number) {
 $(function() {$('<?php echo $focus; ?>').focus(); $.scrollTo('<?php echo $focus; ?>', {offset: -200}); });
 </script>
 <?php endif; ?>
-<script type="text/javascript">
-$(document).ready(function() {
-	$('.grippie').each(function() {
-		var grippie = $(this);
-		var textarea = grippie.prev().prev();
-		var offset;
-
-		grippie.mousedown(startDrag);
-
-	    function startDrag(e) {
-	      offset = textarea.height() - e.pageY;
-	      textarea.css('opacity', 0.25);
-	      $(document).mousemove(performDrag).mouseup(endDrag);
-	      return false;
-	    }
-
-	    function performDrag(e) {
-	      textarea.height(Math.max(32, offset + e.pageY) + 'px');
-	      return false;
-	    }
-
-	    function endDrag(e) {
-	      $(document).unbind('mousemove', performDrag).unbind('mouseup', endDrag);
-	      textarea.css('opacity', 1);
-	    }
-	});
-});
-</script>
 <?php endif; ?>

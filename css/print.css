@@ -1,127 +1,28 @@
 /**
  *
- * @copyright  2010-2016 izend.org
- * @version    37
+ * @copyright  2010-2016 (2016) izend.org
+ * @version    41 (1)
  * @link       http://www.izend.org
  */
  
 /* print.css */
 
+a[href]:after {
+	content: none
+}
+
 * {background-color:white !important;}
-
-body {line-height:1.5;font-family:inherit;color:black;background:none;font-size:10pt;}
-hr {background:grey;color:grey;width:100%;height:0;padding:0;margin:1em 0;border:1px solid;}
-h1, h2, h3, h4, h5, h6 {font-family:inherit}
-code {font-family:"Courier New", Courier, monospace;font-size:.9em;}
-pre {font-family:Verdana, sans-serif;}
-a img {border:none;}
-blockquote {margin:1em 2em;padding:0;font-size:.9em;}
-a {color:black;text-decoration:none;}
-
-h1 {font-size:170%;}
-h2 {font-size:160%;line-height:130%;}
-h3 {font-size:140%;}
-h4 {font-size:110%;}
-h5 {font-size:110%;}
-h6 {font-size:100%;}
-
-h1,h2,h3,h4,h5,h6 {font-weight:bold;margin:1em 0;}
-
-input, select, textarea {font-size:100%;border:none;vertical-align:middle;}
-
-fieldset {display:inline-block;padding:0.5em;}
-
-img {vertical-align:middle;max-width:100%;height:auto;}
-
-ol {list-style-type:decimal;}
-ul {list-style-type:disc;}
-
-h1, h2, h3, h4, h5, h6 {page-break-after:avoid;page-break-inside:avoid;}
-blockquote, table, pre {page-break-inside:avoid;}
-ul, ol, dl {page-break-before:avoid;}
-img {page-break-inside:avoid;page-break-after:avoid;float:none;}
-
-table th, table td {padding:5px;margin:0;}
-table td:first-child {padding-left:0;}
-table td:last-child {padding-right:0;}
-
-audio, video {display:none;}
 
 .pagebreak {page-break-before:always;}
 .nopagebreak {page-break-before:avoid !important;}
 
-.clear {clear:both;}
-
-.hidden {display:none;}
-.noprint {display:none;}
-
-.top {margin-top:0 !important;}
-.bottom {margin-bottom:0 !important;}
-
-.left {float:left;margin:0.25em 1em 0.25em 0 !important;}
-.right {float:right;margin:0.25em 0 0.25em 1em !important;}
-
-.aleft {text-align:left;}
-.aright {text-align:right;}
-.acenter {text-align:center;}
-
-.date, .author {color:black;font-style:italic;}
-
-.submit {border:none;vertical-align:middle;}
-
-div.row {width:100%;padding:0;margin:1em 0;}
-div.row > * {display:inline-block;padding:0;margin:0 3px;vertical-align:top;}
-div.row > *:first-child {margin-left:0;}
-div.row > *:last-child {margin-right:0;}
-div.row.compact > * {margin-left:0;margin-right:0;}
-div.row.tight {margin:0;}
-
-div.bytwo > * {width:48%;}
-div.bythree > * {width:32%;}
-div.byfour > * {width:23%;}
-
-div.hbar > * {margin-left:0.5em;margin-right:0.5em;}
-div.hbar > *:first-child {margin-left:0;}
-div.hbar > *:last-child {margin-right:0}
-
-div.vbar > * {margin-top:0.5em;margin-bottom:0.5em;}
-div.vbar > *:first-child {margin-top:0;}
-div.vbar > *:last-child {margin-bottom:0;}
-
-.menu, .menubar, .sidebar, .besocial, .cloud, .link, .readmore, .summary, .vignette, .vote, .visits, .grippie, .tagbar {display:none !important;}
-
-.video-js {display:none;}
-
-#banner, #sidebar, #footermenu {display:none;}
-
-#searchlinks ol {margin:1em 0;padding:0;}
-#searchlinks li {list-style:none;}
-#searchlinks li > * {display:block;margin:1em 0;}
-#searchlinks li a {font-weight:bold;}
-#searchlinks li div {font-style:italic;}
+#comments {page-break-before:always;}
 
 div.file {font-family:monospace;font-size:.9em;}
 div.download, div.longtail, div.youtube {display:none;}
 
-ol.tree li.dirnode {font-style:italic;}
-ol.tree li.filenode {font-style:normal;}
+form, audio, video, .audioplayer {display:none;}
 
-.monospace {font-family:monospace;font-size:9pt;}
-.proportional {font-family:sans-serif;}
-
-.smaller {font-size:smaller;}
-.larger {font-size:larger;}
-
-.geshi {font-family:"Courier New", Courier, monospace;font-size:.9em;}
-
-#comments {page-break-before:always;}
-
-.userresult {font-size:larger;font-weight:bold;}
-.userlogged {text-align:right;}
-
-.ui-accordion .ui-accordion-content {display:block !important;}
-.ui-datepicker-trigger {display:none;}
-
-.audioplayer {display:none;}
+.avatar, #newcomment, #oldcomment, #sidebar, #footer {display:none;}
 
 .fb-like-box, #pinterest-board {display:none !important;}

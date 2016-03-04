@@ -2,25 +2,25 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    9
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    9 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php if (!empty($title) or !empty($search) or !empty($summary) or !empty($cloud)): ?>
 <div id="sidebar">
 <?php if (true): ?>
-<?php if (!empty($search)): ?>
-<?php echo $search; ?>
-<?php endif; ?>
-<?php endif; ?>
-<?php if (false): ?>
 <?php if (!empty($title)): ?>
 <?php echo $title; ?>
 <?php endif; ?>
 <?php endif; ?>
+<?php if (false): ?>
+<?php if (!empty($search)): ?>
+<?php echo $search; ?>
+<?php endif; ?>
+<?php endif; ?>
 <?php if (!empty($summary)): ?>
-<ol id="summary" class="menu">
+<ol id="summary" class="list-unstyled">
 <?php foreach ($summary as $s): ?>
 <?php extract($s);	/* summary_page_id summary_page_title summary_page_url */ ?>
 <li><a href="<?php echo $summary_page_url; ?>"><?php echo htmlspecialchars($summary_page_title ? $summary_page_title : $summary_page_id, ENT_NOQUOTES, 'UTF-8', false); ?></a></li>
@@ -29,7 +29,7 @@
 <?php endif; ?>
 <?php if (!empty($cloud)): ?>
 <?php head('javascript', 'jquery.cookie'); ?>
-<div class="hidy">+</div>
+<span class="hidy"></span>
 <?php echo $cloud; ?>
 <script type="text/javascript">
 if ($.cookie('hidesidecloud') == 1) {

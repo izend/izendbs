@@ -2,27 +2,34 @@
 
 /**
  *
- * @copyright  2012 izend.org
- * @version    3
+ * @copyright  2012 (2016) izend.org
+ * @version    3 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php if (!empty($supported_currencies)): ?>
 <?php extract($errors); ?>
-<form id="donateme" class="noprint" action="" method="post">
+<form id="donateme" method="post">
 <input type="hidden" name="donateme_token" value="<?php echo $token; ?>" />
-<input id="donateme_amount" name="donateme_amount" type="text" size="3" maxlength="5" value="<?php echo $amount; ?>" title="Montant"/>
+<div class="form-inline">
+<div class="form-group form-inline-auto<?php if ($missing_amount or $bad_amount): ?> has-error<?php endif; ?>">
+<input type="text" class="form-control" name="donateme_amount" id="donateme_amount" size="3" maxlength="5" title="Montant" value="<?php echo $amount; ?>" />
 <?php if (count($supported_currencies) > 1): ?>
-<select name="donateme_currency">
+<select class="form-control" name="donateme_currency" size="1">
 <?php foreach ($supported_currencies as $curr): ?>
 <option value="<?php echo $curr; ?>"<?php if ($currency == $curr) : ?> selected="selected"<?php endif; ?>><?php echo $curr; ?></option>
 <?php endforeach; ?>
 </select>
 <?php else: ?>
 <input type="hidden" name="donateme_currency" value="<?php echo $supported_currencies[0]; ?>" />
-<span class="smaller"><?php echo $supported_currencies[0]; ?></span>&nbsp;
+<span class="form-control-static"><?php echo $supported_currencies[0]; ?></span>
 <?php endif; ?>
-<input type="submit" class="submit submit_donate" name="donateme_donate" id="donateme_donate" value="Donner" title="PayPal - La solution de paiement en ligne la plus simple et la plus sécurisée !"/>
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-blank donate-fr" name="donateme_donate" id="donateme_donate" title="PayPal - La solution de paiement en ligne la plus simple et la plus sécurisée !"></button>
+</div>
+</div>
+</div>
 </form>
 <?php endif; ?>
 <?php

@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    25
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    25 (1)
  * @link       http://www.izend.org
  */
 
@@ -12,8 +12,6 @@ require_once 'userhasrole.php';
 require_once 'models/thread.inc';
 
 function folderpage($lang, $folder, $page) {
-	global $with_toolbar;
-
 	$folder_id = thread_id($folder);
 	if (!$folder_id) {
 		return run('error/notfound', $lang);
@@ -97,7 +95,7 @@ function folderpage($lang, $folder, $page) {
 		$visits=build('visits', $lang, $page_id, $nomore);
 	}
 
-	$besocial=$sharebar=false;
+	$besocial=false;
 	if ($page_contents or $page_comment) {
 		$ilike=$thread_ilike && $node_ilike;
 		$tweetit=$thread_tweet && $node_tweet;
@@ -113,7 +111,7 @@ function folderpage($lang, $folder, $page) {
 			$pinit_image=$node_image;
 			$pinit=$pinit_text && $pinit_image ? compact('pinit_text', 'pinit_image') : false;
 		}
-		list($besocial, $sharebar) = socialize($lang, compact('ilike', 'tweetit', 'plusone', 'linkedin', 'pinit'));
+		$besocial = socialize($lang, compact('ilike', 'tweetit', 'plusone', 'linkedin', 'pinit'));
 	}
 
 	$content = view('folderpage', false, compact('page_title', 'page_contents', 'page_comment', 'besocial', 'vote', 'visits'));
@@ -121,10 +119,16 @@ function folderpage($lang, $folder, $page) {
 	$edit=user_has_role('writer') ? url('folderedit', $_SESSION['user']['locale']) . '/'. $folder_id . '/'. $page_id . '?' . 'clang=' . $lang : false;
 	$validate=url('folder', $lang) . '/'. $folder_name . '/' . $page_name;
 
-	$banner = build('banner', $lang, $with_toolbar ? false : compact('edit', 'validate'));
-	$toolbar = $with_toolbar ? build('toolbar', $lang, compact('edit', 'validate')) : false;
+	$search_text='';
+	$search_url= url('home', $lang);
+	$suggest_url= url('suggest', $lang);
+	$search=compact('search_url', 'search_text', 'suggest_url');
+	$edit=user_has_role('writer') ? url('folderedit', $_SESSION['user']['locale']) . '/'. $folder_id . '/'. $page_id . '?' . 'clang=' . $lang : false;
+	$validate=url('folder', $lang) . '/'. $folder_name . '/' . $page_name;
 
-	$output = layout('standard', compact('sharebar', 'toolbar', 'banner', 'content'));
+	$banner = build('banner', $lang, compact('edit', 'validate', 'search'));
+
+	$output = layout('standard', compact('lang', 'banner', 'content'));
 
 	return $output;
 }

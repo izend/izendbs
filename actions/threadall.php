@@ -2,15 +2,15 @@
 
 /**
  *
- * @copyright  2010-2012 izend.org
- * @version    7
+ * @copyright  2010-2012 (2016) izend.org
+ * @version    7 (1)
  * @link       http://www.izend.org
  */
 
 require_once 'userhasrole.php';
 
 function threadall($lang) {
-	global $system_languages, $with_toolbar;
+	global $system_languages;
 
 	if (!user_has_role('writer')) {
 		return run('error/unauthorized', $lang);
@@ -38,16 +38,13 @@ function threadall($lang) {
 
 	$edit=user_has_role('writer') ? url('threadedit', $_SESSION['user']['locale']) . '?' . 'clang=' . $lang : false;
 
-	$banner = build('banner', $lang, $with_toolbar ? false : compact('edit'));
-
-	$scroll=true;
-	$toolbar = $with_toolbar ? build('toolbar', $lang, compact('edit', 'scroll')) : false;
+	$banner = build('banner', $lang, compact('edit'));
 
 	$threadlist = build('threadlist', $lang, false, false, $slang);
 
 	$content = view('threadall', $slang, compact('site_title', 'site_abstract', 'site_cloud', 'threadlist'));
 
-	$output = layout('viewing', compact('toolbar', 'banner', 'content'));
+	$output = layout('viewing', compact('lang', 'banner', 'content'));
 
 	return $output;
 }

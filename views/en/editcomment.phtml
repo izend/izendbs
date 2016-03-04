@@ -2,12 +2,12 @@
 
 /**
  *
- * @copyright  2010-2015 izend.org
- * @version    7
+ * @copyright  2010-2015 (2016) izend.org
+ * @version    7 (1)
  * @link       http://www.izend.org
  */
 ?>
-<div class="bbcodebar">
+<div class="tagbar">
 <span class="btn_edit btn_p" title="p" onclick="tagcomment('[p]','[/p]')">[p]</span>
 <span class="btn_edit btn_b" title="b" onclick="tagcomment('[b]','[/b]')">[b]</span>
 <span class="btn_edit btn_i" title="i" onclick="tagcomment('[i]','[/i]')">[i]</span>
@@ -21,11 +21,13 @@
 <span class="btn_edit btn_email" title="email" onclick="tagcomment('[email]','[/email]')">[email]</span>
 <span class="btn_edit btn_stripbbcodes" title="Plain text" onclick="stripcomment()">strip</span>
 <span class="btn_edit btn_help" title="Help" onclick="togglehelp()">help</span>
-<span id="comment_limiter" class="bbcodebar_limiter"><?php echo $message_maxlen; ?></span>
+<span id="comment_limiter"><?php echo $message_maxlen; ?></span>
 </div>
-<textarea id="comment_message" name="comment_message" cols="80" rows="10" title="Text" onkeyup="return inputlimit('comment_message', 'comment_limiter', <?php echo $message_maxlen; ?>)"><?php echo htmlspecialchars($message, ENT_COMPAT, 'UTF-8'); ?></textarea>
-<br/><span class="grippie btn_edit btn_grippie">===</span>
-<p id="comment_help" class="bbcodehelp">
+<div class="form-group form-inline-auto">
+<?php $ncols=80; $nrows=min(10, max(4, substr_count(wordwrap($message, $ncols), "\n")+1));?>
+<textarea class="form-control monospace" id="comment_message" name="comment_message" cols="<?php echo $ncols; ?>" rows="<?php echo $nrows; ?>" onkeyup="return inputlimit('comment_message', 'comment_limiter', <?php echo $message_maxlen; ?>)"><?php echo htmlspecialchars($message, ENT_COMPAT, 'UTF-8'); ?></textarea>
+</div>
+<p id="comment_help" class="help-block text-small">
 Enter a maximum of <b><?php echo $message_maxlen; ?></b> characters.<br />
 Improve the presentation of your text with the following formatting tags:<br />
 [<b>p</b>]paragraph[/p], [<b>b</b>]<b>bold</b>[/b], [<b>i</b>]<i>italics</i>[/i], [<b>u</b>]<u>underline</u>[/u], [<b>s</b>]<s>strike</s>[/s],
@@ -54,32 +56,4 @@ function togglehelp() {
 if ($.cookie('nocommenthelp') == '1') {
 	$('#comment_help').hide();
 }
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-	$('.grippie').each(function() {
-		var grippie = $(this);
-		var textarea = grippie.prev().prev();
-		var offset;
-
-		grippie.mousedown(startDrag);
-
-	    function startDrag(e) {
-	      offset = textarea.height() - e.pageY;
-	      textarea.css('opacity', 0.25);
-	      $(document).mousemove(performDrag).mouseup(endDrag);
-	      return false;
-	    }
-
-	    function performDrag(e) {
-	      textarea.height(Math.max(32, offset + e.pageY) + 'px');
-	      return false;
-	    }
-
-	    function endDrag(e) {
-	      $(document).unbind('mousemove', performDrag).unbind('mouseup', endDrag);
-	      textarea.css('opacity', 1);
-	    }
-	});
-});
 </script>

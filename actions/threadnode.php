@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    13
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    13 (1)
  * @link       http://www.izend.org
  */
 
@@ -11,7 +11,7 @@ require_once 'userhasrole.php';
 require_once 'models/thread.inc';
 
 function threadnode($lang, $thread, $node) {
-	global $system_languages, $with_toolbar;
+	global $system_languages;
 
 	if (!user_has_role('writer')) {
 		return run('error/unauthorized', $lang);
@@ -87,14 +87,11 @@ function threadnode($lang, $thread, $node) {
 
 	$edit=user_has_role('writer') ? url('threadedit', $_SESSION['user']['locale']) . '/' . $thread_id . '/' . $node_id . '?' . 'clang=' . $lang : false;
 
-	$banner = build('banner', $lang, $with_toolbar ? compact('headline') : compact('headline', 'edit'));
-
-	$scroll=true;
-	$toolbar = $with_toolbar ? build('toolbar', $lang, compact('edit', 'scroll')) : false;
+	$banner = build('banner', $lang, compact('headline', 'edit'));
 
 	$content = view('threadnode', $slang, compact('node_id', 'node_name', 'node_title', 'node_abstract', 'node_cloud', 'node_image', 'node_created', 'node_modified', 'node_visits', 'node_comment', 'node_morecomment', 'node_vote', 'node_morevote', 'node_ilike', 'node_tweet', 'node_plusone', 'node_linkedin', 'node_pinit', 'node_contents', 'prev_node_url', 'prev_node_label', 'next_node_url', 'next_node_label'));
 
-	$output = layout('viewing', compact('toolbar', 'banner', 'content', 'sidebar'));
+	$output = layout('viewing', compact('lang', 'banner', 'content', 'sidebar'));
 
 	return $output;
 }

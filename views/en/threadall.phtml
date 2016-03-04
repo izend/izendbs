@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2011 izend.org
- * @version    3
+ * @copyright  2010-2011 (2016) izend.org
+ * @version    3 (1)
  * @link       http://www.izend.org
  */
 ?>
@@ -11,11 +11,11 @@
 <h3><?php echo htmlspecialchars($site_title ? $site_title : $sitename, ENT_COMPAT, 'UTF-8'); ?></h3>
 <?php if ($site_abstract): ?>
 <h5>Abstract</h5>
-<p><?php echo htmlspecialchars($site_abstract, ENT_COMPAT, 'UTF-8'); ?></p>
+<p class="text-info"><?php echo htmlspecialchars($site_abstract, ENT_COMPAT, 'UTF-8'); ?></p>
 <?php endif; ?>
 <?php if ($site_cloud): ?>
 <h6>Cloud</h6>
-<p class="small"><?php echo $site_cloud; ?></p>
+<p class="text-info"><?php echo $site_cloud; ?></p>
 <?php endif; ?>
 <h4>Content</h4>
 <?php echo $threadlist; ?>

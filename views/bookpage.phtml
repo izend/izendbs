@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2014 izend.org
- * @version    7
+ * @copyright  2010-2014 (2016) izend.org
+ * @version    7 (1)
  * @link       http://www.izend.org
  */
 ?>
@@ -15,19 +15,19 @@
 <?php echo $visits; ?>
 <?php endif; ?>
 <h3><?php echo htmlspecialchars($page_title ? $page_title : $page_id, ENT_COMPAT, 'UTF-8'); ?></h3>
-<p class="navigation menu">
+<?php if ($next_page_url or $prev_page_url): ?>
+<p>
 <?php if ($prev_page_url): ?>
-<a class="previous" href="<?php echo $prev_page_url; ?>"><span>&lt;</span></a>
-<a href="<?php echo $prev_page_url; ?>"><?php echo htmlspecialchars($prev_page_label, ENT_COMPAT, 'UTF-8'); ?></a>
+&larr;&nbsp;<a href="<?php echo $prev_page_url; ?>"><?php echo htmlspecialchars($prev_page_label, ENT_COMPAT, 'UTF-8'); ?></a>
 <?php endif; ?>
 <?php if ($next_page_url and $prev_page_url): ?>
 &nbsp;|&nbsp;
 <?php endif; ?>
 <?php if ($next_page_url): ?>
-<a href="<?php echo $next_page_url; ?>"><?php echo htmlspecialchars($next_page_label, ENT_COMPAT, 'UTF-8'); ?></a>
-<a class="next" href="<?php echo $next_page_url; ?>"><span>&gt;</span></a>
+<a href="<?php echo $next_page_url; ?>"><?php echo htmlspecialchars($next_page_label, ENT_COMPAT, 'UTF-8'); ?></a>&nbsp;&rarr;
 <?php endif; ?>
 </p>
+<?php endif; ?>
 <?php if ($page_contents): ?>
 <?php echo $page_contents; ?>
 <?php endif; ?>

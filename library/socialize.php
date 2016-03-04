@@ -2,35 +2,20 @@
 
 /**
  *
- * @copyright  2010-2015 izend.org
- * @version    3
+ * @copyright  2010-2015 (2016) izend.org
+ * @version    3 (1)
  * @link       http://www.izend.org
  */
 
 function socialize($lang, $components=false) {
 	global $socializing, $socializingmode;
 
-	$besocial=$sharebar=false;
+	$besocial=false;
 
-	switch ($socializing) {
-		case 'either':
-			$besocial=build('besocial', $lang, $components, $socializingmode, true);
-			$sharebar=build('sharebar', $lang, $components, $socializingmode);
-			break;
-		case 'both':
-			$besocial=build('besocial', $lang, $components, $socializingmode);
-			$sharebar=build('sharebar', $lang, $components, $socializingmode);
-			break;
-		case 'inline':
-			$besocial=build('besocial', $lang, $components, $socializingmode);
-			break;
-		case 'bar':
-			$sharebar=build('sharebar', $lang, $components, $socializingmode);
-			break;
-		default:
-			break;
+	if ($socializing) {
+		$besocial=build('besocial', $lang, $components, $socializingmode);
 	}
 
-	return array($besocial, $sharebar);
+	return $besocial;
 }
 
