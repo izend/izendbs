@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2016 (2016) izend.org
- * @version    12 (1)
+ * @version    13 (1)
  * @link       http://www.izend.org
  */
 ?>
@@ -175,7 +175,7 @@ and the role <code><?php echo $db_user; ?></code>.</p>
 </div>
 <div class="form-group form-inline-auto">
 <div class="input-group">
-<input type="text" class="form-control" name="configure_db_password" id="configure_db_password" size="30" maxlength="40" value="<?php echo htmlspecialchars($db_password, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'configure_db_user')" />
+<input type="text" class="form-control" name="configure_db_password" id="configure_db_password" size="30" maxlength="40" value="<?php echo htmlspecialchars($db_password, ENT_COMPAT, 'UTF-8'); ?>" autocomplete="off" onkeypress="return focusonenter(event, 'configure_db_user')" />
 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
 </div>
 </div>
@@ -212,7 +212,7 @@ and the role <code><?php echo $db_user; ?></code>.</p>
 </div>
 <div class="form-group form-inline-auto">
 <div class="input-group">
-<input type="text" class="form-control" name="configure_db_admin_password" id="configure_db_admin_password" size="30" maxlength="40" value="<?php echo htmlspecialchars($db_admin_password, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'configure_db_admin_user')" />
+<input type="text" class="form-control" name="configure_db_admin_password" id="configure_db_admin_password" size="30" maxlength="40" value="<?php echo htmlspecialchars($db_admin_password, ENT_COMPAT, 'UTF-8'); ?>" autocomplete="off" onkeypress="return focusonenter(event, 'configure_db_admin_user')" />
 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
 </div>
 </div>
@@ -249,7 +249,7 @@ and the role <code><?php echo $db_user; ?></code>.</p>
 </div>
 <div class="form-group form-inline-auto">
 <div class="input-group">
-<input type="text" class="form-control" name="configure_site_admin_password" id="configure_site_admin_password" size="30" maxlength="40" value="<?php echo htmlspecialchars($site_admin_password, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'configure_site_admin_user')" />
+<input type="text" class="form-control" name="configure_site_admin_password" id="configure_site_admin_password" size="30" maxlength="40" value="<?php echo htmlspecialchars($site_admin_password, ENT_COMPAT, 'UTF-8'); ?>" autocomplete="off" onkeypress="return focusonenter(event, 'configure_site_admin_user')" />
 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
 </div>
 </div>
