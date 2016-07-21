@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2015 (2016) izend.org
- * @version    9 (1)
+ * @copyright  2010-2016 (2016) izend.org
+ * @version    10 (1)
  * @link       http://www.izend.org
  */
 

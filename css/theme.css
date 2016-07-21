@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2016 izend.org
- * @version    113
+ * @version    115
  * @link       http://www.izend.org
  */
 
@@ -202,8 +202,8 @@ span.btn_pause {background-position:-64px 0;}
 span.btn_pause_alt {background-position:-64px -16px;}
 span.btn_play {background-position:-80px 0;}
 span.btn_play_alt {background-position:-80px -16px;}
-span.btn_repeat {background-position:-96px 0;}
-span.btn_repeat_alt {background-position:-96px -16px;}
+span.btn_replay {background-position:-96px 0;}
+span.btn_replay_alt {background-position:-96px -16px;}
 span.btn_rewind {background-position:-112px 0;}
 span.btn_rewind_alt {background-position:-112px -16px;}
 span.btn_start {background-position:-128px 0;}
@@ -213,7 +213,7 @@ span.btn_stop_alt {background-position:-144px -16px;}
 
 #content {margin:1em 0;clear:both;}
 
-#bannerline {height:2px;background:transparent url(../images/theme/bannerline.png) no-repeat;padding:0;margin:0;clear:both;}
+#bannerline {height:2px;background:transparent url(../images/theme/bannerline.png) no-repeat;background-size:100% 2px;padding:0;margin:0;clear:both;}
 
 #banner {margin:10px 0 5px;}
 #bannercontrols {width:230px;float:left;}

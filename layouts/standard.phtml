@@ -2,8 +2,13 @@
 
 /**
  *
+<<<<<<< HEAD
  * @copyright  2010-2015 (2016) izend.org
  * @version    11 (1)
+=======
+ * @copyright  2010-2016 izend.org
+ * @version    12
+>>>>>>> izend
  * @link       http://www.izend.org
  */
 ?>
@@ -20,7 +25,7 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', '<?php echo $googleanalyticsid; ?>', '<?php echo $sitename; ?>');
-  ga('send', 'pageview');
+  ga('send', 'pageview', '/<?php echo $request_path; ?>');
 </script>
 <?php endif; ?>
 <?php global $pinteresetassets; ?>
