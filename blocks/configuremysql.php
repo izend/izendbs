@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2014-2016 izend.org
- * @version    7
+ * @copyright  2014-2016 (2016) izend.org
+ * @version    7 (1)
  * @link       http://www.izend.org
  */
 
@@ -431,17 +431,14 @@ _SEP_;
 
 		$sql= <<<_SEP_
 INSERT INTO `${db_prefix}node` (`node_id`, `user_id`, `created`, `modified`, `visits`, `nocomment`, `nomorecomment`, `novote`, `nomorevote`, `ilike`, `tweet`, `plusone`, `linkedin`, `pinit`) VALUES
-(1, 1, NOW(), NOW(), '0', '1', '1', '1', '1', '1', '1', '1', '1', '0'),
-(2, 1, NOW(), NOW(), '1', '1', '1', '1', '1', '0', '0', '0', '0', '0');
+(1, 1, NOW(), NOW(), '0', '1', '1', '1', '1', '1', '1', '1', '1', '1');
 _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO `${db_prefix}node_locale` (`node_id`, `locale`, `name`, `title`, `abstract`, `cloud`) VALUES
-(1, 'fr', 'bienvenue', 'Bienvenue', NULL, NULL),
-(1, 'en', 'welcome', 'Welcome', NULL, NULL),
-(2, 'fr', 'documentation', 'Documentation', 'Manuel de l''utilisateur.', 'documentation'),
-(2, 'en', 'documentation', 'Documentation', 'User''s manual.', 'documentation');
+INSERT INTO `${db_prefix}node_locale` (`node_id`, `locale`, `name`, `title`, `abstract`, `cloud`, `image`) VALUES
+(1, 'en', 'welcome', 'Welcome', NULL, NULL, '/files/images/pinit.jpg'),
+(1, 'fr', 'bienvenue', 'Bienvenue', NULL, NULL, '/files/images/pinit.jpg');
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -449,40 +446,37 @@ _SEP_;
 INSERT INTO `${db_prefix}node_content` (`node_id`, `content_id`, `content_type`, `number`) VALUES
 (1, 1, 'infile', 1),
 (1, 1, 'text', 2),
-(1, 2, 'infile', 3),
-(2, 2, 'text', 1);
+(1, 2, 'text', 3),
+(1, 3, 'text', 4),
+(1, 1, 'youtube', 5),
+(1, 2, 'infile', 6);
 _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
 INSERT INTO `${db_prefix}content_text` (`content_id`, `locale`, `text`, `eval`) VALUES
-(1, 'fr', '<p>Votre site <b>iZend</b> est maintenant opérationnel.</p>\r\n<p class="readmore">Lisez la <a href="/fr/documentation">documentation</a>.</p>\r\n<p>Validé avec\r\n<span class="browser-firefox" title="Firefox">Firefox</span>,\r\n<span class="browser-chrome" title="Chrome">Chrome</span>,\r\n<span class="browser-safari" title="Safari">Safari</span>,\r\n<span class="browser-opera" title="Opera">Opera</span>\r\net\r\n<span class="nowrap"><span class="browser-ie" title="Internet Explorer">Internet Explorer</span>.</span>\r\n</p>', '0'),
-(1, 'en', '<p>Your <b>iZend</b> site is now operational.</p>\r\n<p class="readmore">Read the <a href="/en/documentation">documentation</a>.</p>\r\n<p>Validated with\r\n<span class="browser-firefox" title="Firefox">Firefox</span>,\r\n<span class="browser-chrome" title="Chrome">Chrome</span>,\r\n<span class="browser-safari" title="Safari">Safari</span>,\r\n<span class="browser-opera" title="Opera">Opera</span>\r\nand\r\n<span class="nowrap"><span class="browser-ie" title="Internet Explorer">Internet Explorer</span>.</span>\r\n</p>', '0'),
-(2, 'fr', '<p class="readmore">Consultez la <a href="http://www.izend.org/fr/documentation">documentation en ligne</a>.</p>', '0'),
-(2, 'en', '<p class="readmore">Read the <a href="http://www.izend.org/en/documentation">on-line documentation</a>.</p>', '0');
+(1, 'en', '<p>Your <b>iZend</b> site is now operational.</p>', 0),
+(1, 'fr', '<p>Votre site <b>iZend</b> est maintenant opérationnel.</p>', 0),
+(2, 'en', '<p style="width:320px;max-width:100%">\r\n<audio controls>\r\n<source src="/files/sounds/smoke.ogg" type="audio/ogg" />\r\n<source src="/files/sounds/smoke.m4a" type="audio/m4a" />\r\n<source src="/files/sounds/smoke.mp3" type="audio/mpeg" />\r\n</audio>\r\n</p>\r\n<?php head(\'javascript\', \'audioplayer\'); ?>\r\n<?php head(\'stylesheet\', \'audioplayer\', \'screen\'); ?>\r\n<script type="text/javascript">\r\n$(document).ready(function() { $(\'audio\').audioPlayer(); });\r\n</script>', 1),
+(2, 'fr', '<p style="width:320px;max-width:100%">\r\n<audio controls>\r\n<source src="/files/sounds/smoke.ogg" type="audio/ogg" />\r\n<source src="/files/sounds/smoke.m4a" type="audio/m4a" />\r\n<source src="/files/sounds/smoke.mp3" type="audio/mpeg" />\r\n</audio>\r\n</p>\r\n<?php head(\'javascript\', \'audioplayer\'); ?>\r\n<?php head(\'stylesheet\', \'audioplayer\', \'screen\'); ?>\r\n<script type="text/javascript">\r\n$(document).ready(function() { $(\'audio\').audioPlayer(); });\r\n</script>', 1),
+(3, 'en', '<p>Validated with\r\n<span class="browser-firefox" title="Firefox">Firefox</span>,\r\n<span class="browser-chrome" title="Chrome">Chrome</span>,\r\n<span class="browser-safari" title="Safari">Safari</span>,\r\n<span class="browser-opera" title="Opera">Opera</span>\r\nand\r\n<span class="nowrap"><span class="browser-ie" title="Internet Explorer">Internet Explorer</span>.</span>\r\n</p>\r\n<p class="hidden-print">Read <a href="http://www.izend.org/en/documentation">the on-line documentation</a>.</p>', 0),
+(3, 'fr', '<p>Validé avec\r\n<span class="browser-firefox" title="Firefox">Firefox</span>,\r\n<span class="browser-chrome" title="Chrome">Chrome</span>,\r\n<span class="browser-safari" title="Safari">Safari</span>,\r\n<span class="browser-opera" title="Opera">Opera</span>\r\net\r\n<span class="nowrap"><span class="browser-ie" title="Internet Explorer">Internet Explorer</span>.</span>\r\n</p>\r\n<p class="hidden-print">Lisez <a href="http://www.izend.org/fr/documentation">la documentation en ligne</a>.</p>', 0);
 _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
 INSERT INTO `${db_prefix}content_infile` (`content_id`, `locale`, `path`) VALUES
-(1, 'fr', 'views/fr/social.phtml'),
 (1, 'en', 'views/en/social.phtml'),
-(2, 'fr', 'views/fr/link.phtml'),
-(2, 'en', 'views/en/link.phtml');
+(1, 'fr', 'views/fr/social.phtml'),
+(2, 'en', 'views/en/link.phtml'),
+(2, 'fr', 'views/en/link.phtml');
 _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO `${db_prefix}tag` (`tag_id`, `locale`, `name`) VALUES
-(1, 'fr', 'documentation'),
-(2, 'en', 'documentation');
-_SEP_;
-		$db_conn->exec($sql);
-
-		$sql= <<<_SEP_
-INSERT INTO `${db_prefix}tag_index` (`tag_id`, `node_id`) VALUES
-(1, 2),
-(2, 2);
+INSERT INTO `${db_prefix}content_youtube` (`content_id`, `locale`, `id`, `width`, `height`, `miniature`, `title`, `autoplay`, `controls`, `fs`, `theme`, `rel`) VALUES
+(1, 'en', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0),
+(1, 'fr', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -494,15 +488,14 @@ _SEP_;
 
 		$sql= <<<_SEP_
 INSERT INTO `${db_prefix}thread_locale` (`thread_id`, `locale`, `name`, `title`) VALUES
-(1, 'fr', 'contenu', 'Contenu'),
-(1, 'en', 'content', 'Content');
+(1, 'en', 'blog', 'Blog'),
+(1, 'fr', 'blog', 'Blog');
 _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
 INSERT INTO `${db_prefix}thread_node` (`thread_id`, `node_id`, `number`) VALUES
-(1, 1, 1),
-(1, 2, 2);
+(1, 1, 1);
 _SEP_;
 		$db_conn->exec($sql);
 	}
