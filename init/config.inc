@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2015 (2016) izend.org
- * @version    42 (1)
+ * @version    42 (2)
  * @link       http://www.izend.org
  */
 <?php
@@ -165,7 +165,7 @@ $rss_thread = false;
 
 global $newsletter_thread;
 
-$newsletter_thread = false;		// see cron.php
+$newsletter_thread = 3;			// see cron.php
 
 global $theme;
 

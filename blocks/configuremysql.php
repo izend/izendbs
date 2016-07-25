@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2014-2016 (2016) izend.org
- * @version    7 (3)
+ * @version    7 (4)
  * @link       http://www.izend.org
  */
 
@@ -433,7 +433,8 @@ _SEP_;
 INSERT INTO `${db_prefix}node` (`node_id`, `user_id`, `created`, `modified`, `visits`, `nocomment`, `nomorecomment`, `novote`, `nomorevote`, `ilike`, `tweet`, `plusone`, `linkedin`, `pinit`) VALUES
 (1, 1, NOW(), NOW(), 0, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 (2, 1, NOW(), NOW(), 1, 0, 0, 0, 0, 1, 1, 1, 1, 0),
-(3, 1, NOW(), NOW(), 1, 1, 1, 0, 0, 1, 1, 1, 1, 0);
+(3, 1, NOW(), NOW(), 1, 1, 1, 0, 0, 1, 1, 1, 1, 0),
+(4, 1, NOW(), NOW(), 0, 1, 1, 1, 1, 0, 0, 0, 0, 0);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -444,7 +445,9 @@ INSERT INTO `${db_prefix}node_locale` (`node_id`, `locale`, `name`, `title`, `ab
 (2, 'en', 'contents', 'Contents', NULL, 'content text PHP insertion file download audio video LongTail YouTube HTML5 jQuery UI calendar', NULL),
 (2, 'fr', 'contenus', 'Contenus', NULL, 'contenu texte PHP insertion fichier téléchargement audio vidéo LongTail YouTube HTML5 jQuery UI calendrier', NULL),
 (3, 'en', 'slideshow', 'Slideshow', 'Show an animated gallery of images which displays a full page slide show and a gallery of images which starts playing YouTube videos.', 'gallery image video jQuery Cycle Colorbox YouTube QRmii QR cat dog', NULL),
-(3, 'fr', 'diaporama', 'Diaporama', 'Montrez une galerie d\'images animée qui affiche un diaporama pleine page et une galerie d\'images qui démarre la lecture de vidéos YouTube.', 'galerie image vidéo jQuery Cycle Colorbox YouTube QRmii QR Imagin Raytracer chat chien', NULL);
+(3, 'fr', 'diaporama', 'Diaporama', 'Montrez une galerie d\'images animée qui affiche un diaporama pleine page et une galerie d\'images qui démarre la lecture de vidéos YouTube.', 'galerie image vidéo jQuery Cycle Colorbox YouTube QRmii QR Imagin Raytracer chat chien', NULL),
+(4, 'en', 'qrmii', 'What is a QRmii?', 'A QRmii is QR code which contains a short URL which is automatically redirected to a complete URL.', 'QRmii QR URL redirection', NULL),
+(4, 'fr', 'qrmii', 'Qu\'est-ce qu\'un QRmii ?', 'Un QRmii est un code QR qui contient une URL courte qui est automatiquement redirigée vers une URL complète.', 'QRmii QR URL redirection', NULL);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -478,7 +481,9 @@ INSERT INTO `${db_prefix}node_content` (`node_id`, `content_id`, `content_type`,
 (3, 16, 'text', 3),
 (3, 5, 'infile', 4),
 (3, 17, 'text', 5),
-(3, 18, 'text', 6);
+(3, 18, 'text', 6),
+(4, 19, 'text', 1),
+(4, 20, 'text', 2);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -519,7 +524,11 @@ INSERT INTO `${db_prefix}content_text` (`content_id`, `locale`, `text`, `eval`) 
 (17, 'en', '<p class="hidden-print"><i>Click on an image to start playing the video on</i>&nbsp;<img src="/images/youtube.png" alt="" title="YouTube" /></p>', 0),
 (17, 'fr', '<p class="text-small"><i>Cliquez sur une image pour démarrer la lecture de la vidéo sur</i>&nbsp;<img src="/images/youtube.png" alt="" title="YouTube" /></p>', 0),
 (18, 'en', '<p>Download a QRmii by program in just a few lines of code.\r\nCreate a dynamic link between your services or your products and your public.\r\nA QRmii is simple, fast, reliable and fun.\r\nThe applications are infinite!</p>\r\n<p class="text-center"><a href="http://qrmii.com/a944d525"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="http://qrmii.com/a944d525" /></a> Scan me!</p>', 0),
-(18, 'fr', '<p>Téléchargez un QRmii par programme en quelques lignes de code.\r\nCréez un lien dynamique entre vos services ou vos produits et votre public.\r\nUn QRmii est simple, rapide, fiable et fun.\r\nLes applications sont infinies&nbsp;!</p>\r\n<p class="text-center"><a href="http://qrmii.com/a944d525"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="http://qrmii.com/a944d525" /></a> Flashez-moi&nbsp;!</p>', 0);
+(18, 'fr', '<p>Téléchargez un QRmii par programme en quelques lignes de code.\r\nCréez un lien dynamique entre vos services ou vos produits et votre public.\r\nUn QRmii est simple, rapide, fiable et fun.\r\nLes applications sont infinies&nbsp;!</p>\r\n<p class="text-center"><a href="http://qrmii.com/a944d525"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="http://qrmii.com/a944d525" /></a> Flashez-moi&nbsp;!</p>', 0),
+(19, 'en', '<h1><a href="http://www.izend.org"><img src="/logos/izend.png" alt="" title="izend.org" /></a></h1>\r\n<h4>What is a QRmii?</h4>\r\n<p><a href="http://www.qrmii.com/"><img src="/files/images/qrmii.png" alt="" title="qrmii - 1 URL 1 QR" /></a></p>\r\n<p>A QRmii is QR code which contains a short URL which is automatically redirected to a complete URL.\r\nScanning a QRmii with a smartphone directly displays the page of the original URL.</p>\r\n<p><a href="http://www.qrmii.com">Visit the website!</a></p>\r\n<p class="text-center"><a href="http://qrmii.com/a944d525"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="http://qrmii.com/a944d525" /></a> Scan me!</p>', 0),
+(19, 'fr', '<h1><a href="http://www.izend.org"><img src="/logos/izend.png" alt="" title="izend.org" /></a></h1>\r\n<h4>Qu\'est-ce qu\'un QRmii ?</h4>\r\n<p><a href="http://www.qrmii.com/"><img src="/files/images/qrmii.png" alt="" title="qrmii - 1 URL 1 QR" /></a></p>\r\n<p>Un QRmii est un code QR qui contient une URL courte qui est automatiquement redirigée vers une URL complète.\r\nFlasher un QRmii avec un smartphone affiche directement la page de l\'URL d\'origine.</p>\r\n<p><a href="http://www.qrmii.com">Visitez le site web !</a></p>\r\n<p class="text-center"><a href="http://qrmii.com/a944d525"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="http://qrmii.com/a944d525" /></a> Flashez-moi&nbsp;!</p>', 0),
+(20, 'en', '<p>A QRmii is QR code which contains a short URL which is automatically redirected to a complete URL.\r\nScanning a QRmii with a smartphone directly displays the page of the original URL.</p>\r\n<p>Visit the website: <a href="http://www.qrmii.com">http://www.qrmii.com</a></p>', 0),
+(20, 'fr', '<p>Un QRmii est un code QR qui contient une URL courte qui est automatiquement redirigée vers une URL complète.\r\nFlasher un QRmii avec un smartphone affiche directement la page de l\'URL d\'origine.</p>\r\n<p>Visitez le site web : <a href="">http://www.qrmii.com</a></p>', 0);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -578,6 +587,7 @@ INSERT INTO `${db_prefix}tag` (`tag_id`, `locale`, `name`) VALUES
 (34, 'en', 'QR'),
 (33, 'en', 'QRmii'),
 (13, 'en', 'UI'),
+(49, 'en', 'URL'),
 (10, 'en', 'YouTube'),
 (7, 'en', 'audio'),
 (14, 'en', 'calendar'),
@@ -590,6 +600,7 @@ INSERT INTO `${db_prefix}tag` (`tag_id`, `locale`, `name`) VALUES
 (30, 'en', 'image'),
 (4, 'en', 'insertion'),
 (12, 'en', 'jQuery'),
+(50, 'en', 'redirection'),
 (2, 'en', 'text'),
 (8, 'en', 'video'),
 (40, 'fr', 'Colorbox'),
@@ -602,6 +613,7 @@ INSERT INTO `${db_prefix}tag` (`tag_id`, `locale`, `name`) VALUES
 (41, 'fr', 'QRmii'),
 (44, 'fr', 'Raytracer'),
 (27, 'fr', 'UI'),
+(51, 'fr', 'URL'),
 (24, 'fr', 'YouTube'),
 (21, 'fr', 'audio'),
 (28, 'fr', 'calendrier'),
@@ -613,6 +625,7 @@ INSERT INTO `${db_prefix}tag` (`tag_id`, `locale`, `name`) VALUES
 (38, 'fr', 'image'),
 (18, 'fr', 'insertion'),
 (26, 'fr', 'jQuery'),
+(52, 'fr', 'redirection'),
 (16, 'fr', 'texte'),
 (20, 'fr', 'téléchargement'),
 (22, 'fr', 'vidéo');
@@ -660,26 +673,35 @@ INSERT INTO `${db_prefix}tag_index` (`tag_id`, `node_id`) VALUES
 (31, 3),
 (32, 3),
 (33, 3),
+(33, 4),
 (34, 3),
+(34, 4),
 (37, 3),
 (38, 3),
 (39, 3),
 (40, 3),
 (41, 3),
+(41, 4),
 (42, 3),
+(42, 4),
 (43, 3),
 (44, 3),
 (45, 3),
 (46, 3),
 (47, 3),
-(48, 3);
+(48, 3),
+(49, 4),
+(50, 4),
+(51, 4),
+(52, 4);
 _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
 INSERT INTO `${db_prefix}thread` (`thread_id`, `user_id`, `thread_type`, `created`, `modified`, `number`, `visits`, `nosearch`, `nocloud`, `nocomment`, `nomorecomment`, `novote`, `nomorevote`, `ilike`, `tweet`, `plusone`, `linkedin`, `pinit`) VALUES
 (1, 1, 'folder', NOW(), NOW(), 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0),
-(2, 1, 'story', NOW(), NOW(), 2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1);
+(2, 1, 'story', NOW(), NOW(), 2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1),
+(3, 1, 'newsletter', NOW(), NOW(), 3, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -688,7 +710,9 @@ INSERT INTO `${db_prefix}thread_locale` (`thread_id`, `locale`, `name`, `title`)
 (1, 'en', 'blog', 'Blog'),
 (1, 'fr', 'blog', 'Blog'),
 (2, 'en', 'test', 'Test'),
-(2, 'fr', 'test', 'Test');
+(2, 'fr', 'test', 'Test'),
+(3, 'en', 'newsletter', 'Newsletter'),
+(3, 'fr', 'infolettre', 'Infolettre');
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -696,7 +720,8 @@ _SEP_;
 INSERT INTO `${db_prefix}thread_node` (`thread_id`, `node_id`, `number`) VALUES
 (1, 1, 1),
 (2, 2, 1),
-(2, 3, 2);
+(2, 3, 2),
+(3, 4, 1);
 _SEP_;
 		$db_conn->exec($sql);
 	}
