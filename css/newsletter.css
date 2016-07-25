@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2012-2015 (2016) izend.org
- * @version    6 (1)
+ * @version    6 (2)
  * @link       http://www.izend.org
  */
  
@@ -17,7 +17,19 @@ body {
 	max-width: 960px;
 }
 @media (max-width:960px) {
-	body {margin: 10px 5px;}
+	body {
+		margin: 10px 5px;
+	}
+}
+
+a {
+	color: #337ab7;
+	text-decoration: none;
+}
+a:hover,
+a:focus {
+	color: #23527c;
+	text-decoration: underline;
 }
 
 h1, h2, h3 {
@@ -27,6 +39,12 @@ h1, h2, h3 {
 h4, h5, h6 {
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+h1, h2, h3, h4 {
+	font-weight: 500;
+}
+h5, h6 {
+	font-weight: 700;
 }
 h1 {
 	font-size: 36px;
@@ -50,7 +68,13 @@ h6 {
 p {
 	margin: 0 0 10px;
 }
-small {
+.monospace {
+	font-family: monospace;
+}
+.bigger {
+	font-size: 115%;
+}
+.smaller {
 	font-size: 85%;
 }
 
