@@ -1,0 +1,69 @@
+<?php
+
+/**
+ *
+ * @copyright  (2016) izend.org
+ * @version    (1)
+ * @link       http://www.izend.org
+ */
+?>
+<?php
+$imgdir=ROOT_DIR . DIRECTORY_SEPARATOR . 'files' . DIRECTORY_SEPARATOR . 'slideshow';
+$dir=$imgdir . DIRECTORY_SEPARATOR . 'thumbs';
+
+$images=glob($dir . DIRECTORY_SEPARATOR . '*.jpg');
+?>
+<?php if ($images): ?>
+<?php
+$css= <<<_SEP_
+#slideshow {
+	max-width: 100%;
+	overflow: hidden;
+}
+#slideshow > span:first-child {
+	position: relative !important;
+	display: block !important;
+	height: auto !important;
+}
+#slideshow > span {
+	width: 100% !important;
+}
+#slideshow > span img {
+	display: none;
+}
+_SEP_;
+
+head('style', $css, 'screen');
+
+shuffle($images);
+?>
+<p id="slideshow" class="hidden-print">
+<img src="/files/slideshow/thumbs/<?php $slide=$images[0]; echo basename($slide); ?>" alt="" width="320" height="180" />
+</p>
+<?php head('javascript', 'jquery.cycle'); ?>
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+	var fnames = new Array(<?php for ($i=0; $i < count($images); $i++) { if ($i > 0) { echo ','; } echo '\'', basename($images[$i]), '\''; } ?>);
+
+	$('#slideshow').empty();
+	for (i=0; i < fnames.length; i++) {
+		$('#slideshow').append('<a class="colorbox" href="/files/slideshow/' + fnames[i] + '"><img src="/files/slideshow/thumbs/' + fnames[i] + '" alt="" width="320" height="180"  /></a>');
+	}
+
+	$('#slideshow').cycle({
+		fx: 'cover', speed: 400, timeout: 3000, pause: 0, sync: 0
+	});
+});
+//]]>
+</script>
+<?php head('javascript', 'jquery.colorbox') ;?>
+<?php head('stylesheet', 'jquery.colorbox', 'screen') ;?>
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+	$('.colorbox').colorbox({rel: '#slideshow', opacity: 0.8, transition: 'elastic', slideshow: false, current: false, reposition: true, maxWidth:'99%', maxHeight:'99%', onOpen: function() {$('#slideshow').cycle('pause');}, onClosed: function() {$('#slideshow').cycle('resume');}});
+});
+//]]>
+</script>
+<?php endif; ?>

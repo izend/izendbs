@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2014-2016 (2016) izend.org
- * @version    7 (2)
+ * @version    7 (3)
  * @link       http://www.izend.org
  */
 
@@ -432,7 +432,8 @@ _SEP_;
 		$sql= <<<_SEP_
 INSERT INTO `${db_prefix}node` (`node_id`, `user_id`, `created`, `modified`, `visits`, `nocomment`, `nomorecomment`, `novote`, `nomorevote`, `ilike`, `tweet`, `plusone`, `linkedin`, `pinit`) VALUES
 (1, 1, NOW(), NOW(), 0, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-(2, 1, NOW(), NOW(), 1, 0, 0, 0, 0, 1, 1, 1, 1, 0);
+(2, 1, NOW(), NOW(), 1, 0, 0, 0, 0, 1, 1, 1, 1, 0),
+(3, 1, NOW(), NOW(), 1, 1, 1, 0, 0, 1, 1, 1, 1, 0);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -441,7 +442,9 @@ INSERT INTO `${db_prefix}node_locale` (`node_id`, `locale`, `name`, `title`, `ab
 (1, 'en', 'welcome', 'Welcome', NULL, NULL, '/files/images/pinit.jpg'),
 (1, 'fr', 'bienvenue', 'Bienvenue', NULL, NULL, '/files/images/pinit.jpg'),
 (2, 'en', 'contents', 'Contents', NULL, 'content text PHP insertion file download audio video LongTail YouTube HTML5 jQuery UI calendar', NULL),
-(2, 'fr', 'contenus', 'Contenus', NULL, 'contenu texte PHP insertion fichier téléchargement audio vidéo LongTail YouTube HTML5 jQuery UI calendrier', NULL);
+(2, 'fr', 'contenus', 'Contenus', NULL, 'contenu texte PHP insertion fichier téléchargement audio vidéo LongTail YouTube HTML5 jQuery UI calendrier', NULL),
+(3, 'en', 'slideshow', 'Slideshow', 'Show an animated gallery of images which displays a full page slide show and a gallery of images which starts playing YouTube videos.', 'gallery image video jQuery Cycle Colorbox YouTube QRmii QR cat dog', NULL),
+(3, 'fr', 'diaporama', 'Diaporama', 'Montrez une galerie d\'images animée qui affiche un diaporama pleine page et une galerie d\'images qui démarre la lecture de vidéos YouTube.', 'galerie image vidéo jQuery Cycle Colorbox YouTube QRmii QR Imagin Raytracer chat chien', NULL);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -469,14 +472,20 @@ INSERT INTO `${db_prefix}node_content` (`node_id`, `content_id`, `content_type`,
 (2, 1, 'file', 14),
 (2, 13, 'text', 15),
 (2, 3, 'infile', 16),
-(2, 14, 'text', 17);
+(2, 14, 'text', 17),
+(3, 4, 'infile', 1),
+(3, 15, 'text', 2),
+(3, 16, 'text', 3),
+(3, 5, 'infile', 4),
+(3, 17, 'text', 5),
+(3, 18, 'text', 6);
 _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
 INSERT INTO `${db_prefix}content_text` (`content_id`, `locale`, `text`, `eval`) VALUES
 (1, 'en', '<p>Your <b>iZend</b> site is now operational.\r\nConsult <a href="/en/article/test">the example pages</a>.</p>', 0),
-(1, 'fr', '<p>Votre site <b>iZend</b> est maintenant opérationnel.\r\nConsultez <a href="/fr/article/test">les pages d'exemples</a>.</p>', 0),
+(1, 'fr', '<p>Votre site <b>iZend</b> est maintenant opérationnel.\r\nConsultez <a href="/fr/article/test">les pages d\'exemples</a>.</p>', 0),
 (2, 'en', '<p style="width:320px;max-width:100%">\r\n<audio controls>\r\n<source src="/files/sounds/smoke.ogg" type="audio/ogg" />\r\n<source src="/files/sounds/smoke.m4a" type="audio/m4a" />\r\n<source src="/files/sounds/smoke.mp3" type="audio/mpeg" />\r\n</audio>\r\n</p>\r\n<?php head(\'javascript\', \'audioplayer\'); ?>\r\n<?php head(\'stylesheet\', \'audioplayer\', \'screen\'); ?>\r\n<script type="text/javascript">\r\n$(document).ready(function() { $(\'audio\').audioPlayer(); });\r\n</script>', 1),
 (2, 'fr', '<p style="width:320px;max-width:100%">\r\n<audio controls>\r\n<source src="/files/sounds/smoke.ogg" type="audio/ogg" />\r\n<source src="/files/sounds/smoke.m4a" type="audio/m4a" />\r\n<source src="/files/sounds/smoke.mp3" type="audio/mpeg" />\r\n</audio>\r\n</p>\r\n<?php head(\'javascript\', \'audioplayer\'); ?>\r\n<?php head(\'stylesheet\', \'audioplayer\', \'screen\'); ?>\r\n<script type="text/javascript">\r\n$(document).ready(function() { $(\'audio\').audioPlayer(); });\r\n</script>', 1),
 (3, 'en', '<p>Validated with\r\n<span class="browser-firefox" title="Firefox">Firefox</span>,\r\n<span class="browser-chrome" title="Chrome">Chrome</span>,\r\n<span class="browser-safari" title="Safari">Safari</span>,\r\n<span class="browser-opera" title="Opera">Opera</span>\r\nand\r\n<span class="nowrap"><span class="browser-ie" title="Internet Explorer">Internet Explorer</span>.</span>\r\n</p>\r\n<p class="hidden-print">Read <a href="http://www.izend.org/en/documentation">the documentation</a> on-line.</p>', 0),
@@ -502,7 +511,15 @@ INSERT INTO `${db_prefix}content_text` (`content_id`, `locale`, `text`, `eval`) 
 (13, 'en', '<h6>Insertion</h6>', 0),
 (13, 'fr', '<h6>Insertion</h6>', 0),
 (14, 'en', '<h6>PHP</h6>\r\n<code>&lt;p&gt;&lt;i&gt;&lt;?php setlocale(LC_TIME, \'en_US.UTF-8\'); \$fmt=strtoupper(substr(PHP_OS, 0, 3)) == \'WIN\' ? \'%B %#d, %Y\' : \'%B %e, %Y\'; echo strftime(\$fmt); ?&gt;&lt;/i&gt;&lt;/p&gt;</code>\r\n<p><i><?php setlocale(LC_TIME, \'en_US.UTF-8\'); \$fmt=strtoupper(substr(PHP_OS, 0, 3)) == \'WIN\' ? \'%B %#d, %Y\' : \'%B %e, %Y\'; echo strftime(\$fmt); ?></i></p>', 1),
-(14, 'fr', '<h6>PHP</h6>\r\n<code>&lt;p&gt;&lt;i&gt;&lt;?php setlocale(LC_TIME, \'fr_FR.UTF-8\'); \$fmt=strtoupper(substr(PHP_OS, 0, 3)) == \'WIN\' ? \'%#d %B %Y\' : \'%e %B %Y\'; echo strftime(\$fmt); ?&gt;&lt;/i&gt;&lt;/p&gt;</code>\r\n<p><i><?php setlocale(LC_TIME, \'fr_FR.UTF-8\'); \$fmt=strtoupper(substr(PHP_OS, 0, 3)) == \'WIN\' ? \'%#d %B %Y\' : \'%e %B %Y\'; echo strftime(\$fmt); ?></i></p>', 1);
+(14, 'fr', '<h6>PHP</h6>\r\n<code>&lt;p&gt;&lt;i&gt;&lt;?php setlocale(LC_TIME, \'fr_FR.UTF-8\'); \$fmt=strtoupper(substr(PHP_OS, 0, 3)) == \'WIN\' ? \'%#d %B %Y\' : \'%e %B %Y\'; echo strftime(\$fmt); ?&gt;&lt;/i&gt;&lt;/p&gt;</code>\r\n<p><i><?php setlocale(LC_TIME, \'fr_FR.UTF-8\'); \$fmt=strtoupper(substr(PHP_OS, 0, 3)) == \'WIN\' ? \'%#d %B %Y\' : \'%e %B %Y\'; echo strftime(\$fmt); ?></i></p>', 1),
+(15, 'en', '<p class="hidden-print"><i>Click on an image to display a full page slide show</i>&nbsp;<span class="glyphicon glyphicon-camera" aria-hidden="true"></span></p>', 0),
+(15, 'fr', '<p class="hidden-print"><i>Cliquez sur une image pour afficher un diaporama pleine page</i>&nbsp;<span class="glyphicon glyphicon-camera" aria-hidden="true"></span></p>', 0),
+(16, 'en', '<h4>What is a QRmii?</h4>\r\n<p><a href="http://www.qrmii.com/"><img src="/files/images/qrmii.png" alt="" title="QRmii - 1 URL 1 QR" /></a></p>\r\n<p>A <b>QRmii</b> is QR code which contains a short URL which is automatically redirected to a complete URL.\r\nScanning a QRmii with a smartphone directly displays the page of the original URL.</p>', 0),
+(16, 'fr', '<h4>Qu\'est-ce qu\'un QRmii&nbsp;?</h4>\r\n<p><a href="http://www.qrmii.com/"><img src="/files/images/qrmii.png" alt="" title="QRmii - 1 URL 1 QR" /></a></p>\r\n<p>Un <b>QRmii</b> est un code QR qui contient une URL courte qui est automatiquement redirigée vers une URL complète.\r\nFlasher un QRmii avec un smartphone affiche directement la page de l\'URL d\'origine.</p>', 0),
+(17, 'en', '<p class="hidden-print"><i>Click on an image to start playing the video on</i>&nbsp;<img src="/images/youtube.png" alt="" title="YouTube" /></p>', 0),
+(17, 'fr', '<p class="text-small"><i>Cliquez sur une image pour démarrer la lecture de la vidéo sur</i>&nbsp;<img src="/images/youtube.png" alt="" title="YouTube" /></p>', 0),
+(18, 'en', '<p>Download a QRmii by program in just a few lines of code.\r\nCreate a dynamic link between your services or your products and your public.\r\nA QRmii is simple, fast, reliable and fun.\r\nThe applications are infinite!</p>\r\n<p class="text-center"><a href="http://qrmii.com/a944d525"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="http://qrmii.com/a944d525" /></a> Scan me!</p>', 0),
+(18, 'fr', '<p>Téléchargez un QRmii par programme en quelques lignes de code.\r\nCréez un lien dynamique entre vos services ou vos produits et votre public.\r\nUn QRmii est simple, rapide, fiable et fun.\r\nLes applications sont infinies&nbsp;!</p>\r\n<p class="text-center"><a href="http://qrmii.com/a944d525"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="http://qrmii.com/a944d525" /></a> Flashez-moi&nbsp;!</p>', 0);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -513,7 +530,11 @@ INSERT INTO `${db_prefix}content_infile` (`content_id`, `locale`, `path`) VALUES
 (2, 'en', 'views/en/link.phtml'),
 (2, 'fr', 'views/en/link.phtml'),
 (3, 'en', 'files/sysinfo.php'),
-(3, 'fr', 'files/sysinfo.php');
+(3, 'fr', 'files/sysinfo.php'),
+(4, 'en', 'files/slideshow.phtml'),
+(4, 'fr', 'files/slideshow.phtml'),
+(5, 'en', 'files/en/tubelist.phtml'),
+(5, 'fr', 'files/fr/tubelist.phtml');
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -549,29 +570,47 @@ _SEP_;
 
 		$sql= <<<_SEP_
 INSERT INTO `${db_prefix}tag` (`tag_id`, `locale`, `name`) VALUES
+(32, 'en', 'Colorbox'),
+(31, 'en', 'Cycle'),
 (11, 'en', 'HTML5'),
 (9, 'en', 'LongTail'),
 (3, 'en', 'PHP'),
+(34, 'en', 'QR'),
+(33, 'en', 'QRmii'),
 (13, 'en', 'UI'),
 (10, 'en', 'YouTube'),
 (7, 'en', 'audio'),
 (14, 'en', 'calendar'),
+(45, 'en', 'cat'),
 (1, 'en', 'content'),
+(46, 'en', 'dog'),
 (6, 'en', 'download'),
 (5, 'en', 'file'),
+(29, 'en', 'gallery'),
+(30, 'en', 'image'),
 (4, 'en', 'insertion'),
 (12, 'en', 'jQuery'),
 (2, 'en', 'text'),
 (8, 'en', 'video'),
+(40, 'fr', 'Colorbox'),
+(39, 'fr', 'Cycle'),
 (25, 'fr', 'HTML5'),
+(43, 'fr', 'Imagin'),
 (23, 'fr', 'LongTail'),
 (17, 'fr', 'PHP'),
+(42, 'fr', 'QR'),
+(41, 'fr', 'QRmii'),
+(44, 'fr', 'Raytracer'),
 (27, 'fr', 'UI'),
 (24, 'fr', 'YouTube'),
 (21, 'fr', 'audio'),
 (28, 'fr', 'calendrier'),
+(47, 'fr', 'chat'),
+(48, 'fr', 'chien'),
 (15, 'fr', 'contenu'),
 (19, 'fr', 'fichier'),
+(37, 'fr', 'galerie'),
+(38, 'fr', 'image'),
 (18, 'fr', 'insertion'),
 (26, 'fr', 'jQuery'),
 (16, 'fr', 'texte'),
@@ -590,10 +629,13 @@ INSERT INTO `${db_prefix}tag_index` (`tag_id`, `node_id`) VALUES
 (6, 2),
 (7, 2),
 (8, 2),
+(8, 3),
 (9, 2),
 (10, 2),
+(10, 3),
 (11, 2),
 (12, 2),
+(12, 3),
 (13, 2),
 (14, 2),
 (15, 2),
@@ -604,12 +646,33 @@ INSERT INTO `${db_prefix}tag_index` (`tag_id`, `node_id`) VALUES
 (20, 2),
 (21, 2),
 (22, 2),
+(22, 3),
 (23, 2),
 (24, 2),
+(24, 3),
 (25, 2),
 (26, 2),
+(26, 3),
 (27, 2),
-(28, 2);
+(28, 2),
+(29, 3),
+(30, 3),
+(31, 3),
+(32, 3),
+(33, 3),
+(34, 3),
+(37, 3),
+(38, 3),
+(39, 3),
+(40, 3),
+(41, 3),
+(42, 3),
+(43, 3),
+(44, 3),
+(45, 3),
+(46, 3),
+(47, 3),
+(48, 3);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -632,7 +695,8 @@ _SEP_;
 		$sql= <<<_SEP_
 INSERT INTO `${db_prefix}thread_node` (`thread_id`, `node_id`, `number`) VALUES
 (1, 1, 1),
-(2, 2, 1);
+(2, 2, 1),
+(2, 3, 2);
 _SEP_;
 		$db_conn->exec($sql);
 	}
