@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2014 (2016) izend.org
- * @version    9 (1)
+ * @version    9 (2)
  * @link       http://www.izend.org
  */
 ?>
@@ -13,7 +13,7 @@
 <p class="info"><?php echo longdatetime_en($node_modified); ?></p>
 <?php if ($node_abstract): ?>
 <h5>Abstract</h5>
-<p class="text-info"><?php echo htmlspecialchars($node_abstract, ENT_COMPAT, 'UTF-8'); ?></p>
+<p><?php echo htmlspecialchars($node_abstract, ENT_COMPAT, 'UTF-8'); ?></p>
 <?php endif; ?>
 <?php if ($node_cloud): ?>
 <h6>Cloud</h6>
