@@ -2,13 +2,8 @@
 
 /**
  *
-<<<<<<< HEAD
- * @copyright  2010-2015 (2016) izend.org
- * @version    11 (1)
-=======
- * @copyright  2010-2016 izend.org
- * @version    12
->>>>>>> izend
+ * @copyright  2010-2016 (2016) izend.org
+ * @version    12 (2)
  * @link       http://www.izend.org
  */
 ?>
@@ -65,12 +60,13 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 </script>
 <?php endif; ?>
-<?php if (true): ?>
-<div class="container">
-<?php endif; ?>
+<?php $type='standard'; ?>
+<?php if ($type == 'static' or $type == 'fixed'): ?>
 <?php echo $banner; ?>
-<?php if (false): ?>
+<?php endif; ?>
 <div class="container">
+<?php if (! ($type == 'static' or $type == 'fixed')): ?>
+<?php echo $banner; ?>
 <?php endif; ?>
 <?php if (!empty($sidebar)): ?>
 <?php echo $sidebar; ?>

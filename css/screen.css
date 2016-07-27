@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2016 (2016) izend.org
- * @version    75 (1)
+ * @version    75 (2)
  * @link       http://www.izend.org
  */
 
@@ -14,14 +14,8 @@
 
 body {
 	font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	margin-bottom: 20px;
 }
-/*
-body {
-	padding-top: 70px;
-}
-*/
 
 h5, .h5, h6, .h6 {
 	font-weight: 700;
@@ -133,6 +127,13 @@ fieldset {
 	}
 }
 
+.container:before,
+.container:after,
+.container-fluid:before,
+.container-fluid:after {
+	display: none;
+}
+
 #navbar-controls > li > a {
 	float: left;
 	font-size: 16px;
@@ -150,8 +151,9 @@ fieldset {
 	margin-top: 0;
 	margin-bottom: 0;
 }
-.navbar {
-	margin-bottom: 20px;
+
+.navbar-standard-top {
+	margin-bottom: 18px;
 }
 .navbar-static-top {
 	margin-bottom: 19px;
@@ -159,12 +161,16 @@ fieldset {
 .navbar-fixed-top {
 	margin-bottom: 19px;
 }
+
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-  border: none;
+	border: none;
 }
 @media (min-width: 768px) {
-	.navbar #searchinput {
+	.navbar-static-top h4, .navbar-fixed-top h4 {
+		margin-right: 15px;
+	}
+	.navbar-standard-top #searchinput {
 		margin-right: -15px;
 	}
 }
@@ -257,7 +263,6 @@ fieldset {
 
 #footer {
 	margin: 20px 0;
-	padding: 10px 0;
 }
 #footer .nav {
 	float: right;
@@ -269,7 +274,8 @@ fieldset {
   background-color: inherit;
 }
 #footer .nav > li > a {
-	padding: 0 15px;
+	margin-left: 15px;
+	padding: 0;
 }
 
 .visits {

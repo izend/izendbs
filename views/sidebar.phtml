@@ -3,18 +3,20 @@
 /**
  *
  * @copyright  2010-2014 (2016) izend.org
- * @version    9 (1)
+ * @version    9 (2)
  * @link       http://www.izend.org
  */
 ?>
-<?php if (!empty($title) or !empty($search) or !empty($summary) or !empty($cloud)): ?>
+<?php $with_title=true; ?>
+<?php $with_search=true; ?>
+<?php if (($with_title and !empty($title)) or ($with_search and !empty($search)) or !empty($summary) or !empty($cloud)): ?>
 <div id="sidebar">
-<?php if (true): ?>
+<?php if ($with_title): ?>
 <?php if (!empty($title)): ?>
 <?php echo $title; ?>
 <?php endif; ?>
 <?php endif; ?>
-<?php if (false): ?>
+<?php if ($with_search): ?>
 <?php if (!empty($search)): ?>
 <?php echo $search; ?>
 <?php endif; ?>
