@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2014-2016 (2016) izend.org
- * @version    7 (4)
+ * @version    7 (5)
  * @link       http://www.izend.org
  */
 
@@ -430,9 +430,18 @@ _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
+INSERT INTO `${db_prefix}comment` (`comment_id`, `node_id`, `locale`, `created`, `edited`, `user_id`, `user_mail`, `ip_address`, `text`) VALUES
+(1, 2, 'en', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p]Let me try a comment with a url: [url=http://www.izend.org]iZend[/url]![/p]'),
+(2, 2, 'en', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p][u]Quote[/u]:[/p][quote]Let me try a comment with a url: [url=http://www.izend.org]iZend[/url]![/quote]\r\n[p]No! One can put a [b]url[/b] in a comment?\r\n[br]Don\'t tell me it\'s not true![/p]'),
+(3, 2, 'fr', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p]J\'essaye un commentaire avec une url : [url=http://www.izend.org]iZend[/url] ![/p]'),
+(4, 2, 'fr', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p][u]Citation[/u] :[/p][quote]J\'essaye un commentaire avec une url : [url=http://www.izend.org]iZend[/url] ![/quote]\r\n[p]Non ! On peut mettre une [b]url[/b] dans un commentaire ?\r\n[br]Dis-moi pas que c\'est pas vrai ![/p]');
+_SEP_;
+		$db_conn->exec($sql);
+
+		$sql= <<<_SEP_
 INSERT INTO `${db_prefix}node` (`node_id`, `user_id`, `created`, `modified`, `visits`, `nocomment`, `nomorecomment`, `novote`, `nomorevote`, `ilike`, `tweet`, `plusone`, `linkedin`, `pinit`) VALUES
 (1, 1, NOW(), NOW(), 0, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-(2, 1, NOW(), NOW(), 1, 0, 0, 0, 0, 1, 1, 1, 1, 0),
+(2, 1, NOW(), NOW(), 1, 0, 1, 0, 0, 1, 1, 1, 1, 0),
 (3, 1, NOW(), NOW(), 1, 1, 1, 0, 0, 1, 1, 1, 1, 0),
 (4, 1, NOW(), NOW(), 0, 1, 1, 1, 1, 0, 0, 0, 0, 0);
 _SEP_;
