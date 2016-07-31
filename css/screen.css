@@ -1,16 +1,11 @@
 /**
  *
  * @copyright  2010-2016 (2016) izend.org
- * @version    75 (2)
+ * @version    75 (3)
  * @link       http://www.izend.org
  */
 
 /* screen.css */
-
-* {
-	outline:0px !important;
-	-webkit-appearance: none;
-}
 
 body {
 	font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif;
