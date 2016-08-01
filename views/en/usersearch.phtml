@@ -3,14 +3,18 @@
 /**
  *
  * @copyright  2013-2016 (2016) izend.org
- * @version    10 (1)
+ * @version    10 (2)
  * @link       http://www.izend.org
  */
 ?>
 <form method="post">
+<div class="form-group form-inline">
 <div class="form-group form-inline-auto">
-<input type="text" class="form-control" name="usersearch_what" id="usersearch_what" size="30" maxlength="100" placeholder="Identifier" value="<?php echo htmlspecialchars($what, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'usersearch_search')" />
+<input type="text" class="form-control" name="usersearch_what" id="usersearch_what" size="20" maxlength="100" placeholder="Identifier" value="<?php echo htmlspecialchars($what, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'usersearch_search')" />
+</div>
+<div class="form-group">
 <button type="submit" class="btn btn-default" name="usersearch_search" id="usersearch_search">Search</button>
+</div>
 </div>
 </form>
 <?php if ($count): $i=1; ?>
