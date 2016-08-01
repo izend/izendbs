@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2016 (2016) izend.org
- * @version    75 (3)
+ * @version    75 (4)
  * @link       http://www.izend.org
  */
 
@@ -94,6 +94,12 @@ fieldset {
 	display: block;
 	margin-bottom: 10px;
 	margin-top: 5px;
+}
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"],
+.radio input[type="radio"],
+.radio-inline input[type="radio"] {
+	min-height: 19px;
 }
 @media (min-width: 768px) {
 	.checkbox-group + .checkbox-group,
