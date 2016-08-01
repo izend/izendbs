@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2016 (2016) izend.org
- * @version    75 (4)
+ * @version    75 (5)
  * @link       http://www.izend.org
  */
 
@@ -226,6 +226,9 @@ fieldset {
 }
 #searchlinks li div {
 	color: #666;
+}
+#searchtext {
+	width: 200px;
 }
 @media (max-width: 767px) {
 	#sidebar {
