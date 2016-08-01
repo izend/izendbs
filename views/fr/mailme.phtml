@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2016 (2016) izend.org
- * @version    16 (1)
+ * @version    17 (2)
  * @link       http://www.izend.org
  */
 ?>
@@ -31,7 +31,7 @@
 <div class="form-group form-inline<?php if ($bad_appointment): ?> has-error<?php endif; ?>">
 <div class="form-group form-inline-auto">
 <span class="form-control-static"><strong>Rendez-vous le</strong></span>
-<input type="text" class="form-control" name="mailme_date" id="mailme_date" placeholder="aaaa-mm-jj" value="<?php echo htmlspecialchars($date, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'mailme_code')" />
+<input type="text" class="form-control" name="mailme_date" id="mailme_date" size="10" placeholder="aaaa-mm-jj" value="<?php echo htmlspecialchars($date, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'mailme_code')" />
 </div>
 <div class="form-group form-inline-auto">
 <span class="form-control-static"><strong>à</strong></span>
