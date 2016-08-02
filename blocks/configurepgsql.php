@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2014-2016 (2016) izend.org
- * @version    5 (7)
+ * @version    5 (8)
  * @link       http://www.izend.org
  */
 
@@ -714,7 +714,9 @@ _SEP_;
 		$sql= <<<_SEP_
 INSERT INTO "${db_prefix}content_youtube" ("content_id", "locale", "id", "width", "height", "miniature", "title", "autoplay", "controls", "fs", "theme", "rel") VALUES
 (1, 'en', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0),
-(1, 'fr', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0);
+(1, 'fr', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0),
+(2, 'en', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0),
+(2, 'fr', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0);
 _SEP_;
 		$db_conn->exec($sql);
 
