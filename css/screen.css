@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2016 (2016) izend.org
- * @version    75 (5)
+ * @version    75 (6)
  * @link       http://www.izend.org
  */
 
@@ -773,6 +773,12 @@ div.youtube iframe {
 }
 .browser-ie:hover {
 	background-position: -72px -18px;
+}
+.browser-edge {
+	background-position: -90px 0;
+}
+.browser-edge:hover {
+	background-position: -90px -18px;
 }
 
 div.hbar > * {
