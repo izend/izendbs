@@ -1,0 +1,537 @@
+a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"0";s:14:"node_nocomment";s:1:"1";s:18:"node_nomorecomment";s:1:"1";s:11:"node_novote";s:1:"1";s:15:"node_nomorevote";s:1:"1";s:10:"node_ilike";s:1:"0";s:10:"node_tweet";s:1:"0";s:12:"node_plusone";s:1:"0";s:13:"node_linkedin";s:1:"0";s:10:"node_pinit";s:1:"0";}s:2:"en";a:5:{s:9:"node_name";s:10:"javascript";s:10:"node_title";s:10:"JavaScript";s:13:"node_abstract";N;s:10:"node_cloud";s:93:"Bootstrap JavaScript modals tooltips scrollspy alerts button collapse tabs accordion carousel";s:10:"node_image";N;}s:2:"fr";a:5:{s:9:"node_name";s:10:"javascript";s:10:"node_title";s:10:"JavaScript";s:13:"node_abstract";N;s:10:"node_cloud";s:93:"Bootstrap JavaScript modals tooltips scrollspy alerts button collapse tabs accordion carousel";s:10:"node_image";N;}}i:1;a:9:{i:1;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:3294:"<h4>Modals</h4>
+
+<div aria-labelledby="myModalLabel" tabindex="-1" id="myModal" role="dialog" class="modal fade" style="display: none;">
+	<div role="document" class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
+				<h4 id="myModalLabel" class="modal-title">Modal title</h4>
+			</div>
+			<div class="modal-body">
+				<h4>Text in a modal</h4>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+				<h4>Popover in a modal</h4>
+				<p>This <a data-content="And here's some amazing content. It's very engaging. right?" title="" role="button" class="btn btn-default popover-test" href="#" data-original-title="A Title">button</a> should trigger a popover on click.</p>
+				<h4>Tooltips in a modal</h4>
+				<p><a title="" class="tooltip-test" href="#" data-original-title="Tooltip">This link</a> and <a title="" class="tooltip-test" href="#" data-original-title="Tooltip">that link</a> should have tooltips on hover.</p>
+				<hr>
+				<h4>Overflowing text to show scroll behavior</h4>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+				<button class="btn btn-primary" type="button">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch demo modal</button>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.popover-test').popover();
+    $('.tooltip-test').tooltip();
+});
+</script>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:3294:"<h4>Modals</h4>
+
+<div aria-labelledby="myModalLabel" tabindex="-1" id="myModal" role="dialog" class="modal fade" style="display: none;">
+	<div role="document" class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
+				<h4 id="myModalLabel" class="modal-title">Modal title</h4>
+			</div>
+			<div class="modal-body">
+				<h4>Text in a modal</h4>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+				<h4>Popover in a modal</h4>
+				<p>This <a data-content="And here's some amazing content. It's very engaging. right?" title="" role="button" class="btn btn-default popover-test" href="#" data-original-title="A Title">button</a> should trigger a popover on click.</p>
+				<h4>Tooltips in a modal</h4>
+				<p><a title="" class="tooltip-test" href="#" data-original-title="Tooltip">This link</a> and <a title="" class="tooltip-test" href="#" data-original-title="Tooltip">that link</a> should have tooltips on hover.</p>
+				<hr>
+				<h4>Overflowing text to show scroll behavior</h4>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+				<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+			</div>
+			<div class="modal-footer">
+				<button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+				<button class="btn btn-primary" type="button">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch demo modal</button>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.popover-test').popover();
+    $('.tooltip-test').tooltip();
+});
+</script>";s:17:"content_text_eval";s:1:"0";}}i:2;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:807:"<h4>Tooltip</h4>
+
+<div style="margin-left: 100px;">
+	<button data-original-title="Tooltip on left" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="">Left</button>
+	<button data-original-title="Tooltip on top" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="">Top</button>
+	<button data-original-title="Tooltip on bottom" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="">Bottom</button>
+	<button data-original-title="Tooltip on right" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="">Right</button>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:807:"<h4>Tooltip</h4>
+
+<div style="margin-left: 100px;">
+	<button data-original-title="Tooltip on left" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="">Left</button>
+	<button data-original-title="Tooltip on top" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="">Top</button>
+	<button data-original-title="Tooltip on bottom" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="">Bottom</button>
+	<button data-original-title="Tooltip on right" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="">Right</button>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>";s:17:"content_text_eval";s:1:"0";}}i:3;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:655:"<h4>Popover</h4>
+
+<button data-original-title="Popover title" type="button" class="btn btn-lg btn-danger bs-docs-popover" data-toggle="popover" title="" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+
+<h5>Dismiss on next click</h5>
+<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('[data-toggle="popover"]').popover();
+});
+</script>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:655:"<h4>Popover</h4>
+
+<button data-original-title="Popover title" type="button" class="btn btn-lg btn-danger bs-docs-popover" data-toggle="popover" title="" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+
+<h5>Dismiss on next click</h5>
+<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('[data-toggle="popover"]').popover();
+});
+</script>";s:17:"content_text_eval";s:1:"0";}}i:4;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:958:"<h4>Alerts</h4>
+
+<div class="alert alert-warning alert-dismissible fade in" role="alert" style="max-width: 470px">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">×</span>
+	</button>
+	<strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+</div>
+<div class="alert alert-danger alert-dismissible fade in" role="alert" style="max-width: 470px">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">×</span>
+	</button>
+	<h4>Oh snap! You got an error!</h4>
+	<p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+	<p>
+		<button type="button" class="btn btn-danger">Take this action</button>
+		<button type="button" class="btn btn-default">Or do this</button>
+	</p>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:958:"<h4>Alerts</h4>
+
+<div class="alert alert-warning alert-dismissible fade in" role="alert" style="max-width: 470px">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">×</span>
+	</button>
+	<strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+</div>
+<div class="alert alert-danger alert-dismissible fade in" role="alert" style="max-width: 470px">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">×</span>
+	</button>
+	<h4>Oh snap! You got an error!</h4>
+	<p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+	<p>
+		<button type="button" class="btn btn-danger">Take this action</button>
+		<button type="button" class="btn btn-default">Or do this</button>
+	</p>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:5;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:4490:"<h4>ScrollSpy</h4>
+
+<style type="text/css" media="screen">
+@media (min-width: 768px) {
+	#navbar-example2 {
+		max-width: 470px;
+		margin-top: 20px;
+	}
+	#navbar-example2:after,
+	#navbar-example2 .collapse:after {
+		clear: none;
+	}
+}
+</style>
+<nav class="navbar navbar-default navbar-static" id="navbar-example2">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button class="collapsed navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-example-js-navbar-scrollspy">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="#" class="navbar-brand">Project Name</a>
+		</div>
+		<div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
+			<ul class="nav navbar-nav">
+				<li class=""><a href="#fat">@fat</a></li>
+				<li class=""><a href="#mdo">@mdo</a></li>
+				<li class="dropdown active"><a href="#" class="dropdown-toggle" id="navbarDrop1" data-toggle="dropdown"
+					role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDrop1">
+						<li class="active"><a href="#one">one</a></li>
+						<li><a href="#two">two</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#three">three</a></li>
+					</ul></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div data-spy="scroll" data-target="#navbar-example2" data-offset="0" style="height: 200px; margin-top: 10px; overflow: auto; position: relative;">
+	<h4 id="fat">@fat</h4>
+	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+	<h4 id="mdo">@mdo</h4>
+	<p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney's quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.</p>
+	<h4 id="one">one</h4>
+	<p>Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.</p>
+	<h4 id="two">two</h4>
+	<p>In incididunt echo park, officia deserunt mcsweeney's proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven't heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf
+	<h4 id="three">three</h4>
+	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+	<p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.</p>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:4490:"<h4>ScrollSpy</h4>
+
+<style type="text/css" media="screen">
+@media (min-width: 768px) {
+	#navbar-example2 {
+		max-width: 470px;
+		margin-top: 20px;
+	}
+	#navbar-example2:after,
+	#navbar-example2 .collapse:after {
+		clear: none;
+	}
+}
+</style>
+<nav class="navbar navbar-default navbar-static" id="navbar-example2">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button class="collapsed navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-example-js-navbar-scrollspy">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="#" class="navbar-brand">Project Name</a>
+		</div>
+		<div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
+			<ul class="nav navbar-nav">
+				<li class=""><a href="#fat">@fat</a></li>
+				<li class=""><a href="#mdo">@mdo</a></li>
+				<li class="dropdown active"><a href="#" class="dropdown-toggle" id="navbarDrop1" data-toggle="dropdown"
+					role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDrop1">
+						<li class="active"><a href="#one">one</a></li>
+						<li><a href="#two">two</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#three">three</a></li>
+					</ul></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div data-spy="scroll" data-target="#navbar-example2" data-offset="0" style="height: 200px; margin-top: 10px; overflow: auto; position: relative;">
+	<h4 id="fat">@fat</h4>
+	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+	<h4 id="mdo">@mdo</h4>
+	<p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney's quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.</p>
+	<h4 id="one">one</h4>
+	<p>Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.</p>
+	<h4 id="two">two</h4>
+	<p>In incididunt echo park, officia deserunt mcsweeney's proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven't heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf
+	<h4 id="three">three</h4>
+	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+	<p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.</p>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:6;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:3595:"<h4>Tabs</h4>
+
+<ul class="nav nav-tabs" id="myTabs" role="tablist">
+	<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Home</a></li>
+	<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Profile</a></li>
+	<li role="presentation" class="dropdown"><a href="#" class="dropdown-toggle" id="myTabDrop1" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Dropdown <span class="caret"></span></a>
+		<ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
+			<li><a href="#dropdown1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">@fat</a></li>
+			<li><a href="#dropdown2" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">@mdo</a></li>
+		</ul>
+	</li>
+</ul>
+<div class="tab-content" id="myTabContent">
+	<div class="tab-pane fade in active" role="tabpanel" id="home" aria-labelledby="home-tab">
+		<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+	</div>
+	<div class="tab-pane fade" role="tabpanel" id="profile" aria-labelledby="profile-tab">
+		<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed	echo park.</p>
+	</div>
+	<div class="tab-pane fade" role="tabpanel" id="dropdown1" aria-labelledby="dropdown1-tab">
+		<p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+	</div>
+	<div class="tab-pane fade" role="tabpanel" id="dropdown2" aria-labelledby="dropdown2-tab">
+		<p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+	</div>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:3595:"<h4>Tabs</h4>
+
+<ul class="nav nav-tabs" id="myTabs" role="tablist">
+	<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Home</a></li>
+	<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Profile</a></li>
+	<li role="presentation" class="dropdown"><a href="#" class="dropdown-toggle" id="myTabDrop1" data-toggle="dropdown" aria-controls="myTabDrop1-contents">Dropdown <span class="caret"></span></a>
+		<ul class="dropdown-menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
+			<li><a href="#dropdown1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">@fat</a></li>
+			<li><a href="#dropdown2" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">@mdo</a></li>
+		</ul>
+	</li>
+</ul>
+<div class="tab-content" id="myTabContent">
+	<div class="tab-pane fade in active" role="tabpanel" id="home" aria-labelledby="home-tab">
+		<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+	</div>
+	<div class="tab-pane fade" role="tabpanel" id="profile" aria-labelledby="profile-tab">
+		<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed	echo park.</p>
+	</div>
+	<div class="tab-pane fade" role="tabpanel" id="dropdown1" aria-labelledby="dropdown1-tab">
+		<p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+	</div>
+	<div class="tab-pane fade" role="tabpanel" id="dropdown2" aria-labelledby="dropdown2-tab">
+		<p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+	</div>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:7;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:1221:"<h4>Button</h4>
+
+<button type="button" id="myButton" data-loading-text="Loading" class="btn btn-primary" autocomplete="off">Load</button>
+
+<script type="text/javascript">
+$('#myButton').on('click', function() { $(this).button('loading'); });
+</script>
+
+<h5>Checkbox</h5>
+<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Toggle</button>
+
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-primary"><input type="checkbox" checked="checked" autocomplete="off">Checkbox 1</label>
+	<label class="btn btn-primary active"><input type="checkbox" autocomplete="off">Checkbox 2</label>
+	<label class="btn btn-primary active"><input type="checkbox" autocomplete="off">Checkbox 3</label>
+</div>
+
+<h5>Radio</h5>
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-primary active"><input name="options" id="option1" autocomplete="off" type="radio" checked="checked">Radio 1</label>
+	<label class="btn btn-primary"> <input name="options" id="option2" autocomplete="off" type="radio">Radio 2</label>
+	<label class="btn btn-primary"> <input name="options" id="option3" autocomplete="off" type="radio">Radio 3</label>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:1186:"<h4>Button</h4>
+
+<button type="button" id="myButton" data-loading-text="Loading" class="btn btn-primary" autocomplete="off">Load</button>
+
+<script type="text/javascript">
+$('#myButton').on('click', function() { $(this).button('loading'); });
+</script>
+
+<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Toggle</button>
+
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-primary"><input type="checkbox" checked="checked" autocomplete="off">Checkbox 1</label>
+	<label class="btn btn-primary active"><input type="checkbox" autocomplete="off">Checkbox 2</label>
+	<label class="btn btn-primary active"><input type="checkbox" autocomplete="off">Checkbox 3</label>
+</div>
+
+<div class="btn-group" data-toggle="buttons">
+	<label class="btn btn-primary active"><input name="options" id="option1" autocomplete="off" type="radio" checked="checked">Radio 1</label>
+	<label class="btn btn-primary"> <input name="options" id="option2" autocomplete="off" type="radio">Radio 2</label>
+	<label class="btn btn-primary"> <input name="options" id="option3" autocomplete="off" type="radio">Radio 3</label>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:8;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:4081:"<h4>Collapse</h4>
+
+<p>
+	<a href="#collapseExample" class="btn btn-primary collapsed" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Link with href</a>
+	<button aria-controls="collapseExample" aria-expanded="false" class="btn btn-primary collapsed" data-target="#collapseExample" data-toggle="collapse" type="button">Button with data-target</button>
+</p>
+<div style="height: 0px;" aria-expanded="false" class="collapse" id="collapseExample">
+	<div class="well">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</div>
+</div>
+
+<h5>Accordion</h5>
+
+<div class="panel-group" role="tablist" id="accordion" aria-multiselectable="true">
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingOne">
+			<h4 class="panel-title">
+				<a href="#collapseOne" role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapseOne">Collapsible Group 1</a>
+			</h4>
+		</div>
+		<div class="collapse panel-collapse in" role="tabpanel" id="collapseOne" aria-labelledby="headingOne">
+			<div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingTwo">
+			<h4 class="panel-title">
+				<a href="#collapseTwo" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="collapseTwo">Collapsible Group 2</a>
+			</h4>
+		</div>
+		<div class="collapse panel-collapse" role="tabpanel" id="collapseTwo" aria-labelledby="headingTwo">
+			<div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingThree">
+			<h4 class="panel-title">
+				<a href="#collapseThree" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="collapseThree">Collapsible Group 3</a>
+			</h4>
+		</div>
+		<div class="collapse panel-collapse" role="tabpanel" id="collapseThree" aria-labelledby="headingThree">
+			<div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+		</div>
+	</div>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:4081:"<h4>Collapse</h4>
+
+<p>
+	<a href="#collapseExample" class="btn btn-primary collapsed" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Link with href</a>
+	<button aria-controls="collapseExample" aria-expanded="false" class="btn btn-primary collapsed" data-target="#collapseExample" data-toggle="collapse" type="button">Button with data-target</button>
+</p>
+<div style="height: 0px;" aria-expanded="false" class="collapse" id="collapseExample">
+	<div class="well">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</div>
+</div>
+
+<h5>Accordion</h5>
+
+<div class="panel-group" role="tablist" id="accordion" aria-multiselectable="true">
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingOne">
+			<h4 class="panel-title">
+				<a href="#collapseOne" role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapseOne">Collapsible Group 1</a>
+			</h4>
+		</div>
+		<div class="collapse panel-collapse in" role="tabpanel" id="collapseOne" aria-labelledby="headingOne">
+			<div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingTwo">
+			<h4 class="panel-title">
+				<a href="#collapseTwo" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="collapseTwo">Collapsible Group 2</a>
+			</h4>
+		</div>
+		<div class="collapse panel-collapse" role="tabpanel" id="collapseTwo" aria-labelledby="headingTwo">
+			<div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="headingThree">
+			<h4 class="panel-title">
+				<a href="#collapseThree" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="collapseThree">Collapsible Group 3</a>
+			</h4>
+		</div>
+		<div class="collapse panel-collapse" role="tabpanel" id="collapseThree" aria-labelledby="headingThree">
+			<div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+		</div>
+	</div>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:9;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:1838:"<h4>Carousel</h4>
+
+<style>
+.carousel-indicators li {
+    background-color: #ccc;
+}
+.carousel-indicators .active {
+    background-color: #666;
+}
+</style>
+
+<div class="carousel slide" id="carousel-example-captions" data-ride="carousel" style="max-width: 470px; margin:0 auto;">
+	<ol class="carousel-indicators">
+		<li data-target="#carousel-example-captions" data-slide-to="0" class=""></li>
+		<li class="active" data-target="#carousel-example-captions" data-slide-to="1"></li>
+		<li class="" data-target="#carousel-example-captions" data-slide-to="2"></li>
+	</ol>
+	<div class="carousel-inner" role="listbox">
+		<div class="item">
+			<img data-holder-rendered="true" src="/logos/twitter.png" alt="" >
+			<div class="carousel-caption">
+				<h3>First slide label</h3>
+				<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+			</div>
+		</div>
+		<div class="item active">
+			<img data-holder-rendered="true" src="/logos/twitter.png" alt="">
+			<div class="carousel-caption">
+				<h3>Second slide label</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+		</div>
+		<div class="item">
+			<img data-holder-rendered="true" src="/logos/twitter.png" alt="">
+			<div class="carousel-caption">
+				<h3>Third slide label</h3>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+			</div>
+		</div>
+	</div>
+	<a href="#carousel-example-captions" class="left carousel-control" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a>
+	<a href="#carousel-example-captions" class="right carousel-control" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span></a>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:1838:"<h4>Carousel</h4>
+
+<style>
+.carousel-indicators li {
+    background-color: #ccc;
+}
+.carousel-indicators .active {
+    background-color: #666;
+}
+</style>
+
+<div class="carousel slide" id="carousel-example-captions" data-ride="carousel" style="max-width: 470px; margin:0 auto;">
+	<ol class="carousel-indicators">
+		<li data-target="#carousel-example-captions" data-slide-to="0" class=""></li>
+		<li class="active" data-target="#carousel-example-captions" data-slide-to="1"></li>
+		<li class="" data-target="#carousel-example-captions" data-slide-to="2"></li>
+	</ol>
+	<div class="carousel-inner" role="listbox">
+		<div class="item">
+			<img data-holder-rendered="true" src="/logos/twitter.png" alt="" >
+			<div class="carousel-caption">
+				<h3>First slide label</h3>
+				<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+			</div>
+		</div>
+		<div class="item active">
+			<img data-holder-rendered="true" src="/logos/twitter.png" alt="">
+			<div class="carousel-caption">
+				<h3>Second slide label</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+		</div>
+		<div class="item">
+			<img data-holder-rendered="true" src="/logos/twitter.png" alt="">
+			<div class="carousel-caption">
+				<h3>Third slide label</h3>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+			</div>
+		</div>
+	</div>
+	<a href="#carousel-example-captions" class="left carousel-control" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span><span class="sr-only">Previous</span></a>
+	<a href="#carousel-example-captions" class="right carousel-control" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span></a>
+</div>";s:17:"content_text_eval";s:1:"0";}}}}
