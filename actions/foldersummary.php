@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2011 (2016) izend.org
- * @version    4 (1)
+ * @copyright  2010-2016 izend.org
+ * @version    5 (1)
  * @link       http://www.izend.org
  */
 
@@ -20,7 +20,7 @@ function foldersummary($lang, $folder) {
 	if (!$r) {
 		return run('error/notfound', $lang);
 	}
-	extract($r); /* thread_type thread_name thread_title thread_abstract thread_cloud */
+	extract($r); /* thread_type thread_name thread_title thread_abstract thread_cloud thread_image */
 
 	if ($thread_type != 'folder') {
 		return run('error/notfound', $lang);
@@ -30,6 +30,7 @@ function foldersummary($lang, $folder) {
 	$folder_title = $thread_title;
 	$folder_abstract = $thread_abstract;
 	$folder_cloud = $thread_cloud;
+	$folder_image = $thread_image;
 
 	if ($folder_title) {
 		head('title', $folder_title);
@@ -39,6 +40,9 @@ function foldersummary($lang, $folder) {
 	}
 	if ($folder_cloud) {
 		head('keywords', $folder_cloud);
+	}
+	if ($folder_image) {
+		head('image', $folder_image);
 	}
 
 	$folder_contents = array();

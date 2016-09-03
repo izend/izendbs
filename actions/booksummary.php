@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2013 (2016) izend.org
- * @version    14 (1)
+ * @copyright  2010-2016 izend.org
+ * @version    15 (1)
  * @link       http://www.izend.org
  */
 
@@ -31,6 +31,7 @@ function booksummary($lang, $book) {
 	$book_title = $thread_title;
 	$book_abstract = $thread_abstract;
 	$book_cloud = $thread_cloud;
+	$book_image = $thread_image;
 	$book_modified= $thread_modified;
 	$book_nocloud = $thread_nocloud;
 	$book_nosearch = $thread_nosearch;
@@ -45,6 +46,9 @@ function booksummary($lang, $book) {
 	}
 	if ($book_cloud) {
 		head('keywords', $book_cloud);
+	}
+	if ($book_image) {
+		head('image', $book_image);
 	}
 	head('date', $book_modified);
 
