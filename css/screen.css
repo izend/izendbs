@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2016 (2016) izend.org
- * @version    75 (7)
+ * @version    75 (8)
  * @link       http://www.izend.org
  */
 
@@ -350,133 +350,197 @@ span.btn_edit {
 span.btn_mouse {
 	background-position: -208px -48px;
 }
-span.btn_bullet_star {	background-position: -176px -32px;
+span.btn_bullet_star {
+	background-position: -176px -32px;
 }
-span.btn_accept {	background-position: -192px -32px;
+span.btn_accept {
+	background-position: -192px -32px;
 }
-span.btn_cancel {	background-position: -208px -32px;
+span.btn_cancel {
+	background-position: -208px -32px;
 }
-span.btn_ignored {	background-position: -224px -32px;
+span.btn_ignored {
+	background-position: -224px -32px;
 }
-span.btn_help {	background-position: -240px -32px;
+span.btn_help {
+	background-position: -240px -32px;
 }
-span.btn_a {	background-position: -240px -16px;
+span.btn_a {
+	background-position: -240px -16px;
 }
-span.btn_b {	background-position: -16px 0;
+span.btn_b {
+	background-position: -16px 0;
 }
-span.btn_blockquote {	background-position: -144px -16px;
+span.btn_blockquote {
+	background-position: -144px -16px;
 }
-span.btn_br {	background-position: -176px 0;
+span.btn_br {
+	background-position: -176px 0;
 }
-span.btn_code {	background-position: -112px -16px;
+span.btn_code {
+	background-position: -112px -16px;
 }
-span.btn_h1 {	background-position: -80px 0;
+span.btn_h1 {
+	background-position: -80px 0;
 }
-span.btn_h2 {	background-position: -96px 0;
+span.btn_h2 {
+	background-position: -96px 0;
 }
-span.btn_h3 {	background-position: -112px 0;
+span.btn_h3 {
+	background-position: -112px 0;
 }
-span.btn_h4 {	background-position: -128px 0;
+span.btn_h4 {
+	background-position: -128px 0;
 }
-span.btn_h5 {	background-position: -144px 0;
+span.btn_h5 {
+	background-position: -144px 0;
 }
-span.btn_h6 {	background-position: -160px 0;
+span.btn_h6 {
+	background-position: -160px 0;
 }
-span.btn_i {	background-position: -32px 0;
+span.btn_i {
+	background-position: -32px 0;
 }
-span.btn_img {	background-position: -208px -16px;
+span.btn_img {
+	background-position: -208px -16px;
 }
-span.btn_ol {	background-position: -192px 0;
+span.btn_ol {
+	background-position: -192px 0;
 }
-span.btn_p {	background-position: 0 0;
+span.btn_p {
+	background-position: 0 0;
 }
-span.btn_pre {	background-position: -160px -16px;
+span.btn_pre {
+	background-position: -160px -16px;
 }
-span.btn_precode {	background-position: -128px -16px;
+span.btn_precode {
+	background-position: -128px -16px;
 }
-span.btn_quote {	background-position: -144px -16px;
+span.btn_quote {
+	background-position: -144px -16px;
 }
-span.btn_s {	background-position: -64px 0;
+span.btn_s {
+	background-position: -64px 0;
 }
-span.btn_table {	background-position: -224px 0;
+span.btn_table {
+	background-position: -224px 0;
 }
-span.btn_u {	background-position: -48px 0;
+span.btn_u {
+	background-position: -48px 0;
 }
-span.btn_ul {	background-position: -208px 0;
+span.btn_ul {
+	background-position: -208px 0;
 }
-span.btn_email {	background-position: -224px -16px;
+span.btn_email {
+	background-position: -224px -16px;
 }
-span.btn_url {	background-position: -240px -16px;
+span.btn_url {
+	background-position: -240px -16px;
 }
-span.btn_php {	background-position: -240px 0;
+span.btn_php {
+	background-position: -240px 0;
 }
-span.btn_entquote {	background-position: -176px -16px;
+span.btn_entquote {
+	background-position: -176px -16px;
 }
-span.btn_number {	background-position: -192px 0;
+span.btn_number {
+	background-position: -192px 0;
 }
-span.btn_seval{	background-position: -240px 0;
+span.btn_seval{
+	background-position: -240px 0;
 }
-span.btn_striptags {	background-position: -192px -16px;
+span.btn_striptags {
+	background-position: -192px -16px;
 }
-span.btn_stripbbcodes {	background-position: -192px -16px;
+span.btn_stripbbcodes {
+	background-position: -192px -16px;
 }
-span.btn_calendar {	background-position: -80px -16px;
+span.btn_calendar {
+	background-position: -80px -16px;
 }
-span.btn_autostart {	background-position: -16px -16px;
+span.btn_autostart {
+	background-position: -16px -16px;
 }
-span.btn_playicon {	background-position: -32px -16px;
+span.btn_playicon {
+	background-position: -32px -16px;
 }
-span.btn_repeat {	background-position: -48px -16px;
+span.btn_repeat {
+	background-position: -48px -16px;
 }
-span.btn_time {	background-position: -0 -16px;
+span.btn_time {
+	background-position: -0 -16px;
 }
-span.btn_autoplay {	background-position: -16px -16px;
+span.btn_autoplay {
+	background-position: -16px -16px;
 }
-span.btn_controls {	background-position: -128px -32px;
+span.btn_controls {
+	background-position: -128px -32px;
 }
-span.btn_fs {	background-position: -208px -16px;
+span.btn_fs {
+	background-position: -208px -16px;
 }
-span.btn_rel {	background-position: -112px -32px;
+span.btn_rel {
+	background-position: -112px -32px;
 }
-span.btn_comment {	background-position: 0 -32px;
+span.btn_comment {
+	background-position: 0 -32px;
 }
-span.btn_morecomment {	background-position: -16px -32px;
+span.btn_morecomment {
+	background-position: -16px -32px;
 }
-span.btn_visits {	background-position: -64px -16px;
+span.btn_visits {
+	background-position: -64px -16px;
 }
-span.btn_vote {	background-position: -32px -32px;
+span.btn_vote {
+	background-position: -32px -32px;
 }
-span.btn_morevote {	background-position: -48px -32px;
+span.btn_morevote {
+	background-position: -48px -32px;
 }
-span.btn_search {	background-position: -64px -32px;
+span.btn_search {
+	background-position: -64px -32px;
 }
-span.btn_tag {	background-position: -80px -32px;
+span.btn_tag {
+	background-position: -80px -32px;
 }
-span.btn_ilike {	background-position: 0 -48px;
+span.btn_ilike {
+	background-position: 0 -48px;
 }
-span.btn_tweet {	background-position: -16px -48px;
+span.btn_tweet {
+	background-position: -16px -48px;
 }
-span.btn_plusone {	background-position: -32px -48px;
+span.btn_plusone {
+	background-position: -32px -48px;
 }
-span.btn_linkedin {	background-position: -48px -48px;
+span.btn_linkedin {
+	background-position: -48px -48px;
 }
-span.btn_pinit {	background-position: -64px -48px;
+span.btn_pinit {
+	background-position: -64px -48px;
 }
-span.btn_world {	background-position: -240px -16px;
+span.btn_world {
+	background-position: -240px -16px;
 }
-span.btn_map {	background-position: -144px -32px;
+span.btn_map {
+	background-position: -144px -32px;
 }
-span.btn_marker {	background-position: -160px -32px;
+span.btn_marker {
+	background-position: -160px -32px;
 }
-span.btn_film {	background-position: -144px -48px;
+span.btn_film {
+	background-position: -144px -48px;
 }
-span.btn_camera {	background-position: -160px -48px;
+span.btn_camera {
+	background-position: -160px -48px;
 }
-span.btn_sound {	background-position: -176px -48px;
+span.btn_sound {
+	background-position: -176px -48px;
 }
-span.btn_loop {	background-position: -192px -48px;
+span.btn_loop {
+	background-position: -192px -48px;
 }
-span.btn_cut {	background-position: -112px -48px;
+span.btn_cut {
+	background-position: -112px -48px;
 }
 
 audio:focus,
