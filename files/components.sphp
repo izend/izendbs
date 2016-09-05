@@ -1,4 +1,21 @@
-a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1";s:18:"node_nomorecomment";s:1:"1";s:11:"node_novote";s:1:"0";s:15:"node_nomorevote";s:1:"0";s:10:"node_ilike";s:1:"1";s:10:"node_tweet";s:1:"1";s:12:"node_plusone";s:1:"1";s:13:"node_linkedin";s:1:"1";s:10:"node_pinit";s:1:"1";}s:2:"en";a:5:{s:9:"node_name";s:10:"components";s:10:"node_title";s:10:"Components";s:13:"node_abstract";s:39:"All the Bootstrap components in action.";s:10:"node_cloud";s:184:"Bootstrap components glyphicons button dropdowns input groups nav navbar tabs breadcrums pagination pager labels badges jumbotron thumbnails alerts progress bar media list wells panels";s:10:"node_image";s:23:"/files/images/pinit.jpg";}s:2:"fr";a:5:{s:9:"node_name";s:10:"composants";s:10:"node_title";s:10:"Composants";s:13:"node_abstract";s:40:"Tous les composants Bootstrap en action.";s:10:"node_cloud";s:184:"Bootstrap composants glyphicons button dropdowns input groups nav navbar tabs breadcrums pagination pager labels badges jumbotron thumbnails alerts progress bar media list wells panels";s:10:"node_image";s:23:"/files/images/pinit.jpg";}}i:1;a:20:{i:1;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:1583:"<h4>Glyphicons</h4>
+a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1";s:18:"node_nomorecomment";s:1:"1";s:11:"node_novote";s:1:"0";s:15:"node_nomorevote";s:1:"0";s:10:"node_ilike";s:1:"1";s:10:"node_tweet";s:1:"1";s:12:"node_plusone";s:1:"1";s:13:"node_linkedin";s:1:"1";s:10:"node_pinit";s:1:"1";}s:2:"en";a:5:{s:9:"node_name";s:10:"components";s:10:"node_title";s:10:"Components";s:13:"node_abstract";s:39:"All the Bootstrap components in action.";s:10:"node_cloud";s:184:"Bootstrap components glyphicons button dropdowns input groups nav navbar tabs breadcrums pagination pager labels badges jumbotron thumbnails alerts progress bar media list wells panels";s:10:"node_image";s:23:"/files/images/pinit.jpg";}s:2:"fr";a:5:{s:9:"node_name";s:10:"composants";s:10:"node_title";s:10:"Composants";s:13:"node_abstract";s:40:"Tous les composants Bootstrap en action.";s:10:"node_cloud";s:184:"Bootstrap composants glyphicons button dropdowns input groups nav navbar tabs breadcrums pagination pager labels badges jumbotron thumbnails alerts progress bar media list wells panels";s:10:"node_image";s:23:"/files/images/pinit.jpg";}}i:1;a:20:{i:1;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2559:"<h4>Glyphicons</h4>
+
+<p>
+<span aria-hidden="true" class="glyphicon glyphicon-off"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-user"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-envelope"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-pencil"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-globe"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-ok"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-cog"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-search"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-thumbs-up"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-tag"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-lock"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-edit"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-download"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span>
+</p>
 
 <div class="hbar" role="toolbar">
 	<div class="btn-group">
@@ -37,7 +54,24 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
   <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   <span class="sr-only">Error:</span>
   Enter a valid email address
-</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:1583:"<h4>Glyphicons</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:2559:"<h4>Glyphicons</h4>
+
+<p>
+<span aria-hidden="true" class="glyphicon glyphicon-off"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-user"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-envelope"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-pencil"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-globe"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-ok"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-cog"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-search"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-thumbs-up"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-tag"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-lock"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-edit"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-download"></span>
+<span aria-hidden="true" class="glyphicon glyphicon-exclamation-sign"></span>
+</p>
 
 <div class="hbar" role="toolbar">
 	<div class="btn-group">
@@ -886,119 +920,107 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 			<li><a href="#">Separated link</a></li>
 		</ul>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:5;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:6837:"<h4>Input groups</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:5;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:6606:"<h4>Input groups</h4>
 
 <h5>Basic example</h5>
 <div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">@</span>
-  <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+	<span class="input-group-addon" id="basic-addon1">@</span> <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
 </div>
 <br>
 <div class="input-group">
-  <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
-  <span class="input-group-addon" id="basic-addon2">@example.com</span>
+	<input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2"> <span class="input-group-addon" id="basic-addon2">@example.com</span>
 </div>
 <br>
 <div class="input-group">
-  <span class="input-group-addon">$</span>
-  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-  <span class="input-group-addon">.00</span>
+	<span class="input-group-addon">$</span> <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"> <span class="input-group-addon">.00</span>
 </div>
 <br>
 <label for="basic-url">Your vanity URL</label>
 <div class="input-group input-group-auto">
-  <span class="input-group-addon" id="basic-addon3">https://example.com/users/</span>
-  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+	<span class="input-group-addon" id="basic-addon3">https://example.com/users/</span> <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
 </div>
 
 <h5>Sizing</h5>
 <div class="input-group input-group-lg">
-  <span class="input-group-addon" id="sizing-addon1">@</span>
-  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
+	<span class="input-group-addon" id="sizing-addon1">@</span> <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
 </div>
 <br>
 <div class="input-group">
-  <span class="input-group-addon" id="sizing-addon2">@</span>
-  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
+	<span class="input-group-addon" id="sizing-addon2">@</span> <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
 </div>
 <br>
 <div class="input-group input-group-sm">
-  <span class="input-group-addon" id="sizing-addon3">@</span>
-  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
+	<span class="input-group-addon" id="sizing-addon3">@</span> <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
 </div>
 
 <h5>Checkboxes and radio addons</h5>
 <div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <span class="input-group-addon">
-        <input type="checkbox" aria-label="...">
-      </span>
-      <input type="text" class="form-control" aria-label="...">
-    </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="input-group">
-      <span class="input-group-addon">
-        <input type="radio" aria-label="...">
-      </span>
-      <input type="text" class="form-control" aria-label="...">
-    </div>
-  </div>
+	<div class="col-lg-6">
+		<div class="input-group">
+			<span class="input-group-addon"><input type="checkbox" aria-label="..."></span>
+			<input type="text" class="form-control" aria-label="...">
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="input-group">
+			<span class="input-group-addon"><input type="radio" aria-label="..."></span>
+			<input type="text" class="form-control" aria-label="...">
+		</div>
+	</div>
 </div>
 
 <h5>Button addons</h5>
 <div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-      <input type="text" class="form-control" placeholder="Search for...">
-    </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-    </div>
-  </div>
+	<div class="col-lg-6">
+		<div class="input-group">
+			<span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>
+			<input type="text" class="form-control" placeholder="Search for...">
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="Search for...">
+			<span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>
+		</div>
+	</div>
 </div>
 
 <h5>Buttons with dropdowns</h5>
 <div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </div>
-      <input type="text" class="form-control" aria-label="...">
-    </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" aria-label="...">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
-        <ul class="dropdown-menu dropdown-menu-right">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+	<div class="col-lg-6">
+		<div class="input-group">
+			<div class="input-group-btn">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">Separated link</a></li>
+				</ul>
+			</div>
+			<input type="text" class="form-control" aria-label="...">
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="input-group">
+			<input type="text" class="form-control" aria-label="...">
+			<div class="input-group-btn">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">Separated link</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
 
 <h5>Segmented buttons</h5>
@@ -1073,119 +1095,107 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 			</div>
 		</div>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:6837:"<h4>Input groups</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:6606:"<h4>Input groups</h4>
 
 <h5>Basic example</h5>
 <div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">@</span>
-  <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+	<span class="input-group-addon" id="basic-addon1">@</span> <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
 </div>
 <br>
 <div class="input-group">
-  <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
-  <span class="input-group-addon" id="basic-addon2">@example.com</span>
+	<input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2"> <span class="input-group-addon" id="basic-addon2">@example.com</span>
 </div>
 <br>
 <div class="input-group">
-  <span class="input-group-addon">$</span>
-  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-  <span class="input-group-addon">.00</span>
+	<span class="input-group-addon">$</span> <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"> <span class="input-group-addon">.00</span>
 </div>
 <br>
 <label for="basic-url">Your vanity URL</label>
 <div class="input-group input-group-auto">
-  <span class="input-group-addon" id="basic-addon3">https://example.com/users/</span>
-  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+	<span class="input-group-addon" id="basic-addon3">https://example.com/users/</span> <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
 </div>
 
 <h5>Sizing</h5>
 <div class="input-group input-group-lg">
-  <span class="input-group-addon" id="sizing-addon1">@</span>
-  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
+	<span class="input-group-addon" id="sizing-addon1">@</span> <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
 </div>
 <br>
 <div class="input-group">
-  <span class="input-group-addon" id="sizing-addon2">@</span>
-  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
+	<span class="input-group-addon" id="sizing-addon2">@</span> <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
 </div>
 <br>
 <div class="input-group input-group-sm">
-  <span class="input-group-addon" id="sizing-addon3">@</span>
-  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
+	<span class="input-group-addon" id="sizing-addon3">@</span> <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
 </div>
 
 <h5>Checkboxes and radio addons</h5>
 <div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <span class="input-group-addon">
-        <input type="checkbox" aria-label="...">
-      </span>
-      <input type="text" class="form-control" aria-label="...">
-    </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="input-group">
-      <span class="input-group-addon">
-        <input type="radio" aria-label="...">
-      </span>
-      <input type="text" class="form-control" aria-label="...">
-    </div>
-  </div>
+	<div class="col-lg-6">
+		<div class="input-group">
+			<span class="input-group-addon"><input type="checkbox" aria-label="..."></span>
+			<input type="text" class="form-control" aria-label="...">
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="input-group">
+			<span class="input-group-addon"><input type="radio" aria-label="..."></span>
+			<input type="text" class="form-control" aria-label="...">
+		</div>
+	</div>
 </div>
 
 <h5>Button addons</h5>
 <div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-      <input type="text" class="form-control" placeholder="Search for...">
-    </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-    </div>
-  </div>
+	<div class="col-lg-6">
+		<div class="input-group">
+			<span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>
+			<input type="text" class="form-control" placeholder="Search for...">
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="Search for...">
+			<span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>
+		</div>
+	</div>
 </div>
 
 <h5>Buttons with dropdowns</h5>
 <div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </div>
-      <input type="text" class="form-control" aria-label="...">
-    </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" aria-label="...">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
-        <ul class="dropdown-menu dropdown-menu-right">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li role="separator" class="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+	<div class="col-lg-6">
+		<div class="input-group">
+			<div class="input-group-btn">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">Separated link</a></li>
+				</ul>
+			</div>
+			<input type="text" class="form-control" aria-label="...">
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="input-group">
+			<input type="text" class="form-control" aria-label="...">
+			<div class="input-group-btn">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="#">Separated link</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
 
 <h5>Segmented buttons</h5>
@@ -1776,28 +1786,21 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 	<li><a href="#">Home</a></li>
 	<li><a href="#">Library</a></li>
 	<li class="active">Data</li>
-</ol>";s:17:"content_text_eval";s:1:"0";}}i:9;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2913:"<h4>Pagination</h4>
+</ol>";s:17:"content_text_eval";s:1:"0";}}i:9;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2822:"<h4>Pagination</h4>
 
 <h5>Default pagination</h5>
 <nav aria-label="Page navigation">
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
+	<ul class="pagination">
+		<li><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+		<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+	</ul>
 </nav>
+
 <h6>Disabled and active states</h6>
 <nav aria-label="...">
 	<ul class="pagination">
@@ -1814,8 +1817,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 <h6>Sizing</h6>
 <nav aria-label="...">
 	<ul class="pagination pagination-lg">
-		<li><a href="#" aria-label="Previous"><span
-				aria-hidden="true">«</span></a></li>
+		<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 		<li><a href="#">1</a></li>
 		<li><a href="#">2</a></li>
 		<li><a href="#">3</a></li>
@@ -1826,8 +1828,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 </nav>
 <nav aria-label="...">
 	<ul class="pagination">
-		<li><a href="#" aria-label="Previous"><span
-				aria-hidden="true">«</span></a></li>
+		<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 		<li><a href="#">1</a></li>
 		<li><a href="#">2</a></li>
 		<li><a href="#">3</a></li>
@@ -1838,8 +1839,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 </nav>
 <nav aria-label="...">
 	<ul class="pagination pagination-sm">
-		<li><a href="#" aria-label="Previous"><span
-				aria-hidden="true">«</span></a></li>
+		<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 		<li><a href="#">1</a></li>
 		<li><a href="#">2</a></li>
 		<li><a href="#">3</a></li>
@@ -1871,28 +1871,21 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li class="previous disabled"><a href="#"><span aria-hidden="true">←</span> Older</a></li>
 		<li class="next"><a href="#">Newer <span aria-hidden="true">→</span></a></li>
 	</ul>
-</nav>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:2913:"<h4>Pagination</h4>
+</nav>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:2822:"<h4>Pagination</h4>
 
 <h5>Default pagination</h5>
 <nav aria-label="Page navigation">
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
+	<ul class="pagination">
+		<li><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a></li>
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+		<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+	</ul>
 </nav>
+
 <h6>Disabled and active states</h6>
 <nav aria-label="...">
 	<ul class="pagination">
@@ -1909,8 +1902,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 <h6>Sizing</h6>
 <nav aria-label="...">
 	<ul class="pagination pagination-lg">
-		<li><a href="#" aria-label="Previous"><span
-				aria-hidden="true">«</span></a></li>
+		<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 		<li><a href="#">1</a></li>
 		<li><a href="#">2</a></li>
 		<li><a href="#">3</a></li>
@@ -1921,8 +1913,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 </nav>
 <nav aria-label="...">
 	<ul class="pagination">
-		<li><a href="#" aria-label="Previous"><span
-				aria-hidden="true">«</span></a></li>
+		<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 		<li><a href="#">1</a></li>
 		<li><a href="#">2</a></li>
 		<li><a href="#">3</a></li>
@@ -1933,8 +1924,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 </nav>
 <nav aria-label="...">
 	<ul class="pagination pagination-sm">
-		<li><a href="#" aria-label="Previous"><span
-				aria-hidden="true">«</span></a></li>
+		<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 		<li><a href="#">1</a></li>
 		<li><a href="#">2</a></li>
 		<li><a href="#">3</a></li>
