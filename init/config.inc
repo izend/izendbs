@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2016 izend.org
- * @version    43 (2)
+ * @copyright  2010-2016 (2016) izend.org
+ * @version    44 (2)
  * @link       http://www.izend.org
  */
 <?php
@@ -63,9 +63,18 @@ global $pinterestassets;
 
 $pinterestassets=false;	// false
 
+global $googleapiid;
+
+$googleapiid=false;
+
 global $googleanalyticsid;
 
 $googleanalyticsid=false;
+
+global $googleanalyticsaccount, $googleanalyticskeyfile;
+
+$googleanalyticsaccount = false;
+$googleanalyticskeyfile = false;	// ROOT_DIR . DIRECTORY_SEPARATOR . 'google-api-*.p12';
 
 global $author;
 

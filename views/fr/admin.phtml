@@ -2,13 +2,17 @@
 
 /**
  *
- * @copyright  2010-2014 (2016) izend.org
- * @version    4 (1)
+ * @copyright  2010-2016 (2016) izend.org
+ * @version    5 (2)
  * @link       http://www.izend.org
  */
 ?>
 <h3>Gestion</h3>
+<?php if (!empty($traffic_page) or !empty($newsletter_page) or !empty($balance)): ?>
 <div class="pull-right">
+<?php if (!empty($traffic_page)): ?>
+<a class="btn bn-link center-block" href="<?php echo $traffic_page; ?>" rel="nofollow"><img src="/images/theme/trafficlarge.png" alt="" title="Trafic" /></a>
+<?php endif; ?>
 <?php if (!empty($newsletter_page)): ?>
 <a class="btn bn-link center-block" href="<?php echo $newsletter_page; ?>" rel="nofollow"><img src="/images/theme/envelopelarge.png" alt="" title="Infolettre" /></a>
 <?php endif; ?>
@@ -16,6 +20,7 @@
 <?php echo $balance; ?>
 <?php endif; ?>
 </div>
+<?php endif; ?>
 <?php if (!empty($upload)): ?>
 <h4>Contenu</h4>
 <?php echo $upload; ?>
