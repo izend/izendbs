@@ -4,25 +4,45 @@
  * @version    41 (1)
  * @link       http://www.izend.org
  */
- 
+
 /* print.css */
 
 a[href]:after {
 	content: none
 }
 
-* {background-color:white !important;}
+* {
+	background-color: white !important;
+}
 
-.pagebreak {page-break-before:always;}
-.nopagebreak {page-break-before:avoid !important;}
+.pagebreak {
+	page-break-before: always;
+}
+.nopagebreak {
+	page-break-before: avoid !important;
+}
 
-#comments {page-break-before:always;}
+#comments {
+	page-break-before: always;
+}
 
-div.file {font-family:monospace;font-size:.9em;}
-div.download, div.longtail, div.youtube {display:none;}
+div.file {
+	font-family: monospace;
+	font-size: .9em;
+}
 
-form, audio, video, .audioplayer {display:none;}
+div.download, div.longtail, div.youtube {
+	display: none;
+}
 
-.avatar, #newcomment, #oldcomment, #sidebar, #footer {display:none;}
+form, audio, video, .audioplayer {
+	display: none;
+}
 
-.fb-like-box, #pinterest-board {display:none !important;}
+.avatar, #newcomment, #oldcomment, #sidebar, #footer {
+	display: none;
+}
+
+.fb-like-box, #pinterest-board {
+	display: none !important;
+}
