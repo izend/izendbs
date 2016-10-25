@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2016 (2016) izend.org
- * @version    76 (10)
+ * @version    76 (11)
  * @link       http://www.izend.org
  */
 
@@ -545,6 +545,9 @@ span.btn_loop {
 }
 span.btn_cut {
 	background-position: -112px -48px;
+}
+span.btn_chart {
+	background-position: -128px -48px;
 }
 
 audio:focus,

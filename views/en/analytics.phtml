@@ -2,33 +2,47 @@
 
 /**
  *
- * @copyright  2016 izend.org
- * @version    1
+ * @copyright  2016 (2016) izend.org
+ * @version    1 (1)
  * @link       http://www.izend.org
  */
 ?>
 <?php extract($errors); ?>
-<form action="" method="post">
+<form method="post">
 <input type="hidden" name="analytics_token" value="<?php echo $token; ?>" />
-<p class="inlabel<?php if ($missing_url or $bad_url): ?> inerror<?php endif; ?>">URL:</p>
-<p><input type="text" name="analytics_url" id="analytics_url" size="60" maxlength="200" title="" onkeypress="return submitonenter(event, 'analytics_draw')" value="<?php echo htmlspecialchars($url, ENT_COMPAT, 'UTF-8'); ?>" /></p>
-<p class="inlabel<?php if ($missing_period or $bad_period): ?> inerror<?php endif; ?>">Options:</p>
-<p class="smaller">
-<span class="nowrap"><input name="analytics_period" type="radio" value="1weekago" title="1 week"<?php if ($period == '1weekago'): ?> checked="checked"<?php endif; ?> />&nbsp;1&nbsp;week</span>
-<span class="nowrap"><input name="analytics_period" type="radio" value="2weeksago" title="2 weeks"<?php if ($period == '2weeksago'): ?> checked="checked"<?php endif; ?> />&nbsp;2&nbsp;weeks</span>
-<span class="nowrap"><input name="analytics_period" type="radio" value="1monthago" title="1 month"<?php if ($period == '1monthago'): ?> checked="checked"<?php endif; ?> />&nbsp;1&nbsp;month</span>
-<span class="nowrap"><input name="analytics_period" type="radio" value="3monthsago" title="3 months"<?php if ($period == '3monthsago'): ?> checked="checked"<?php endif; ?> />&nbsp;3&nbsp;months</span>
-<span class="nowrap"><input name="analytics_period" type="radio" value="6monthsago" title="6 months"<?php if ($period == '6monthsago'): ?> checked="checked"<?php endif; ?> />&nbsp;6&nbsp;months</span>
-<span class="nowrap"><input name="analytics_period" type="radio" value="1yearago" title="1 year"<?php if ($period == '1yearago'): ?> checked="checked"<?php endif; ?> />&nbsp;1&nbsp;year</span>
-</p>
-<p><span class="nowrap"><input name="analytics_trendline" type="checkbox"<?php if ($trendline): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_chart" title="With trend line">trendline</span></span></p>
-<p>
-<input type="submit" class="submit submit_draw" name="analytics_draw" id="analytics_draw" value="Draw" title="" />
-</p>
+<div class="form-group<?php if ($missing_url or $bad_url): ?> has-error<?php endif; ?>">
+<label for="analytics_url">URL</label>
+<div class="form-inline-auto">
+<input type="text" class="form-control" name="analytics_url" id="analytics_url" size="50" maxlength="200" value="<?php echo htmlspecialchars($url, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'analytics_draw')" />
+</div>
+</div>
+<div class="form-group<?php if ($missing_period or $bad_period): ?> has-error<?php endif; ?>">
+<label for="analytics_period">Options</label>
+<div class="form-group-inline">
+<label class="radio-inline"><input type="radio" name="analytics_period" value="1weekago" title="1 week"<?php if ($period == '1weekago'): ?> checked="checked"<?php endif; ?> /><span class="form-control-static">&nbsp;1&nbsp;week</span></label>
+<label class="radio-inline"><input type="radio" name="analytics_period" value="2weeksago" title="2 weeks"<?php if ($period == '2weeksago'): ?> checked="checked"<?php endif; ?> /><span class="form-control-static">&nbsp;2&nbsp;weeks</span></label>
+</div>
+<div class="form-group-inline">
+<label class="radio-inline"><input type="radio" name="analytics_period" value="1monthago" title="1 month"<?php if ($period == '1monthago'): ?> checked="checked"<?php endif; ?> /><span class="form-control-static">&nbsp;1&nbsp;month</span></label>
+<label class="radio-inline"><input type="radio" name="analytics_period" value="3monthsago" title="3 months"<?php if ($period == '3monthsago'): ?> checked="checked"<?php endif; ?> /><span class="form-control-static">&nbsp;3&nbsp;months</span></label>
+<label class="radio-inline"><input type="radio" name="analytics_period" value="6monthsago" title="6 months"<?php if ($period == '6monthsago'): ?> checked="checked"<?php endif; ?> /><span class="form-control-static">&nbsp;6&nbsp;months</span></label>
+</div>
+<div class="form-group-inline">
+<label class="radio-inline"><input type="radio" name="analytics_period" value="1yearago" title="1 year"<?php if ($period == '1yearago'): ?> checked="checked"<?php endif; ?> /><span class="form-control-static">&nbsp;1&nbsp;year</span></label>
+</div>
+<div class="form-group-inline">
+<label class="checkbox-inline">
+<input type="checkbox" name="analytics_trendline"<?php if ($trendline): ?> checked="checked"<?php endif; ?> />&nbsp;<span class="btn_edit btn_chart" title="With trend line"></span>
+</label>
+</div>
+</div>
+<div class="form-group">
+<button type="submit" class="btn <?php if ($internal_error or $missing_url or $bad_url): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="analytics_draw" id="analytics_draw">Draw</button>
+</div>
 </form>
 <div class="infos">
 <?php if ($internal_error): ?>
-<p>An internal error has occurred.
+<p>An internal error has occurred.</p>
 <?php endif; ?>
 </div>
 <?php if ($data): ?>
@@ -105,7 +119,7 @@ else {
 	var chart = new google.visualization.LineChart(document.getElementById('traffic'));
 
 	google.visualization.events.addListener(chart, 'ready', function () {
-		$('#traffic').append('<div class="download"><a href="' + chart.getImageURI() + '" download="traffic.png" title="">traffic.png</a></div>\n');
+		$('#traffic').append('<div class="download"><span class="glyphicon glyphicon-download" aria-hidden="true"></span><a href="' + chart.getImageURI() + '" download="traffic.png" title="">traffic.png</a></div>\n');
 	});
 
 	chart.draw(data, options);
