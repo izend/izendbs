@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2016 (2016) izend.org
- * @version    2 (1)
+ * @version    4 (2)
  * @link       http://www.izend.org
  */
 ?>
@@ -18,6 +18,7 @@
 </div>
 <div class="form-group<?php if ($missing_period or $bad_period): ?> has-error<?php endif; ?>">
 <label for="analytics_period">Options</label>
+<?php if ($with_period): ?>
 <div class="form-group-inline">
 <label class="radio-inline"><input type="radio" name="analytics_period" value="1weekago" title="1 week"<?php if ($period == '1weekago'): ?> checked="checked"<?php endif; ?> /><span class="form-control-static">&nbsp;1&nbsp;week</span></label>
 <label class="radio-inline"><input type="radio" name="analytics_period" value="2weeksago" title="2 weeks"<?php if ($period == '2weeksago'): ?> checked="checked"<?php endif; ?> /><span class="form-control-static">&nbsp;2&nbsp;weeks</span></label>
@@ -30,7 +31,25 @@
 <div class="form-group-inline">
 <label class="radio-inline"><input type="radio" name="analytics_period" value="1yearago" title="1 year"<?php if ($period == '1yearago'): ?> checked="checked"<?php endif; ?> /><span class="form-control-static">&nbsp;1&nbsp;year</span></label>
 </div>
-<div class="form-group-inline">
+<?php else: ?>
+<div class="form-group form-inline">
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="analytics_startdate" id="analytics_startdate" size="10" placeholder="yyyy-mm-dd" value="<?php echo htmlspecialchars($start_date, ENT_COMPAT, 'UTF-8'); ?>" />
+<span class="form-control-static hidden-xs">&rarr;</span>
+</div>
+<div class="form-group form-inline-auto">
+<input type="text" class="form-control" name="analytics_enddate" id="analytics_enddate" size="10" placeholder="yyyy-mm-dd" value="<?php echo htmlspecialchars($end_date, ENT_COMPAT, 'UTF-8'); ?>" />
+</div>
+</div>
+<?php head('javascript', 'jquery-ui'); ?>
+<?php head('stylesheet', 'jquery-ui', 'screen'); ?>
+<script>
+$(document).ready(function() {
+    $('#analytics_startdate, #analytics_enddate').datepicker({dateFormat: 'yy-mm-dd', autoSize: true, showAnim: 'drop', showOn: 'both', buttonText: 'Calendar', buttonImage: '/images/theme/edit/calendar.png', buttonImageOnly: true, maxDate: 'today', showOtherMonths: true, navigationAsDateFormat: true, prevText: 'MM', nextText: 'MM'});
+});
+</script>
+<?php endif; ?>
+<div class="form-group">
 <label class="checkbox-inline">
 <input type="checkbox" name="analytics_trendline"<?php if ($trendline): ?> checked="checked"<?php endif; ?> />&nbsp;<span class="btn_edit btn_chart" title="With trend line"></span>
 </label>
@@ -40,11 +59,20 @@
 <button type="submit" class="btn <?php if ($internal_error or $missing_url or $bad_url): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="analytics_draw" id="analytics_draw">Draw</button>
 </div>
 </form>
-<div class="infos">
 <?php if ($internal_error): ?>
 <p>An internal error has occurred.</p>
 <?php endif; ?>
-</div>
+<?php
+$focus=false;
+if ($missing_url or $bad_url) {
+	$focus='#analytics_url';
+}
+?>
+<?php if ($focus): ?>
+<script type="text/javascript">
+$(function() {$('<?php echo $focus; ?>').focus();});
+</script>
+<?php endif; ?>
 <?php if ($data): ?>
 <div id="traffic"></div>
 <?php head('javascript', 'https://www.gstatic.com/charts/loader.js'); ?>
