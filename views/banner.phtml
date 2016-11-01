@@ -40,6 +40,9 @@ _SEP_;
 		break;
 }
 ?>
+<?php if (!empty($consent)): ?>
+<?php echo $consent; ?>
+<?php endif; ?>
 <nav class="navbar navbar-default <?php echo $navbar; ?>">
 <div class="<?php echo $container; ?>">
 <div class="navbar-header">

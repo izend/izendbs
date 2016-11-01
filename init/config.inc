@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2016 (2016) izend.org
- * @version    45 (2)
+ * @copyright  2010-2016 izend.org
+ * @version    46 (2)
  * @link       http://www.izend.org
  */
 <?php
@@ -51,6 +51,10 @@ global $socializing, $socializingmode;
 
 $socializing=true;
 $socializingmode='standard';       // 'standard', 'lite'
+
+global $cookieconsent;
+
+$cookieconsent=false;
 
 global $facebookjssdk, $facebookid, $facebooksecret;
 
