@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2016 (2016) izend.org
- * @version    76 (11)
+ * @version    77 (12)
  * @link       http://www.izend.org
  */
 
@@ -616,6 +616,11 @@ div.youtube iframe {
 	display: none;
 	margin-top: 20px;
 	margin-bottom: 20px;
+	padding: 0;
+}
+.besocial li {
+	display: inline-block;
+	list-style: none;
 }
 .besocial.standard li {
 	height: 30px;
@@ -623,6 +628,39 @@ div.youtube iframe {
 }
 .besocial.standard li.pinterest span {
 	vertical-align: top !important;
+}
+.besocial.awesome a {
+	display: list-item;
+	font-size: 24px;
+	color: #ffffff;
+	padding: 4px 0;
+	width: 44px;
+	text-align: center;
+}
+@media (min-width: 480px) {
+	.besocial.awesome a {
+		width: 66px;
+	}
+}
+@media (min-width: 768px) {
+	.besocial.awesome a {
+		width: 88px;
+	}
+}
+.besocial.awesome .facebook {
+	background-color: #3b5998;
+}
+.besocial.awesome .twitter {
+	background-color: #4ad2ff;
+}
+.besocial.awesome .gplus {
+	background-color: #a7291c;
+}
+.besocial.awesome .linkedin {
+	background-color: #0183b3;
+}
+.besocial.awesome .pinterest {
+	background-color: #cb2027;
 }
 
 [class^="social-"],
