@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2016 izend.org
- * @version    26 (1)
+ * @version    26 (2)
  * @link       http://www.izend.org
  */
 
@@ -12,7 +12,7 @@ require_once 'userhasrole.php';
 require_once 'models/thread.inc';
 
 function story($lang, $arglist=false) {
-	global $with_toolbar, $siteshot;
+	global $request_path, $siteshot;
 
 	$story=$page=false;
 
