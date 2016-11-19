@@ -1,8 +1,12 @@
-/*! jQuery UI - v1.11.4 - 2016-06-27
+/*! jQuery UI - v1.12.1 - 2016-11-19
 * http://jqueryui.com
-* Includes: core.css, draggable.css, autocomplete.css, datepicker.css, menu.css, theme.css
+* Includes: draggable.css, core.css, autocomplete.css, menu.css, datepicker.css, theme.css
 * Copyright jQuery Foundation and other contributors; Licensed MIT */
 
+.ui-draggable-handle {
+	-ms-touch-action: none;
+	touch-action: none;
+}
 /* Layout helpers
 ----------------------------------*/
 .ui-helper-hidden {
@@ -37,9 +41,6 @@
 .ui-helper-clearfix:after {
 	clear: both;
 }
-.ui-helper-clearfix {
-	min-height: 0; /* support: IE7 */
-}
 .ui-helper-zfix {
 	width: 100%;
 	height: 100%;
@@ -59,20 +60,27 @@
 ----------------------------------*/
 .ui-state-disabled {
 	cursor: default !important;
+	pointer-events: none;
 }
 
 
 /* Icons
 ----------------------------------*/
-
-/* states and images */
 .ui-icon {
-	display: block;
+	display: inline-block;
+	vertical-align: middle;
+	margin-top: -.25em;
+	position: relative;
 	text-indent: -99999px;
 	overflow: hidden;
 	background-repeat: no-repeat;
 }
 
+.ui-widget-icon-block {
+	left: 50%;
+	margin-left: -8px;
+	display: block;
+}
 
 /* Misc visuals
 ----------------------------------*/
@@ -85,15 +93,65 @@
 	width: 100%;
 	height: 100%;
 }
-.ui-draggable-handle {
-	-ms-touch-action: none;
-	touch-action: none;
-}
 .ui-autocomplete {
 	position: absolute;
 	top: 0;
 	left: 0;
 	cursor: default;
+}
+.ui-menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: block;
+	outline: 0;
+}
+.ui-menu .ui-menu {
+	position: absolute;
+}
+.ui-menu .ui-menu-item {
+	margin: 0;
+	cursor: pointer;
+	/* support: IE10, see #8844 */
+	list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+.ui-menu .ui-menu-item-wrapper {
+	position: relative;
+	padding: 3px 1em 3px .4em;
+}
+.ui-menu .ui-menu-divider {
+	margin: 5px 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	border-width: 1px 0 0 0;
+}
+.ui-menu .ui-state-focus,
+.ui-menu .ui-state-active {
+	margin: -1px;
+}
+
+/* icon support */
+.ui-menu-icons {
+	position: relative;
+}
+.ui-menu-icons .ui-menu-item-wrapper {
+	padding-left: 2em;
+}
+
+/* left-aligned */
+.ui-menu .ui-icon {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: .2em;
+	margin: auto 0;
+}
+
+/* right-aligned */
+.ui-menu .ui-menu-icon {
+	left: auto;
+	right: 0;
 }
 .ui-datepicker {
 	width: 17em;
@@ -111,6 +169,15 @@
 	width: 1.8em;
 	height: 1.8em;
 }
+.ui-datepicker .ui-datepicker-prev-hover,
+.ui-datepicker .ui-datepicker-next-hover {
+	background: transparent !important;
+	border: none !important;
+}
+.ui-datepicker .ui-datepicker-prev-hover,
+.ui-datepicker .ui-datepicker-next-hover {
+	top: 1px;
+}
 .ui-datepicker .ui-datepicker-prev {
 	left: 2px;
 }
@@ -118,25 +185,19 @@
 	right: 2px;
 }
 .ui-datepicker .ui-datepicker-prev-hover {
-	background: transparent !important;
-	border: none !important;
-	cursor: pointer;
+	left: 1px;
 }
 .ui-datepicker .ui-datepicker-next-hover {
-	background: transparent !important;
-	border: none !important;
-	cursor: pointer;
+	right: 1px;
 }
 .ui-datepicker .ui-datepicker-prev span,
 .ui-datepicker .ui-datepicker-next span {
 	display: block;
 	position: absolute;
 	left: 50%;
+	margin-left: -8px;
 	top: 50%;
 	margin-top: -8px;
-}
-.ui-datepicker .ui-datepicker-prev span {
-	margin-left: -8px;
 }
 .ui-datepicker .ui-datepicker-title {
 	margin: 0 2.3em;
@@ -171,7 +232,7 @@
 .ui-datepicker td a {
 	display: block;
 	padding: .2em;
-	text-align: center;
+	text-align: right;
 	text-decoration: none;
 }
 .ui-datepicker .ui-datepicker-buttonpane {
@@ -239,6 +300,14 @@
 	left: 2px;
 	right: auto;
 }
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+	right: 1px;
+	left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+	left: 1px;
+	right: auto;
+}
 .ui-datepicker-rtl .ui-datepicker-buttonpane {
 	clear: right;
 }
@@ -254,58 +323,15 @@
 	border-right-width: 0;
 	border-left-width: 1px;
 }
-.ui-menu {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+
+/* Icons */
+.ui-datepicker .ui-icon {
 	display: block;
-	outline: none;
-}
-.ui-menu .ui-menu {
-	position: absolute;
-}
-.ui-menu .ui-menu-item {
-	position: relative;
-	margin: 0;
-	padding: 3px 1em 3px .4em;
-	cursor: pointer;
-	min-height: 0; /* support: IE7 */
-	/* support: IE10, see #8844 */
-	list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
-}
-.ui-menu .ui-menu-divider {
-	margin: 5px 0;
-	height: 0;
-	font-size: 0;
-	line-height: 0;
-	border-width: 1px 0 0 0;
-}
-.ui-menu .ui-state-focus,
-.ui-menu .ui-state-active {
-	margin: -1px;
-}
-
-/* icon support */
-.ui-menu-icons {
-	position: relative;
-}
-.ui-menu-icons .ui-menu-item {
-	padding-left: 2em;
-}
-
-/* left-aligned */
-.ui-menu .ui-icon {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: .2em;
-	margin: auto 0;
-}
-
-/* right-aligned */
-.ui-menu .ui-menu-icon {
-	left: auto;
-	right: 0;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	left: .5em;
+	top: .3em;
 }
 
 /* Component containers
@@ -346,7 +372,13 @@
 ----------------------------------*/
 .ui-state-default,
 .ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default {
+.ui-widget-header .ui-state-default,
+.ui-button,
+
+/* We use html here because we need a greater specificity to make sure disabled
+works properly when clicked or hovered */
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
 	border: 1px solid #cccccc;
 	background: #f6f6f6;
 	font-weight: normal;
@@ -354,7 +386,11 @@
 }
 .ui-state-default a,
 .ui-state-default a:link,
-.ui-state-default a:visited {
+.ui-state-default a:visited,
+a.ui-button,
+a:link.ui-button,
+a:visited.ui-button,
+.ui-button {
 	color: #333333;
 	text-decoration: none;
 }
@@ -363,7 +399,9 @@
 .ui-widget-header .ui-state-hover,
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
-.ui-widget-header .ui-state-focus {
+.ui-widget-header .ui-state-focus,
+.ui-button:hover,
+.ui-button:focus {
 	border: 1px solid #2e6da4;
 	background: #337ab7;
 	font-weight: normal;
@@ -376,17 +414,31 @@
 .ui-state-focus a,
 .ui-state-focus a:hover,
 .ui-state-focus a:link,
-.ui-state-focus a:visited {
+.ui-state-focus a:visited,
+a.ui-button:hover,
+a.ui-button:focus {
 	color: #ffffff;
 	text-decoration: none;
 }
+
+.ui-visual-focus {
+	box-shadow: 0 0 3px 1px rgb(94, 158, 214);
+}
 .ui-state-active,
 .ui-widget-content .ui-state-active,
-.ui-widget-header .ui-state-active {
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
 	border: 1px solid #4cae4c;
 	background: #5cb85c;
 	font-weight: normal;
 	color: #ffffff;
+}
+.ui-icon-background,
+.ui-state-active .ui-icon-background {
+	border: #aaaaaa;
+	background-color: #212121;
 }
 .ui-state-active a,
 .ui-state-active a:link,
@@ -404,9 +456,30 @@
 	background: #f0ad4e;
 	color: #ffffff;
 }
+.ui-state-checked {
+	border: 1px solid #fcefa1;
+	background: #ffffff;
+}
 .ui-state-highlight a,
 .ui-widget-content .ui-state-highlight a,
 .ui-widget-header .ui-state-highlight a {
+	color: #ffffff;
+}
+.ui-state-error,
+.ui-widget-content .ui-state-error,
+.ui-widget-header .ui-state-error {
+	border: 1px solid #a94442;
+	background-color: #f2dede;
+	color: #ffffff;
+}
+.ui-state-error a,
+.ui-widget-content .ui-state-error a,
+.ui-widget-header .ui-state-error a {
+	color: #ffffff;
+}
+.ui-state-error-text,
+.ui-widget-content .ui-state-error-text,
+.ui-widget-header .ui-state-error-text {
 	color: #ffffff;
 }
 .ui-priority-primary,
@@ -488,10 +561,6 @@
 	filter: Alpha(Opacity=30); /* support: IE8 */
 }
 .ui-widget-shadow {
-	margin: 0px 0 0 0px;
-	padding: 5px;
-	background: #666666;
-	opacity: .3;
-	filter: Alpha(Opacity=30); /* support: IE8 */
-	border-radius: 8px;
+	-webkit-box-shadow: -8px -8px 8px #aaaaaa;
+	box-shadow: -8px -8px 8px #aaaaaa;
 }
