@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2016 (2016) izend.org
- * @version    41 (1)
+ * @version    42 (1)
  * @link       http://www.izend.org
  */
 
@@ -43,6 +43,6 @@ form, audio, video, .audioplayer {
 	display: none;
 }
 
-.fb-like-box, #pinterest-board {
+.fb-like-box, .fb-page, #pinterest-board {
 	display: none !important;
 }
