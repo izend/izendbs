@@ -1,4 +1,4 @@
-a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1";s:18:"node_nomorecomment";s:1:"1";s:11:"node_novote";s:1:"0";s:15:"node_nomorevote";s:1:"0";s:10:"node_ilike";s:1:"1";s:10:"node_tweet";s:1:"1";s:12:"node_plusone";s:1:"1";s:13:"node_linkedin";s:1:"1";s:10:"node_pinit";s:1:"1";}s:2:"en";a:5:{s:9:"node_name";s:10:"components";s:10:"node_title";s:10:"Components";s:13:"node_abstract";s:39:"All the Bootstrap components in action.";s:10:"node_cloud";s:184:"Bootstrap components glyphicons button dropdowns input groups nav navbar tabs breadcrums pagination pager labels badges jumbotron thumbnails alerts progress bar media list wells panels";s:10:"node_image";s:23:"/files/images/pinit.jpg";}s:2:"fr";a:5:{s:9:"node_name";s:10:"composants";s:10:"node_title";s:10:"Composants";s:13:"node_abstract";s:40:"Tous les composants Bootstrap en action.";s:10:"node_cloud";s:184:"Bootstrap composants glyphicons button dropdowns input groups nav navbar tabs breadcrums pagination pager labels badges jumbotron thumbnails alerts progress bar media list wells panels";s:10:"node_image";s:23:"/files/images/pinit.jpg";}}i:1;a:20:{i:1;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2559:"<h4>Glyphicons</h4>
+a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1";s:18:"node_nomorecomment";s:1:"1";s:11:"node_novote";s:1:"0";s:15:"node_nomorevote";s:1:"0";s:10:"node_ilike";s:1:"1";s:10:"node_tweet";s:1:"1";s:12:"node_plusone";s:1:"1";s:13:"node_linkedin";s:1:"1";s:10:"node_pinit";s:1:"1";}s:2:"en";a:5:{s:9:"node_name";s:10:"components";s:10:"node_title";s:10:"Components";s:13:"node_abstract";s:39:"All the Bootstrap components in action.";s:10:"node_cloud";s:184:"Bootstrap components glyphicons button dropdowns input groups nav navbar tabs breadcrums pagination pager labels badges jumbotron thumbnails alerts progress bar media list wells panels";s:10:"node_image";s:23:"/files/images/pinit.jpg";}s:2:"fr";a:5:{s:9:"node_name";s:10:"composants";s:10:"node_title";s:10:"Composants";s:13:"node_abstract";s:40:"Tous les composants Bootstrap en action.";s:10:"node_cloud";s:184:"Bootstrap composants glyphicons button dropdowns input groups nav navbar tabs breadcrums pagination pager labels badges jumbotron thumbnails alerts progress bar media list wells panels";s:10:"node_image";s:23:"/files/images/pinit.jpg";}}i:1;a:21:{i:1;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2559:"<h4>Glyphicons</h4>
 
 <p>
 <span aria-hidden="true" class="glyphicon glyphicon-off"></span>
@@ -110,7 +110,23 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
   <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   <span class="sr-only">Error:</span>
   Enter a valid email address
-</div>";s:17:"content_text_eval";s:1:"0";}}i:2;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:1091:"<h4>Dropdowns</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:2;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:648:"<h4>Buttons</h4>
+
+<button type="button" class="btn btn-default" style="margin-bottom: 2px;">Default</button>
+<button type="button" class="btn btn-primary" style="margin-bottom: 2px;">Primary</button>
+<button type="button" class="btn btn-success" style="margin-bottom: 2px;">Success</button>
+<button type="button" class="btn btn-info" style="margin-bottom: 2px;">Info</button>
+<button type="button" class="btn btn-warning" style="margin-bottom: 2px;">Warning</button>
+<button type="button" class="btn btn-danger" style="margin-bottom: 2px;">Danger</button>
+<button type="button" class="btn btn-link" style="margin-bottom: 2px;">Link</button>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:648:"<h4>Buttons</h4>
+
+<button type="button" class="btn btn-default" style="margin-bottom: 2px;">Default</button>
+<button type="button" class="btn btn-primary" style="margin-bottom: 2px;">Primary</button>
+<button type="button" class="btn btn-success" style="margin-bottom: 2px;">Success</button>
+<button type="button" class="btn btn-info" style="margin-bottom: 2px;">Info</button>
+<button type="button" class="btn btn-warning" style="margin-bottom: 2px;">Warning</button>
+<button type="button" class="btn btn-danger" style="margin-bottom: 2px;">Danger</button>
+<button type="button" class="btn btn-link" style="margin-bottom: 2px;">Link</button>";s:17:"content_text_eval";s:1:"0";}}i:3;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:1091:"<h4>Dropdowns</h4>
 
 <div class="dropdown">
 	<button class="btn btn-default dropdown-toggle" type="button"
@@ -170,7 +186,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li role="separator" class="divider"></li>
 		<li><a href="#">Separated link</a></li>
 	</ul>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:3;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:6328:"<h4>Button groups</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:4;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:6328:"<h4>Button groups</h4>
 
 <h5>Basic example</h5>
 <div class="btn-group" role="group" aria-label="...">
@@ -478,10 +494,10 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 	<div class="btn-group" role="group">
 		<button type="button" class="btn btn-default">Right</button>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:4;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:8024:"<h4>Button dropdowns</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:5;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:8540:"<h4>Button dropdowns</h4>
 
 <h5>Single button dropdowns</h5>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-default dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Default <span class="caret"></span>
@@ -494,7 +510,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-primary dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Primary <span class="caret"></span>
@@ -507,7 +523,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-success dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Success <span class="caret"></span>
@@ -520,7 +536,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-info dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Info <span class="caret"></span>
@@ -533,7 +549,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-warning dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Warning <span class="caret"></span>
@@ -546,7 +562,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-danger dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Danger <span class="caret"></span>
@@ -561,7 +577,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 </div>
 
 <h5>Split button dropdowns</h5>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-default">Default</button>
 	<button type="button" class="btn btn-default dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -576,7 +592,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-primary">Primary</button>
 	<button type="button" class="btn btn-primary dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -591,7 +607,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-success">Success</button>
 	<button type="button" class="btn btn-success dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -606,7 +622,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-info">Info</button>
 	<button type="button" class="btn btn-info dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -621,7 +637,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-warning">Warning</button>
 	<button type="button" class="btn btn-warning dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -636,7 +652,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-danger">Danger</button>
 	<button type="button" class="btn btn-danger dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -699,10 +715,10 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 			<li><a href="#">Separated link</a></li>
 		</ul>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:8024:"<h4>Button dropdowns</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:8540:"<h4>Button dropdowns</h4>
 
 <h5>Single button dropdowns</h5>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-default dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Default <span class="caret"></span>
@@ -715,7 +731,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-primary dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Primary <span class="caret"></span>
@@ -728,7 +744,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-success dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Success <span class="caret"></span>
@@ -741,7 +757,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-info dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Info <span class="caret"></span>
@@ -754,7 +770,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-warning dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Warning <span class="caret"></span>
@@ -767,7 +783,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-danger dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Danger <span class="caret"></span>
@@ -782,7 +798,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 </div>
 
 <h5>Split button dropdowns</h5>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-default">Default</button>
 	<button type="button" class="btn btn-default dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -797,7 +813,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-primary">Primary</button>
 	<button type="button" class="btn btn-primary dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -812,7 +828,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-success">Success</button>
 	<button type="button" class="btn btn-success dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -827,7 +843,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-info">Info</button>
 	<button type="button" class="btn btn-info dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -842,7 +858,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-warning">Warning</button>
 	<button type="button" class="btn btn-warning dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -857,7 +873,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li><a href="#">Separated link</a></li>
 	</ul>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="margin-top: 2px;margin-bottom: 2px">
 	<button type="button" class="btn btn-danger">Danger</button>
 	<button type="button" class="btn btn-danger dropdown-toggle"
 		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -920,7 +936,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 			<li><a href="#">Separated link</a></li>
 		</ul>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:5;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:6606:"<h4>Input groups</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:6;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:6876:"<h4>Input groups</h4>
 
 <h5>Basic example</h5>
 <div class="input-group">
@@ -956,13 +972,13 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 <h5>Checkboxes and radio addons</h5>
 <div class="row">
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<span class="input-group-addon"><input type="checkbox" aria-label="..."></span>
 			<input type="text" class="form-control" aria-label="...">
 		</div>
 	</div>
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<span class="input-group-addon"><input type="radio" aria-label="..."></span>
 			<input type="text" class="form-control" aria-label="...">
 		</div>
@@ -972,13 +988,13 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 <h5>Button addons</h5>
 <div class="row">
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>
 			<input type="text" class="form-control" placeholder="Search for...">
 		</div>
 	</div>
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<input type="text" class="form-control" placeholder="Search for...">
 			<span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>
 		</div>
@@ -988,7 +1004,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 <h5>Buttons with dropdowns</h5>
 <div class="row">
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<div class="input-group-btn">
 				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action
 					<span class="caret"></span>
@@ -1005,7 +1021,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		</div>
 	</div>
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<input type="text" class="form-control" aria-label="...">
 			<div class="input-group-btn">
 				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action
@@ -1026,7 +1042,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 <h5>Segmented buttons</h5>
 <div class="row">
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<div class="input-group-btn">
 				<button type="button" class="btn btn-default">Action</button>
 				<button type="button" class="btn btn-default dropdown-toggle"
@@ -1046,7 +1062,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		</div>
 	</div>
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<input class="form-control"
 				aria-label="Text input with segmented button dropdown">
 			<div class="input-group-btn">
@@ -1071,7 +1087,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 
 <div class="row">
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<div class="input-group-btn">
 				<button type="button" class="btn btn-default" aria-label="Bold">
 					<span class="glyphicon glyphicon-bold"></span>
@@ -1084,7 +1100,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		</div>
 	</div>
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<input class="form-control"
 				aria-label="Text input with multiple buttons">
 			<div class="input-group-btn">
@@ -1095,7 +1111,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 			</div>
 		</div>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:6606:"<h4>Input groups</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:6876:"<h4>Input groups</h4>
 
 <h5>Basic example</h5>
 <div class="input-group">
@@ -1131,13 +1147,13 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 <h5>Checkboxes and radio addons</h5>
 <div class="row">
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<span class="input-group-addon"><input type="checkbox" aria-label="..."></span>
 			<input type="text" class="form-control" aria-label="...">
 		</div>
 	</div>
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<span class="input-group-addon"><input type="radio" aria-label="..."></span>
 			<input type="text" class="form-control" aria-label="...">
 		</div>
@@ -1147,13 +1163,13 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 <h5>Button addons</h5>
 <div class="row">
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>
 			<input type="text" class="form-control" placeholder="Search for...">
 		</div>
 	</div>
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<input type="text" class="form-control" placeholder="Search for...">
 			<span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>
 		</div>
@@ -1163,7 +1179,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 <h5>Buttons with dropdowns</h5>
 <div class="row">
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<div class="input-group-btn">
 				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action
 					<span class="caret"></span>
@@ -1180,7 +1196,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		</div>
 	</div>
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<input type="text" class="form-control" aria-label="...">
 			<div class="input-group-btn">
 				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action
@@ -1201,7 +1217,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 <h5>Segmented buttons</h5>
 <div class="row">
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<div class="input-group-btn">
 				<button type="button" class="btn btn-default">Action</button>
 				<button type="button" class="btn btn-default dropdown-toggle"
@@ -1221,7 +1237,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		</div>
 	</div>
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<input class="form-control"
 				aria-label="Text input with segmented button dropdown">
 			<div class="input-group-btn">
@@ -1246,7 +1262,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 
 <div class="row">
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<div class="input-group-btn">
 				<button type="button" class="btn btn-default" aria-label="Bold">
 					<span class="glyphicon glyphicon-bold"></span>
@@ -1259,7 +1275,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		</div>
 	</div>
 	<div class="col-lg-6">
-		<div class="input-group">
+		<div class="input-group" style="margin-bottom: 2px">
 			<input class="form-control"
 				aria-label="Text input with multiple buttons">
 			<div class="input-group-btn">
@@ -1270,7 +1286,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 			</div>
 		</div>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:6;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2808:"<h4>Navs</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:7;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2808:"<h4>Navs</h4>
 
 <h5>Tabs</h5>
 <ul class="nav nav-tabs">
@@ -1412,7 +1428,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 			<li><a href="#">Separated link</a></li>
 		</ul>
 	</li>
-</ul>";s:17:"content_text_eval";s:1:"0";}}i:7;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:6144:"<h4>Navbars</h4>
+</ul>";s:17:"content_text_eval";s:1:"0";}}i:8;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:6144:"<h4>Navbars</h4>
 
 <h5>Default navbar</h5>
 <nav class="navbar navbar-default">
@@ -1760,7 +1776,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 			</ul>
 		</div>
 	</div>
-</nav>";s:17:"content_text_eval";s:1:"0";}}i:8;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:312:"<h4>Breadcrums</h4>
+</nav>";s:17:"content_text_eval";s:1:"0";}}i:9;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:312:"<h4>Breadcrums</h4>
 
 <ol class="breadcrumb">
 	<li class="active">Home</li>
@@ -1786,7 +1802,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 	<li><a href="#">Home</a></li>
 	<li><a href="#">Library</a></li>
 	<li class="active">Data</li>
-</ol>";s:17:"content_text_eval";s:1:"0";}}i:9;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2822:"<h4>Pagination</h4>
+</ol>";s:17:"content_text_eval";s:1:"0";}}i:10;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2822:"<h4>Pagination</h4>
 
 <h5>Default pagination</h5>
 <nav aria-label="Page navigation">
@@ -1956,7 +1972,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li class="previous disabled"><a href="#"><span aria-hidden="true">←</span> Older</a></li>
 		<li class="next"><a href="#">Newer <span aria-hidden="true">→</span></a></li>
 	</ul>
-</nav>";s:17:"content_text_eval";s:1:"0";}}i:10;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:733:"<h4>Labels</h4>
+</nav>";s:17:"content_text_eval";s:1:"0";}}i:11;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:733:"<h4>Labels</h4>
 <h1>Example heading <span class="label label-default">New</span></h1>
 <h2>Example heading <span class="label label-default">New</span></h2>
 <h3>Example heading <span class="label label-default">New</span></h3>
@@ -1980,7 +1996,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 <span class="label label-success">Success</span>
 <span class="label label-info">Info</span>
 <span class="label label-warning">Warning</span>
-<span class="label label-danger">Danger</span>";s:17:"content_text_eval";s:1:"0";}}i:11;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:503:"<h4>Badges</h4>
+<span class="label label-danger">Danger</span>";s:17:"content_text_eval";s:1:"0";}}i:12;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:503:"<h4>Badges</h4>
 
 <a href="#">Inbox <span class="badge">42</span></a>
 <br>
@@ -2004,7 +2020,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 	<li role="presentation" class="active"><a href="#">Home <span class="badge">42</span></a></li>
 	<li role="presentation"><a href="#">Profile</a></li>
 	<li role="presentation"><a href="#">Messages <span class="badge">3</span></a></li>
-</ul>";s:17:"content_text_eval";s:1:"0";}}i:12;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:295:"<h4>Jumbotron</h4>
+</ul>";s:17:"content_text_eval";s:1:"0";}}i:13;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:295:"<h4>Jumbotron</h4>
 
 <div class="jumbotron">
 	<h1>Hello, world!</h1>
@@ -2016,7 +2032,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 	<h1>Hello, world!</h1>
 	<p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
 	<p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more</a></p>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:13;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:122:"<h4>Page header</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:14;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:122:"<h4>Page header</h4>
 
 <div class="page-header">
 	<h1>Example page header <small>Subtext for header</small></h1>
@@ -2024,7 +2040,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 
 <div class="page-header">
 	<h1>Example page header <small>Subtext for header</small></h1>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:14;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2982:"<h4>Thumbnails</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:15;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2982:"<h4>Thumbnails</h4>
 
 <div class="row">
 	<div class="col-md-3 col-xs-6">
@@ -2178,7 +2194,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 			</div>
 		</div>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:15;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:1603:"<h4>Alerts</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:16;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:1603:"<h4>Alerts</h4>
 
 <div class="alert alert-success" role="alert">
 	<strong>Well done!</strong> You successfully read this important alert message.
@@ -2250,7 +2266,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 </div>
 <div class="alert alert-danger" role="alert">
 	<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
-</div>";s:17:"content_text_eval";s:1:"0";}}i:16;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:3869:"<h4>Progress bar</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:17;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:3869:"<h4>Progress bar</h4>
 
 <div class="progress">
 	<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
@@ -2423,7 +2439,7 @@ $('#toggle-progress-bar-striped').click(function() { $('.animated-progress-bar-s
 	<div class="progress-bar progress-bar-danger" style="width: 10%">
 		<span class="sr-only">10% Complete (danger)</span>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:17;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:7584:"<h4>Media</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:18;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:7584:"<h4>Media</h4>
 
 <div class="media">
 	<div class="media-left">
@@ -2739,7 +2755,7 @@ $('#toggle-progress-bar-striped').click(function() { $('.animated-progress-bar-s
 			</div>
 		</div>
 	</li>
-</ul>";s:17:"content_text_eval";s:1:"0";}}i:18;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:3676:"<h4>List group</h4>
+</ul>";s:17:"content_text_eval";s:1:"0";}}i:19;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:3676:"<h4>List group</h4>
 
 <ul class="list-group" style="max-width: 400px">
 	<li class="list-group-item">Cras justo odio</li>
@@ -2891,7 +2907,7 @@ $('#toggle-progress-bar-striped').click(function() { $('.animated-progress-bar-s
 		<h4 class="list-group-item-heading">List group item heading</h4>
 		<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
 	</a>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:19;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:3809:"<h4>Panels</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:20;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:3809:"<h4>Panels</h4>
 
 <div class="panel panel-default">
 	<div class="panel-body">Basic panel example</div>
@@ -3179,7 +3195,7 @@ $('#toggle-progress-bar-striped').click(function() { $('.animated-progress-bar-s
 		<li class="list-group-item">Porta ac consectetur ac</li>
 		<li class="list-group-item">Vestibulum at eros</li>
 	</ul>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:20;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:209:"<h4>Wells</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:21;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:209:"<h4>Wells</h4>
 <div class="well">Look, I'm in a well!</div>
 
 <h5>Optional classes</h5>
