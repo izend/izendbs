@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2016 (2016) izend.org
- * @version    77 (12)
+ * @version    78 (12)
  * @link       http://www.izend.org
  */
 
@@ -220,6 +220,10 @@ fieldset {
 	margin-left: 224px;
 	margin-bottom: 10px;
 }
+#sidebar .cloud {
+	overflow-x: hidden;
+}
+
 #searchlinks li {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: small;
