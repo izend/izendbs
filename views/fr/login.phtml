@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2016 (2016) izend.org
- * @version    11 (1)
+ * @copyright  2010-2016 (2016-2017) izend.org
+ * @version    11 (2)
  * @link       http://www.izend.org
  */
 ?>
@@ -18,7 +18,7 @@
 <?php endif; ?>
 <input type="text" class="form-control" name="login_login" id="login_login" size="30" maxlength="100" placeholder="Identifiant" value="<?php echo htmlspecialchars($login, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'login_password')" />
 <?php if ($with_facebook): ?>
-<span class="input-group-addon social"><a href="<?php echo $facebook_login_url; ?>" title="Connectez-vous avec Facebook"><span class="social-facebook">Facebook</span></a></span>
+<span class="input-group-addon social"><a href="<?php echo htmlspecialchars($facebook_login_url, ENT_COMPAT, 'UTF-8'); ?>" title="Connectez-vous avec Facebook"><span class="social-facebook">Facebook</span></a></span>
 </div>
 <?php endif; ?>
 </div>
