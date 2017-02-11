@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2016 (2016-2017) izend.org
- * @version    10 (2)
+ * @copyright  2010-2017 (2016-2017) izend.org
+ * @version    11 (3)
  * @link       http://www.izend.org
  */
 ?>
@@ -16,7 +16,7 @@
 <?php if ($facebook_login_url): ?>
 <div class="input-group">
 <?php endif; ?>
-<input type="text" class="form-control" name="login_login" id="login_login" size="30" maxlength="100" placeholder="Identifier" value="<?php echo htmlspecialchars($login, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'login_password')" />
+<input type="text" class="form-control" name="login_login" id="login_login" size="30" maxlength="100" placeholder="<?php if ($with_name): ?>Identifier<?php else: ?>name@domain.net<?php endif; ?>" value="<?php echo htmlspecialchars($login, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'login_password')" />
 <?php if ($with_facebook): ?>
 <span class="input-group-addon social"><a href="<?php echo htmlspecialchars($facebook_login_url, ENT_COMPAT, 'UTF-8'); ?>" title="Connect with Facebook"><span class="social-facebook">Facebook</span></a></span>
 </div>
@@ -29,7 +29,7 @@
 <div class="form-group<?php if ($missing_password or $access_denied): ?> has-error<?php endif; ?>">
 <label for="login_password">And your access key?</label>
 <div class="form-inline-auto">
-<input type="password" class="form-control" name="login_password" id="login_password" size="20" maxlength="20" placeholder="Mot de passe" onkeypress="<?php if ($with_captcha): ?>return focusonenter(event, 'login_code')<?php else: ?>return submitonenter(event, 'login_enter')<?php endif; ?>" />
+<input type="password" class="form-control" name="login_password" id="login_password" size="20" maxlength="20" placeholder="Password" onkeypress="<?php if ($with_captcha): ?>return focusonenter(event, 'login_code')<?php else: ?>return submitonenter(event, 'login_enter')<?php endif; ?>" />
 </div>
 <?php if ($password_page): ?>
 <span class="help-block">If you have forgotten your password, <a href="<?php echo $password_page; ?>" rel="nofollow">click here</a>.</span>
