@@ -2,15 +2,18 @@
 
 /**
  *
- * @copyright  2010-2016 (2016) izend.org
- * @version    18 (2)
+ * @copyright  2010-2017 (2016) izend.org
+ * @version    20 (3)
  * @link       http://www.izend.org
  */
 ?>
 <?php extract($errors); ?>
 <?php extract($infos); ?>
-<form method="post">
+<form method="post"<?php if ($with_attachment): ?> enctype="multipart/form-data"<?php endif; ?>>
 <input type="hidden" name="mailme_token" value="<?php echo $token; ?>" />
+<?php if ($with_attachment and $maxfilesize): ?>
+<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $maxfilesize; ?>" />
+<?php endif; ?>
 <div class="form-group<?php if ($missing_mail or $bad_mail): ?> has-error<?php endif; ?>">
 <label for="mailme_mail">Quelle est votre adresse d'email&nbsp;?</label>
 <div class="form-inline-auto">
@@ -27,6 +30,15 @@
 <div class="form-group form-inline-auto<?php if ($missing_message): ?> has-error<?php endif; ?>">
 <textarea class="form-control" name="mailme_message" id="mailme_message" cols="60" rows="5" placeholder="Texte"><?php echo htmlspecialchars($message, ENT_COMPAT, 'UTF-8'); ?></textarea>
 </div>
+<?php if ($with_attachment): ?>
+<div class="form-group">
+<input type="file" name="mailme_file" id="mailme_file" title="" />
+</div>
+<div class="form-group hidden">
+<button type="submit" class="btn <?php if ($bad_attachment): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="mailme_put" id="mailme_put">Ajouter</button>
+<span class="form-control-static">une pièce jointe</span>
+</div>
+<?php endif; ?>
 <?php if ($with_appointment): ?>
 <div class="form-group form-inline<?php if ($bad_appointment): ?> has-error<?php endif; ?>">
 <div class="form-group form-inline-auto">
@@ -61,7 +73,7 @@
 </div>
 <?php endif; ?>
 <div class="form-group">
-<button type="submit" class="btn <?php if ($internal_error or $missing_code or $bad_code or $missing_mail or $bad_mail or $missing_subject or $bad_subject or $missing_message or $bad_appointment): ?>btn-danger<?php elseif ($email_sent): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="mailme_send" id="mailme_send">Envoyer</button>
+<button type="submit" class="btn <?php if ($internal_error or $missing_code or $bad_code or $missing_mail or $bad_mail or $missing_subject or $bad_subject or $missing_message or $bad_appointment or $bad_attachment): ?>btn-danger<?php elseif ($email_sent): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="mailme_send" id="mailme_send">Envoyer</button>
 </div>
 </form>
 <?php if ($missing_code): ?>
@@ -78,6 +90,26 @@
 Pour revenir à la page d'accueil, <a href="<?php echo $home_page; ?>">cliquez ici</a>.
 <?php endif; ?>
 </p>
+<?php endif; ?>
+<?php if ($with_attachment): ?>
+<script type="text/javascript">
+$(document).ready(function() {
+    var file=$('#mailme_file');
+    var upload=$('#mailme_put');
+
+    upload.parent().removeClass('hidden');
+
+    file.css({ position: 'absolute', left: '-9999px' });
+
+    upload.on('click', function(e) { e.preventDefault(); file.click(); });
+
+    file.change(function() {
+        if (file.val()) {
+            upload.removeClass('btn-default').removeClass('btn-danger').addClass('btn-success');
+        }
+    });
+});
+</script>
 <?php endif; ?>
 <?php if ($with_appointment): ?>
 <?php head('javascript', 'jquery-ui'); ?>
