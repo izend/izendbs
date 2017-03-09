@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2017 (2017) izend.org
- * @version    21 (4)
+ * @version    22 (5)
  * @link       http://www.izend.org
  */
 ?>
@@ -36,7 +36,10 @@
 </div>
 <div class="form-group hidden">
 <button type="submit" class="btn <?php if ($bad_attachment): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="mailme_put" id="mailme_put">Add</button>
-<span class="form-control-static">an attachment</span>
+<span class="form-control-static">
+an attachment
+<span class="glyphicon glyphicon-paperclip"></span>
+</span>
 <?php if ($maxfilesize): ?>
 <?php require_once 'countformat.php'; ?>
 <span class="help-block">You can upload a file up to <?php echo count_format($maxfilesize, '.', ''); ?> bytes.</span>
