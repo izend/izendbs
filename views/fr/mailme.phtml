@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2017 (2016) izend.org
- * @version    20 (3)
+ * @copyright  2010-2017 (2017) izend.org
+ * @version    21 (4)
  * @link       http://www.izend.org
  */
 ?>
@@ -37,6 +37,10 @@
 <div class="form-group hidden">
 <button type="submit" class="btn <?php if ($bad_attachment): ?>btn-danger<?php else: ?>btn-default<?php endif; ?>" name="mailme_put" id="mailme_put">Ajouter</button>
 <span class="form-control-static">une pièce jointe</span>
+<?php if ($maxfilesize): ?>
+<?php require_once 'countformat.php'; ?>
+<span class="help-block">Vous pouvez téléverser un fichier d'au plus <?php echo count_format($maxfilesize, ',', ' '); ?> octets.</span>
+<?php endif; ?>
 </div>
 <?php endif; ?>
 <?php if ($with_appointment): ?>
