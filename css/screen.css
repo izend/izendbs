@@ -1,7 +1,7 @@
 /**
  *
- * @copyright  2010-2016 (2016) izend.org
- * @version    79 (12)
+ * @copyright  2010-2016 (2017) izend.org
+ * @version    79 (13)
  * @link       http://www.izend.org
  */
 
@@ -81,10 +81,10 @@ fieldset {
 }
 .form-inline-auto .input-group .form-control {
 	width: 100%;
-	max-width: auto;
+	max-width: none;
 }
-.form-inline-auto .input-group-addon:last-child,
-.form-inline-auto .input-group-btn:last-child {
+.form-inline-auto .input-group-addon,
+.form-inline-auto .input-group-btn {
 	width: auto;
 }
 .input-group-addon.social {
@@ -783,7 +783,6 @@ div.youtube iframe {
 .link-pinterest:hover {
 	background-position: -635px 0;
 }
-
 
 #linkbar {
 	margin: 10px 0;
