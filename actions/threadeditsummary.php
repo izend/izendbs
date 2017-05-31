@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2015 (2016) izend.org
- * @version    22 (1)
+ * @copyright  2010-2017 (2016) izend.org
+ * @version    23 (1)
  * @link       http://www.izend.org
  */
 
@@ -15,10 +15,6 @@ require_once 'models/thread.inc';
 
 function threadeditsummary($lang, $clang, $thread) {
 	global $supported_threads;
-
-	if (!user_has_role('writer')) {
-		return run('error/unauthorized', $lang);
-	}
 
 	$confirmed=false;
 
@@ -438,7 +434,7 @@ function threadeditsummary($lang, $clang, $thread) {
 	$headline_text=	translate('threadall:title', $lang);
 	$headline_url=url('threadedit', $lang). '?' . 'clang=' . $clang;
 	$headline = compact('headline_text', 'headline_url');
-	$view=$thread_name ? url('thread', $clang) . '/'. $thread_id . '?' . 'slang=' . $lang : false;
+	$view=$thread_name ? url('thread', $lang) . '/'. $thread_id . '?' . 'clang=' . $clang : false;
 
 	$banner = build('banner', $lang, compact('headline', 'view'));
 

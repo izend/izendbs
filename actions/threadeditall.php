@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2014 (2016) izend.org
- * @version    13 (1)
+ * @copyright  2010-2017 (2016) izend.org
+ * @version    14 (1)
  * @link       http://www.izend.org
  */
 
@@ -15,10 +15,6 @@ require_once 'models/thread.inc';
 
 function threadeditall($lang, $clang) {
 	global $supported_threads;
-
-	if (!user_has_role('writer')) {
-		return run('error/unauthorized', $lang);
-	}
 
 	$confirmed=false;
 
@@ -251,7 +247,7 @@ function threadeditall($lang, $clang) {
 
 	$site_title=translate('title', $lang);
 
-	$view=url('thread', $clang) . '?' . 'slang=' . $lang;
+	$view=url('thread', $lang) . '?' . 'clang=' . $clang;
 
 	$banner = build('banner', $lang, compact('headline', 'view'));
 
