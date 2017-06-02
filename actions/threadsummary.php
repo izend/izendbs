@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2017 (2017) izend.org
- * @version    15 (2)
+ * @version    16 (2)
  * @link       http://www.izend.org
  */
 
@@ -41,6 +41,8 @@ function threadsummary($lang, $clang, $thread) {
 		}
 	}
 
+	$inlanguages=view('inlanguages', false, compact('clang'));
+
 	$headline_text=	translate('threadall:title', $lang);
 	$headline_url=url('thread', $lang) . '?' . 'clang=' . $clang;;
 	$headline = compact('headline_text', 'headline_url');
@@ -57,7 +59,7 @@ function threadsummary($lang, $clang, $thread) {
 
 	$banner = build('banner', $lang, compact('headline', 'edit'));
 
-	$content = view('threadsummary', $lang, compact('thread_id', 'thread_title', 'thread_abstract', 'thread_cloud', 'thread_image', 'thread_visits', 'thread_search', 'thread_tag', 'thread_comment', 'thread_morecomment', 'thread_vote', 'thread_morevote', 'thread_ilike', 'thread_tweet', 'thread_plusone', 'thread_linkedin', 'thread_pinit', 'thread_created', 'thread_modified', 'thread_contents'));
+	$content = view('threadsummary', $lang, compact('thread_id', 'thread_title', 'thread_abstract', 'thread_cloud', 'thread_image', 'thread_visits', 'thread_search', 'thread_tag', 'thread_comment', 'thread_morecomment', 'thread_vote', 'thread_morevote', 'thread_ilike', 'thread_tweet', 'thread_plusone', 'thread_linkedin', 'thread_pinit', 'thread_created', 'thread_modified', 'thread_contents', 'inlanguages'));
 
 	$output = layout('viewing', compact('lang', 'banner', 'content', 'sidebar'));
 

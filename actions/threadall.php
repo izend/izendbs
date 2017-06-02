@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2017 (2017) izend.org
- * @version    8 (2)
+ * @version    9 (2)
  * @link       http://www.izend.org
  */
 
@@ -13,6 +13,8 @@ function threadall($lang, $clang) {
 	$site_title=translate('title', $clang);
 	$site_abstract=translate('description', $clang);
 	$site_cloud=translate('keywords', $clang);
+
+	$inlanguages=view('inlanguages', false, compact('clang'));
 
 	head('title', translate('threadall:title', $lang));
 	head('description', false);
@@ -25,7 +27,7 @@ function threadall($lang, $clang) {
 
 	$threadlist = build('threadlist', $clang, false, false, $lang);
 
-	$content = view('threadall', $lang, compact('site_title', 'site_abstract', 'site_cloud', 'threadlist'));
+	$content = view('threadall', $lang, compact('site_title', 'site_abstract', 'site_cloud', 'threadlist', 'inlanguages'));
 
 	$output = layout('viewing', compact('lang', 'banner', 'content'));
 
