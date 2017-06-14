@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2014-2017 (2016) izend.org
- * @version    8 (9)
+ * @version    8 (10)
  * @link       http://www.izend.org
  */
 
@@ -547,7 +547,7 @@ INSERT INTO `${db_prefix}content_infile` (`content_id`, `locale`, `path`) VALUES
 (1, 'en', 'views/en/social.phtml'),
 (1, 'fr', 'views/fr/social.phtml'),
 (2, 'en', 'views/en/link.phtml'),
-(2, 'fr', 'views/en/link.phtml'),
+(2, 'fr', 'views/fr/link.phtml'),
 (3, 'en', 'files/sysinfo.php'),
 (3, 'fr', 'files/sysinfo.php'),
 (4, 'en', 'files/slideshow.phtml'),
