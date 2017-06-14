@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2016 (2017) izend.org
- * @version    79 (13)
+ * @version    79 (14)
  * @link       http://www.izend.org
  */
 
@@ -221,7 +221,7 @@ fieldset {
 	margin-bottom: 10px;
 }
 #sidebar .cloud {
-	overflow-x: hidden;
+	overflow-wrap: break-word;
 }
 
 #searchlinks li {
