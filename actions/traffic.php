@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2016 izend.org
- * @version    3
+ * @copyright  2016 (2017) izend.org
+ * @version    3 (1)
  * @link       http://www.izend.org
  */
 
@@ -29,7 +29,7 @@ function traffic($lang) {
 
 	$content=view('traffic', $lang, compact('analytics'));
 
-	$output = layout('standard', compact('banner', 'content'));
+	$output = layout('standard', compact('lang', 'banner', 'content'));
 
 	return $output;
 }

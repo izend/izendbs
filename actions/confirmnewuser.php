@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2017 izend.org
- * @version    1
+ * @copyright  2017 (2017) izend.org
+ * @version    1 (1)
  * @link       http://www.izend.org
  */
 
@@ -72,7 +72,7 @@ function confirmnewuser($lang, $arglist) {
 
 	$content = view('confirmnewuser', $lang, compact('account_confirmed', 'errors', 'infos'));
 
-	$output = layout('standard', compact('banner', 'content'));
+	$output = layout('standard', compact('lang', 'banner', 'content'));
 
 	return $output;
 }
