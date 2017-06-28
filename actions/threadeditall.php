@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2017 (2016) izend.org
- * @version    14 (1)
+ * @version    15 (1)
  * @link       http://www.izend.org
  */
 
@@ -83,10 +83,12 @@ function threadeditall($lang, $clang) {
 		$pos=1;
 		$thread_url = url('threadedit', $lang);
 		foreach ($r as $b) {
-			$b['thread_url'] = $thread_url  . '/' . $b['thread_id'];
-			$b['pos'] = $p ? $p[$pos] : $pos;
-			$thread_list[$pos] = $b;
-			$pos++;
+			if (in_array($b['thread_type'], $supported_threads)) {
+				$b['thread_url'] = $thread_url  . '/' . $b['thread_id'];
+				$b['pos'] = $p ? $p[$pos] : $pos;
+				$thread_list[$pos] = $b;
+				$pos++;
+			}
 		}
 	}
 

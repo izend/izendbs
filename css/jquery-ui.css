@@ -255,6 +255,11 @@
 	float: left;
 }
 
+.ui-datepicker-trigger {
+	vertical-align: baseline;
+	padding: 1px;
+}
+
 /* with multiple calendars */
 .ui-datepicker.ui-datepicker-multi {
 	width: auto;

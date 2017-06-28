@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2017 (2016) izend.org
- * @version    23 (1)
+ * @version    24 (1)
  * @link       http://www.izend.org
  */
 
@@ -21,6 +21,12 @@ function threadeditsummary($lang, $clang, $thread) {
 	$thread_id = thread_id($thread);
 	if (!$thread_id) {
 		return run('error/notfound', $lang);
+	}
+
+	$thread_type = thread_type($thread_id);
+
+	if (!in_array($thread_type, $supported_threads)) {
+		return run('error/badrequest', $lang);
 	}
 
 	$action='init';
