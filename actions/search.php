@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2017 (2016) izend.org
- * @version    17 (1)
+ * @version    19 (1)
  * @link       http://www.izend.org
  */
 
@@ -71,13 +71,17 @@ function search($lang, $arglist=false) {
 		}
 	}
 
+	$searchtext=$rsearch=false;
+
 	$action='none';
-	if (isset($_POST['search'])) {
-		$action='search';
+	if (!$thread_nosearch) {
+		if (isset($_POST['search'])) {
+			$action='search';
+		}
 	}
 
-	$searchtext=$taglist=false;
-	$rsearch=false;
+	$taglist=false;
+
 	switch($action) {
 		case 'none':
 			if (!empty($arglist['q'])) {
@@ -127,12 +131,13 @@ function search($lang, $arglist=false) {
 		$content = build('searchlist', $lang, $rsearch, $taglist);
 	}
 	else {
+		$url=url('search', $lang, $cloud_name);
+		if (!$thread_nosearch) {
+			$search_url=$url;
+		}
+		$cloud_url=$url;
 		$headline_text=$cloud_id ? $cloud_title : $search_title;
 		$headline_url=false;
-		if (!$thread_nosearch) {
-			$search_url=url('search', $lang, $cloud_name);
-		}
-		$cloud_url=url('search', $lang, $cloud_name);
 		$headline = compact('headline_text', 'headline_url');
 		$title = view('headline', false, $headline);
 

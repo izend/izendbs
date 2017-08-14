@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2017 (2017) izend.org
- * @version    22 (5)
+ * @version    23 (6)
  * @link       http://www.izend.org
  */
 ?>
@@ -100,21 +100,19 @@ To return to the home page, <a href="<?php echo $home_page; ?>">click here</a>.
 <?php endif; ?>
 <?php if ($with_attachment): ?>
 <script type="text/javascript">
-$(document).ready(function() {
-    var file=$('#mailme_file');
-    var upload=$('#mailme_put');
+var file=$('#mailme_file');
+var upload=$('#mailme_put');
 
-    upload.parent().removeClass('hidden');
+upload.parent().removeClass('hidden');
 
-    file.css({ position: 'absolute', left: '-9999px' });
+file.css({ position: 'absolute', left: '-9999px' });
 
-    upload.on('click', function(e) { e.preventDefault(); file.click(); });
+upload.on('click', function(e) { e.preventDefault(); file.click(); });
 
-    file.change(function() {
-        if (file.val()) {
-            upload.removeClass('btn-default').removeClass('btn-danger').addClass('btn-success');
-        }
-    });
+file.change(function() {
+    if (file.val()) {
+        upload.removeClass('btn-default').removeClass('btn-danger').addClass('btn-success');
+    }
 });
 </script>
 <?php endif; ?>
