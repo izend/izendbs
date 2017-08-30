@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2016 (2016) izend.org
- * @version    15 (1)
+ * @copyright  2010-2017 (2016) izend.org
+ * @version    16 (1)
  * @link       http://www.izend.org
  */
 
@@ -59,7 +59,7 @@ function home($lang) {
 			if ($pinit) {
 				$pinit_text=$description ? $description : $sitename;
 				$pinit_image=$node_image ? $node_image : $siteshot;
-				$pinit=$pinit_text && $pinit_image ? compact('pinit_text', 'pinit_image') : false;
+				$pinit=$pinit_text && $pinit_image ? compact('pinit_text', 'pinit_image') : true;
 			}
 		}
 		$besocial = socialize($lang, compact('ilike', 'tweetit', 'plusone', 'linkedin', 'pinit'));

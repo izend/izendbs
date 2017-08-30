@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2016 izend.org
- * @version    16 (1)
+ * @copyright  2010-2017 (2016) izend.org
+ * @version    17 (1)
  * @link       http://www.izend.org
  */
 
@@ -87,7 +87,7 @@ function booksummary($lang, $book) {
 		if ($pinit) {
 			$pinit_text=$thread_abstract ? $thread_abstract : $thread_title;
 			$pinit_image=$thread_image ? $thread_image : $siteshot;
-			$pinit=$pinit_text && $pinit_image ? compact('pinit_text', 'pinit_image') : false;
+			$pinit=$pinit_text && $pinit_image ? compact('pinit_text', 'pinit_image') : true;
 		}
 		$besocial = socialize($lang, compact('ilike', 'tweetit', 'plusone', 'linkedin', 'pinit'));
 	}
