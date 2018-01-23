@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2017 (2016) izend.org
- * @version    44 (2)
+ * @copyright  2010-2018 (2018) izend.org
+ * @version    45 (3)
  * @link       http://www.izend.org
  */
 ?>
@@ -93,6 +93,9 @@
 <?php endif; ?>
 <link rel="stylesheet" type="text/css" href="<?php echo $base_path; ?>/bs/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $base_path; ?>/bs/css/bootstrap-theme.min.css">
+<?php if (false): ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $base_path; ?>/css/animation.css" media="screen" />
+<?php endif; ?>
 <?php if (!empty($stylesheets)): ?>
 <?php foreach ($stylesheets as $css) : ?>
 <?php
