@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2017 (2016-2017) izend.org
- * @version    12 (4)
+ * @copyright  2010-2018 (2016-2018) izend.org
+ * @version    13 (5)
  * @link       http://www.izend.org
  */
 ?>
@@ -32,7 +32,7 @@
 <input type="password" class="form-control" name="login_password" id="login_password" size="20" maxlength="20" placeholder="Password" onkeypress="<?php if ($with_captcha): ?>return focusonenter(event, 'login_code')<?php else: ?>return submitonenter(event, 'login_enter')<?php endif; ?>" />
 </div>
 <?php if ($password_page): ?>
-<span class="help-block">If you have forgotten your password, <a href="<?php echo $password_page; ?>" rel="nofollow">click here</a>.</span>
+<span class="help-block">If you have forgotten your password, <a class="clickhere" href="<?php echo $password_page; ?>" rel="nofollow">click here</a>.</span>
 <?php endif; ?>
 </div>
 <?php if ($with_captcha): ?>
@@ -51,7 +51,7 @@
 </div>
 </form>
 <?php if ($newuser_page): ?>
-<p>To create your personal account, <a href="<?php echo $newuser_page; ?>" rel="nofollow">click here</a>.</p>
+<p>To create your personal account, <a class="clickhere" href="<?php echo $newuser_page; ?>" rel="nofollow">click here</a>.</p>
 <?php endif; ?>
 <?php if ($missing_code): ?>
 <p class="text-danger">Enter the verification code displayed in the image.</p>
