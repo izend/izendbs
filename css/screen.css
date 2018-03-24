@@ -783,6 +783,14 @@ div.youtube iframe {
 .link-pinterest:hover {
 	background-position: -635px 0;
 }
+.link-instagram,
+.link-instagram:visited {
+	width: 106px;
+	background-position: -753px -30px;
+}
+.link-instagram:hover {
+	background-position: -753px 0;
+}
 
 #linkbar {
 	margin: 10px 0;
