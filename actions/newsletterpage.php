@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2012-2014 (2016) izend.org
- * @version    6 (1)
+ * @copyright  2012-2018 (2016) izend.org
+ * @version    7 (1)
  * @link       http://www.izend.org
  */
 
@@ -63,7 +63,7 @@ function newsletterpage($lang, $newsletter, $page) {
 	}
 	head('description', false);
 	head('keywords', false);
-	head('robots', 'noindex, nofollow');
+	head('robots', 'noindex');
 
 	$message_title=$message_html=$message_text=false;
 

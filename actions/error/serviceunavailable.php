@@ -2,14 +2,14 @@
 
 /**
  *
- * @copyright  2010-2016 (2016) izend.org
- * @version    2 (1)
+ * @copyright  2010-2018 (2016) izend.org
+ * @version    3 (1)
  * @link       http://www.izend.org
  */
 
 function serviceunavailable($lang, $arglist=false) {
 	head('title', translate('http_service_unavailable:title', $lang));
-	head('robots', 'noindex, nofollow');
+	head('robots', 'noindex');
 
 	$contact=false;
 	$banner = build('banner', $lang, compact('contact'));

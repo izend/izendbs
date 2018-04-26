@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2011 (2016) izend.org
- * @version    1 (1)
+ * @copyright  2010-2018 (2016) izend.org
+ * @version    2 (1)
  * @link       http://www.izend.org
  */
 
@@ -11,7 +11,7 @@ function newuser($lang) {
 	head('title', translate('newuser:title', $lang));
 	head('description', false);
 	head('keywords', false);
-	head('robots', 'noindex, nofollow');
+	head('robots', 'noindex');
 
 	$banner = build('banner', $lang);
 

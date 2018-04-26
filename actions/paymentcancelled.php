@@ -2,14 +2,14 @@
 
 /**
  *
- * @copyright  2010-2012 (2016) izend.org
- * @version    3 (1)
+ * @copyright  2010-2018 (2016) izend.org
+ * @version    4 (1)
  * @link       http://www.izend.org
  */
 
 function paymentcancelled($lang, $amount, $currency, $context) {
 	head('title', translate('payment_cancelled:title', $lang));
-	head('robots', 'noindex, nofollow');
+	head('robots', 'noindex');
 
 	$contact=true;
 	$banner = build('banner', $lang, compact('contact'));

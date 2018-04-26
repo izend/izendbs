@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2011-2017 (2016) izend.org
- * @version    2 (1)
+ * @copyright  2011-2018 (2016) izend.org
+ * @version    3 (1)
  * @link       http://www.izend.org
  */
 
@@ -41,7 +41,7 @@ function adminuser($lang, $arglist=false) {
 	head('title', translate('admin:title', $lang));
 	head('description', false);
 	head('keywords', false);
-	head('robots', 'noindex, nofollow');
+	head('robots', 'noindex');
 
 	$admin=true;
 	$banner = build('banner', $lang, compact('admin'));

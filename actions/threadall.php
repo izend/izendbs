@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2017 (2017) izend.org
- * @version    9 (2)
+ * @copyright  2010-2018 (2017) izend.org
+ * @version    10 (2)
  * @link       http://www.izend.org
  */
 
@@ -19,7 +19,7 @@ function threadall($lang, $clang) {
 	head('title', translate('threadall:title', $lang));
 	head('description', false);
 	head('keywords', false);
-	head('robots', 'noindex, nofollow');
+	head('robots', 'noindex');
 
 	$edit=user_has_role('writer') ? url('threadedit', $_SESSION['user']['locale']) . '?' . 'clang=' . $clang : false;
 
