@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2018 (2016) izend.org
- * @version    16 (1)
+ * @version    17 (1)
  * @link       http://www.izend.org
  */
 
@@ -75,8 +75,8 @@ function threadeditall($lang, $clang) {
 
 	$r = thread_list($clang, false, false);
 
-	if (!$r or count($r) != count($p)) {
-		$p = false;
+	if ($p and (!$r or count($r) != count($p))) {
+	    $p = false;
 	}
 
 	if ($r) {
