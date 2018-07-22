@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2018 (2016) izend.org
- * @version    53 (3)
+ * @version    54 (3)
  * @link       http://www.izend.org
  */
 
@@ -170,7 +170,7 @@ global $content_folder;
 
 $content_folder = false;		// can be an array
 
-global $rss_thread, $rss_feed_description;
+global $rss_thread, $rss_description;
 
 $rss_thread = false;			// can be an array
 $rss_description = 'abstract';	// 'content or 'abstract'
