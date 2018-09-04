@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2014-2017 (2016) izend.org
- * @version    6 (9)
+ * @copyright  2014-2018 (2016-2018) izend.org
+ * @version    7 (10)
  * @link       http://www.izend.org
  */
 
@@ -94,6 +94,7 @@ CREATE TABLE "${db_prefix}comment" (
   "user_mail" varchar(100) DEFAULT NULL,
   "ip_address" bigint NOT NULL,
   "text" text NOT NULL,
+  `confirmed` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY ("comment_id")
 );
 _SEP_;
@@ -542,11 +543,11 @@ _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO "${db_prefix}comment" ("comment_id", "node_id", "locale", "created", "edited", "user_id", "user_mail", "ip_address", "text") VALUES
-(1, 2, 'en', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p]Let me try a comment with a url: [url=http://www.izend.org]iZend[/url]![/p]'),
-(2, 2, 'en', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p][u]Quote[/u]:[/p][quote]Let me try a comment with a url: [url=http://www.izend.org]iZend[/url]![/quote]\r\n[p]No! One can put a [b]url[/b] in a comment?\r\n[br]Don\'t tell me it\'s not true![/p]'),
-(3, 2, 'fr', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p]J\'essaye un commentaire avec une url : [url=http://www.izend.org]iZend[/url] ![/p]'),
-(4, 2, 'fr', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p][u]Citation[/u] :[/p][quote]J\'essaye un commentaire avec une url : [url=http://www.izend.org]iZend[/url] ![/quote]\r\n[p]Non ! On peut mettre une [b]url[/b] dans un commentaire ?\r\n[br]Dis-moi pas que c\'est pas vrai ![/p]');
+INSERT INTO "${db_prefix}comment" ("comment_id", "node_id", "locale", "created", "edited", "user_id", "user_mail", "ip_address", "text", "confirmed") VALUES
+(1, 2, 'en', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p]Let me try a comment with a url: [url=http://www.izend.org]iZend[/url]![/p]', '1'),
+(2, 2, 'en', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p][u]Quote[/u]:[/p][quote]Let me try a comment with a url: [url=http://www.izend.org]iZend[/url]![/quote]\r\n[p]No! One can put a [b]url[/b] in a comment?\r\n[br]Don\'t tell me it\'s not true![/p]', '1'),
+(3, 2, 'fr', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p]J\'essaye un commentaire avec une url : [url=http://www.izend.org]iZend[/url] ![/p]', '1'),
+(4, 2, 'fr', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p][u]Citation[/u] :[/p][quote]J\'essaye un commentaire avec une url : [url=http://www.izend.org]iZend[/url] ![/quote]\r\n[p]Non ! On peut mettre une [b]url[/b] dans un commentaire ?\r\n[br]Dis-moi pas que c\'est pas vrai ![/p]', '1');
 _SEP_;
 		$db_conn->exec($sql);
 
