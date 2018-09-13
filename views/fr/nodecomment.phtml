@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2017 (2016-2018) izend.org
- * @version    14 (3)
+ * @copyright  2010-2018 (2016-2018) izend.org
+ * @version    15 (4)
  * @link       http://www.izend.org
  */
 ?>
@@ -11,7 +11,7 @@
 <?php require_once 'bbcode.php'; ?>
 <?php if ($comments or $newcomment or $user_page): ?>
 <?php extract($errors); ?>
-<div id="comments">
+<div class="comments">
 <h4<?php if (!$comments): ?> class="hidden-print"<?php endif; ?>>Commentaires</h4>
 <?php if ($moderated or $newcomment): ?>
 <form method="post">
@@ -27,7 +27,7 @@ foreach ($comments as $c) {
 	extract($c);	/* comment_id, comment_text, comment_user_name, comment_mail, comment_created */
 ?>
 <?php if ($id and $comment_id == $id): ?>
-<div id="oldcomment">
+<div class="oldcomment">
 <?php endif; ?>
 <p class="headline">
 <span class="longdate">Le <?php echo longdate_fr($comment_created); ?> à <?php echo date('H:i', $comment_created); ?></span>
@@ -70,7 +70,7 @@ if (!$message) {
 ?>
 <?php endif; ?>
 <?php if ($newcomment): ?>
-<div id="newcomment">
+<div class="newcomment">
 <h6>Votre commentaire&nbsp;:</h6>
 <?php if ($message and !$message_too_long): ?>
 <div class="comment_text">

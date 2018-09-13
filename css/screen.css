@@ -1011,30 +1011,30 @@ div.tagbar {
 	height: 8px;
 }
 
-#comments h4 {
+.comments h4 {
 	margin-top: 20px;
 }
-#comments .headline {
+.comments .headline {
 	font-size: small;
 	line-height: 24px;
 	color: #666;
 }
-#comments .headline button {
+.comments .headline button {
 	vertical-align: top;
 }
-#comments .headline .author {
+.comments .headline .author {
 	font-style: italic;
 }
-#comments .comment_text {
+.comments .comment_text {
 	margin-bottom: 10px;
 }
 
 @media (min-width: 768px) {
-	#comments .signature {
+	.comments .signature {
 		float:right;
 	}
 }
-#comments #comment_limiter {
+.comments .comment_limiter {
 	font-size: x-small;
 	position: relative;
 	top: 1px;
