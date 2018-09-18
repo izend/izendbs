@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2018 (2016) izend.org
- * @version    2 (1)
+ * @copyright  2010-2018 (2016-2018) izend.org
+ * @version    3 (2)
  * @link       http://www.izend.org
  */
 
@@ -13,7 +13,8 @@ function newuser($lang) {
 	head('keywords', false);
 	head('robots', 'noindex');
 
-	$banner = build('banner', $lang);
+	$admin=true;
+	$banner = build('banner', $lang, compact('admin'));
 
 	$register = build('register', $lang);
 
