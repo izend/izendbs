@@ -1,7 +1,7 @@
 /**
  *
- * @copyright  2010-2018 (2017) izend.org
- * @version    93 (14)
+ * @copyright  2010-2018 (2017-2018) izend.org
+ * @version    94 (15)
  * @link       http://www.izend.org
  */
 
@@ -24,6 +24,9 @@ h4, .h4 {
 }
 textarea {
 	resize: vertical;
+}
+textarea.noresize {
+	resize: none;
 }
 fieldset {
 	display: inline-block;
