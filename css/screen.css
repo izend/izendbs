@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2018 (2017-2018) izend.org
- * @version    94 (15)
+ * @version    95 (16)
  * @link       http://www.izend.org
  */
 
@@ -593,6 +593,7 @@ div.youtube iframe {
 	left: 0;
 	width: 100%;
 	height: 100%;
+	border: 0;
 }
 .ytplay{
 	width: 48px;
@@ -632,9 +633,7 @@ div.youtube iframe {
 .besocial.standard li {
 	height: 30px;
 	vertical-align: top;
-}
-.besocial.standard li.pinterest span {
-	vertical-align: top !important;
+	line-height: 20px;
 }
 .besocial.awesome a {
 	display: list-item;
