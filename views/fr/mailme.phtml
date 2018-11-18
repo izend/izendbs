@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2018 (2017) izend.org
- * @version    26 (7)
+ * @version    27 (7)
  * @link       http://www.izend.org
  */
 ?>
@@ -99,7 +99,7 @@ Pour revenir à la page d'accueil, <a class="clickhere" href="<?php echo $home_p
 </p>
 <?php endif; ?>
 <?php if ($with_attachment): ?>
-<script type="text/javascript">
+<script>
 (function() {
 	var file=$('#mailme_file');
 	var upload=$('#mailme_put');
@@ -145,7 +145,7 @@ else if ($bad_appointment) {
 }
 ?>
 <?php if ($focus): ?>
-<script type="text/javascript">
+<script>
 $(function() {$('<?php echo $focus; ?>').focus();});
 </script>
 <?php endif; ?>

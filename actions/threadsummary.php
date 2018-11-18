@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2018 (2017) izend.org
- * @version    18 (2)
+ * @copyright  2010-2018 (2017-2018) izend.org
+ * @version    19 (3)
  * @link       http://www.izend.org
  */
 
@@ -62,7 +62,7 @@ function threadsummary($lang, $clang, $thread) {
 
 	$content = view('threadsummary', $lang, compact('thread_id', 'thread_title', 'thread_abstract', 'thread_cloud', 'thread_image', 'thread_visits', 'thread_search', 'thread_tag', 'thread_comment', 'thread_morecomment', 'thread_vote', 'thread_morevote', 'thread_ilike', 'thread_tweet', 'thread_plusone', 'thread_linkedin', 'thread_pinit', 'thread_created', 'thread_modified', 'thread_contents', 'inlanguages'));
 
-	$output = layout('viewing', compact('lang', 'banner', 'content', 'sidebar'));
+	$output = layout('viewing', compact('clang', 'banner', 'content', 'sidebar'));
 
 	return $output;
 }

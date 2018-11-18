@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2018 (2016-2017) izend.org
- * @version    23 (4)
+ * @version    24 (4)
  * @link       http://www.izend.org
  */
 ?>
@@ -17,7 +17,7 @@
 <?php else: ?>
 <input type="hidden" name="register_timezone" value="" />
 <?php head('javascript', 'jstz'); ?>
-<script type="text/javascript">
+<script>
 var tz = jstz.determine();
 $('input[name=register_timezone]').val(tz.name());
 </script>
@@ -155,7 +155,7 @@ else if ($missing_confirmation) {
 }
 ?>
 <?php if ($focus): ?>
-<script type="text/javascript">
+<script>
 $(function() {$('<?php echo $focus; ?>').focus();});
 </script>
 <?php endif; ?>

@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2018 (2016) izend.org
- * @version    17 (1)
+ * @copyright  2010-2018 (2016-2018) izend.org
+ * @version    18 (2)
  * @link       http://www.izend.org
  */
 
@@ -259,7 +259,7 @@ function threadeditall($lang, $clang) {
 
 	$content = view('editing/threadeditall', $lang, compact('clang', 'site_title', 'inlanguages', 'supported_threads', 'thread_list', 'new_thread_title', 'new_thread_type', 'new_thread_number', 'old_thread_number', 'confirm_delete_thread', 'errors'));
 
-	$output = layout('editing', compact('lang', 'banner', 'content'));
+	$output = layout('editing', compact('clang', 'banner', 'content'));
 
 	return $output;
 }

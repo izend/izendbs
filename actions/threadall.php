@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2018 (2017) izend.org
- * @version    10 (2)
+ * @copyright  2010-2018 (2018) izend.org
+ * @version    11 (3)
  * @link       http://www.izend.org
  */
 
@@ -29,7 +29,7 @@ function threadall($lang, $clang) {
 
 	$content = view('threadall', $lang, compact('site_title', 'site_abstract', 'site_cloud', 'threadlist', 'inlanguages'));
 
-	$output = layout('viewing', compact('lang', 'banner', 'content'));
+	$output = layout('viewing', compact('clang', 'banner', 'content'));
 
 	return $output;
 }

@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2017 (2016) izend.org
- * @version    17 (1)
+ * @copyright  2010-2018 (2016-2018) izend.org
+ * @version    18 (2)
  * @link       http://www.izend.org
  */
 ?>
@@ -113,7 +113,7 @@ else if ($confirm_delete_thread) {
 ?>
 <?php if ($focus): ?>
 <?php head('javascript', 'jquery.scrollTo', 'screen'); ?>
-<script type="text/javascript">
+<script>
 $(function() {$('<?php echo $focus; ?>').focus(); $.scrollTo('<?php echo $focus; ?>', {offset: -200}); });
 </script>
 <?php endif; ?>

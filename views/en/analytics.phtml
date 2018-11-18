@@ -2,7 +2,7 @@
 
 /**
  *
- * @copyright  2017 (2016) izend.org
+ * @copyright  2016-2018 (2016) izend.org
  * @version    5 (2)
  * @link       http://www.izend.org
  */
@@ -67,14 +67,14 @@ if ($missing_url or $bad_url) {
 }
 ?>
 <?php if ($focus): ?>
-<script type="text/javascript">
+<script>
 $(function() {$('<?php echo $focus; ?>').focus();});
 </script>
 <?php endif; ?>
 <?php if ($data): ?>
 <div id="traffic"></div>
 <?php head('javascript', 'https://www.gstatic.com/charts/loader.js'); ?>
-<script type="text/javascript">
+<script>
 google.charts.load('current', {'packages':['corechart'], 'language': 'en'});
 google.charts.setOnLoadCallback(drawChart);
 

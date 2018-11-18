@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2018 (2016) izend.org
- * @version    45 (3)
+ * @copyright  2010-2018 (2016-2018) izend.org
+ * @version    47 (4)
  * @link       http://www.izend.org
  */
 ?>
@@ -86,15 +86,15 @@
 <link rel="shortcut icon" href="<?php echo $base_path; ?>/<?php echo $favicon; ?>.ico" type="image/x-icon" />
 <?php endif; ?>
 <?php if (!empty($fonts)): ?>
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=<?php echo urlencode(implode('|', $fonts)); ?>" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=<?php echo urlencode(implode('|', $fonts)); ?>" />
 <?php endif; ?>
 <?php if (!empty($fontawesome)): ?>
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
 <?php endif; ?>
-<link rel="stylesheet" type="text/css" href="<?php echo $base_path; ?>/bs/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $base_path; ?>/bs/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="<?php echo $base_path; ?>/bs/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo $base_path; ?>/bs/css/bootstrap-theme.min.css">
 <?php if (false): ?>
-<link rel="stylesheet" type="text/css" href="<?php echo $base_path; ?>/css/animation.css" media="screen" />
+<link rel="stylesheet" href="<?php echo $base_path; ?>/css/animation.css" media="screen" />
 <?php endif; ?>
 <?php if (!empty($stylesheets)): ?>
 <?php foreach ($stylesheets as $css) : ?>
@@ -111,23 +111,23 @@ else {
 	$url=$base_path . '/css/' . $name . '.css';
 }
 ?>
-<link rel="stylesheet" type="text/css" href="<?php echo htmlspecialchars($url, ENT_NOQUOTES, 'UTF-8', false); ?>" media="<?php echo $media; ?>" />
+<link rel="stylesheet" href="<?php echo htmlspecialchars($url, ENT_NOQUOTES, 'UTF-8', false); ?>" media="<?php echo $media; ?>" />
 <?php endforeach; ?>
 <?php endif; ?>
-<link rel="stylesheet" type="text/css" href="<?php echo $base_path; ?>/css/screen.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="<?php echo $base_path; ?>/css/theme.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="<?php echo $base_path; ?>/css/print.css" media="print" />
+<link rel="stylesheet" href="<?php echo $base_path; ?>/css/screen.css" media="screen" />
+<link rel="stylesheet" href="<?php echo $base_path; ?>/css/theme.css" media="screen" />
+<link rel="stylesheet" href="<?php echo $base_path; ?>/css/print.css" media="print" />
 <?php if (!empty($theme)): ?>
-<link href="<?php echo $base_path; ?>/css/themes/<?php echo $theme; ?>.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="<?php echo $base_path; ?>/css/themes/<?php echo $theme; ?>.css" rel="stylesheet" media="screen" />
 <?php endif; ?>
-<script type="text/javascript" src="<?php echo $base_path; ?>/js/tools.js"></script>
-<script type="text/javascript" src="<?php echo $base_path; ?>/js/jquery.js"></script>
-<script type="text/javascript" src="<?php echo $base_path; ?>/bs/js/bootstrap.min.js"></script>
+<script src="<?php echo $base_path; ?>/js/tools.js"></script>
+<script src="<?php echo $base_path; ?>/js/jquery.js"></script>
+<script src="<?php echo $base_path; ?>/bs/js/bootstrap.min.js"></script>
 <?php if (!empty($javascripts)): ?>
 <?php foreach ($javascripts as $js) : ?>
 <?php
 $name=$js['name'];
-$param=isset($js['param']) ? $js['param'] : '';
+$param=!empty($js['param']) ? $js['param'] : false;
 if ($name[0] == '/' or substr($name, 0, 7) == 'http://' or substr($name, 0, 8) == 'https://') {
 	$url=$name;
 }
@@ -138,19 +138,25 @@ else {
 	$url=$base_path . '/js/' . $name . '.js';
 }
 ?>
-<script type="text/javascript" src="<?php echo htmlspecialchars($url, ENT_NOQUOTES, 'UTF-8', false); ?>"><?php echo htmlspecialchars($param, ENT_NOQUOTES, 'UTF-8', false); ?></script>
+<?php if ($param): ?>
+<script src="<?php echo htmlspecialchars($url, ENT_NOQUOTES, 'UTF-8', false); ?>">
+<?php echo htmlspecialchars($param, ENT_NOQUOTES, 'UTF-8', false), "\n"; ?>
+</script>
+<?php else: ?>
+<script src="<?php echo htmlspecialchars($url, ENT_NOQUOTES, 'UTF-8', false); ?>"></script>
+<?php endif; ?>
 <?php endforeach; ?>
 <?php endif; ?>
 <title><?php echo htmlspecialchars(!empty($title) ? $title : $sitename, ENT_NOQUOTES, 'UTF-8', false); ?></title>
 <?php if (!empty($style)): ?>
 <?php foreach ($style as $media => $css) : ?>
-<style type="text/css" media="<?php echo $media; ?>">
+<style media="<?php echo $media; ?>">
 <?php echo $css, PHP_EOL; ?>
 </style>
 <?php endforeach; ?>
 <?php endif; ?>
 <?php if (!empty($script)): ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 <?php echo $script, PHP_EOL; ?>
 //]]>

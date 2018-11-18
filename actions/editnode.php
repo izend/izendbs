@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2018 (2016) izend.org
- * @version    8 (1)
+ * @copyright  2010-2018 (2016-2018) izend.org
+ * @version    9 (1)
  * @link       http://www.izend.org
  */
 
@@ -53,7 +53,7 @@ function editnode($lang, $arglist=false) {
 
 	$content = view('editing/editnode', $lang, compact('node_editor'));
 
-	$output = layout('editing', compact('lang', 'banner', 'content'));
+	$output = layout('editing', compact('clang', 'banner', 'content'));
 
 	return $output;
 }
