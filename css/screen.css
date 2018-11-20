@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2018 (2017-2018) izend.org
- * @version    95 (16)
+ * @version    96 (17)
  * @link       http://www.izend.org
  */
 
@@ -327,7 +327,6 @@ fieldset {
 	vertical-align: middle;
 	text-indent: -9999px;
 	position: relative;
-	top: 1px;
 }
 .lang-fr {
 	background-position: 0 0;
@@ -819,40 +818,19 @@ div.youtube iframe {
 
 [class^="donate-"],
 [class*=" donate-"] {
-	height: 21px;
+	width: 120px;
+	height: 24px;
 	background-repeat: no-repeat;
 	display: inline-block;
 	vertical-align: middle;
 }
 .donate-fr,
 .donate-fr:active {
-	background-image: url(../images/paypal_donate_fr.gif);
-	width: 108px;
+	background-image: url(../images/paypal_donate_fr.png);
 }
 .donate-en,
 .donate-en:active {
-	background-image: url(../images/paypal_donate_en.gif);
-	width: 74px;
-}
-.donate-de,
-.donate-de:active {
-	background-image: url(../images/paypal_donate_de.gif);
-	width: 86px;
-}
-.donate-it,
-.donate-it:active {
-	background-image: url(../images/paypal_donate_it.gif);
-	width: 96px;
-}
-.donate-es,
-.donate-es:active {
-	background-image: url(../images/paypal_donate_es.gif);
-	width: 74px;
-}
-.donate-ru,
-.donate-ru:active {
-	background-image: url(../images/paypal_donate_ru.gif);
-	width: 156px;
+	background-image: url(../images/paypal_donate_en.png);
 }
 
 [class^="browser-"],
