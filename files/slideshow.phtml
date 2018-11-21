@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  (2016) izend.org
- * @version    (1)
+ * @copyright  (2016-2018) izend.org
+ * @version    (2)
  * @link       http://www.izend.org
  */
 ?>
@@ -41,7 +41,7 @@ shuffle($images);
 <img src="/files/slideshow/thumbs/<?php $slide=$images[0]; echo basename($slide); ?>" alt="" width="320" height="180" />
 </p>
 <?php head('javascript', 'jquery.cycle'); ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(document).ready(function() {
 	var fnames = new Array(<?php for ($i=0; $i < count($images); $i++) { if ($i > 0) { echo ','; } echo '\'', basename($images[$i]), '\''; } ?>);
@@ -59,7 +59,7 @@ $(document).ready(function() {
 </script>
 <?php head('javascript', 'jquery.colorbox') ;?>
 <?php head('stylesheet', 'jquery.colorbox', 'screen') ;?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(document).ready(function() {
 	$('.colorbox').colorbox({rel: '#slideshow', opacity: 0.8, transition: 'elastic', slideshow: false, current: false, reposition: true, maxWidth:'99%', maxHeight:'99%', onOpen: function() {$('#slideshow').cycle('pause');}, onClosed: function() {$('#slideshow').cycle('resume');}});

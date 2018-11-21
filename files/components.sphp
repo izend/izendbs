@@ -2266,7 +2266,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 </div>
 <div class="alert alert-danger" role="alert">
 	<strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
-</div>";s:17:"content_text_eval";s:1:"0";}}i:17;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:3869:"<h4>Progress bar</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:17;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:3846:"<h4>Progress bar</h4>
 
 <div class="progress">
 	<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
@@ -2338,7 +2338,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 	</div>
 </div>
 <button id="toggle-progress-bar-striped" aria-pressed="false" data-toggle="button" class="btn btn-default" type="button">Toggle animation</button>
-<script type="text/javascript">
+<script>
 $('#toggle-progress-bar-striped').click(function() { $('.animated-progress-bar-striped').toggleClass('active'); });
 </script>
 
@@ -2353,7 +2353,7 @@ $('#toggle-progress-bar-striped').click(function() { $('.animated-progress-bar-s
 	<div class="progress-bar progress-bar-danger" style="width: 10%">
 		<span class="sr-only">10% Complete (danger)</span>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:3867:"<h4>Progress bar</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:3844:"<h4>Progress bar</h4>
 
 <div class="progress">
 	<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
@@ -2424,7 +2424,7 @@ $('#toggle-progress-bar-striped').click(function() { $('.animated-progress-bar-s
 	</div>
 </div>
 <button id="toggle-progress-bar-striped" aria-pressed="false" data-toggle="button" class="btn btn-default" type="button">Toggle animation</button>
-<script type="text/javascript">
+<script>
 $('#toggle-progress-bar-striped').click(function() { $('.animated-progress-bar-striped').toggleClass('active'); });
 </script>
 

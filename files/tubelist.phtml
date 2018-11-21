@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  (2016) izend.org
- * @version    (1)
+ * @copyright  (2016-2018) izend.org
+ * @version    (2)
  * @link       http://www.izend.org
  */
 ?>
@@ -28,7 +28,7 @@ $dir='/files/tubes/' . $lang;
 <?php foreach ($tubes as $name): ?><a class="yt" href="http://www.youtube.com/embed/<?php echo $name; ?>?wmode=transparent&amp;autoplay=1&amp;autohide=2&amp;controls=1&amp;fs=0&amp;modestbranding=0&amp;showinfo=0&amp;rel=1&amp;theme=light&amp;color=white"><img src="<?php echo $dir; ?>/<?php echo $name; ?>.jpg" alt="" width="240" height="135" /></a><?php endforeach; ?>
 </div>
 <?php head('javascript', 'jquery.mousewheel'); ?>
-<script type="text/javascript">
+<script>
 $('.gallery').mousewheel(function(event) {
 	this.scrollLeft -= (event.deltaY * 30);
 	return false;
@@ -36,7 +36,7 @@ $('.gallery').mousewheel(function(event) {
 </script>
 <?php head('javascript', 'jquery.colorbox'); ?>
 <?php head('stylesheet', 'jquery.colorbox', 'screen'); ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(document).ready(function() {
     var ytch=0, bw=4, w=640, h=360, maxw=$(window).innerWidth()-2*bw;

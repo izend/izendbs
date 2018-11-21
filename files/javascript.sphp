@@ -1,4 +1,4 @@
-a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1";s:18:"node_nomorecomment";s:1:"1";s:11:"node_novote";s:1:"0";s:15:"node_nomorevote";s:1:"0";s:10:"node_ilike";s:1:"1";s:10:"node_tweet";s:1:"1";s:12:"node_plusone";s:1:"1";s:13:"node_linkedin";s:1:"1";s:10:"node_pinit";s:1:"1";}s:2:"en";a:5:{s:9:"node_name";s:10:"javascript";s:10:"node_title";s:10:"JavaScript";s:13:"node_abstract";s:54:"Boostrap jQuery plugins are easy to include in a page.";s:10:"node_cloud";s:100:"Bootstrap JavaScript jQuery modals tooltips scrollspy alerts button collapse tabs accordion carousel";s:10:"node_image";s:23:"/files/images/pinit.jpg";}s:2:"fr";a:5:{s:9:"node_name";s:10:"javascript";s:10:"node_title";s:10:"JavaScript";s:13:"node_abstract";s:69:"Les plugins jQuery de Boostrap sont faciles à inclure dans une page.";s:10:"node_cloud";s:100:"Bootstrap JavaScript jQuery modals tooltips scrollspy alerts button collapse tabs accordion carousel";s:10:"node_image";s:23:"/files/images/pinit.jpg";}}i:1;a:9:{i:1;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:3294:"<h4>Modals</h4>
+a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1";s:18:"node_nomorecomment";s:1:"1";s:11:"node_novote";s:1:"0";s:15:"node_nomorevote";s:1:"0";s:10:"node_ilike";s:1:"1";s:10:"node_tweet";s:1:"1";s:12:"node_plusone";s:1:"1";s:13:"node_linkedin";s:1:"1";s:10:"node_pinit";s:1:"1";}s:2:"en";a:5:{s:9:"node_name";s:10:"javascript";s:10:"node_title";s:10:"JavaScript";s:13:"node_abstract";s:54:"Boostrap jQuery plugins are easy to include in a page.";s:10:"node_cloud";s:100:"Bootstrap JavaScript jQuery modals tooltips scrollspy alerts button collapse tabs accordion carousel";s:10:"node_image";s:23:"/files/images/pinit.jpg";}s:2:"fr";a:5:{s:9:"node_name";s:10:"javascript";s:10:"node_title";s:10:"JavaScript";s:13:"node_abstract";s:69:"Les plugins jQuery de Boostrap sont faciles à inclure dans une page.";s:10:"node_cloud";s:100:"Bootstrap JavaScript jQuery modals tooltips scrollspy alerts button collapse tabs accordion carousel";s:10:"node_image";s:23:"/files/images/pinit.jpg";}}i:1;a:9:{i:1;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:3271:"<h4>Modals</h4>
 
 <div aria-labelledby="myModalLabel" tabindex="-1" id="myModal" role="dialog" class="modal fade" style="display: none;">
 	<div role="document" class="modal-dialog">
@@ -35,12 +35,12 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 </div>
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch demo modal</button>
 
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
     $('.popover-test').popover();
     $('.tooltip-test').tooltip();
 });
-</script>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:3294:"<h4>Modals</h4>
+</script>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:3271:"<h4>Modals</h4>
 
 <div aria-labelledby="myModalLabel" tabindex="-1" id="myModal" role="dialog" class="modal fade" style="display: none;">
 	<div role="document" class="modal-dialog">
@@ -77,12 +77,12 @@ $(document).ready(function() {
 </div>
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch demo modal</button>
 
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
     $('.popover-test').popover();
     $('.tooltip-test').tooltip();
 });
-</script>";s:17:"content_text_eval";s:1:"0";}}i:2;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:807:"<h4>Tooltip</h4>
+</script>";s:17:"content_text_eval";s:1:"0";}}i:2;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:784:"<h4>Tooltip</h4>
 
 <div style="margin-left: 100px;">
 	<button data-original-title="Tooltip on left" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="">Left</button>
@@ -91,11 +91,11 @@ $(document).ready(function() {
 	<button data-original-title="Tooltip on right" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="">Right</button>
 </div>
 
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
 });
-</script>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:807:"<h4>Tooltip</h4>
+</script>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:784:"<h4>Tooltip</h4>
 
 <div style="margin-left: 100px;">
 	<button data-original-title="Tooltip on left" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="">Left</button>
@@ -104,29 +104,29 @@ $(document).ready(function() {
 	<button data-original-title="Tooltip on right" type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="">Right</button>
 </div>
 
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
 });
-</script>";s:17:"content_text_eval";s:1:"0";}}i:3;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:655:"<h4>Popover</h4>
+</script>";s:17:"content_text_eval";s:1:"0";}}i:3;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:632:"<h4>Popover</h4>
 
 <button data-original-title="Popover title" type="button" class="btn btn-lg btn-danger bs-docs-popover" data-toggle="popover" title="" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
 
 <h5>Dismiss on next click</h5>
 <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
 
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
-</script>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:655:"<h4>Popover</h4>
+</script>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:632:"<h4>Popover</h4>
 
 <button data-original-title="Popover title" type="button" class="btn btn-lg btn-danger bs-docs-popover" data-toggle="popover" title="" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
 
 <h5>Dismiss on next click</h5>
 <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>
 
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
@@ -166,9 +166,9 @@ $(document).ready(function() {
 		<button type="button" class="btn btn-danger">Take this action</button>
 		<button type="button" class="btn btn-default">Or do this</button>
 	</p>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:5;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:4490:"<h4>ScrollSpy</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:5;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:4474:"<h4>ScrollSpy</h4>
 
-<style type="text/css" media="screen">
+<style media="screen">
 @media (min-width: 768px) {
 	#navbar-example2 {
 		max-width: 470px;
@@ -219,9 +219,9 @@ $(document).ready(function() {
 	<h4 id="three">three</h4>
 	<p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
 	<p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.</p>
-</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:4490:"<h4>ScrollSpy</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:4474:"<h4>ScrollSpy</h4>
 
-<style type="text/css" media="screen">
+<style media="screen">
 @media (min-width: 768px) {
 	#navbar-example2 {
 		max-width: 470px;
@@ -322,11 +322,11 @@ $(document).ready(function() {
 	<div class="tab-pane fade" role="tabpanel" id="dropdown2" aria-labelledby="dropdown2-tab">
 		<p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:7;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:1221:"<h4>Button</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:7;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:1198:"<h4>Button</h4>
 
 <button type="button" id="myButton" data-loading-text="Loading" class="btn btn-primary" autocomplete="off">Load</button>
 
-<script type="text/javascript">
+<script>
 $('#myButton').on('click', function() { $(this).button('loading'); });
 </script>
 
@@ -344,11 +344,11 @@ $('#myButton').on('click', function() { $(this).button('loading'); });
 	<label class="btn btn-primary active"><input name="options" id="option1" autocomplete="off" type="radio" checked="checked">Radio 1</label>
 	<label class="btn btn-primary"> <input name="options" id="option2" autocomplete="off" type="radio">Radio 2</label>
 	<label class="btn btn-primary"> <input name="options" id="option3" autocomplete="off" type="radio">Radio 3</label>
-</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:1186:"<h4>Button</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:1163:"<h4>Button</h4>
 
 <button type="button" id="myButton" data-loading-text="Loading" class="btn btn-primary" autocomplete="off">Load</button>
 
-<script type="text/javascript">
+<script>
 $('#myButton').on('click', function() { $(this).button('loading'); });
 </script>
 
