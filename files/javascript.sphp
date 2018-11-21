@@ -322,55 +322,55 @@ $(document).ready(function() {
 	<div class="tab-pane fade" role="tabpanel" id="dropdown2" aria-labelledby="dropdown2-tab">
 		<p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:7;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:1198:"<h4>Button</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:7;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:1046:"<h4>Button</h4>
 
-<button type="button" id="myButton" data-loading-text="Loading" class="btn btn-primary" autocomplete="off">Load</button>
+<button type="button" id="myButton" data-loading-text="Loading" class="btn btn-primary">Load</button>
 
 <script>
 $('#myButton').on('click', function() { $(this).button('loading'); });
 </script>
 
 <h5>Checkbox</h5>
-<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Toggle</button>
+<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">Toggle</button>
 
 <div class="btn-group" data-toggle="buttons">
-	<label class="btn btn-primary"><input type="checkbox" checked="checked" autocomplete="off">Checkbox 1</label>
-	<label class="btn btn-primary active"><input type="checkbox" autocomplete="off">Checkbox 2</label>
-	<label class="btn btn-primary active"><input type="checkbox" autocomplete="off">Checkbox 3</label>
+	<label class="btn btn-primary"><input type="checkbox" checked="checked">Checkbox 1</label>
+	<label class="btn btn-primary active"><input type="checkbox">Checkbox 2</label>
+	<label class="btn btn-primary active"><input type="checkbox">Checkbox 3</label>
 </div>
 
 <h5>Radio</h5>
 <div class="btn-group" data-toggle="buttons">
-	<label class="btn btn-primary active"><input name="options" id="option1" autocomplete="off" type="radio" checked="checked">Radio 1</label>
-	<label class="btn btn-primary"> <input name="options" id="option2" autocomplete="off" type="radio">Radio 2</label>
-	<label class="btn btn-primary"> <input name="options" id="option3" autocomplete="off" type="radio">Radio 3</label>
-</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:1163:"<h4>Button</h4>
+	<label class="btn btn-primary active"><input name="options" id="option1" type="radio" checked="checked">Radio 1</label>
+	<label class="btn btn-primary"> <input name="options" id="option2" type="radio">Radio 2</label>
+	<label class="btn btn-primary"> <input name="options" id="option3" type="radio">Radio 3</label>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:1011:"<h4>Button</h4>
 
-<button type="button" id="myButton" data-loading-text="Loading" class="btn btn-primary" autocomplete="off">Load</button>
+<button type="button" id="myButton" data-loading-text="Loading" class="btn btn-primary">Load</button>
 
 <script>
 $('#myButton').on('click', function() { $(this).button('loading'); });
 </script>
 
-<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Toggle</button>
+<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">Toggle</button>
 
 <div class="btn-group" data-toggle="buttons">
-	<label class="btn btn-primary"><input type="checkbox" checked="checked" autocomplete="off">Checkbox 1</label>
-	<label class="btn btn-primary active"><input type="checkbox" autocomplete="off">Checkbox 2</label>
-	<label class="btn btn-primary active"><input type="checkbox" autocomplete="off">Checkbox 3</label>
+	<label class="btn btn-primary"><input type="checkbox" checked="checked">Checkbox 1</label>
+	<label class="btn btn-primary active"><input type="checkbox">Checkbox 2</label>
+	<label class="btn btn-primary active"><input type="checkbox">Checkbox 3</label>
 </div>
 
 <div class="btn-group" data-toggle="buttons">
-	<label class="btn btn-primary active"><input name="options" id="option1" autocomplete="off" type="radio" checked="checked">Radio 1</label>
-	<label class="btn btn-primary"> <input name="options" id="option2" autocomplete="off" type="radio">Radio 2</label>
-	<label class="btn btn-primary"> <input name="options" id="option3" autocomplete="off" type="radio">Radio 3</label>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:8;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:4081:"<h4>Collapse</h4>
+	<label class="btn btn-primary active"><input name="options" id="option1" type="radio" checked="checked">Radio 1</label>
+	<label class="btn btn-primary"> <input name="options" id="option2" type="radio">Radio 2</label>
+	<label class="btn btn-primary"> <input name="options" id="option3" type="radio">Radio 3</label>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:8;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:4059:"<h4>Collapse</h4>
 
 <p>
 	<a href="#collapseExample" class="btn btn-primary collapsed" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Link with href</a>
 	<button aria-controls="collapseExample" aria-expanded="false" class="btn btn-primary collapsed" data-target="#collapseExample" data-toggle="collapse" type="button">Button with data-target</button>
 </p>
-<div style="height: 0px;" aria-expanded="false" class="collapse" id="collapseExample">
+<div style="height: 0px;" class="collapse" id="collapseExample">
 	<div class="well">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</div>
 </div>
 
@@ -407,13 +407,13 @@ $('#myButton').on('click', function() { $(this).button('loading'); });
 			<div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
 		</div>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:4081:"<h4>Collapse</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:4059:"<h4>Collapse</h4>
 
 <p>
 	<a href="#collapseExample" class="btn btn-primary collapsed" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Link with href</a>
 	<button aria-controls="collapseExample" aria-expanded="false" class="btn btn-primary collapsed" data-target="#collapseExample" data-toggle="collapse" type="button">Button with data-target</button>
 </p>
-<div style="height: 0px;" aria-expanded="false" class="collapse" id="collapseExample">
+<div style="height: 0px;" class="collapse" id="collapseExample">
 	<div class="well">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</div>
 </div>
 
