@@ -186,7 +186,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li role="separator" class="divider"></li>
 		<li><a href="#">Separated link</a></li>
 	</ul>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:4;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:6328:"<h4>Button groups</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:4;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:6309:"<h4>Button groups</h4>
 
 <h5>Basic example</h5>
 <div class="btn-group" role="group" aria-label="...">
@@ -237,8 +237,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 </div>
 
 <h5>Button toolbar</h5>
-<div class="hbar" aria-label="Toolbar with button groups" role="toolbar"
-	class="btn-hbar">
+<div class="hbar" aria-label="Toolbar with button groups" role="toolbar">
 	<div aria-label="First group" role="group" class="btn-group">
 		<button class="btn btn-default" type="button">1</button>
 		<button class="btn btn-default" type="button">2</button>
@@ -340,7 +339,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 	<div class="btn-group" role="group">
 		<button type="button" class="btn btn-default">Right</button>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:6328:"<h4>Button groups</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:6309:"<h4>Button groups</h4>
 
 <h5>Basic example</h5>
 <div class="btn-group" role="group" aria-label="...">
@@ -391,8 +390,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 </div>
 
 <h5>Button toolbar</h5>
-<div class="hbar" aria-label="Toolbar with button groups" role="toolbar"
-	class="btn-hbar">
+<div class="hbar" aria-label="Toolbar with button groups" role="toolbar">
 	<div aria-label="First group" role="group" class="btn-group">
 		<button class="btn btn-default" type="button">1</button>
 		<button class="btn btn-default" type="button">2</button>
@@ -2040,13 +2038,13 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 
 <div class="page-header">
 	<h1>Example page header <small>Subtext for header</small></h1>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:15;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2982:"<h4>Thumbnails</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:15;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2975:"<h4>Thumbnails</h4>
 
 <div class="row">
 	<div class="col-md-3 col-xs-6">
 		<a href="#" class="thumbnail"> <img data-holder-rendered="true"
 			src="/logos/twitter.png" alt=""
-			style="height: 100%; width: 100%; display: block;" alt=""
+			style="height: 100%; width: 100%; display: block;"
 			data-src="holder.js/100%x100%">
 		</a>
 	</div>
@@ -2117,13 +2115,13 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 			</div>
 		</div>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:2982:"<h4>Thumbnails</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:2975:"<h4>Thumbnails</h4>
 
 <div class="row">
 	<div class="col-md-3 col-xs-6">
 		<a href="#" class="thumbnail"> <img data-holder-rendered="true"
 			src="/logos/twitter.png" alt=""
-			style="height: 100%; width: 100%; display: block;" alt=""
+			style="height: 100%; width: 100%; display: block;"
 			data-src="holder.js/100%x100%">
 		</a>
 	</div>
