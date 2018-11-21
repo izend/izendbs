@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2018 (2016-2018) izend.org
- * @version    17 (5)
+ * @version    17 (6)
  * @link       http://www.izend.org
  */
 ?>
@@ -138,7 +138,7 @@ switch($action) {
 }
 ?>
 <?php if ($scrollto): ?>
-<script type="text/javascript">
+<script>
 $(function() {$('html, body').scrollTop($('<?php echo $scrollto; ?>').offset().top);});
 </script>
 <?php endif; ?>
