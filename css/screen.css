@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2018 (2017-2018) izend.org
- * @version    97 (17)
+ * @version    97 (18)
  * @link       http://www.izend.org
  */
 
@@ -103,6 +103,7 @@ fieldset {
 .radio input[type="radio"],
 .radio-inline input[type="radio"] {
 	min-height: 14px;
+	margin-top: 6px;
 }
 @media (min-width: 768px) {
 	.checkbox-group + .checkbox-group,
@@ -355,7 +356,6 @@ span.btn_edit {
 	vertical-align: middle;
 	text-indent: -9999px;
 	position: relative;
-	top: 1px;
 }
 span.btn_mouse {
 	background-position: -208px -48px;
