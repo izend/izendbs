@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2012-2018 (2018) izend.org
- * @version    10 (2)
+ * @version    10 (3)
  * @link       http://www.izend.org
  */
 ?>
@@ -29,7 +29,7 @@
 <div class="form-group<?php if ($missing_confirmation): ?> has-error<?php endif; ?>">
 <label for="subscribe_confirmed">Please confirm your registration:</label>
 <div class="checkbox">
-<label><input type="checkbox" name="subscribe_confirmed" id="subscribe_confirmed" title="Confirmation"<?php if ($confirmed): ?> checked="checked"<?php endif; ?> />&nbsp;I want to receive the newsletter by email</label>
+<label><input type="checkbox" name="subscribe_confirmed" id="subscribe_confirmed" title="Confirmation"<?php if ($confirmed): ?> checked="checked"<?php endif; ?> /><span class="form-control-static">&nbsp;I want to receive the newsletter by email</span></label>
 </div>
 </div>
 <?php endif; ?>
