@@ -1,7 +1,7 @@
 /**
  *
- * @copyright  2010-2018 (2017-2018) izend.org
- * @version    100 (18)
+ * @copyright  2010-2018 (2017-2019) izend.org
+ * @version    100 (19)
  * @link       http://www.izend.org
  */
 
@@ -1008,7 +1008,6 @@ div.tagbar {
 .comments .comment_text {
 	margin-bottom: 10px;
 }
-
 @media (min-width: 768px) {
 	.comments .signature {
 		float:right;
@@ -1019,7 +1018,18 @@ div.tagbar {
 	position: relative;
 	top: 1px;
 }
+
 #newsletterpage_status {
 	padding-top: 2px;
 	margin-bottom: 15px;
+}
+
+#upload_droparea {
+	width:100px;
+	height:100px;
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	background:#eee;
+	cursor:pointer;
 }

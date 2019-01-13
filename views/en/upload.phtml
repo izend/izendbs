@@ -2,84 +2,12 @@
 
 /**
  *
- * @copyright  2012-2018 (2018) izend.org
- * @version    16 (2)
+ * @copyright  2012-2019 izend.org
+ * @version    17
  * @link       http://www.izend.org
  */
 ?>
-<?php extract($errors); ?>
-<?php extract($infos); ?>
-<form method="post" enctype="multipart/form-data">
-<input type="hidden" name="upload_token" value="<?php echo $token; ?>" />
-<?php if (!empty($maxfilesize)): ?>
-<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $maxfilesize; ?>" />
-<?php endif; ?>
-<div class="form-group">
-<input type="file" name="upload_file" id="upload_file" title="" />
-</div>
-<div class="form-group">
-<button type="submit" class="btn <?php if ($missing_file or $bad_file or $bad_name or $bad_size or $bad_copy or $copy_error): ?>btn-danger<?php elseif ($file_copied): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="upload_put" id="upload_put">Download</button>
-<?php if ($slice): ?>
-<span id="upload_status"></span>
-<?php endif; ?>
-</div>
-</form>
-<script>
-(function() {
-	var file=$('#upload_file');
-	var upload=$('#upload_put');
-<?php if ($slice): ?>
-	var status=$('#upload_status');
-<?php endif; ?>
+<?php
+$upload_put_value='Upload';
 
-	file.css({ position: 'absolute', left: '-9999px' });
-
-	upload.on('click', function(e) { e.preventDefault(); file.click(); });
-
-	file.change(function() {
-		if (file.val()) {
-<?php if ($slice): ?>
-			var fd = this.files[0];
-			var reader = new FileReader();
-			var size = 1 * 1024 * 1024;
-			var offset = 0;
-			var progress = 0;
-			var blob;
-
-			function uploadslice() {
-				if (progress == 0)
-					upload.attr('class', 'btn btn-default');
-				status.html(progress + '%');
-				blob = fd.slice(offset, offset + size + 1);
-				reader.readAsDataURL(blob);
-			}
-
-			reader.onloadend = function(event) {
-				$.post('<?php echo $fileupload_url; ?>', {file_token: '<?php echo $token; ?>', file_name: fd.name, file_size: fd.size, file_type: fd.type, file_offset: offset, file_data: event.target.result},
-					function(data) {
-						if (!data) {
-							upload.attr('class', 'btn btn-danger');
-							status.empty();
-							return;
-						}
-
-						offset += blob.size;
-						progress = Math.floor((offset / fd.size ) * 100);
-
-						if (progress < 100)
-							uploadslice();
-						else {
-							upload.attr('class', 'btn btn-success');
-							status.empty();
-						}
-					});
-			};
-
-			uploadslice();
-<?php else: ?>
-			upload.off('click').click();
-<?php endif; ?>
-	    }
-	});
-})();
-</script>
+require VIEWS_DIR . DIRECTORY_SEPARATOR . 'upload.phtml';
