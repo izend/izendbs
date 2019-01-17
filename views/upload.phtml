@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2019 (2019) izend.org
- * @version    1 (1)
+ * @version    2 (1)
  * @link       http://www.izend.org
  */
 ?>
@@ -73,7 +73,7 @@
 <?php if ($with_fileupload): ?>
 			status.text(progress + '%');
 <?php endif; ?>
-			blob = fd.slice(offset, offset + size + 1);
+			blob = fd.slice(offset, offset + size);
 			reader.readAsDataURL(blob);
 		}
 
