@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2018 (2016) izend.org
- * @version    56 (3)
+ * @version    57 (3)
  * @link       http://www.izend.org
  */
 <?php
@@ -68,9 +68,10 @@ global $pinterestassets;
 
 $pinterestassets=false;	// false
 
-global $googleapiid;
+global $googleapiid, $googleapisid;
 
-$googleapiid=false;
+$googleapiid=false;		// client key
+$googleapisid=false;	// server key
 
 global $googleanalyticsid;
 
