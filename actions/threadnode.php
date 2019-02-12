@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2018 (2017-2018) izend.org
- * @version    18 (2)
+ * @copyright  2010-2019 (2017-2018) izend.org
+ * @version    19 (2)
  * @link       http://www.izend.org
  */
 
@@ -33,7 +33,7 @@ function threadnode($lang, $clang, $thread, $node) {
 	if (!$r) {
 		return run('error/notfound', $lang);
 	}
-	extract($r); /* node_number node_ignored node_name node_title node_abstract node_cloud node_image node_visits node_nocomment node_nomorecomment node_novote node_nomorevote node_ilike node_tweet node_plusone node_linkedin node_pinit */
+	extract($r); /* node_number node_ignored node_name node_title node_abstract node_cloud node_image node_visits node_nocomment node_nomorecomment node_novote node_nomorevote node_ilike node_tweet node_plusone node_linkedin node_pinit node_whatsapp */
 
 	$node_comment=!$node_nocomment;
 	$node_morecomment=!$node_nomorecomment;
@@ -76,7 +76,7 @@ function threadnode($lang, $clang, $thread, $node) {
 
 	$banner = build('banner', $lang, compact('headline', 'edit'));
 
-	$content = view('threadnode', $lang, compact('node_id', 'node_name', 'node_title', 'node_abstract', 'node_cloud', 'node_image', 'node_created', 'node_modified', 'node_visits', 'node_comment', 'node_morecomment', 'node_vote', 'node_morevote', 'node_ilike', 'node_tweet', 'node_plusone', 'node_linkedin', 'node_pinit', 'node_contents', 'prev_node_url', 'prev_node_label', 'next_node_url', 'next_node_label', 'inlanguages'));
+	$content = view('threadnode', $lang, compact('node_id', 'node_name', 'node_title', 'node_abstract', 'node_cloud', 'node_image', 'node_created', 'node_modified', 'node_visits', 'node_comment', 'node_morecomment', 'node_vote', 'node_morevote', 'node_ilike', 'node_tweet', 'node_plusone', 'node_linkedin', 'node_pinit', 'node_whatsapp', 'node_contents', 'prev_node_url', 'prev_node_label', 'next_node_url', 'next_node_label', 'inlanguages'));
 
 	$output = layout('viewing', compact('clang', 'banner', 'content', 'sidebar'));
 

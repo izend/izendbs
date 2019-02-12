@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2018 (2017-2019) izend.org
- * @version    100 (19)
+ * @version    100 (20)
  * @link       http://www.izend.org
  */
 
@@ -528,6 +528,9 @@ span.btn_linkedin {
 span.btn_pinit {
 	background-position: -64px -48px;
 }
+span.btn_whatsapp {
+	background-position: -80px -48px;
+}
 span.btn_world {
 	background-position: -240px -16px;
 }
@@ -667,6 +670,9 @@ div.youtube iframe {
 .besocial.awesome .pinterest {
 	background-color: #cb2027;
 }
+.besocial.awesome .whatsapp {
+	background-color: #25d366;
+}
 
 [class^="social-"],
 [class*=" social-"] {
@@ -701,6 +707,9 @@ div.youtube iframe {
 }
 .social-pinterest {
 	background-position: -168px 0;
+}
+.social-whatsapp {
+	background-position: -288px 0;
 }
 .social-google {
 	background-position: -192px 0;
