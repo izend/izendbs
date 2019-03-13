@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2019 (2017-2019) izend.org
- * @version    101 (20)
+ * @version    102 (21)
  * @link       http://www.izend.org
  */
 
@@ -888,6 +888,10 @@ div.youtube iframe {
 }
 .browser-edge:hover {
 	background-position: -90px -18px;
+}
+
+div.file {
+	word-wrap:break-word;
 }
 
 div.hbar > * {
