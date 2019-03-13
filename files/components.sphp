@@ -1,4 +1,4 @@
-a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1";s:18:"node_nomorecomment";s:1:"1";s:11:"node_novote";s:1:"0";s:15:"node_nomorevote";s:1:"0";s:10:"node_ilike";s:1:"1";s:10:"node_tweet";s:1:"1";s:12:"node_plusone";s:1:"1";s:13:"node_linkedin";s:1:"1";s:10:"node_pinit";s:1:"1";}s:2:"en";a:5:{s:9:"node_name";s:10:"components";s:10:"node_title";s:10:"Components";s:13:"node_abstract";s:39:"All the Bootstrap components in action.";s:10:"node_cloud";s:184:"Bootstrap components glyphicons button dropdowns input groups nav navbar tabs breadcrums pagination pager labels badges jumbotron thumbnails alerts progress bar media list wells panels";s:10:"node_image";s:23:"/files/images/pinit.jpg";}s:2:"fr";a:5:{s:9:"node_name";s:10:"composants";s:10:"node_title";s:10:"Composants";s:13:"node_abstract";s:40:"Tous les composants Bootstrap en action.";s:10:"node_cloud";s:184:"Bootstrap composants glyphicons button dropdowns input groups nav navbar tabs breadcrums pagination pager labels badges jumbotron thumbnails alerts progress bar media list wells panels";s:10:"node_image";s:23:"/files/images/pinit.jpg";}}i:1;a:21:{i:1;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2559:"<h4>Glyphicons</h4>
+a:2:{i:0;a:3:{i:0;a:11:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1";s:18:"node_nomorecomment";s:1:"1";s:11:"node_novote";s:1:"0";s:15:"node_nomorevote";s:1:"0";s:10:"node_ilike";s:1:"1";s:10:"node_tweet";s:1:"1";s:12:"node_plusone";s:1:"1";s:13:"node_linkedin";s:1:"1";s:10:"node_pinit";s:1:"1";s:13:"node_whatsapp";s:1:"1";}s:2:"en";a:5:{s:9:"node_name";s:10:"components";s:10:"node_title";s:10:"Components";s:13:"node_abstract";s:39:"All the Bootstrap components in action.";s:10:"node_cloud";s:184:"Bootstrap components glyphicons button dropdowns input groups nav navbar tabs breadcrums pagination pager labels badges jumbotron thumbnails alerts progress bar media list wells panels";s:10:"node_image";s:23:"/files/images/pinit.jpg";}s:2:"fr";a:5:{s:9:"node_name";s:10:"composants";s:10:"node_title";s:10:"Composants";s:13:"node_abstract";s:40:"Tous les composants Bootstrap en action.";s:10:"node_cloud";s:184:"Bootstrap composants glyphicons button dropdowns input groups nav navbar tabs breadcrums pagination pager labels badges jumbotron thumbnails alerts progress bar media list wells panels";s:10:"node_image";s:23:"/files/images/pinit.jpg";}}i:1;a:21:{i:1;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2559:"<h4>Glyphicons</h4>
 
 <p>
 <span aria-hidden="true" class="glyphicon glyphicon-off"></span>
@@ -186,7 +186,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 		<li role="separator" class="divider"></li>
 		<li><a href="#">Separated link</a></li>
 	</ul>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:4;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:6309:"<h4>Button groups</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:4;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:6328:"<h4>Button groups</h4>
 
 <h5>Basic example</h5>
 <div class="btn-group" role="group" aria-label="...">
@@ -237,7 +237,8 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 </div>
 
 <h5>Button toolbar</h5>
-<div class="hbar" aria-label="Toolbar with button groups" role="toolbar">
+<div class="hbar" aria-label="Toolbar with button groups" role="toolbar"
+	class="btn-hbar">
 	<div aria-label="First group" role="group" class="btn-group">
 		<button class="btn btn-default" type="button">1</button>
 		<button class="btn btn-default" type="button">2</button>
@@ -339,7 +340,7 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 	<div class="btn-group" role="group">
 		<button type="button" class="btn btn-default">Right</button>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:6309:"<h4>Button groups</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:6328:"<h4>Button groups</h4>
 
 <h5>Basic example</h5>
 <div class="btn-group" role="group" aria-label="...">
@@ -390,7 +391,8 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 </div>
 
 <h5>Button toolbar</h5>
-<div class="hbar" aria-label="Toolbar with button groups" role="toolbar">
+<div class="hbar" aria-label="Toolbar with button groups" role="toolbar"
+	class="btn-hbar">
 	<div aria-label="First group" role="group" class="btn-group">
 		<button class="btn btn-default" type="button">1</button>
 		<button class="btn btn-default" type="button">2</button>
@@ -2038,13 +2040,13 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 
 <div class="page-header">
 	<h1>Example page header <small>Subtext for header</small></h1>
-</div>";s:17:"content_text_eval";s:1:"0";}}i:15;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2975:"<h4>Thumbnails</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}}i:15;a:3:{i:0;a:2:{s:12:"content_type";s:4:"text";s:15:"content_ignored";s:1:"0";}s:2:"en";a:2:{s:17:"content_text_text";s:2982:"<h4>Thumbnails</h4>
 
 <div class="row">
 	<div class="col-md-3 col-xs-6">
 		<a href="#" class="thumbnail"> <img data-holder-rendered="true"
 			src="/logos/twitter.png" alt=""
-			style="height: 100%; width: 100%; display: block;"
+			style="height: 100%; width: 100%; display: block;" alt=""
 			data-src="holder.js/100%x100%">
 		</a>
 	</div>
@@ -2115,13 +2117,13 @@ a:2:{i:0;a:3:{i:0;a:10:{s:11:"node_visits";s:1:"1";s:14:"node_nocomment";s:1:"1"
 			</div>
 		</div>
 	</div>
-</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:2975:"<h4>Thumbnails</h4>
+</div>";s:17:"content_text_eval";s:1:"0";}s:2:"fr";a:2:{s:17:"content_text_text";s:2982:"<h4>Thumbnails</h4>
 
 <div class="row">
 	<div class="col-md-3 col-xs-6">
 		<a href="#" class="thumbnail"> <img data-holder-rendered="true"
 			src="/logos/twitter.png" alt=""
-			style="height: 100%; width: 100%; display: block;"
+			style="height: 100%; width: 100%; display: block;" alt=""
 			data-src="holder.js/100%x100%">
 		</a>
 	</div>
