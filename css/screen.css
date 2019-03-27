@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2019 (2017-2019) izend.org
- * @version    102 (21)
+ * @version    105 (22)
  * @link       http://www.izend.org
  */
 
@@ -971,6 +971,16 @@ div.tagbar {
 }
 .bg-ignored {
 	background-color: #f2dede;
+}
+
+.hflip {
+	transform: scaleX(-1);
+}
+.vflip {
+	transform: scaleY(-1);
+}
+.hvflip {
+	transform: scale(-1, -1);
 }
 
 .tree-group,
