@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2019 (2016) izend.org
- * @version    19 (1)
+ * @copyright  2010-2019 (2016-2019) izend.org
+ * @version    20 (2)
  * @link       http://www.izend.org
  */
 
@@ -77,7 +77,6 @@ function booksummary($lang, $book) {
 	if ($book_contents) {
 		$ilike=$thread_ilike;
 		$tweetit=$thread_tweet;
-		$plusone=$thread_plusone;
 		$linkedin=$thread_linkedin;
 		$pinit=$thread_pinit;
 		$whatsapp=$thread_whatsapp;
@@ -90,7 +89,7 @@ function booksummary($lang, $book) {
 			$pinit_image=$thread_image ? $thread_image : $siteshot;
 			$pinit=$pinit_text && $pinit_image ? compact('pinit_text', 'pinit_image') : true;
 		}
-		$besocial = socialize($lang, compact('ilike', 'tweetit', 'plusone', 'linkedin', 'pinit', 'whatsapp'));
+		$besocial = socialize($lang, compact('ilike', 'tweetit', 'linkedin', 'pinit', 'whatsapp'));
 	}
 
 	$content = view('booksummary', false, compact('book_id', 'book_title', 'book_abstract', 'book_contents', 'besocial', 'vote'));

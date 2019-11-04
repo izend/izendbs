@@ -3,14 +3,14 @@
 /**
  *
  * @copyright  2010-2019 (2019) izend.org
- * @version    9 (2)
+ * @version    10 (3)
  * @link       http://www.izend.org
  */
 
 function besocial($lang, $components, $sharemode) {
-	$ilike=$tweetit=$plusone=$linkedin=$pinit=$whatsapp=false;
+	$ilike=$tweetit=$linkedin=$pinit=$whatsapp=false;
 
-	extract($components);	/* ilike tweetit plusone linkedin pinit whatsapp */
+	extract($components);	/* ilike tweetit linkedin pinit whatsapp */
 
 	$mode=$sharemode == 'standard' ? 'inline' : $sharemode;
 
@@ -33,9 +33,6 @@ function besocial($lang, $components, $sharemode) {
 		$tweet_text=preg_replace('/\s+/', ' ', trim($tweet_text));
 		$tweetit=view('tweetit', $lang, compact('mode', 'tweet_text'));
 	}
-	if ($plusone) {
-		$plusone=view('plusone', $lang, compact('mode'));
-	}
 	if ($linkedin) {
 		$linkedin=view('linkedin', $lang, compact('mode'));
 	}
@@ -50,7 +47,7 @@ function besocial($lang, $components, $sharemode) {
 		$whatsapp=view('whatsapp', $lang, compact('mode'));
 	}
 
-	$output = view('besocial', false, compact('sharemode', 'ilike', 'tweetit', 'plusone', 'linkedin', 'pinit', 'whatsapp'));
+	$output = view('besocial', false, compact('sharemode', 'ilike', 'tweetit', 'linkedin', 'pinit', 'whatsapp'));
 
 	return $output;
 }

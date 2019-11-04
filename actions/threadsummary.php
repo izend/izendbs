@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2019 (2017-2018) izend.org
- * @version    20 (3)
+ * @version    21 (3)
  * @link       http://www.izend.org
  */
 
@@ -60,7 +60,7 @@ function threadsummary($lang, $clang, $thread) {
 
 	$banner = build('banner', $lang, compact('headline', 'edit'));
 
-	$content = view('threadsummary', $lang, compact('thread_id', 'thread_title', 'thread_abstract', 'thread_cloud', 'thread_image', 'thread_visits', 'thread_search', 'thread_tag', 'thread_comment', 'thread_morecomment', 'thread_vote', 'thread_morevote', 'thread_ilike', 'thread_tweet', 'thread_plusone', 'thread_linkedin', 'thread_pinit', 'thread_whatsapp', 'thread_created', 'thread_modified', 'thread_contents', 'inlanguages'));
+	$content = view('threadsummary', $lang, compact('thread_id', 'thread_title', 'thread_abstract', 'thread_cloud', 'thread_image', 'thread_visits', 'thread_search', 'thread_tag', 'thread_comment', 'thread_morecomment', 'thread_vote', 'thread_morevote', 'thread_ilike', 'thread_tweet', 'thread_linkedin', 'thread_pinit', 'thread_whatsapp', 'thread_created', 'thread_modified', 'thread_contents', 'inlanguages'));
 
 	$output = layout('viewing', compact('clang', 'banner', 'content', 'sidebar'));
 

@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2014-2019 (2016-2019) izend.org
- * @version    11 (13)
+ * @version    12 (14)
  * @link       http://www.izend.org
  */
 
@@ -207,7 +207,6 @@ CREATE TABLE `${db_prefix}node` (
   `nomorevote` tinyint(1) NOT NULL DEFAULT '0',
   `ilike` tinyint(1) NOT NULL DEFAULT '1',
   `tweet` tinyint(1) NOT NULL DEFAULT '1',
-  `plusone` tinyint(1) NOT NULL DEFAULT '0',
   `linkedin` tinyint(1) NOT NULL DEFAULT '1',
   `pinit` tinyint(1) NOT NULL DEFAULT '0',
   `whatsapp` tinyint(1) NOT NULL DEFAULT '0',
@@ -260,7 +259,6 @@ CREATE TABLE `${db_prefix}thread` (
   `nomorevote` tinyint(1) NOT NULL DEFAULT '0',
   `ilike` tinyint(1) NOT NULL DEFAULT '1',
   `tweet` tinyint(1) NOT NULL DEFAULT '1',
-  `plusone` tinyint(1) NOT NULL DEFAULT '0',
   `linkedin` tinyint(1) NOT NULL DEFAULT '1',
   `pinit` tinyint(1) NOT NULL DEFAULT '1',
   `whatsapp` tinyint(1) NOT NULL DEFAULT '1',
@@ -443,11 +441,11 @@ _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO `${db_prefix}node` (`node_id`, `user_id`, `created`, `modified`, `visits`, `nocomment`, `nomorecomment`, `novote`, `nomorevote`, `ilike`, `tweet`, `plusone`, `linkedin`, `pinit`, `whatsapp`) VALUES
-(1, 1, NOW(), NOW(), 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-(2, 1, NOW(), NOW(), 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0),
-(3, 1, NOW(), NOW(), 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0),
-(4, 1, NOW(), NOW(), 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0);
+INSERT INTO `${db_prefix}node` (`node_id`, `user_id`, `created`, `modified`, `visits`, `nocomment`, `nomorecomment`, `novote`, `nomorevote`, `ilike`, `tweet`, `linkedin`, `pinit`, `whatsapp`) VALUES
+(1, 1, NOW(), NOW(), 0, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+(2, 1, NOW(), NOW(), 1, 0, 1, 0, 0, 1, 1, 1, 0, 0),
+(3, 1, NOW(), NOW(), 1, 1, 1, 0, 0, 1, 1, 1, 0, 0),
+(4, 1, NOW(), NOW(), 0, 1, 1, 1, 1, 0, 0, 0, 0, 0);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -713,10 +711,10 @@ _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO `${db_prefix}thread` (`thread_id`, `user_id`, `thread_type`, `created`, `modified`, `number`, `visits`, `nosearch`, `nocloud`, `nocomment`, `nomorecomment`, `novote`, `nomorevote`, `ilike`, `tweet`, `plusone`, `linkedin`, `pinit`, `whatsapp`) VALUES
-(1, 1, 'folder', NOW(), NOW(), 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0),
-(2, 1, 'story', NOW(), NOW(), 2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1),
-(3, 1, 'newsletter', NOW(), NOW(), 3, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0);
+INSERT INTO `${db_prefix}thread` (`thread_id`, `user_id`, `thread_type`, `created`, `modified`, `number`, `visits`, `nosearch`, `nocloud`, `nocomment`, `nomorecomment`, `novote`, `nomorevote`, `ilike`, `tweet`, `linkedin`, `pinit`, `whatsapp`) VALUES
+(1, 1, 'folder', NOW(), NOW(), 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0),
+(2, 1, 'story', NOW(), NOW(), 2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1),
+(3, 1, 'newsletter', NOW(), NOW(), 3, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0);
 _SEP_;
 		$db_conn->exec($sql);
 

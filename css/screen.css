@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2019 (2017-2019) izend.org
- * @version    108 (22)
+ * @version    108 (23)
  * @link       http://www.izend.org
  */
 
@@ -519,9 +519,6 @@ span.btn_ilike {
 span.btn_tweet {
 	background-position: -16px -48px;
 }
-span.btn_plusone {
-	background-position: -32px -48px;
-}
 span.btn_linkedin {
 	background-position: -48px -48px;
 }
@@ -661,9 +658,6 @@ div.youtube iframe {
 .besocial.awesome .twitter {
 	background-color: #4ad2ff;
 }
-.besocial.awesome .gplus {
-	background-color: #a7291c;
-}
 .besocial.awesome .linkedin {
 	background-color: #0183b3;
 }
@@ -689,9 +683,6 @@ div.youtube iframe {
 }
 .social-twitter {
 	background-position: -24px 0;
-}
-.social-gplus {
-	background-position: -48px 0;
 }
 .social-linkedin {
 	background-position: -72px 0;
