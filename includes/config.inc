@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2018 (2016) izend.org
- * @version    57 (3)
+ * @version    58 (3)
  * @link       http://www.izend.org
  */
 
@@ -134,13 +134,14 @@ $supported_contents=array('text', 'infile', 'download', 'file', 'youtube', 'long
 
 $limited_contents=array('rss' => array('text'), 'newsletter' => array('text'));
 
-global $search_default, $search_all, $search_distance, $search_closest, $search_pertinence;
+global $search_default, $search_all, $search_distance, $search_closest, $search_pertinence, $search_cloud;
 
 $search_default=false;	// false or cloud_id
 $search_all=true;		// true, false, 'cloud'
 $search_distance=2;		// 0 - exact match, 1 - close, 2 - not so close, etc.
 $search_closest=true;	// true - best matches, false - all matches
 $search_pertinence=0;	// 0 - at least one tag, 1 - all tags
+$search_cloud=30;		// just a few or not too many keywords
 
 global $session_name;
 
