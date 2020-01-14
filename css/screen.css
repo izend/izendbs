@@ -1,7 +1,7 @@
 /**
  *
- * @copyright  2010-2019 (2017-2019) izend.org
- * @version    112 (23)
+ * @copyright  2010-2019 (2017-2020) izend.org
+ * @version    112 (24)
  * @link       http://www.izend.org
  */
 
@@ -713,6 +713,9 @@ div.youtube iframe {
 }
 .social-youtube {
 	background-position: -264px 0;
+}
+.social-email {
+	background-position: -312px 0;
 }
 
 #socialbar {
