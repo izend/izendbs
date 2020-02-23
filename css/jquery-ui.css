@@ -256,8 +256,9 @@
 }
 
 .ui-datepicker-trigger {
-	vertical-align: baseline;
+	vertical-align: top;
 	padding: 1px;
+	cursor: pointer;
 }
 .ui-datepicker-week-col {
 	text-align: center;
