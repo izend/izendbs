@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2019 (2017) izend.org
- * @version    28 (7)
+ * @copyright  2010-2020 (2017-2020) izend.org
+ * @version    29 (8)
  * @link       http://www.izend.org
  */
 ?>
@@ -42,8 +42,7 @@ une pièce jointe
 </span>
 <?php if ($maxfilesize): ?>
 <?php require_once 'countformat.php'; ?>
-<span class="help-block">Vous pouvez téléverser un fichier d'au plus <?php echo count_format($maxfilesize, ',', ' '); ?> octets.</span>
-<?php endif; ?>
+<span class="help-block">Vous pouvez joindre un fichier &lt; <?php echo count_format($maxfilesize, ',', ' '); ?> octets.</span>
 </div>
 <?php endif; ?>
 <?php if ($with_appointment): ?>
