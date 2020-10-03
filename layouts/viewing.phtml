@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2016 (2016-2018) izend.org
- * @version    6 (3)
+ * @copyright  2010-2020 (2016-2018) izend.org
+ * @version    7 (3)
  * @link       http://www.izend.org
  */
 ?>
@@ -14,9 +14,11 @@
 </head>
 <body>
 <?php if (!empty($trace)): ?>
+<div>
 <?php foreach ($trace as $s): ?>
 <?php echo $s; ?>
 <?php endforeach; ?>
+</div>
 <?php endif; ?>
 <?php $type='standard'; ?>
 <?php if ($type == 'static' or $type == 'fixed'): ?>

@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2020 (2017-2020) izend.org
- * @version    29 (8)
+ * @version    30 (9)
  * @link       http://www.izend.org
  */
 ?>
@@ -17,7 +17,7 @@
 <div class="form-group<?php if ($missing_mail or $bad_mail): ?> has-error<?php endif; ?>">
 <label for="mailme_mail">What is your email address?</label>
 <div class="form-inline-auto">
-<input type="text" class="form-control" name="mailme_mail" id="mailme_mail" size="40" maxlength="100" placeholder="Email" value="<?php echo htmlspecialchars($mail, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'mailme_subject')" />
+<input type="text" class="form-control" name="mailme_mail" id="mailme_mail" size="40" maxlength="100" spellcheck="false" placeholder="Email" value="<?php echo htmlspecialchars($mail, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'mailme_subject')" />
 </div>
 <span class="help-block">Your email address is strictly confidential.</span>
 </div>
