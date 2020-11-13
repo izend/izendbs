@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2019 (2019) izend.org
- * @version    2 (1)
+ * @copyright  2019-2020 (2019-2020) izend.org
+ * @version    3 (2)
  * @link       http://www.izend.org
  */
 ?>
@@ -14,7 +14,15 @@
 <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $maxfilesize; ?>" />
 <?php endif; ?>
 <?php if ($with_drop): ?>
-<div id="upload_droparea"><?php if (!$with_upload): ?><span id="upload_status"><?php endif; ?><span class="glyphicon glyphicon-download-alt"</span><?php if (!$with_upload): ?></span><?php endif; ?></div>
+<div id="upload_droparea">
+<?php if (!$with_upload): ?>
+<span id="upload_status">
+<?php endif; ?>
+<span class="glyphicon glyphicon-download-alt"></span>
+<?php if (!$with_upload): ?>
+</span>
+<?php endif; ?>
+</div>
 <?php endif; ?>
 <div class="form-group">
 <input type="file" name="upload_file" id="upload_file" title="" />
@@ -78,20 +86,8 @@
 		}
 
 		reader.onloadend = function(event) {
-			$.post('<?php echo $upload_url; ?>', {file_token: '<?php echo $token; ?>', file_name: fd.name, file_size: fd.size, file_type: fd.type, file_offset: offset, file_data: event.target.result},
-				function(data) {
-					if (data != 1) {
-<?php if ($with_upload): ?>
-						upload.attr('class', 'btn btn-danger');
-<?php if ($with_fileupload): ?>
-						status.text('');
-<?php endif; ?>
-<?php elseif ($with_drop): ?>
-						status.html('<span class="glyphicon glyphicon-download-alt text-danger"></span>');
-<?php endif; ?>
-						return;
-					}
-
+			$.post('<?php echo $upload_url; ?>', {file_token: '<?php echo $token; ?>', file_name: fd.name, file_size: fd.size, file_type: fd.type, file_offset: offset, file_data: event.target.result})
+				.done(() => {
 					offset += blob.size;
 					progress = Math.floor((offset / fd.size ) * 100);
 
@@ -107,6 +103,16 @@
 						status.html('<span class="glyphicon glyphicon-download-alt text-success"></span>');
 <?php endif; ?>
 					}
+				})
+				.fail(() => {
+<?php if ($with_upload): ?>
+					upload.attr('class', 'btn btn-danger');
+<?php if ($with_fileupload): ?>
+					status.text('');
+<?php endif; ?>
+<?php elseif ($with_drop): ?>
+					status.html('<span class="glyphicon glyphicon-download-alt text-danger"></span>');
+<?php endif; ?>
 				});
 		};
 
