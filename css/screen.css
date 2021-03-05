@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2021 (2017-2021) izend.org
- * @version    120 (25)
+ * @version    120 (26)
  * @link       http://www.izend.org
  */
 
@@ -632,6 +632,12 @@ div.youtube iframe {
 	height: 30px;
 	vertical-align: top;
 	line-height: 20px;
+}
+.besocial.standard button {
+	text-indent: 0;
+	background: none;
+	width:auto;
+	margin:0;
 }
 .besocial.awesome a {
 	display: list-item;
