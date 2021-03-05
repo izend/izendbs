@@ -1,39 +1,8 @@
 /**
  *
  * @copyright  2010-2018 (2021) izend.org
- * @version    22 (1)
+ * @version    22 (2)
  * @link       http://www.izend.org
  */
  
 /* en.css */
-
-.submit_add {width:100px;height:30px;background:transparent url(../images/theme/add.png) no-repeat;}
-.submit_cancel {width:100px;height:30px;background:transparent url(../images/theme/cancel.png) no-repeat;}
-.submit_change {width:100px;height:30px;background:transparent url(../images/theme/change.png) no-repeat;}
-.submit_comment {width:100px;height:30px;background:transparent url(../images/theme/comment.png) no-repeat;}
-.submit_configure {width:100px;height:30px;background:transparent url(../images/theme/configure.png) no-repeat;}
-.submit_confirm {width:100px;height:30px;background:transparent url(../images/theme/confirm.png) no-repeat;}
-.submit_copy {width:100px;height:30px;background:transparent url(../images/theme/copy.png) no-repeat;}
-.submit_delete {width:100px;height:30px;background:transparent url(../images/theme/delete.png) no-repeat;}
-.submit_download {width:100px;height:30px;background:transparent url(../images/theme/download.png) no-repeat;}
-.submit_draw {width:100px;height:30px;background:transparent url(../images/theme/draw.png) no-repeat;}
-.submit_edit {width:100px;height:30px;background:transparent url(../images/theme/edit.png) no-repeat;}
-.submit_enter {width:100px;height:30px;background:transparent url(../images/theme/enter.png) no-repeat;}
-.submit_hide {width:100px;height:30px;background:transparent url(../images/theme/hide.png) no-repeat;}
-.submit_modify {width:100px;height:30px;background:transparent url(../images/theme/modify.png) no-repeat;}
-.submit_pay {width:100px;height:30px;background:transparent url(../images/theme/pay.png) no-repeat;}
-.submit_post {width:100px;height:30px;background:transparent url(../images/theme/post.png) no-repeat;}
-.submit_put {width:100px;height:30px;background:transparent url(../images/theme/upload.png) no-repeat;}
-.submit_search {width:100px;height:30px;background:transparent url(../images/theme/search.png) no-repeat;}
-.submit_send {width:100px;height:30px;background:transparent url(../images/theme/send.png) no-repeat;}
-.submit_show {width:100px;height:30px;background:transparent url(../images/theme/show.png) no-repeat;}
-.submit_sort {width:100px;height:30px;background:transparent url(../images/theme/sort.png) no-repeat;}
-.submit_test {width:100px;height:30px;background:transparent url(../images/theme/test.png) no-repeat;}
-.submit_upload {width:100px;height:30px;background:transparent url(../images/theme/upload.png) no-repeat;}
-.submit_validate {width:100px;height:30px;background:transparent url(../images/theme/validate.png) no-repeat;}
-
-.submit_subscribe {width:120px !important;height:24px !important;background:transparent url(../images/paypal_subscribe_en.png) no-repeat !important;text-indent:-1000em !important;box-shadow:none !important;}
-.submit_donate {width:120px !important;height:24px !important;background:transparent url(../images/paypal_donate_en.png) no-repeat !important;text-indent:-1000em !important;box-shadow:none !important;}
-.submit_buy {width:120px !important;height:24px !important;background:transparent url(../images/paypal_buy_en.png) no-repeat !important;text-indent:-1000em !important;box-shadow:none !important;}
-.submit_pay {width:120px !important;height:24px !important;background:transparent url(../images/paypal_pay_en.png) no-repeat !important;text-indent:-1000em !important;box-shadow:none !important;}
-.submit_paypal {width:100px !important;height:35px !important;background:transparent url(../logos/paypal.gif) no-repeat !important;text-indent:-1000em !important;box-shadow:none !important;}
