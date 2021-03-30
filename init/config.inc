@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2021 (2016) izend.org
- * @version    59 (3)
+ * @version    60 (3)
  * @link       http://www.izend.org
  */
 <?php
@@ -152,6 +152,10 @@ $search_distance=2;		// 0 - exact match, 1 - close, 2 - not so close, etc.
 $search_closest=true;	// true - best matches, false - all matches
 $search_pertinence=0;	// 0 - at least one tag, 1 - all tags
 $search_cloud=30;		// just a few or not too many keywords
+
+global $read_access;
+
+$read_access=false;		// false or array('role' => thread_id, ...) - thread_id can be an array
 
 global $session_name;
 

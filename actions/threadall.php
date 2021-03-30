@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2018 (2018) izend.org
- * @version    11 (3)
+ * @copyright  2010-2021 (2018) izend.org
+ * @version    12 (3)
  * @link       http://www.izend.org
  */
 
@@ -25,7 +25,7 @@ function threadall($lang, $clang) {
 
 	$banner = build('banner', $lang, compact('edit'));
 
-	$threadlist = build('threadlist', $clang, false, false, $lang);
+	$threadlist = build('threadlist', $clang, false, false, false, $lang);
 
 	$content = view('threadall', $lang, compact('site_title', 'site_abstract', 'site_cloud', 'threadlist', 'inlanguages'));
 
