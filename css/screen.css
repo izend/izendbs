@@ -1,14 +1,14 @@
 /**
  *
  * @copyright  2010-2021 (2017-2021) izend.org
- * @version    120 (26)
+ * @version    121 (27)
  * @link       http://www.izend.org
  */
 
 /* screen.css */
 
 body {
-	font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: Verdana, Arial, sans-serif;
 	margin-bottom: 20px;
 }
 
@@ -228,7 +228,7 @@ fieldset {
 }
 
 #searchlinks li {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: Arial, sans-serif;
 	font-size: small;
 	margin-bottom: 10px;
 }
@@ -294,7 +294,7 @@ fieldset {
 }
 
 .visits {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: Arial, sans-serif;
 	font-size: 13px;
 	margin-left: 10px;
 	margin-top: 8px;
@@ -304,7 +304,7 @@ fieldset {
 	font-weight: bold;
 }
 .vote {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: Arial, sans-serif;
 	font-size: 20px;
 	margin-left: 10px;
 	margin-top: 2px;
