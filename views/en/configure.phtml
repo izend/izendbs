@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2021 (2016) izend.org
- * @version    15 (2)
+ * @copyright  2010-2021 (2021) izend.org
+ * @version    16 (3)
  * @link       http://www.izend.org
  */
 ?>
@@ -138,6 +138,7 @@ and the role <code><?php echo $db_user; ?></code>.</p>
 <label class="radio-inline"><input name="configure_db_flag" type="radio" value="yes"<?php if ($db_flag): ?> checked="checked"<?php endif; ?> /><span class="form-control-static">yes</span></label>
 <label class="radio-inline"><input name="configure_db_flag" type="radio" value="no"<?php if (!$db_flag): ?> checked="checked"<?php endif; ?> /><span class="form-control-static">no</span></label>
 </div>
+<span class="help-block">If you don't use a database, skip the following questions and just press Configure.</span>
 </div>
 <div class="form-group<?php if ($bad_db_type): ?> has-error<?php endif; ?>">
 <label>Do you use MySQL or PostgreSQL?</label>
@@ -185,15 +186,12 @@ and the role <code><?php echo $db_user; ?></code>.</p>
 </div>
 <?php if ($missing_db_user and $missing_db_password): ?>
 <p class="text-danger">Choose an identifier for the user of the database and a password.</p>
-<?php else: ?>
+<?php endif; ?>
 <?php if ($missing_db_user or $bad_db_user): ?>
-<p class="text-danger">Enter between 2 and 30 characters (letter, digit or underscore) starting with a letter.</p>
+<p class="text-danger">Enter an identifier between 2 and 30 characters (letter, digit or underscore) starting with a letter.</p>
 <?php endif; ?>
-<?php if ($missing_db_password): ?>
-<p class="text-danger">Enter a password.</p>
-<?php elseif ($weak_db_password): ?>
-<p class="text-danger">Enter a combination of letters and digits of at least 6 characters.</p>
-<?php endif; ?>
+<?php if ($weak_db_password): ?>
+<p class="text-danger">Enter a password of 10 characters with at least 2 uppercase letters, 2 lowercase letters, 2 digits and 2 special characters or clear the field to let the system choose one.</p>
 <?php endif; ?>
 </div>
 <div class="form-group">
