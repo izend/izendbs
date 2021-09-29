@@ -3,13 +3,11 @@
 /**
  *
  * @copyright  2010-2020 (2016) izend.org
- * @version    8 (1)
+ * @version    9 (1)
  * @link       http://www.izend.org
  */
 
 function user($lang, $arglist=false) {
-	global $login_verified, $base_url;
-
 	$login = build('login', $lang);
 
 	if ($login === true) {
