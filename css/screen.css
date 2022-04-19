@@ -1,7 +1,7 @@
 /**
  *
- * @copyright  2010-2021 (2017-2021) izend.org
- * @version    125 (27)
+ * @copyright  2010-2021 (2017-2022) izend.org
+ * @version    125 (28)
  * @link       http://www.izend.org
  */
 
@@ -55,6 +55,10 @@ fieldset {
 }
 .text-x-large {
 	font-size: x-large;
+}
+
+.cursor-pointer{
+	cursor: pointer;
 }
 
 .btn-blank {
