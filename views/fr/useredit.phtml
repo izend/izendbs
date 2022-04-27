@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2011-2019 (2017-2022) izend.org
- * @version    27 (6)
+ * @version    27 (7)
  * @link       http://www.izend.org
  */
 ?>
@@ -115,13 +115,15 @@
 <?php endif; ?>
 </div>
 <?php if ($with_newpassword): ?>
-<div class="form-group<?php if ($missing_newpassword or $bad_newpassword or $missing_oldpassword or $bad_oldpassword): ?> has-error<?php endif; ?>">
 <?php if ($with_oldpassword): ?>
+<div class="form-group<?php if ($missing_oldpassword or $bad_oldpassword): ?> has-error<?php endif; ?>">
 <label for="useredit_oldpassword">Mot de passe actuel</label>
 <div class="form-inline-auto">
 <input type="password" class="form-control" name="useredit_oldpassword" id="useredit_oldpassword" size="20" maxlength="20" placeholder="6 lettres et chiffres" title="au moins 6 lettres et chiffres" onkeypress="return focusonenter(event, 'useredit_newpassword')" /><?php if ($with_viewpassword): ?>&nbsp;<span class="glyphicon glyphicon-eye-open cursor-pointer" aria-hidden="true"></span><?php endif; ?>
 </div>
+</div>
 <?php endif; ?>
+<div class="form-group<?php if ($missing_newpassword or $bad_newpassword): ?> has-error<?php endif; ?>">
 <label for="useredit_newpassword">Nouveau mot de passe</label>
 <div class="form-inline-auto">
 <input type="text" class="form-control" name="useredit_newpassword" id="useredit_newpassword" size="20" maxlength="20" placeholder="6 lettres et chiffres" title="au moins 6 lettres et chiffres" value="<?php echo htmlspecialchars($user_newpassword, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'useredit_change')" />
