@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2011-2022 (2016-2019) izend.org
- * @version    18 (2)
+ * @version    19 (2)
  * @link       http://www.izend.org
  */
 
@@ -271,6 +271,9 @@ function useredit($lang, $user_id) {
 				$missing_newpassword=true;
 			}
 			else if (!validate_password($user_newpassword)) {
+				$bad_newpassword=true;
+			}
+			else if ($with_oldpassword and $user_newpassword == $user_oldpassword) {
 				$bad_newpassword=true;
 			}
 
