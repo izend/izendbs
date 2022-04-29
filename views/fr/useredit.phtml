@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2011-2019 (2017-2022) izend.org
- * @version    27 (7)
+ * @copyright  2011-2022 (2017-2022) izend.org
+ * @version    28 (8)
  * @link       http://www.izend.org
  */
 ?>
@@ -142,6 +142,12 @@
 })();
 </script>
 <?php endif; ?>
+<?php if ($newpassword_page): ?>
+<div>
+<span class="help-block">Pour changer de mot de passe, <a class="clickhere" href="<?php echo $newpassword_page; ?>" rel="nofollow">cliquez ici</a></span>
+</div>
+<?php endif; ?>
+<div class="errors">
 <?php if ($missing_lastname and $missing_firstname): ?>
 <p class="text-danger">Un nom et un prénom sont obligatoires.</p>
 <?php else: ?>

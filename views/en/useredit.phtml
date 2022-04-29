@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2011-2022 (2017-2022) izend.org
- * @version    27 (7)
+ * @version    28 (8)
  * @link       http://www.izend.org
  */
 ?>
@@ -142,6 +142,12 @@
 })();
 </script>
 <?php endif; ?>
+<?php if ($newpassword_page): ?>
+<div>
+<span class="help-block">To change password, <a class="clickhere" href="<?php echo $newpassword_page; ?>" rel="nofollow">click here</a></span>
+</div>
+<?php endif; ?>
+<div class="errors">
 <?php if ($missing_lastname and $missing_firstname): ?>
 <p class="text-danger">A last name and a first name are required.</p>
 <?php else: ?>
