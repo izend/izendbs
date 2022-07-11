@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2020 (2017-2021) izend.org
- * @version    30 (10)
+ * @copyright  2010-2022 (2017-2022) izend.org
+ * @version    31 (11)
  * @link       http://www.izend.org
  */
 ?>
@@ -17,18 +17,18 @@
 <div class="form-group<?php if ($missing_mail or $bad_mail): ?> has-error<?php endif; ?>">
 <label for="mailme_mail">Quelle est votre adresse d'email&nbsp;?</label>
 <div class="form-inline-auto">
-<input type="text" class="form-control" name="mailme_mail" id="mailme_mail" size="40" maxlength="100" spellcheck="false" placeholder="Email" value="<?php echo htmlspecialchars($mail, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'mailme_subject')" />
+<input type="text" class="form-control" name="mailme_mail" id="mailme_mail" size="40" maxlength="100" spellcheck="false" placeholder="Email" value="<?php if ($mail): ?><?php echo htmlspecialchars($mail, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'mailme_subject')" />
 </div>
 <span class="help-block">Votre adresse d'email est strictement confidentielle.</span>
 </div>
 <div class="form-group<?php if ($missing_subject or $bad_subject or $missing_message): ?> has-error<?php endif; ?>">
 <label for="mailme_subject">Tapez le sujet et le texte de votre message&nbsp;:</label>
 <div class="form-inline-auto">
-<input type="text" class="form-control" name="mailme_subject" id="mailme_subject" size="40" maxlength="100" placeholder="Sujet" value="<?php echo htmlspecialchars($subject, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'mailme_message')" />
+<input type="text" class="form-control" name="mailme_subject" id="mailme_subject" size="40" maxlength="100" placeholder="Sujet" value="<?php if ($subject): ?><?php echo htmlspecialchars($subject, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'mailme_message')" />
 </div>
 </div>
 <div class="form-group form-inline-auto<?php if ($missing_message): ?> has-error<?php endif; ?>">
-<textarea class="form-control" name="mailme_message" id="mailme_message" cols="60" rows="5" placeholder="Texte"><?php echo htmlspecialchars($message, ENT_COMPAT, 'UTF-8'); ?></textarea>
+<textarea class="form-control" name="mailme_message" id="mailme_message" cols="60" rows="5" placeholder="Texte"><?php if ($message): ?><?php echo htmlspecialchars($message, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?></textarea>
 </div>
 <?php if ($with_attachment): ?>
 <div class="form-group">
@@ -50,7 +50,7 @@ une pièce jointe
 <div class="form-group form-inline<?php if ($bad_appointment): ?> has-error<?php endif; ?>">
 <div class="form-group form-inline-auto">
 <span class="form-control-static"><strong>Rendez-vous le</strong></span>
-<input type="text" class="form-control" name="mailme_date" id="mailme_date" size="10" placeholder="aaaa-mm-jj" value="<?php echo htmlspecialchars($date, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'mailme_code')" />
+<input type="text" class="form-control" name="mailme_date" id="mailme_date" size="10" placeholder="aaaa-mm-jj" value="<?php if ($date): ?><?php echo htmlspecialchars($date, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'mailme_code')" />
 </div>
 <div class="form-group form-inline-auto">
 <span class="form-control-static"><strong>à</strong></span>

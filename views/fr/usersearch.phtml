@@ -2,15 +2,15 @@
 
 /**
  *
- * @copyright  2013-2020 (2016) izend.org
- * @version    13 (2)
+ * @copyright  2013-2022 (2016-2022) izend.org
+ * @version    14 (3)
  * @link       http://www.izend.org
  */
 ?>
 <form method="post">
 <div class="form-group form-inline">
 <div class="form-group form-inline-auto">
-<input type="text" class="form-control" name="usersearch_what" id="usersearch_what" size="20" maxlength="100" placeholder="Identifiant" value="<?php echo htmlspecialchars($what, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'usersearch_search')" />
+<input type="text" class="form-control" name="usersearch_what" id="usersearch_what" size="20" maxlength="100" placeholder="Identifiant" value="<?php if ($what): ?><?php echo htmlspecialchars($what, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return submitonenter(event, 'usersearch_search')" />
 </div>
 <div class="form-group">
 <button type="submit" class="btn btn-default" name="usersearch_search" id="usersearch_search">Chercher</button>

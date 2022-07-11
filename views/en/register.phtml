@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2021 (2016-2021) izend.org
- * @version    26 (4)
+ * @copyright  2010-2022 (2016-2022) izend.org
+ * @version    27 (5)
  * @link       http://www.izend.org
  */
 ?>
@@ -27,13 +27,13 @@ $('input[name=register_timezone]').val(tz.name());
 <div class="form-group<?php if ($missing_firstname): ?> has-error<?php endif; ?>">
 <label for="register_firstname">What is your first name?</label>
 <div class="form-inline-auto">
-<input type="text" class="form-control" name="register_firstname" id="register_firstname" size="30" maxlength="100" placeholder="First name" value="<?php echo htmlspecialchars($firstname, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'register_lastname')" />
+<input type="text" class="form-control" name="register_firstname" id="register_firstname" size="30" maxlength="100" placeholder="First name" value="<?php if ($firstname): ?><?php echo htmlspecialchars($firstname, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'register_lastname')" />
 </div>
 </div>
 <div class="form-group<?php if ($missing_lastname): ?> has-error<?php endif; ?>">
 <label for="register_lastname">And your last name?</label>
 <div class="form-inline-auto">
-<input type="text" class="form-control" name="register_lastname" id="register_lastname" size="30" maxlength="100" placeholder="Last name" value="<?php echo htmlspecialchars($lastname, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, '<?php echo $with_name ? 'register_name' : 'register_mail'; ?>')" />
+<input type="text" class="form-control" name="register_lastname" id="register_lastname" size="30" maxlength="100" placeholder="Last name" value="<?php if ($lastname): ?><?php echo htmlspecialchars($lastname, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, '<?php echo $with_name ? 'register_name' : 'register_mail'; ?>')" />
 </div>
 </div>
 <?php endif; ?>
@@ -41,7 +41,7 @@ $('input[name=register_timezone]').val(tz.name());
 <div class="form-group<?php if ($missing_name or $bad_name or $duplicated_name): ?> has-error<?php endif; ?>">
 <label for="register_name">What identifier do you want?</label>
 <div class="form-inline-auto">
-<input type="text" class="form-control" name="register_name" id="register_name" size="20" maxlength="20" placeholder="Identifier" value="<?php echo htmlspecialchars($name, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'register_mail')" />
+<input type="text" class="form-control" name="register_name" id="register_name" size="20" maxlength="20" placeholder="Identifier" value="<?php if ($name): ?><?php echo htmlspecialchars($name, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'register_mail')" />
 <?php if ($account_created): ?>
 <img class="hidden-xxs" src="<?php echo $base_path; ?>/avatars/<?php echo $name; ?>.png" alt="" width="24" height="24" title="<?php echo $name; ?>" />
 <?php endif; ?>
@@ -55,9 +55,9 @@ $('input[name=register_timezone]').val(tz.name());
 <?php if ($facebook_login_url): ?>
 <div class="input-group">
 <?php endif; ?>
-<input type="text" class="form-control" name="register_mail" id="register_mail" size="30" maxlength="100" placeholder="name@domain.net" value="<?php echo htmlspecialchars($mail, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, '<?php echo $with_website ? 'register_website' : ($with_password ? 'register_password' : 'register_code'); ?>')" />
+<input type="text" class="form-control" name="register_mail" id="register_mail" size="30" maxlength="100" placeholder="name@domain.net" value="<?php if ($mail): ?><?php echo htmlspecialchars($mail, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, '<?php echo $with_website ? 'register_website' : ($with_password ? 'register_password' : 'register_code'); ?>')" />
 <?php if ($with_facebook): ?>
-<span class="input-group-addon social"><a href="<?php echo htmlspecialchars($facebook_login_url, ENT_COMPAT, 'UTF-8'); ?>" title="Connect with Facebook"><span class="social-facebook">Facebook</span></a></span>
+<span class="input-group-addon social"><a href="<?php if ($facebook_login_url): ?><?php echo htmlspecialchars($facebook_login_url, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" title="Connect with Facebook"><span class="social-facebook">Facebook</span></a></span>
 </div>
 <?php endif; ?>
 </div>
@@ -67,7 +67,7 @@ $('input[name=register_timezone]').val(tz.name());
 <div class="form-group<?php if ($bad_website): ?> has-error<?php endif; ?>">
 <label for="register_website">Do you have a website?</label>
 <div class="form-inline-auto">
-<input type="text" class="form-control" name="register_website" id="register_website" size="30" maxlength="100" placeholder="www.domaine.com" value="<?php echo htmlspecialchars($website, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, '<?php echo $with_password ? 'register_password' : 'register_code'; ?>')" />
+<input type="text" class="form-control" name="register_website" id="register_website" size="30" maxlength="100" placeholder="www.domaine.com" value="<?php if ($website): ?><?php echo htmlspecialchars($website, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, '<?php echo $with_password ? 'register_password' : 'register_code'; ?>')" />
 </div>
 </div>
 <?php endif; ?>
@@ -75,7 +75,7 @@ $('input[name=register_timezone]').val(tz.name());
 <div class="form-group<?php if ($missing_password or $bad_password): ?> has-error<?php endif; ?>">
 <label for="register_password">Choose a password:</label>
 <div class="form-inline-auto">
-<input type="text" class="form-control" name="register_password" id="register_password" size="20" maxlength="20" placeholder="Password" value="<?php echo htmlspecialchars($password, ENT_COMPAT, 'UTF-8'); ?>" autocomplete="off" onkeypress="return focusonenter(event, 'register_code')" />
+<input type="text" class="form-control" name="register_password" id="register_password" size="20" maxlength="20" placeholder="Password" value="<?php if ($password): ?><?php echo htmlspecialchars($password, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" autocomplete="off" onkeypress="return focusonenter(event, 'register_code')" />
 </div>
 <span class="help-block">Enter at least 6 characters including 1 digit.</span>
 </div>

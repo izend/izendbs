@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2022 izend.org
- * @version    23 (1)
+ * @copyright  2010-2022 (2016) izend.org
+ * @version    24 (1)
  * @link       http://www.izend.org
  */
 
@@ -180,7 +180,7 @@ function login($lang) {
 				global $sitename;
 
 				$ip=server_ip_address();
-				$timestamp=strftime('%Y-%m-%d %H:%M:%S', time());
+				$timestamp=date('Y-m-d H:i:s');
 				$subject = 'login' . '@' . $sitename;
 				$msg = $ip . ' ' . $timestamp . ' ' . $user['id'] . ' ' . $lang . ' ' . $user['ip'];
 				@emailme($subject, $msg);

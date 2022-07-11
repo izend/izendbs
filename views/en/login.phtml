@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2022 (2016-2022) izend.org
- * @version    15 (6)
+ * @version    16 (7)
  * @link       http://www.izend.org
  */
 ?>
@@ -16,9 +16,9 @@
 <?php if ($facebook_login_url): ?>
 <div class="input-group">
 <?php endif; ?>
-<input type="text" class="form-control" name="login_login" id="login_login" size="30" maxlength="100" placeholder="<?php if ($with_name): ?>Identifier<?php else: ?>name@domain.net<?php endif; ?>" value="<?php echo htmlspecialchars($login, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'login_password')" />
+<input type="text" class="form-control" name="login_login" id="login_login" size="30" maxlength="100" placeholder="<?php if ($with_name): ?>Identifier<?php else: ?>name@domain.net<?php endif; ?>" value="<?php if ($login): ?><?php echo htmlspecialchars($login, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'login_password')" />
 <?php if ($with_facebook): ?>
-<span class="input-group-addon social"><a href="<?php echo htmlspecialchars($facebook_login_url, ENT_COMPAT, 'UTF-8'); ?>" title="Connect with Facebook"><span class="social-facebook">Facebook</span></a></span>
+<span class="input-group-addon social"><a href="<?php if ($facebook_login_url): ?><?php echo htmlspecialchars($facebook_login_url, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" title="Connect with Facebook"><span class="social-facebook">Facebook</span></a></span>
 </div>
 <?php endif; ?>
 </div>

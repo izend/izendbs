@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2020 (2016-2020) izend.org
- * @version    18 (7)
+ * @copyright  2010-2022 (2016-2022) izend.org
+ * @version    19 (8)
  * @link       http://www.izend.org
  */
 ?>
@@ -81,7 +81,7 @@ if (!$message) {
 <?php if ($with_mail): ?>
 <div class="form-group<?php if ($missing_mail or $bad_mail): ?> has-error<?php endif; ?>">
 <div class="form-group form-inline-auto">
-<input type="text" class="form-control" name="comment_mail" id="comment_mail" size="30" maxlength="100" spellcheck="false" placeholder="Email" value="<?php echo htmlspecialchars($mail, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return submitonenter(event, 'comment_validate')" />
+<input type="text" class="form-control" name="comment_mail" id="comment_mail" size="30" maxlength="100" spellcheck="false" placeholder="Email" value="<?php if ($mail): ?><?php echo htmlspecialchars($mail, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return submitonenter(event, 'comment_validate')" />
 </div>
 <span class="help-block">Entrez votre adresse d'email pour valider votre message.</span>
 </div>

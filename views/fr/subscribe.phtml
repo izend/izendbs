@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2012-2020 (2018-2020) izend.org
- * @version    11 (4)
+ * @copyright  2012-2022 (2018-2022) izend.org
+ * @version    12 (5)
  * @link       http://www.izend.org
  */
 ?>
@@ -14,7 +14,7 @@
 <div class="form-group<?php if ($missing_mail or $bad_mail or $duplicated_mail): ?> has-error<?php endif; ?>">
 <label for="subscribe_mail">Quelle est votre adresse d'email&nbsp;?</label>
 <div class="form-inline-auto">
-<input type="text" class="form-control" name="subscribe_mail" id="subscribe_mail" size="40" maxlength="100" spellcheck="false" placeholder="nom@domaine.fr" value="<?php echo htmlspecialchars($user_mail, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'subscribe_code')" />
+<input type="text" class="form-control" name="subscribe_mail" id="subscribe_mail" size="40" maxlength="100" spellcheck="false" placeholder="nom@domaine.fr" value="<?php if ($user_mail): ?><?php echo htmlspecialchars($user_mail, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'subscribe_code')" />
 </div>
 <span class="help-block">Votre adresse d'email est strictement confidentielle.</span>
 <?php if ($with_locale): ?>

@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2022 (2021) izend.org
- * @version    18 (3)
+ * @copyright  2010-2022 (2022) izend.org
+ * @version    19 (4)
  * @link       http://www.izend.org
  */
 ?>
@@ -74,7 +74,7 @@ Vérifiez vos réponses et relancez la configuration.</p>
 <span class="help-block">Spécifiez un nom de domaine sans le préfixer par <em>www</em>.</span>
 <div class="form-group form-inline-auto">
 <div class="input-group">
-<input type="text" class="form-control" name="configure_sitename" id="configure_sitename" size="30" maxlength="40" value="<?php echo htmlspecialchars($sitename, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'configure_webmaster')" />
+<input type="text" class="form-control" name="configure_sitename" id="configure_sitename" size="30" maxlength="40" value="<?php if ($sitename): ?><?php echo htmlspecialchars($sitename, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'configure_webmaster')" />
 <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
 </div>
 </div>
@@ -87,7 +87,7 @@ Vérifiez vos réponses et relancez la configuration.</p>
 <span class="help-block">La page de contact envoie les messages à cette adresse.</span>
 <div class="form-group form-inline-auto">
 <div class="input-group">
-<input type="text" class="form-control" name="configure_webmaster" id="configure_webmaster" size="30" maxlength="100" value="<?php echo htmlspecialchars($webmaster, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'configure_sitename')" />
+<input type="text" class="form-control" name="configure_webmaster" id="configure_webmaster" size="30" maxlength="100" value="<?php if ($webmaster): ?><?php echo htmlspecialchars($webmaster, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'configure_sitename')" />
 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
 </div>
 </div>
@@ -153,7 +153,7 @@ et le rôle <code><?php echo $db_user; ?></code>.</p>
 <div class="form-group<?php if ($missing_db_name or $bad_db_name): ?> has-error<?php endif; ?>">
 <label for="configure_db_name">Quel est le nom de la base de données&nbsp;?</label>
 <div class="form-group form-inline-auto">
-<input type="text" class="form-control" name="configure_db_name" id="configure_db_name" size="30" maxlength="40" value="<?php echo htmlspecialchars($db_name, ENT_COMPAT, 'UTF-8'); ?>" />
+<input type="text" class="form-control" name="configure_db_name" id="configure_db_name" size="30" maxlength="40" value="<?php if ($db_name): ?><?php echo htmlspecialchars($db_name, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" />
 </div>
 <?php if ($missing_db_name or $bad_db_name): ?>
 <p class="text-danger">Entrez de 2 à 30 caractères (lettre, chiffre ou souligné) en commençant par une lettre.</p>
@@ -162,7 +162,7 @@ et le rôle <code><?php echo $db_user; ?></code>.</p>
 <div class="form-group<?php if ($missing_db_host or $bad_db_host): ?> has-error<?php endif; ?>">
 <label for="configure_db_host">Quel est le nom du serveur hôte de la base de données&nbsp;?</label>
 <div class="form-group form-inline-auto">
-<input type="text" class="form-control" name="configure_db_host" id="configure_db_host" size="30" maxlength="40" value="<?php echo htmlspecialchars($db_host, ENT_COMPAT, 'UTF-8'); ?>" />
+<input type="text" class="form-control" name="configure_db_host" id="configure_db_host" size="30" maxlength="40" value="<?php if ($db_host): ?><?php echo htmlspecialchars($db_host, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" />
 </div>
 <?php if ($missing_db_host or $bad_db_host): ?>
 <p class="text-danger">Entrez un nom de serveur ou une adresse IP.</p>
@@ -173,13 +173,13 @@ et le rôle <code><?php echo $db_user; ?></code>.</p>
 <div class="form-group form-inline">
 <div class="form-group form-inline-auto">
 <div class="input-group">
-<input type="text" class="form-control" name="configure_db_user" id="configure_db_user" size="30" maxlength="40" value="<?php echo htmlspecialchars($db_user, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'configure_db_password')" />
+<input type="text" class="form-control" name="configure_db_user" id="configure_db_user" size="30" maxlength="40" value="<?php if ($db_user): ?><?php echo htmlspecialchars($db_user, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'configure_db_password')<?php endif; ?>" />
 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 </div>
 </div>
 <div class="form-group form-inline-auto">
 <div class="input-group">
-<input type="text" class="form-control" name="configure_db_password" id="configure_db_password" size="30" maxlength="40" value="<?php echo htmlspecialchars($db_password, ENT_COMPAT, 'UTF-8'); ?>" autocomplete="off" onkeypress="return focusonenter(event, 'configure_db_user')" />
+<input type="text" class="form-control" name="configure_db_password" id="configure_db_password" size="30" maxlength="40" value="<?php if ($db_password): ?><?php echo htmlspecialchars($db_password, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" autocomplete="off" onkeypress="return focusonenter(event, 'configure_db_user')" />
 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
 </div>
 </div>
@@ -207,13 +207,13 @@ et le rôle <code><?php echo $db_user; ?></code>.</p>
 <div class="form-group form-inline">
 <div class="form-group form-inline-auto">
 <div class="input-group">
-<input type="text" class="form-control" name="configure_db_admin_user" id="configure_db_admin_user" size="30" maxlength="40" value="<?php echo htmlspecialchars($db_admin_user, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'configure_db_admin_password')" />
+<input type="text" class="form-control" name="configure_db_admin_user" id="configure_db_admin_user" size="30" maxlength="40" value="<?php if ($db_admin_user): ?><?php echo htmlspecialchars($db_admin_user, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'configure_db_admin_password')" />
 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 </div>
 </div>
 <div class="form-group form-inline-auto">
 <div class="input-group">
-<input type="text" class="form-control" name="configure_db_admin_password" id="configure_db_admin_password" size="30" maxlength="40" value="<?php echo htmlspecialchars($db_admin_password, ENT_COMPAT, 'UTF-8'); ?>" autocomplete="off" onkeypress="return focusonenter(event, 'configure_db_admin_user')" />
+<input type="text" class="form-control" name="configure_db_admin_password" id="configure_db_admin_password" size="30" maxlength="40" value="<?php if ($db_admin_password): ?><?php echo htmlspecialchars($db_admin_password, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" autocomplete="off" onkeypress="return focusonenter(event, 'configure_db_admin_user')" />
 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
 </div>
 </div>
@@ -233,7 +233,7 @@ et le rôle <code><?php echo $db_user; ?></code>.</p>
 <label for="configure_db_prefix">Quel est le préfixe des tables&nbsp;?</label>
 <span class="help-block">Un préfixe est nécessaire si la base de données est partagée.</span>
 <div class="form-group form-inline-auto">
-<input type="text" class="form-control" name="configure_db_prefix" id="configure_db_prefix" size="10" maxlength="30" value="<?php echo htmlspecialchars($db_prefix, ENT_COMPAT, 'UTF-8'); ?>" />
+<input type="text" class="form-control" name="configure_db_prefix" id="configure_db_prefix" size="10" maxlength="30" value="<?php if ($db_prefix): ?><?php echo htmlspecialchars($db_prefix, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" />
 </div>
 <?php if ($bad_db_prefix): ?>
 <p class="text-danger">Entrez de 2 à 30 caractères (lettre, chiffre ou souligné) en commençant par une lettre.</p>
@@ -244,13 +244,13 @@ et le rôle <code><?php echo $db_user; ?></code>.</p>
 <div class="form-group form-inline">
 <div class="form-group form-inline-auto">
 <div class="input-group">
-<input type="text" class="form-control" name="configure_site_admin_user" id="configure_site_admin_user" size="30" maxlength="40" value="<?php echo htmlspecialchars($site_admin_user, ENT_COMPAT, 'UTF-8'); ?>" onkeypress="return focusonenter(event, 'configure_site_admin_password')" />
+<input type="text" class="form-control" name="configure_site_admin_user" id="configure_site_admin_user" size="30" maxlength="40" value="<?php if ($site_admin_user): ?><?php echo htmlspecialchars($site_admin_user, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'configure_site_admin_password')" />
 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 </div>
 </div>
 <div class="form-group form-inline-auto">
 <div class="input-group">
-<input type="text" class="form-control" name="configure_site_admin_password" id="configure_site_admin_password" size="30" maxlength="40" value="<?php echo htmlspecialchars($site_admin_password, ENT_COMPAT, 'UTF-8'); ?>" autocomplete="off" onkeypress="return focusonenter(event, 'configure_site_admin_user')" />
+<input type="text" class="form-control" name="configure_site_admin_password" id="configure_site_admin_password" size="30" maxlength="40" value="<?php if ($site_admin_password): ?><?php echo htmlspecialchars($site_admin_password, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" autocomplete="off" onkeypress="return focusonenter(event, 'configure_site_admin_user')" />
 <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
 </div>
 </div>
