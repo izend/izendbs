@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2011-2022 (2017-2022) izend.org
- * @version    29 (9)
+ * @version    30 (10)
  * @link       http://www.izend.org
  */
 ?>
@@ -129,6 +129,13 @@
 <input type="text" class="form-control" name="useredit_newpassword" id="useredit_newpassword" size="20" maxlength="20" placeholder="6 letters and digits" title="at least 6 letters and digits" value="<?php if ($user_newpassword): ?><?php echo htmlspecialchars($user_newpassword, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return submitonenter(event, 'useredit_change')" />
 </div>
 </div>
+<div class="infos">
+<?php if ($with_oldpassword): ?>
+<p class="info">Enter your current password and a new password to change it.</p>
+<?php else: ?>
+<p class="info">Enter a new password to change it.</p>
+<?php endif; ?>
+</div>
 <div class="form-group">
 <button type="submit" class="btn <?php if ($internal_error or $missing_newpassword or $bad_newpassword): ?>btn-danger<?php elseif ($password_changed): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="useredit_change" id="useredit_change">Change</button>
 </div>
@@ -181,6 +188,7 @@
 <?php if ($missing_newpassword or $bad_newpassword or $missing_oldpassword or $bad_oldpassword): ?>
 <p class="text-danger">Enter a combination of letters and digits of at least 6 characters.</p>
 <?php endif; ?>
+</div>
 <?php if ($internal_error): ?>
 <p>An internal error has occurred.
 <?php if ($contact_page): ?>If you can describe the problem, please <a href="<?php echo $contact_page; ?>" rel="nofollow">contact us</a>.<?php endif; ?></p>
