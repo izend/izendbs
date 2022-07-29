@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2022 (2016-2022) izend.org
- * @version    27 (5)
+ * @version    28 (6)
  * @link       http://www.izend.org
  */
 ?>
@@ -25,13 +25,13 @@ $('input[name=register_timezone]').val(tz.name());
 <?php endif; ?>
 <?php if ($with_info): ?>
 <div class="form-group<?php if ($missing_firstname): ?> has-error<?php endif; ?>">
-<label for="register_firstname">What is your first name?</label>
+<label for="register_firstname">What is <?php echo $is_admin ? 'the' : 'your'; ?> first name?</label>
 <div class="form-inline-auto">
 <input type="text" class="form-control" name="register_firstname" id="register_firstname" size="30" maxlength="100" placeholder="First name" value="<?php if ($firstname): ?><?php echo htmlspecialchars($firstname, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'register_lastname')" />
 </div>
 </div>
 <div class="form-group<?php if ($missing_lastname): ?> has-error<?php endif; ?>">
-<label for="register_lastname">And your last name?</label>
+<label for="register_lastname">And <?php echo $is_admin ? 'the' : 'your'; ?> last name?</label>
 <div class="form-inline-auto">
 <input type="text" class="form-control" name="register_lastname" id="register_lastname" size="30" maxlength="100" placeholder="Last name" value="<?php if ($lastname): ?><?php echo htmlspecialchars($lastname, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, '<?php echo $with_name ? 'register_name' : 'register_mail'; ?>')" />
 </div>
@@ -50,7 +50,7 @@ $('input[name=register_timezone]').val(tz.name());
 </div>
 <?php endif; ?>
 <div class="form-group<?php if ($missing_mail or $bad_mail or $duplicated_mail): ?> has-error<?php endif; ?>">
-<label for="register_mail">What is your email address?</label>
+<label for="register_mail">What is your <?php echo $is_admin ? 'the' : 'your'; ?> email address?</label>
 <div class="form-inline-auto">
 <?php if ($facebook_login_url): ?>
 <div class="input-group">
@@ -61,7 +61,7 @@ $('input[name=register_timezone]').val(tz.name());
 </div>
 <?php endif; ?>
 </div>
-<span class="help-block">Your password will be sent to this address.</span>
+<span class="help-block"><?php echo $is_admin ? 'The' : 'Your'; ?> password will be sent to this address.</span>
 </div>
 <?php if ($with_website): ?>
 <div class="form-group<?php if ($bad_website): ?> has-error<?php endif; ?>">
@@ -82,7 +82,7 @@ $('input[name=register_timezone]').val(tz.name());
 <?php endif; ?>
 <?php if ($with_newsletter): ?>
 <div class="checkbox">
-<label><input type="checkbox" name="register_newsletter" id="register_newsletter" title="Newsletter"<?php if ($newsletter): ?> checked="checked"<?php endif; ?> />&nbsp;I want to receive the newsletter by email</label>
+<label><input type="checkbox" name="register_newsletter" id="register_newsletter" title="Newsletter"<?php if ($newsletter): ?> checked="checked"<?php endif; ?> />&nbsp;I want to <?php echo ($is_admin) ? 'send' : 'receive'; ?> the newsletter by email</label>
 </div>
 <?php endif; ?>
 <?php if ($with_confirmation): ?>
@@ -124,8 +124,12 @@ $('input[name=register_timezone]').val(tz.name());
 <?php if ($contact_page): ?>If you can describe the problem, please <a href="<?php echo $contact_page; ?>" rel="nofollow">contact us</a>.<?php endif; ?></p>
 <?php endif; ?>
 <?php if ($account_created): ?>
+<?php if ($is_admin): ?>
+<p>The account has been created.</p>
+<?php else: ?>
 <p>Your account has been created. Your password has been emailed to your address<?php if ($with_validation): ?> as well as a confirmation link<?php endif; ?>.
 To identify yourself, <a class="clickhere" href="<?php echo $user_page; ?>">click here</a>.</p>
+<?php endif; ?>
 <?php endif; ?>
 <?php
 $focus=false;

@@ -3,11 +3,11 @@
 /**
  *
  * @copyright  2013-2022 (2016-2022) izend.org
- * @version    14 (3)
+ * @version    15 (4)
  * @link       http://www.izend.org
  */
 ?>
-<form method="post">
+<form method="post" action="<?php echo $admin_page; ?>">
 <div class="form-group form-inline">
 <div class="form-group form-inline-auto">
 <input type="text" class="form-control" name="usersearch_what" id="usersearch_what" size="20" maxlength="100" placeholder="Identifier" value="<?php if ($what): ?><?php echo htmlspecialchars($what, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return submitonenter(event, 'usersearch_search')" />
