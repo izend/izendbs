@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2014-2019 (2016-2019) izend.org
- * @version    10 (13)
+ * @copyright  2014-2023 (2016-2023) izend.org
+ * @version    12 (14)
  * @link       http://www.izend.org
  */
 
@@ -647,8 +647,8 @@ INSERT INTO "${db_prefix}content_text" ("content_id", "locale", "text", "eval") 
 (12, 'fr', '<h6>Fichier</h6>', 0),
 (13, 'en', '<h6>Insertion</h6>', 0),
 (13, 'fr', '<h6>Insertion</h6>', 0),
-(14, 'en', '<h6>PHP</h6>\r\n<code>&lt;p&gt;&lt;i&gt;&lt;?php setlocale(LC_TIME, \'en_US.UTF-8\'); \$fmt=strtoupper(substr(PHP_OS, 0, 3)) == \'WIN\' ? \'%B %#d, %Y\' : \'%B %e, %Y\'; echo strftime(\$fmt); ?&gt;&lt;/i&gt;&lt;/p&gt;</code>\r\n<p><i><?php setlocale(LC_TIME, \'en_US.UTF-8\'); \$fmt=strtoupper(substr(PHP_OS, 0, 3)) == \'WIN\' ? \'%B %#d, %Y\' : \'%B %e, %Y\'; echo strftime(\$fmt); ?></i></p>', 1),
-(14, 'fr', '<h6>PHP</h6>\r\n<code>&lt;p&gt;&lt;i&gt;&lt;?php setlocale(LC_TIME, \'fr_FR.UTF-8\'); \$fmt=strtoupper(substr(PHP_OS, 0, 3)) == \'WIN\' ? \'%#d %B %Y\' : \'%e %B %Y\'; echo strftime(\$fmt); ?&gt;&lt;/i&gt;&lt;/p&gt;</code>\r\n<p><i><?php setlocale(LC_TIME, \'fr_FR.UTF-8\'); \$fmt=strtoupper(substr(PHP_OS, 0, 3)) == \'WIN\' ? \'%#d %B %Y\' : \'%e %B %Y\'; echo strftime(\$fmt); ?></i></p>', 1),
+(14, 'en', '<h6>PHP</h6>\r\n<h6>PHP</h6>\r\n<code>&lt;?php require_once ''dateen.php''; ?&gt;<br/>&lt;p&gt;&lt;i&gt;&lt;?php echo longdate_en(time()); ?&gt;&lt;/i&gt;&lt;/p&gt;</code>\r\n<?php require_once ''dateen.php''; ?>\r\n<p><i><?php echo longdate_en(time()); ?></i></p>', '1'),
+(14, 'fr', '<h6>PHP</h6>\r\n<code>&lt;?php require_once ''datefr.php''; ?&gt;<br/>\r\n&lt;p&gt;&lt;i&gt;&lt;?php echo longdate_fr(time()); ?&gt;&lt;/i&gt;&lt;/p&gt;</code>\r\n<?php require_once ''datefr.php''; ?>\r\n<p><i><?php echo longdate_fr(time()); ?></i></p>', '1'),
 (15, 'en', '<p class="hidden-print"><i>Click on an image to display a full page slide show</i>&nbsp;<span class="glyphicon glyphicon-camera" aria-hidden="true"></span></p>', 0),
 (15, 'fr', '<p class="hidden-print"><i>Cliquez sur une image pour afficher un diaporama pleine page</i>&nbsp;<span class="glyphicon glyphicon-camera" aria-hidden="true"></span></p>', 0),
 (16, 'en', '<h4>What is a QRmii?</h4>\r\n<p><a href="http://www.qrmii.com/"><img src="/files/images/qrmii.png" alt="" title="QRmii - 1 URL 1 QR" /></a></p>\r\n<p>A <b>QRmii</b> is QR code which contains a short URL which is automatically redirected to a complete URL.\r\nScanning a QRmii with a smartphone directly displays the page of the original URL.</p>', 0),
