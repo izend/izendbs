@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2022 (2016) izend.org
- * @version    62 (3)
+ * @copyright  2010-2023 (2016) izend.org
+ * @version    63 (3)
  * @link       http://www.izend.org
  */
 <?php
@@ -79,10 +79,18 @@ global $googleanalyticsid;
 
 $googleanalyticsid=false;
 
+global $googleanalyticspropertyid;
+
+$googleanalyticspropertyid=false;
+
 global $googleanalyticsaccount, $googleanalyticskeyfile;
 
 $googleanalyticsaccount = false;
 $googleanalyticskeyfile = false;	// ROOT_DIR . DIRECTORY_SEPARATOR . 'google-api-*.p12';
+
+global $googlecredentials;
+
+$googlecredentials=false;			// ROOT_DIR . DIRECTORY_SEPARATOR . 'google-credentials-*.json';
 
 global $googleanalyticspageview;
 

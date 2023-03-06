@@ -2,21 +2,21 @@
 
 /**
  *
- * @copyright  2016-2018 (2017) izend.org
- * @version    5 (1)
+ * @copyright  2016-2023 (2017) izend.org
+ * @version    6 (1)
  * @link       http://www.izend.org
  */
 
 require_once 'userhasrole.php';
 
 function traffic($lang) {
-	global $googleanalyticsaccount, $googleanalyticskeyfile;
+	global $googlecredentials;
 
 	if (!user_has_role('administrator')) {
 		return run('error/unauthorized', $lang);
 	}
 
-	if (! ($googleanalyticsaccount and $googleanalyticskeyfile)) {
+	if (! ($googlecredentials)) {
 		return run('error/internalerror', $lang);
 	}
 
