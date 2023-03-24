@@ -2,23 +2,28 @@
 
 /**
  *
- * @copyright  2010-2022 (2016-2022) izend.org
- * @version    16 (7)
+ * @copyright  2010-2023 (2016-2023) izend.org
+ * @version    17 (8)
  * @link       http://www.izend.org
  */
 ?>
+<?php if ($with_google): ?>
+<?php global $googleclientid; ?>
+<script async defer src="https://accounts.google.com/gsi/client"></script>
+<div id="g_id_onload" data-client_id="<?php echo $googleclientid; ?>" data-context="signin" data-ux_mode="redirect" data-login_uri="<?php echo $user_page;  ?>" data-auto_prompt="false" data-auto_select="true" data-itp_support="true"></div>
+<?php endif; ?>
 <?php extract($errors); ?>
 <form method="post">
 <input type="hidden" name="login_token" value="<?php echo $token; ?>" />
 <div class="form-group<?php if ($missing_login or $bad_login): ?> has-error<?php endif; ?>">
 <label for="login_login"><?php if ($with_name): ?>What is your connection name&nbsp;?<?php else: ?>What is your email address&nbsp;?<?php endif; ?></label>
 <div class="form-inline-auto">
-<?php if ($facebook_login_url): ?>
+<?php if ($with_google): ?>
 <div class="input-group">
 <?php endif; ?>
 <input type="text" class="form-control" name="login_login" id="login_login" size="30" maxlength="100" placeholder="<?php if ($with_name): ?>Identifier<?php else: ?>name@domain.net<?php endif; ?>" value="<?php if ($login): ?><?php echo htmlspecialchars($login, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'login_password')" />
-<?php if ($with_facebook): ?>
-<span class="input-group-addon social"><a href="<?php if ($facebook_login_url): ?><?php echo htmlspecialchars($facebook_login_url, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" title="Connect with Facebook"><span class="social-facebook">Facebook</span></a></span>
+<?php if ($with_google): ?>
+<span class="input-group-addon g_id_signin" title="Connect with Google" data-type="icon" data-shape="circle" data-theme="outline" data-text="signup_with" data-size="small" data-locale="en"></span>
 </div>
 <?php endif; ?>
 </div>

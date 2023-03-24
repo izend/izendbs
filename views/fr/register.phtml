@@ -2,11 +2,16 @@
 
 /**
  *
- * @copyright  2010-2022 (2016-2022) izend.org
- * @version    27 (7)
+ * @copyright  2010-2023 (2016-2023) izend.org
+ * @version    29 (8)
  * @link       http://www.izend.org
  */
 ?>
+<?php if ($with_google): ?>
+<?php global $googleclientid; ?>
+<script async defer src="https://accounts.google.com/gsi/client"></script>
+<div id="g_id_onload" data-client_id="<?php echo $googleclientid; ?>" data-context="signin" data-ux_mode="redirect" data-login_uri="<?php echo $newuser_page;  ?>" data-auto_prompt="false" data-auto_select="true" data-itp_support="true"></div>
+<?php endif; ?>
 <?php extract($errors); ?>
 <?php extract($infos); ?>
 <form method="post">
@@ -52,12 +57,12 @@ $('input[name=register_timezone]').val(tz.name());
 <div class="form-group<?php if ($missing_mail or $bad_mail or $duplicated_mail): ?> has-error<?php endif; ?>">
 <label for="register_mail">Quelle est <?php echo $is_admin ? 'l\'' : 'votre '; ?>adresse d'email&nbsp;?</label>
 <div class="form-inline-auto">
-<?php if ($facebook_login_url): ?>
+<?php if ($with_google): ?>
 <div class="input-group">
 <?php endif; ?>
 <input type="text" class="form-control" name="register_mail" id="register_mail" size="30" maxlength="100" placeholder="nom@domaine.fr" value="<?php if ($mail): ?><?php echo htmlspecialchars($mail, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, '<?php echo $with_website ? 'register_website' : ($with_password ? 'register_password' : 'register_code'); ?>')" />
-<?php if ($with_facebook): ?>
-<span class="input-group-addon social"><a href="<?php if ($facebook_login_url): ?><?php echo htmlspecialchars($facebook_login_url, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" title="Connectez-vous avec Facebook"><span class="social-facebook">Facebook</span></a></span>
+<?php if ($with_google): ?>
+<span class="input-group-addon g_id_signin" title="Connectez-vous avec Google" data-type="icon" data-shape="circle" data-theme="outline" data-text="signup_with" data-size="small" data-locale="fr"></span>
 </div>
 <?php endif; ?>
 </div>
@@ -75,7 +80,7 @@ $('input[name=register_timezone]').val(tz.name());
 <div class="form-group<?php if ($missing_password or $bad_password): ?> has-error<?php endif; ?>">
 <label for="register_password">Choisissez un mot de passe&nbsp;:</label>
 <div class="form-inline-auto">
-<input type="text" class="form-control" name="register_password" id="register_password" size="20" maxlength="20" placeholder="Mot de passe" value="<?php if ($password): ?><?php echo htmlspecialchars($password, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" autocomplete="off" onkeypress="return focusonenter(event, 'register_code')" />
+<input type="password" class="form-control" name="register_password" id="register_password" size="20" maxlength="20" placeholder="Mot de passe" value="<?php if ($password): ?><?php echo htmlspecialchars($password, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" autocomplete="off" onkeypress="return focusonenter(event, 'register_code')" />
 </div>
 <span class="help-block">Entrez au moins 6 caractères dont 1 chiffre.</span>
 </div>
