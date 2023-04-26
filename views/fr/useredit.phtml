@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2011-2022 (2017-2022) izend.org
- * @version    31 (11)
+ * @copyright  2011-2023 (2017-2023) izend.org
+ * @version    32 (12)
  * @link       http://www.izend.org
  */
 ?>
@@ -77,6 +77,16 @@
 </div>
 <?php else: ?>
 <input type="hidden" name="useredit_locale" value="<?php if ($user_locale): ?><?php echo htmlspecialchars($user_locale, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" />
+<?php endif; ?>
+<?php if ($with_options): ?>
+<div class="form-group">
+<fieldset id="useredit_options">
+<legend>Options</legend>
+<label class="checkbox-inline">
+<input type="checkbox" name="useredit_help"<?php if ($user_help): ?> checked="checked"<?php endif; ?> title="Messages d'aide" />&nbsp;<span class="glyphicon glyphicon-question-sign btn-help"></span>
+</label>
+</fieldset>
+</div>
 <?php endif; ?>
 <?php if ($with_status): ?>
 <div class="form-group">
