@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2014-2023 (2016-2023) izend.org
- * @version    12 (14)
+ * @version    11 (14)
  * @link       http://www.izend.org
  */
 
@@ -424,6 +424,7 @@ CREATE TABLE IF NOT EXISTS "${db_prefix}user_info" (
   "user_id" integer NOT NULL,
   "lastname" varchar(100) DEFAULT NULL,
   "firstname" varchar(100) DEFAULT NULL,
+  "help" boolean NOT NULL DEFAULT '1',
   PRIMARY KEY ("user_id")
 );
 _SEP_;
