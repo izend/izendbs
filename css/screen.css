@@ -1,7 +1,7 @@
 /**
  *
- * @copyright  2010-2023 (2017-2022) izend.org
- * @version    127 (28)
+ * @copyright  2010-2023 (2017-2023) izend.org
+ * @version    127 (29)
  * @link       http://www.izend.org
  */
 
@@ -520,7 +520,7 @@ span.btn_ilike {
 	background-position: 0 -48px;
 }
 span.btn_tweet {
-	background-position: -16px -48px;
+	background-position: -96px -48px;
 }
 span.btn_linkedin {
 	background-position: -48px -48px;
@@ -667,6 +667,9 @@ div.youtube iframe {
 .besocial.awesome .twitter {
 	background-color: #4ad2ff;
 }
+.besocial.awesome .x_twitter {
+	background-color: #000000;
+}
 .besocial.awesome .linkedin {
 	background-color: #0183b3;
 }
@@ -692,6 +695,9 @@ div.youtube iframe {
 }
 .social-twitter {
 	background-position: -24px 0;
+}
+.social-x-twitter {
+	background-position: -336px 0;
 }
 .social-linkedin {
 	background-position: -72px 0;
@@ -756,6 +762,14 @@ div.youtube iframe {
 .link-twitter:hover {
 	background-position: -111px 0;
 }
+.link-x-twitter,
+.link-x-twitter:visited {
+	width: 24px;
+	background-position: -859px -30px;
+}
+.link-x-twitter:hover {
+	background-position: -859px 0;
+}
 .link-rss,
 .link-rss:visited {
 	width: 51px;
@@ -807,6 +821,7 @@ div.youtube iframe {
 
 #linkbar {
 	margin: 10px 0;
+	text-align: center;
 }
 #linkbar > a {
 	margin-right: 20px;

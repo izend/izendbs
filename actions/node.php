@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2019 (2017) izend.org
- * @version    16 (1)
+ * @copyright  2010-2023 (2017) izend.org
+ * @version    17 (1)
  * @link       http://www.izend.org
  */
 
@@ -58,7 +58,7 @@ function node($lang, $arglist=false) {
 
 	$edit=user_has_role('writer') ? url('editnode', $_SESSION['user']['locale']) . '/'. $node_id . '?' . 'clang=' . $clang : false;
 
-	$banner = build('banner', $lang, compact('headline', 'edit'));
+	$banner = build('banner', $lang, compact('edit'));
 
 	$node_contents = build('nodecontent', $clang, $node_id);
 
