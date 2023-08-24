@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2023 (2017-2023) izend.org
- * @version    127 (29)
+ * @version    127 (30)
  * @link       http://www.izend.org
  */
 
@@ -349,6 +349,10 @@ fieldset {
 }
 .lang-ru {
 	background-position: -120px 0;
+}
+
+label span {
+	vertical-align: text-bottom !important;
 }
 
 span.btn_edit {
