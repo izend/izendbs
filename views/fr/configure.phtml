@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2023 (2022) izend.org
- * @version    21 (4)
+ * @copyright  2010-2023 (2023) izend.org
+ * @version    21 (5)
  * @link       http://www.izend.org
  */
 ?>
@@ -173,7 +173,7 @@ et le rôle <code><?php echo $db_user; ?></code>.</p>
 <div class="form-group form-inline">
 <div class="form-group form-inline-auto">
 <div class="input-group">
-<input type="text" class="form-control" name="configure_db_user" id="configure_db_user" size="30" maxlength="40" value="<?php if ($db_user): ?><?php echo htmlspecialchars($db_user, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'configure_db_password')<?php endif; ?>" />
+<input type="text" class="form-control" name="configure_db_user" id="configure_db_user" size="30" maxlength="40" value="<?php if ($db_user): ?><?php echo htmlspecialchars($db_user, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return focusonenter(event, 'configure_db_password')" />
 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 </div>
 </div>
