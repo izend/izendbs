@@ -2,7 +2,7 @@
 
 /**
  *
- * @copyright  2014-2023 (2016-2025) izend.org
+ * @copyright  2014-2025 (2016-2025) izend.org
  * @version    15 (16)
  * @link       http://www.izend.org
  */
@@ -451,7 +451,7 @@ _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO `${db_prefix}node_locale` (`node_id`, `locale`, `name`, `title`, `abstract`, `cloud`, `image`) VALUES
+INSERT INTO `{$db_prefix}node_locale` (`node_id`, `locale`, `name`, `title`, `abstract`, `cloud`, `image`) VALUES
 (1, 'en', 'welcome', 'Welcome', NULL, NULL, '/files/images/pinit.jpg'),
 (1, 'fr', 'bienvenue', 'Bienvenue', NULL, NULL, '/files/images/pinit.jpg'),
 (2, 'en', 'contents', 'Contents', NULL, 'content text PHP insertion file download audio video LongTail YouTube HTML5 jQuery UI calendar', NULL),
@@ -560,21 +560,21 @@ _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO `${db_prefix}content_download` (`content_id`, `locale`, `name`, `path`) VALUES
+INSERT INTO `{$db_prefix}content_download` (`content_id`, `locale`, `name`, `path`) VALUES
 (1, 'en', 'sysinfo.php', 'files/sysinfo.php'),
 (1, 'fr', 'sysinfo.php', 'files/sysinfo.php');
 _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO `${db_prefix}content_file` (`content_id`, `locale`, `path`, `start`, `end`, `format`, `lineno`) VALUES
+INSERT INTO `{$db_prefix}content_file` (`content_id`, `locale`, `path`, `start`, `end`, `format`, `lineno`) VALUES
 (1, 'en', 'files/sysinfo.php', 0, 0, 'html5', 1),
 (1, 'fr', 'files/sysinfo.php', 0, 0, 'html5', 1);
 _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO `${db_prefix}content_youtube` (`content_id`, `locale`, `id`, `width`, `height`, `miniature`, `title`, `autoplay`, `controls`, `fs`, `theme`, `rel`) VALUES
+INSERT INTO `{$db_prefix}content_youtube` (`content_id`, `locale`, `id`, `width`, `height`, `miniature`, `title`, `autoplay`, `controls`, `fs`, `theme`, `rel`) VALUES
 (1, 'en', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0),
 (1, 'fr', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0),
 (2, 'en', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0),
@@ -583,7 +583,7 @@ _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO `${db_prefix}content_longtail` (`content_id`, `locale`, `file`, `image`, `width`, `height`, `icons`, `skin`, `controlbar`, `duration`, `autostart`, `repeat`) VALUES
+INSERT INTO `{$db_prefix}content_longtail` (`content_id`, `locale`, `file`, `image`, `width`, `height`, `icons`, `skin`, `controlbar`, `duration`, `autostart`, `repeat`) VALUES
 (1, 'en', '/files/sounds/smoke.mp3 /files/sounds/smoke.ogg /files/sounds/smoke.m4a', NULL, 200, 24, 0, '/longtail/simple.zip', 'bottom', 0, 0, 0),
 (1, 'fr', '/files/sounds/smoke.mp3 /files/sounds/smoke.ogg /files/sounds/smoke.m4a', NULL, 200, 24, 0, '/longtail/simple.zip', 'bottom', 0, 0, 0),
 (2, 'en', '/files/videos/imagin-raytracer.flv', '/files/videos/imagin-raytracer.jpg', 320, 240, 0, '/longtail/modieus.zip', 'over', 0, 0, 0),
