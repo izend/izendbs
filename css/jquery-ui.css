@@ -1,10 +1,9 @@
-/*! jQuery UI - v1.12.1 - 2016-11-19
-* http://jqueryui.com
+/*! jQuery UI - v1.14.1 - 2025-11-07
+* https://jqueryui.com
 * Includes: draggable.css, core.css, autocomplete.css, menu.css, datepicker.css, theme.css
-* Copyright jQuery Foundation and other contributors; Licensed MIT */
+* Copyright OpenJS Foundation and other contributors; Licensed MIT */
 
 .ui-draggable-handle {
-	-ms-touch-action: none;
 	touch-action: none;
 }
 /* Layout helpers
@@ -48,7 +47,6 @@
 	left: 0;
 	position: absolute;
 	opacity: 0;
-	filter:Alpha(Opacity=0); /* support: IE8 */
 }
 
 .ui-front {
@@ -112,8 +110,6 @@
 .ui-menu .ui-menu-item {
 	margin: 0;
 	cursor: pointer;
-	/* support: IE10, see #8844 */
-	list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
 }
 .ui-menu .ui-menu-item-wrapper {
 	position: relative;
@@ -171,8 +167,8 @@
 }
 .ui-datepicker .ui-datepicker-prev-hover,
 .ui-datepicker .ui-datepicker-next-hover {
-	background: transparent !important;
-	border: none !important;
+    background: transparent !important;
+    border: none !important;
 }
 .ui-datepicker .ui-datepicker-prev-hover,
 .ui-datepicker .ui-datepicker-next-hover {
@@ -253,15 +249,6 @@
 }
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
 	float: left;
-}
-
-.ui-datepicker-trigger {
-	vertical-align: top;
-	padding: 1px;
-	cursor: pointer;
-}
-.ui-datepicker-week-col {
-	text-align: center;
 }
 
 /* with multiple calendars */
@@ -346,7 +333,7 @@
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-	font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: Verdana,sans-serif;
 	font-size: 1em;
 }
 .ui-widget .ui-widget {
@@ -356,8 +343,11 @@
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button {
-	font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: Verdana,sans-serif;
 	font-size: 1em;
+}
+.ui-widget.ui-widget-content {
+	border: 1px solid #d3d3d3;
 }
 .ui-widget-content {
 	border: 1px solid #dddddd;
@@ -411,8 +401,8 @@ a:visited.ui-button,
 .ui-widget-header .ui-state-focus,
 .ui-button:hover,
 .ui-button:focus {
-	border: 1px solid #2e6da4;
-	background: #337ab7;
+    border: 1px solid #2e6da4;
+    background: #337ab7;
 	font-weight: normal;
 	color: #ffffff;
 }
@@ -439,15 +429,15 @@ a.ui-button:focus {
 a.ui-button:active,
 .ui-button:active,
 .ui-button.ui-state-active:hover {
-	border: 1px solid #4cae4c;
-	background: #5cb85c;
+    border: 1px solid #4cae4c;
+    background: #5cb85c;
 	font-weight: normal;
 	color: #ffffff;
 }
 .ui-icon-background,
 .ui-state-active .ui-icon-background {
 	border: #aaaaaa;
-	background-color: #212121;
+	background-color: #ffffff;
 }
 .ui-state-active a,
 .ui-state-active a:link,
@@ -461,13 +451,13 @@ a.ui-button:active,
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-	border: 1px solid #eea236;
-	background: #f0ad4e;
-	color: #ffffff;
+    border: 1px solid #eea236;
+    background: #f0ad4e;
+    color: #ffffff;
 }
 .ui-state-checked {
-	border: 1px solid #aaaaaa;
-	background: #ffffe0;
+    border: 1px solid #aaaaaa;
+    background: #ffffe0;
 }
 .ui-state-highlight a,
 .ui-widget-content .ui-state-highlight a,
@@ -477,9 +467,9 @@ a.ui-button:active,
 .ui-state-error,
 .ui-widget-content .ui-state-error,
 .ui-widget-header .ui-state-error {
-	border: 1px solid #a94442;
-	background-color: #f2dede;
-	color: #ffffff;
+    border: 1px solid #a94442;
+    background-color: #f2dede;
+    color: #ffffff;
 }
 .ui-state-error a,
 .ui-widget-content .ui-state-error a,
@@ -500,18 +490,13 @@ a.ui-button:active,
 .ui-widget-content .ui-priority-secondary,
 .ui-widget-header .ui-priority-secondary {
 	opacity: .7;
-	filter:Alpha(Opacity=70); /* support: IE8 */
 	font-weight: normal;
 }
 .ui-state-disabled,
 .ui-widget-content .ui-state-disabled,
 .ui-widget-header .ui-state-disabled {
 	opacity: .35;
-	filter:Alpha(Opacity=35); /* support: IE8 */
 	background-image: none;
-}
-.ui-state-disabled .ui-icon {
-	filter:Alpha(Opacity=35); /* support: IE8 - See #6059 */
 }
 
 /* Icons
@@ -567,9 +552,7 @@ a.ui-button:active,
 .ui-widget-overlay {
 	background: #aaaaaa;
 	opacity: .3;
-	filter: Alpha(Opacity=30); /* support: IE8 */
 }
 .ui-widget-shadow {
-	-webkit-box-shadow: -8px -8px 8px #aaaaaa;
 	box-shadow: -8px -8px 8px #aaaaaa;
 }
