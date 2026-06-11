@@ -2,7 +2,7 @@
 
 /**
  *
- * @copyright  2010-2023 (2016-2023) izend.org
+ * @copyright  2010-2026 (2016-2023) izend.org
  * @version    32 (8)
  * @link       http://www.izend.org
  */
@@ -80,7 +80,7 @@ $('input[name=register_timezone]').val(tz.name());
 <div class="form-group<?php if ($missing_password or $bad_password): ?> has-error<?php endif; ?>">
 <label for="register_password">Choisissez un mot de passe&nbsp;:</label>
 <div class="form-inline-auto">
-<input type="password" class="form-control" name="register_password" id="register_password" size="20" maxlength="20" placeholder="Mot de passe" value="<?php if ($password): ?><?php echo htmlspecialchars($password, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" autocomplete="off" onkeypress="return focusonenter(event, 'register_code')" />
+<input type="password" class="form-control" name="register_password" id="register_password" size="20" maxlength="20" placeholder="Mot de passe" value="<?php if ($password): ?><?php echo htmlspecialchars($password, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" autocomplete="off" onkeypress="return focusonenter(event, 'register_code')" /><?php if ($with_viewpassword): ?>&nbsp;<span class="glyphicon glyphicon-eye-open cursor-pointer" aria-hidden="true"></span><?php endif; ?>
 </div>
 <span class="help-block">Entrez au moins 6 caractères dont 1 chiffre.</span>
 </div>
@@ -110,6 +110,14 @@ $('input[name=register_timezone]').val(tz.name());
 <button type="submit" class="btn <?php if ($internal_error or $missing_code or $bad_code or $missing_name or $bad_name or $duplicated_name or $missing_mail or $bad_mail or $duplicated_mail or $bad_website or $missing_password or $bad_password or $missing_lastname or $missing_firstname or $missing_confirmation): ?>btn-danger<?php elseif ($account_created): ?>btn-success<?php else: ?>btn-default<?php endif; ?>" name="register_register" id="register_register">Envoyer</button>
 </div>
 </form>
+<?php if ($with_viewpassword): ?>
+<script>
+(function() {
+	const password = document.getElementById('register_password');
+	password.nextElementSibling.addEventListener('click', () => password.type = password.type == 'password' ? 'text' : 'password');
+})();
+</script>
+<?php endif; ?>
 <?php if ($missing_code): ?>
 <p class="text-danger">Entrez le code de vérification affiché dans l'image.</p>
 <?php elseif ($bad_code): ?>
