@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2023 (2016-2023) izend.org
- * @version    35 (7)
+ * @copyright  2010-2026 (2016-2023) izend.org
+ * @version    36 (7)
  * @link       http://www.izend.org
  */
 ?>
@@ -21,10 +21,8 @@
 <input type="hidden" name="register_timezone" value="<?php echo $timezone; ?>" />
 <?php else: ?>
 <input type="hidden" name="register_timezone" value="" />
-<?php head('javascript', 'jstz'); ?>
 <script>
-var tz = jstz.determine();
-$('input[name=register_timezone]').val(tz.name());
+document.querySelector('input[name="register_timezone"]').value=Intl.DateTimeFormat().resolvedOptions().timeZone;
 </script>
 <?php endif; ?>
 <?php endif; ?>
