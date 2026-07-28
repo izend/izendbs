@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2026 (2016-2023) izend.org
- * @version    33 (8)
+ * @version    34 (8)
  * @link       http://www.izend.org
  */
 ?>
@@ -139,7 +139,7 @@ document.querySelector('input[name="register_timezone"]').value=Intl.DateTimeFor
 <p>Le compte a été créé.</p>
 <?php else: ?>
 <p>Votre compte a été créé. Le mot de passe a été envoyé par email à votre adresse<?php if ($with_validation): ?> ainsi qu'un lien de validation<?php endif; ?>.
-Pour vous identifier, <a class="clickhere" href="<?php echo $user_page; ?>">cliquez ici</a>.</p>
+<span class="link">Pour vous identifier, <a class="clickhere" href="<?php echo $user_page; ?>">cliquez ici</a>.</span></p>
 <?php endif; ?>
 <?php endif; ?>
 <?php

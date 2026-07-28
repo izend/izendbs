@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2026 (2017-2026) izend.org
- * @version    63 (5)
+ * @version    64 (6)
  * @link       http://www.izend.org
  */
 
@@ -35,10 +35,10 @@ form, audio, video, .audioplayer {
 	display: none;
 }
 
-.avatar, .newcomment, .oldcomment, #sidebar, #footer, .hidy {
+.avatar, .newcomment, .oldcomment, #sidebar, #footer, .hidy, .link {
 	display: none;
 }
 
-.fb-like-box, .fb-page, #twitter-timeline, #pinterest-board {
+#pinterest-board {
 	display: none !important;
 }
