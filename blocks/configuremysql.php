@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2014-2026 (2016-2026) izend.org
- * @version    18 (18)
+ * @version    19 (18)
  * @link       http://www.izend.org
  */
 
@@ -162,10 +162,6 @@ CREATE TABLE `{$db_prefix}content_youtube` (
   `miniature` VARCHAR(200) DEFAULT NULL,
   `title` VARCHAR(200) DEFAULT NULL,
   `autoplay` tinyint(1) NOT NULL DEFAULT '0',
-  `controls` tinyint(1) NOT NULL DEFAULT '0',
-  `fs` tinyint(1) NOT NULL DEFAULT '0',
-  `theme` enum('light','dark') NOT NULL DEFAULT 'dark',
-  `rel` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`content_id`,`locale`)
 ) DEFAULT CHARSET=utf8;
 _SEP_;
@@ -566,11 +562,11 @@ _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO `{$db_prefix}content_youtube` (`content_id`, `locale`, `id`, `width`, `height`, `miniature`, `title`, `autoplay`, `controls`, `fs`, `theme`, `rel`) VALUES
-(1, 'en', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0),
-(1, 'fr', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0),
-(2, 'en', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0),
-(2, 'fr', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0);
+INSERT INTO `{$db_prefix}content_youtube` (`content_id`, `locale`, `id`, `width`, `height`, `miniature`, `title`, `autoplay`) VALUES
+(1, 'en', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0),
+(1, 'fr', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0),
+(2, 'en', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0),
+(2, 'fr', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0);
 _SEP_;
 		$db_conn->exec($sql);
 

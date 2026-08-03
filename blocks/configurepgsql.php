@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2014-2026 (2016-2026) izend.org
- * @version    15 (17)
+ * @version    16 (17)
  * @link       http://www.izend.org
  */
 
@@ -183,21 +183,6 @@ _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-CREATE TYPE "{$db_prefix}type_content_youtube_theme" AS ENUM('light','dark');
-_SEP_;
-		$db_conn->exec($sql);
-
-		$sql= <<<_SEP_
-CREATE FUNCTION {$db_prefix}type_content_youtube_theme(unknown) RETURNS {$db_prefix}type_content_youtube_theme AS 'SELECT $1::text::{$db_prefix}type_content_youtube_theme;' LANGUAGE 'SQL';
-_SEP_;
-		$db_conn->exec($sql);
-
-		$sql= <<<_SEP_
-CREATE CAST (unknown as {$db_prefix}type_content_youtube_theme) WITH FUNCTION {$db_prefix}type_content_youtube_theme(unknown) AS ASSIGNMENT;
-_SEP_;
-		$db_conn->exec($sql);
-
-		$sql= <<<_SEP_
 CREATE TABLE "{$db_prefix}content_youtube" (
   "content_id" SERIAL,
   "locale" {$db_prefix}type_locale NOT NULL DEFAULT '$default_language',
@@ -207,10 +192,6 @@ CREATE TABLE "{$db_prefix}content_youtube" (
   "miniature" varchar(200) DEFAULT NULL,
   "title" varchar(200) DEFAULT NULL,
   "autoplay" boolean NOT NULL DEFAULT '0',
-  "controls" boolean NOT NULL DEFAULT '0',
-  "fs" boolean NOT NULL DEFAULT '0',
-  "theme" {$db_prefix}type_content_youtube_theme NOT NULL DEFAULT 'dark',
-  "rel" boolean NOT NULL DEFAULT '0',
   PRIMARY KEY ("content_id","locale")
 );
 _SEP_;
@@ -704,11 +685,11 @@ _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO "{$db_prefix}content_youtube" ("content_id", "locale", "id", "width", "height", "miniature", "title", "autoplay", "controls", "fs", "theme", "rel") VALUES
-(1, 'en', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0),
-(1, 'fr', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0),
-(2, 'en', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0),
-(2, 'fr', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0, 1, 0, 'light', 0);
+INSERT INTO "{$db_prefix}content_youtube" ("content_id", "locale", "id", "width", "height", "miniature", "title", "autoplay") VALUES
+(1, 'en', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0),
+(1, 'fr', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0),
+(2, 'en', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0),
+(2, 'fr', 'aqz-KE-bpKQ', 640, 360, NULL, NULL, 0);
 _SEP_;
 		$db_conn->exec($sql);
 
