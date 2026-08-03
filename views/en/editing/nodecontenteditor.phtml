@@ -2,8 +2,8 @@
 
 /**
  *
- * @copyright  2010-2022 (2016-2022) izend.org
- * @version    26 (4)
+ * @copyright  2010-2026 (2016-2026) izend.org
+ * @version    27 (5)
  * @link       http://www.izend.org
  */
 ?>
@@ -74,7 +74,7 @@ foreach ($node_contents as $c) {
 	$content_youtube_id=false;
 	$content_youtube_width=$content_youtube_height=0;
 	$content_youtube_miniature=$content_youtube_title=false;
-	$content_youtube_autoplay=$content_youtube_controls=$content_youtube_fs=$content_youtube_rel=false;
+	$content_youtube_autoplay=false;
 	$content_longtail_file=$content_longtail_image=false;
 	$content_longtail_width=$content_longtail_height=0;
 	$content_longtail_skin=false;
@@ -167,22 +167,6 @@ foreach ($node_contents as $c) {
 <input type="text" class="form-control" name="content_youtube_height[<?php echo $i; ?>]" size="5" maxlength="5" placeholder="Height" value="<?php if ($content_youtube_height): ?><?php echo htmlspecialchars($content_youtube_height, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?>" onkeypress="return returnonenter(event)" />
 <div class="checkbox-inline">
 <label><input name="content_youtube_autoplay[<?php echo $i; ?>]" type="checkbox"<?php if ($content_youtube_autoplay): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_autoplay" title="Auto">auto</span></label>
-</div>
-</div>
-<div class="form-group form-inline-auto">
-<select class="form-control" name="content_youtube_theme[<?php echo $i; ?>]" size="1" title="Theme">
-<?php foreach (array('dark' => 'dark', 'light' => 'light') as $tm => $ts): ?>
-<option value="<?php echo $tm; ?>"<?php if ($content_youtube_theme == $tm) : ?> selected="selected"<?php endif; ?>><?php echo $ts; ?></option>
-<?php endforeach; ?>
-</select>
-<div class="checkbox-inline">
-<label><input name="content_youtube_controls[<?php echo $i; ?>]" type="checkbox"<?php if ($content_youtube_controls): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_controls" title="Controls">controls</span></label>
-</div>
-<div class="checkbox-inline">
-<label><input name="content_youtube_fs[<?php echo $i; ?>]" type="checkbox"<?php if ($content_youtube_fs): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_fs" title="Full screen">fs</span></label>
-</div>
-<div class="checkbox-inline">
-<label><input name="content_youtube_rel[<?php echo $i; ?>]" type="checkbox"<?php if ($content_youtube_rel): ?> checked="checked"<?php endif; ?> /><span class="btn_edit btn_rel" title="Links">links</span></label>
 </div>
 </div>
 </div>
