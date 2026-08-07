@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2014-2026 (2016-2026) izend.org
- * @version    16 (17)
+ * @version    18 (18)
  * @link       http://www.izend.org
  */
 
@@ -87,11 +87,11 @@ CREATE TABLE "{$db_prefix}comment" (
   "locale" {$db_prefix}type_locale NOT NULL DEFAULT '$default_language',
   "created" timestamp NOT NULL,
   "edited" timestamp NOT NULL,
-  "user_id" integer NOT NULL DEFAULT '0',
+  "user_id" integer NOT NULL DEFAULT 0,
   "user_mail" varchar(100) DEFAULT NULL,
   "ip_address" bigint NOT NULL,
   "text" text NOT NULL,
-  "confirmed" boolean NOT NULL DEFAULT '1',
+  "confirmed" boolean NOT NULL DEFAULT TRUE,
   PRIMARY KEY ("comment_id")
 );
 _SEP_;
@@ -118,10 +118,10 @@ CREATE TABLE "{$db_prefix}content_file" (
   "content_id" SERIAL,
   "locale" {$db_prefix}type_locale NOT NULL DEFAULT '$default_language',
   "path" varchar(200) DEFAULT NULL,
-  "start" integer NOT NULL DEFAULT '0',
-  "end" integer NOT NULL DEFAULT '0',
+  "start" integer NOT NULL DEFAULT 0,
+  "end" integer NOT NULL DEFAULT 0,
   "format" varchar(20) DEFAULT NULL,
-  "lineno" boolean NOT NULL DEFAULT '1',
+  "lineno" boolean NOT NULL DEFAULT TRUE,
   PRIMARY KEY ("content_id","locale")
 );
 _SEP_;
@@ -158,25 +158,25 @@ CREATE TABLE "{$db_prefix}content_longtail" (
   "locale" {$db_prefix}type_locale NOT NULL DEFAULT '$default_language',
   "file" varchar(200) DEFAULT NULL,
   "image" varchar(200) DEFAULT NULL,
-  "width" integer NOT NULL DEFAULT '0',
-  "height" integer NOT NULL DEFAULT '0',
-  "icons" boolean NOT NULL DEFAULT '0',
+  "width" integer NOT NULL DEFAULT 0,
+  "height" integer NOT NULL DEFAULT 0,
+  "icons" boolean NOT NULL DEFAULT FALSE,
   "skin" varchar(200) DEFAULT NULL,
   "controlbar" {$db_prefix}type_content_longtail_controlbar NOT NULL DEFAULT 'none',
-  "duration" integer NOT NULL DEFAULT '0',
-  "autostart" boolean NOT NULL DEFAULT '0',
-  "repeat" boolean NOT NULL DEFAULT '0',
+  "duration" integer NOT NULL DEFAULT 0,
+  "autostart" boolean NOT NULL DEFAULT FALSE,
+  "repeat" boolean NOT NULL DEFAULT FALSE,
   PRIMARY KEY ("content_id","locale")
 );
 _SEP_;
 		$db_conn->exec($sql);
 
-			$sql= <<<_SEP_
+		$sql= <<<_SEP_
 CREATE TABLE "{$db_prefix}content_text" (
   "content_id" SERIAL,
   "locale" {$db_prefix}type_locale NOT NULL DEFAULT '$default_language',
   "text" text,
-  "eval" boolean NOT NULL DEFAULT '0',
+  "eval" boolean NOT NULL DEFAULT FALSE,
   PRIMARY KEY ("content_id","locale")
 );
 _SEP_;
@@ -187,11 +187,12 @@ CREATE TABLE "{$db_prefix}content_youtube" (
   "content_id" SERIAL,
   "locale" {$db_prefix}type_locale NOT NULL DEFAULT '$default_language',
   "id" varchar(20) DEFAULT NULL,
-  "width" integer NOT NULL DEFAULT '0',
-  "height" integer NOT NULL DEFAULT '0',
+  "width" integer NOT NULL DEFAULT 0,
+  "height" integer NOT NULL DEFAULT 0,
+  "center" boolean NOT NULL DEFAULT FALSE,
   "miniature" varchar(200) DEFAULT NULL,
   "title" varchar(200) DEFAULT NULL,
-  "autoplay" boolean NOT NULL DEFAULT '0',
+  "autoplay" boolean NOT NULL DEFAULT FALSE,
   PRIMARY KEY ("content_id","locale")
 );
 _SEP_;
@@ -230,16 +231,16 @@ CREATE TABLE "{$db_prefix}node" (
   "user_id" integer NOT NULL,
   "created" timestamp NOT NULL,
   "modified" timestamp NOT NULL,
-  "visits" boolean NOT NULL DEFAULT '1',
-  "nocomment" boolean NOT NULL DEFAULT '0',
-  "nomorecomment" boolean NOT NULL DEFAULT '0',
-  "novote" boolean NOT NULL DEFAULT '0',
-  "nomorevote" boolean NOT NULL DEFAULT '0',
-  "ilike" boolean NOT NULL DEFAULT '1',
-  "tweet" boolean NOT NULL DEFAULT '1',
-  "linkedin" boolean NOT NULL DEFAULT '1',
-  "pinit" boolean NOT NULL DEFAULT '0',
-  "whatsapp" boolean NOT NULL DEFAULT '1',
+  "visits" boolean NOT NULL DEFAULT TRUE,
+  "nocomment" boolean NOT NULL DEFAULT FALSE,
+  "nomorecomment" boolean NOT NULL DEFAULT FALSE,
+  "novote" boolean NOT NULL DEFAULT FALSE,
+  "nomorevote" boolean NOT NULL DEFAULT FALSE,
+  "ilike" boolean NOT NULL DEFAULT TRUE,
+  "tweet" boolean NOT NULL DEFAULT TRUE,
+  "linkedin" boolean NOT NULL DEFAULT TRUE,
+  "pinit" boolean NOT NULL DEFAULT FALSE,
+  "whatsapp" boolean NOT NULL DEFAULT TRUE,
   PRIMARY KEY ("node_id")
 );
 _SEP_;
@@ -254,7 +255,7 @@ CREATE TABLE "{$db_prefix}node_locale" (
   "abstract" text,
   "cloud" text,
   "image" varchar(200) DEFAULT NULL,
-  "visited" integer NOT NULL DEFAULT '0',
+  "visited" integer NOT NULL DEFAULT 0,
   PRIMARY KEY ("node_id","locale")
 );
 _SEP_;
@@ -281,7 +282,7 @@ CREATE TABLE "{$db_prefix}node_content" (
   "content_id" integer NOT NULL,
   "content_type" {$db_prefix}type_content_type NOT NULL DEFAULT 'text',
   "number" integer NOT NULL,
-  "ignored" boolean NOT NULL DEFAULT '0',
+  "ignored" boolean NOT NULL DEFAULT FALSE,
   PRIMARY KEY ("node_id","content_id","content_type")
 );
 _SEP_;
@@ -305,23 +306,23 @@ _SEP_;
 		$sql= <<<_SEP_
 CREATE TABLE "{$db_prefix}thread" (
   "thread_id" SERIAL,
-  "user_id" integer NOT NULL DEFAULT '1',
+  "user_id" integer NOT NULL DEFAULT 1,
   "thread_type" {$db_prefix}type_thread_thread_type NOT NULL DEFAULT 'thread',
   "created" timestamp NOT NULL,
   "modified" timestamp NOT NULL,
   "number" integer NOT NULL,
-  "visits" boolean NOT NULL DEFAULT '1',
-  "nosearch" boolean NOT NULL DEFAULT '0',
-  "nocloud" boolean NOT NULL DEFAULT '0',
-  "nocomment" boolean NOT NULL DEFAULT '0',
-  "nomorecomment" boolean NOT NULL DEFAULT '0',
-  "novote" boolean NOT NULL DEFAULT '0',
-  "nomorevote" boolean NOT NULL DEFAULT '0',
-  "ilike" boolean NOT NULL DEFAULT '1',
-  "tweet" boolean NOT NULL DEFAULT '1',
-  "linkedin" boolean NOT NULL DEFAULT '1',
-  "pinit" boolean NOT NULL DEFAULT '1',
-  "whatsapp" boolean NOT NULL DEFAULT '1',
+  "visits" boolean NOT NULL DEFAULT TRUE,
+  "nosearch" boolean NOT NULL DEFAULT FALSE,
+  "nocloud" boolean NOT NULL DEFAULT FALSE,
+  "nocomment" boolean NOT NULL DEFAULT FALSE,
+  "nomorecomment" boolean NOT NULL DEFAULT FALSE,
+  "novote" boolean NOT NULL DEFAULT FALSE,
+  "nomorevote" boolean NOT NULL DEFAULT FALSE,
+  "ilike" boolean NOT NULL DEFAULT TRUE,
+  "tweet" boolean NOT NULL DEFAULT TRUE,
+  "linkedin" boolean NOT NULL DEFAULT TRUE,
+  "pinit" boolean NOT NULL DEFAULT TRUE,
+  "whatsapp" boolean NOT NULL DEFAULT TRUE,
   PRIMARY KEY ("thread_id")
 );
 _SEP_;
@@ -346,7 +347,7 @@ CREATE TABLE "{$db_prefix}thread_node" (
   "thread_id" integer NOT NULL,
   "node_id" integer NOT NULL,
   "number" integer NOT NULL,
-  "ignored" boolean NOT NULL DEFAULT '0',
+  "ignored" boolean NOT NULL DEFAULT FALSE,
   PRIMARY KEY ("thread_id","node_id")
 );
 _SEP_;
@@ -385,11 +386,11 @@ CREATE TABLE "{$db_prefix}user" (
   "created" timestamp NOT NULL,
   "modified" timestamp DEFAULT NULL,
   "accessed" timestamp DEFAULT NULL,
-  "logged" integer NOT NULL DEFAULT '0',
+  "logged" integer NOT NULL DEFAULT 0,
   "locale" {$db_prefix}type_locale NOT NULL DEFAULT '$default_language',
-  "active" boolean NOT NULL DEFAULT '1',
-  "banned" boolean NOT NULL DEFAULT '0',
-  "confirmed" boolean NOT NULL DEFAULT '1',
+  "active" boolean NOT NULL DEFAULT TRUE,
+  "banned" boolean NOT NULL DEFAULT FALSE,
+  "confirmed" boolean NOT NULL DEFAULT TRUE,
   PRIMARY KEY ("user_id"),
   UNIQUE ("name"),
   UNIQUE ("mail")
@@ -402,7 +403,7 @@ CREATE TABLE IF NOT EXISTS "{$db_prefix}user_info" (
   "user_id" integer NOT NULL,
   "lastname" varchar(100) DEFAULT NULL,
   "firstname" varchar(100) DEFAULT NULL,
-  "help" boolean NOT NULL DEFAULT '1',
+  "help" boolean NOT NULL DEFAULT TRUE,
   PRIMARY KEY ("user_id")
 );
 _SEP_;
@@ -475,9 +476,9 @@ CREATE TABLE "{$db_prefix}vote" (
   "content_type" {$db_prefix}type_vote_content_type NOT NULL DEFAULT 'node',
   "content_locale" {$db_prefix}type_locale NOT NULL DEFAULT '$default_language',
   "created" timestamp NOT NULL,
-  "user_id" integer NOT NULL DEFAULT '0',
+  "user_id" integer NOT NULL DEFAULT 0,
   "ip_address" bigint NOT NULL,
-  "value" integer NOT NULL DEFAULT '1',
+  "value" integer NOT NULL DEFAULT 1,
   PRIMARY KEY ("vote_id"),
   UNIQUE ("content_id","content_type","content_locale","ip_address","user_id")
 );
@@ -503,7 +504,7 @@ _SEP_;
 
 		$sql= <<<_SEP_
 INSERT INTO "{$db_prefix}user" ("user_id", "name", "password", "seed", "mail", "created", "locale", "active", "banned", "confirmed") VALUES
-(1, '$site_admin_user', MD5(CONCAT('$seed', '$site_admin_password')), '$seed', '$site_admin_mail', NOW(), '$default_language', '1', '0', '1');
+(1, '$site_admin_user', MD5(CONCAT('$seed', '$site_admin_password')), '$seed', '$site_admin_mail', NOW(), '$default_language', TRUE, FALSE, TRUE);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -523,10 +524,10 @@ _SEP_;
 
 		$sql= <<<_SEP_
 INSERT INTO "{$db_prefix}comment" ("comment_id", "node_id", "locale", "created", "edited", "user_id", "user_mail", "ip_address", "text", "confirmed") VALUES
-(1, 2, 'en', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p]Let me try a comment with a url: [url=https://www.izend.org]iZend[/url]![/p]', '1'),
-(2, 2, 'en', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p][u]Quote[/u]:[/p][quote]Let me try a comment with a url: [url=https://www.izend.org]iZend[/url]![/quote]\r\n[p]No! One can put a [b]url[/b] in a comment?\r\n[br]Don\'t tell me it\'s not true![/p]', '1'),
-(3, 2, 'fr', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p]J\'essaye un commentaire avec une url : [url=https://www.izend.org]iZend[/url] ![/p]', '1'),
-(4, 2, 'fr', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p][u]Citation[/u] :[/p][quote]J\'essaye un commentaire avec une url : [url=https://www.izend.org]iZend[/url] ![/quote]\r\n[p]Non ! On peut mettre une [b]url[/b] dans un commentaire ?\r\n[br]Dis-moi pas que c\'est pas vrai ![/p]', '1');
+(1, 2, 'en', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p]Let me try a comment with a url: [url=https://www.izend.org]iZend[/url]![/p]', TRUE),
+(2, 2, 'en', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p][u]Quote[/u]:[/p][quote]Let me try a comment with a url: [url=https://www.izend.org]iZend[/url]![/quote]\r\n[p]No! One can put a [b]url[/b] in a comment?\r\n[br]Don\'t tell me it\'s not true![/p]', TRUE),
+(3, 2, 'fr', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p]J\'essaye un commentaire avec une url : [url=https://www.izend.org]iZend[/url] ![/p]', TRUE),
+(4, 2, 'fr', NOW(), NOW(), 1, NULL, INET_ATON('127.0.0.1'), '[p][u]Citation[/u] :[/p][quote]J\'essaye un commentaire avec une url : [url=https://www.izend.org]iZend[/url] ![/quote]\r\n[p]Non ! On peut mettre une [b]url[/b] dans un commentaire ?\r\n[br]Dis-moi pas que c\'est pas vrai ![/p]', TRUE);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -537,10 +538,10 @@ _SEP_;
 
 		$sql= <<<_SEP_
 INSERT INTO "{$db_prefix}node" ("node_id", "user_id", "created", "modified", "visits", "nocomment", "nomorecomment", "novote", "nomorevote", "ilike", "tweet", "linkedin", "pinit", "whatsapp") VALUES
-(1, 1, NOW(), NOW(), 0, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-(2, 1, NOW(), NOW(), 1, 0, 1, 0, 0, 1, 1, 1, 1, 1),
-(3, 1, NOW(), NOW(), 1, 1, 1, 0, 0, 1, 1, 1, 1, 1),
-(4, 1, NOW(), NOW(), 0, 1, 1, 1, 1, 0, 0, 0, 0, 0);
+(1, 1, NOW(), NOW(), FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE),
+(2, 1, NOW(), NOW(), TRUE, FALSE, TRUE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE),
+(3, 1, NOW(), NOW(), TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE),
+(4, 1, NOW(), NOW(), FALSE, TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -550,15 +551,15 @@ _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO "{$db_prefix}node_locale" ("node_id", "locale", "name", "title", "abstract", "cloud") VALUES
-(1, 'en', 'welcome', 'Welcome', NULL, NULL),
-(1, 'fr', 'bienvenue', 'Bienvenue', NULL, NULL),
-(2, 'en', 'contents', 'Contents', NULL, 'content text PHP insertion file download audio video YouTube HTML5 jQuery UI calendar', NULL),
-(2, 'fr', 'contenus', 'Contenus', NULL, 'contenu texte PHP insertion fichier téléchargement audio vidéo YouTube HTML5 jQuery UI calendrier', NULL),
-(3, 'en', 'slideshow', 'Slideshow', 'Show an animated gallery of images which displays a full page slide show and a gallery of images which starts playing YouTube videos.', 'gallery image video jQuery Cycle Colorbox YouTube QRmii QR cat dog', NULL),
-(3, 'fr', 'diaporama', 'Diaporama', 'Montrez une galerie d\'images animée qui affiche un diaporama pleine page et une galerie d\'images qui démarre la lecture de vidéos YouTube.', 'galerie image vidéo jQuery Cycle Colorbox YouTube QRmii QR chat chien', NULL),
-(4, 'en', 'qrmii', 'What is a QRmii?', 'A QRmii is QR code which contains a short URL which is automatically redirected to a complete URL.', 'QRmii QR URL redirection', NULL),
-(4, 'fr', 'qrmii', 'Qu\'est-ce qu\'un QRmii ?', 'Un QRmii est un code QR qui contient une URL courte qui est automatiquement redirigée vers une URL complète.', 'QRmii QR URL redirection', NULL);
+INSERT INTO "{$db_prefix}node_locale" ("node_id", "locale", "name", "title", "abstract", "cloud", "image", "visited") VALUES
+(1, 'en', 'welcome', 'Welcome', NULL, NULL, NULL, 0),
+(1, 'fr', 'bienvenue', 'Bienvenue', NULL, NULL, NULL, 0),
+(2, 'en', 'contents', 'Contents', NULL, 'content text PHP insertion file download audio video YouTube HTML5 jQuery UI calendar', NULL, NULL, 0),
+(2, 'fr', 'contenus', 'Contenus', NULL, 'contenu texte PHP insertion fichier téléchargement audio vidéo YouTube HTML5 jQuery UI calendrier', NULL, NULL, 0),
+(3, 'en', 'slideshow', 'Slideshow', 'Show an animated gallery of images which displays a full page slide show and a gallery of images which starts playing YouTube videos.', 'gallery image video jQuery Cycle Colorbox YouTube QRmii QR cat dog', NULL, NULL, 0),
+(3, 'fr', 'diaporama', 'Diaporama', 'Montrez une galerie d\'images animée qui affiche un diaporama pleine page et une galerie d\'images qui démarre la lecture de vidéos YouTube.', 'galerie image vidéo jQuery Cycle Colorbox YouTube QRmii QR chat chien', NULL, NULL, 0),
+(4, 'en', 'qrmii', 'What is a QRmii?', 'A QRmii is QR code which contains a short URL which is automatically redirected to a complete URL.', 'QRmii QR URL redirection', NULL, NULL, 0),
+(4, 'fr', 'qrmii', 'Qu\'est-ce qu\'un QRmii ?', 'Un QRmii est un code QR qui contient une URL courte qui est automatiquement redirigée vers une URL complète.', 'QRmii QR URL redirection', NULL, NULL, 0);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -596,42 +597,42 @@ _SEP_;
 
 		$sql= <<<_SEP_
 INSERT INTO "{$db_prefix}content_text" ("content_id", "locale", "text", "eval") VALUES
-(1, 'en', '<p>Your <b>iZend</b> site is now operational.\r\nConsult <a href="/en/article/test">the example pages</a>.</p>', 0),
-(1, 'fr', '<p>Votre site <b>iZend</b> est maintenant opérationnel.\r\nConsultez <a href="/fr/article/test">les pages d\'exemples</a>.</p>', 0),
-(2, 'en', '<p style="width:320px;max-width:100%">\r\n<audio controls loop>\r\n<source src="/files/sounds/smoke.ogg" type="audio/ogg" />\r\n<source src="/files/sounds/smoke.m4a" type="audio/m4a" />\r\n<source src="/files/sounds/smoke.mp3" type="audio/mpeg" />\r\n</audio>\r\n</p>\r\n<?php head(\'javascript\', \'audioplayer\'); ?>\r\n<?php head(\'stylesheet\', \'audioplayer\', \'screen\'); ?>\r\n<script>\r\n$(\'audio\').audioPlayer();\r\n</script>', 1),
-(2, 'fr', '<p style="width:320px;max-width:100%">\r\n<audio controls loop>\r\n<source src="/files/sounds/smoke.ogg" type="audio/ogg" />\r\n<source src="/files/sounds/smoke.m4a" type="audio/m4a" />\r\n<source src="/files/sounds/smoke.mp3" type="audio/mpeg" />\r\n</audio>\r\n</p>\r\n<?php head(\'javascript\', \'audioplayer\'); ?>\r\n<?php head(\'stylesheet\', \'audioplayer\', \'screen\'); ?>\r\n<script>\r\n$(\'audio\').audioPlayer();\r\n</script>', 1),
-(3, 'en', '<p>Validated with\r\n<span class="browser-firefox" title="Firefox">Firefox</span>,\r\n<span class="browser-chrome" title="Chrome">Chrome</span>,\r\n<span class="browser-safari" title="Safari">Safari</span>,\r\n<span class="browser-opera" title="Opera">Opera</span>\r\nand\r\n<span class="nowrap"><span class="browser-edge" title="Edge">Edge</span>.</span>\r\n</p>\r\n<p class="hidden-print">Read <a href="https://www.izend.org">the documentation</a> on-line.</p>', 0),
-(3, 'fr', '<p>Validé avec\r\n<span class="browser-firefox" title="Firefox">Firefox</span>,\r\n<span class="browser-chrome" title="Chrome">Chrome</span>,\r\n<span class="browser-safari" title="Safari">Safari</span>,\r\n<span class="browser-opera" title="Opera">Opera</span>\r\net\r\n<span class="nowrap"><span class="browser-edge" title="Edge">Edge</span>.</span>\r\n</p>\r\n<p class="hidden-print">Lisez <a href="https://www.izend.org">la documentation</a> en ligne.</p>', 0),
-(4, 'en', '<div class="media">\r\n<div class="media-left media-top">\r\n<p><a href="https://www.izend.org"><img class="media-object" src="/logos/izend.png" alt="" title="" /></a></p>\r\n</div>\r\n<div class="media-body">\r\n<p>Lorem ipsum dolor sit amet, alterum antiopam maluisset vis eu, et brute expetenda iracundia has. Eos animal nusquam delicata ad. Cetero legendos in pri, no usu quidam utamur. Vel quodsi voluptua cu, eam ex reque audire vidisse.</p>\r\n</div>\r\n</div>\r\n<div class="panel panel-warning pull-right">\r\n<div class="panel-body bg-warning">\r\n<ol class="nav nav-pills nav-stacked text-right">\r\n<li><a href="#">Duo ridens</a></li>\r\n<li><a href="#">Tale posidonium</a></li>\r\n<li><a href="#">Cu mea ferri</a></li>\r\n</ol>\r\n</div>\r\n</div>\r\n<p>Text <b>bold</b>, <i>italics</i>, <u>underlined</u> and <s>striked</s>.</p>\r\n<h4>H4</h4>\r\n<p>Paragraph with some <code>code embedded</code> in the text.</p>\r\n<h5>H5</h5>\r\n<blockquote>\r\n<p>Et scaevola principes elaboraret mea. At usu docendi epicurei, et ferri sensibus deterruisset nec, mei solet persius dignissim te. Vix velit rationibus at. Ei eum simul suscipit, assum munere recusabo vix no.</p>\r\n<footer><cite title="iZend">iZend</cite></footer>\r\n</blockquote>\r\n<h6>H6</h6>\r\n<p>A series of commands:</p>\r\n<pre><code>$ ls -l\r\n$ pwd</code></pre>\r\n<h6>Image</h6>\r\n<p><img class="img-responsive" src="/files/images/pinit.jpg" alt="" title="www.izend.org" /></p>\r\n<h6>Table</h6>\r\n<table class="table table-striped table-auto">\r\n<thead>\r\n<tr><th>French</th><th>English</th></tr>\r\n</thead>\r\n<tbody>\r\n<tr><td>Un</td><td>One</td></tr>\r\n<tr><td>Deux</td><td>Two</td></tr>\r\n<tr><td>Trois</td><td>Three</td></tr>\r\n</tbody>\r\n</table>\r\n<h6>Tree</h6>\r\n<div class="tree-group">\r\n<b><em>/folder</em></b>\r\n<ol>\r\n  <li>\r\n    <em>folder</em>\r\n    <ol>\r\n      <li>\r\n        <em>folder</em>\r\n        <ol>\r\n          <li>file</li>\r\n          <li>file</li>\r\n        </ol>\r\n      </li>\r\n      <li>\r\n        <em>folder</em>\r\n        <ol>\r\n          <li>file</li>\r\n        </ol>\r\n      </li>\r\n    </ol>\r\n  </li>\r\n  <li>\r\n    <em>folder</em>\r\n    <ol>\r\n      <li>file</li>\r\n      <li>file</li>\r\n    </ol>\r\n  </li>\r\n  <li>file</li>\r\n</ol>\r\n</div>\r\n<h6>Columns</h6>\r\n<div class="row">\r\n<div class="col-md-4">\r\n<p>No dolor invenire adversarium nam, erat suscipit per no. Id duo summo mollis.</p>\r\n</div>\r\n<div class="col-md-4">\r\n<p>Per ut illud tempor. Ut vis laboramus voluptatibus. Vel oporteat ullamcorper id, modus decore luptatum vim ea. Nec ex brute placerat, feugiat percipitur eos ea, fabulas principes ea sit.</p>\r\n</div>\r\n<div class="col-md-4">\r\n<p><img class="img-right" src="/logos/izend.png" alt="" title="www.izend.org" />Ad eam odio evertitur neglegentur, verterem disputationi eam ex. Sed no solet homero voluptua. Mei et legendos dissentias, ea dolorem oportere vix.</p>\r\n</div>\r\n</div>', 0),
-(4, 'fr', '<div class="media">\r\n<div class="media-left media-top">\r\n<p><a href="https://www.izend.org"><img class="media-object" src="/logos/izend.png" alt="" title="" /></a></p>\r\n</div>\r\n<div class="media-body">\r\n<p>Lorem ipsum dolor sit amet, alterum antiopam maluisset vis eu, et brute expetenda iracundia has. Eos animal nusquam delicata ad. Cetero legendos in pri, no usu quidam utamur. Vel quodsi voluptua cu, eam ex reque audire vidisse.</p>\r\n</div>\r\n</div>\r\n<div class="panel panel-warning pull-right">\r\n<div class="panel-body bg-warning">\r\n<ol class="nav nav-pills nav-stacked text-right">\r\n<li><a href="#">Duo ridens</a></li>\r\n<li><a href="#">Tale posidonium</a></li>\r\n<li><a href="#">Cu mea ferri</a></li>\r\n</ol>\r\n</div>\r\n</div>\r\n<p>Texte en <b>gras</b>, en <i>italique</i>, <u>souligné</u> et <s>barré</s>.</p>\r\n<h4>H4</h4>\r\n<p>Paragraphe avec du <code>code inséré</code> dans le texte.</p>\r\n<h5>H5</h5>\r\n<blockquote>\r\n<p>Et scaevola principes elaboraret mea. At usu docendi epicurei, et ferri sensibus deterruisset nec, mei solet persius dignissim te. Vix velit rationibus at. Ei eum simul suscipit, assum munere recusabo vix no.</p>\r\n<footer><cite title="iZend">iZend</cite></footer>\r\n</blockquote>\r\n<h6>H6</h6>\r\n<p>Une série de commandes&nbsp;:</p>\r\n<pre><code>$ ls -l\r\n$ pwd</code></pre>\r\n<h6>Image</h6>\r\n<p><img class="img-responsive" src="/files/images/pinit.jpg" alt="" title="www.izend.org" /></p>\r\n<h6>Tableau</h6>\r\n<table class="table table-striped table-auto">\r\n<thead>\r\n<tr><th>Français</th><th>Anglais</th></tr>\r\n</thead>\r\n<tbody>\r\n<tr><td>Un</td><td>One</td></tr>\r\n<tr><td>Deux</td><td>Two</td></tr>\r\n<tr><td>Trois</td><td>Three</td></tr>\r\n</tbody>\r\n</table>\r\n<h6>Arbre</h6>\r\n<div class="tree-group">\r\n<b><em>/dossier</em></b>\r\n<ol>\r\n  <li>\r\n    <em>dossier</em>\r\n    <ol>\r\n      <li>\r\n        <em>dossier</em>\r\n        <ol>\r\n          <li>fichier</li>\r\n          <li>fichier</li>\r\n        </ol>\r\n      </li>\r\n      <li>\r\n        <em>dossier</em>\r\n        <ol>\r\n          <li>fichier</li>\r\n        </ol>\r\n      </li>\r\n    </ol>\r\n  </li>\r\n  <li>\r\n    <em>dossier</em>\r\n    <ol>\r\n      <li>fichier</li>\r\n      <li>fichier</li>\r\n    </ol>\r\n  </li>\r\n  <li>fichier</li>\r\n</ol>\r\n</div>\r\n<h6>Colonnes</h6>\r\n<div class="row">\r\n<div class="col-md-4">\r\n<p>No dolor invenire adversarium nam, erat suscipit per no. Id duo summo mollis.</p>\r\n</div>\r\n<div class="col-md-4">\r\n<p>Per ut illud tempor. Ut vis laboramus voluptatibus. Vel oporteat ullamcorper id, modus decore luptatum vim ea. Nec ex brute placerat, feugiat percipitur eos ea, fabulas principes ea sit.</p>\r\n</div>\r\n<div class="col-md-4">\r\n<p><img class="img-right" src="/logos/izend.png" alt="" title="www.izend.org" />Ad eam odio evertitur neglegentur, verterem disputationi eam ex. Sed no solet homero voluptua. Mei et legendos dissentias, ea dolorem oportere vix.</p>\r\n</div>\r\n</div>', 0),
-(5, 'en', '<h5>jQuery UI</h5>\r\n<h6>Calendar</h6>\r\n<div class="form-group form-inline-auto"><input type="text" size="10" class="form-control" id="calendar" title="aaaa-mm-jj" /></div>', 0),
-(5, 'fr', '<h5>jQuery UI</h5>\r\n<h6>Calendrier</h6>\r\n<div class="form-group form-inline-auto"><input type="text" size="10" class="form-control" id="calendar" title="aaaa-mm-jj" /></div>', 0),
-(6, 'en', '<?php head(\'javascript\', \'jquery-ui\'); ?>\r\n<?php head(\'stylesheet\', \'jquery-ui\', \'screen\'); ?>\r\n<script>\r\n$(\'#calendar\').datepicker({dateFormat: \'yy-mm-dd\', autoSize: true, showAnim: \'drop\', showOn: \'both\', buttonText: \'Calendar\', buttonImage: \'/images/theme/edit/calendar.png\', buttonImageOnly: true, minDate: \'today\', maxDate: \'+2m\', showOtherMonths: true, navigationAsDateFormat: true, prevText: \'MM\', nextText: \'MM\', beforeShowDay: function(date) {return [date.getDay() != 0];}});\r\n</script>', 1),
-(6, 'fr', '<?php head(\'javascript\', \'jquery-ui\'); ?>\r\n<?php head(\'javascript\', \'jquery.ui.datepicker-fr\'); ?>\r\n<?php head(\'stylesheet\', \'jquery-ui\', \'screen\'); ?>\r\n<script>\r\n$(\'#calendar\').datepicker({dateFormat: \'yy-mm-dd\', autoSize: true, showAnim: \'drop\', showOn: \'both\', buttonText: \'Calendrier\', buttonImage: \'/images/theme/edit/calendar.png\', buttonImageOnly: true, minDate: \'today\', maxDate: \'+2m\', showOtherMonths: true, navigationAsDateFormat: true, prevText: \'MM\', nextText: \'MM\', beforeShowDay: function(date) {return [date.getDay() != 0];}});\r\n</script>', 1),
-(7,	'en',	'<h5 class=\"noprint\">HTML5</h5>\r\n<h6 class=\"noprint\">Vidéo</h6>\r\n<div>\r\n<video id=\"video\" controls preload=\"none\" width=\"640\" poster=\"https://assets.codepen.io/32795/poster.png\">\r\n<source src=\"https://media.w3.org/2010/05/sintel/trailer.mp4\" type=\'video/mp4\' />\r\n<source src=\"https://media.w3.org/2010/05/sintel/trailer.webm\" type=\'video/webm\' />\r\n<source src=\"https://media.w3.org/2010/05/sintel/trailer.ogv\" type=\'video/ogg\' />\r\n</video>\r\n</div>\r\n<h6 class=\"noprint\">Audio</h6>\r\n<div>\r\n<audio controls loop>\r\n<source src=\"/files/sounds/smoke.ogg\" type=\"audio/ogg\" />\r\n<source src=\"/files/sounds/smoke.mp3\" type=\"audio/mpeg\" />\r\n</audio>\r\n</div>',	0),
-(7,	'fr',	'<h5 class=\"noprint\">HTML5</h5>\r\n<h6 class=\"noprint\">Vidéo</h6>\r\n<div>\r\n<video id=\"video\" controls preload=\"none\" width=\"640\" poster=\"https://assets.codepen.io/32795/poster.png\">\r\n<source src=\"https://media.w3.org/2010/05/sintel/trailer.mp4\" type=\'video/mp4\' />\r\n<source src=\"https://media.w3.org/2010/05/sintel/trailer.webm\" type=\'video/webm\' />\r\n<source src=\"https://media.w3.org/2010/05/sintel/trailer.ogv\" type=\'video/ogg\' />\r\n</video>\r\n</div>\r\n<h6 class=\"noprint\">Audio</h6>\r\n<div>\r\n<audio controls loop>\r\n<source src=\"/files/sounds/smoke.ogg\" type=\"audio/ogg\" />\r\n<source src=\"/files/sounds/smoke.mp3\" type=\"audio/mpeg\" />\r\n</audio>\r\n</div>',	0),
-(8, 'en', '<h6 class="hidden-print"><img src="/images/youtube.png" alt="" title="YouTube"/></h6>', 0),
-(8, 'fr', '<h6 class="hidden-print"><img src="/images/youtube.png" alt="" title="YouTube"/></h6>', 0),
-(11, 'en', '<h6 class="hidden-print">Download</h6>', 0),
-(11, 'fr', '<h6 class="hidden-print">Téléchargement</h6>', 0),
-(12, 'en', '<h6>File</h6>', 0),
-(12, 'fr', '<h6>Fichier</h6>', 0),
-(13, 'en', '<h6>Insertion</h6>', 0),
-(13, 'fr', '<h6>Insertion</h6>', 0),
-(14, 'en', '<h6>PHP</h6>\r\n<code>&lt;?php require_once ''dateen.php''; ?&gt;<br/>&lt;p&gt;&lt;i&gt;&lt;?php echo longdate_en(time()); ?&gt;&lt;/i&gt;&lt;/p&gt;</code>\r\n<?php require_once ''dateen.php''; ?>\r\n<p><i><?php echo longdate_en(time()); ?></i></p>', '1'),
-(14, 'fr', '<h6>PHP</h6>\r\n<code>&lt;?php require_once ''datefr.php''; ?&gt;<br/>\r\n&lt;p&gt;&lt;i&gt;&lt;?php echo longdate_fr(time()); ?&gt;&lt;/i&gt;&lt;/p&gt;</code>\r\n<?php require_once ''datefr.php''; ?>\r\n<p><i><?php echo longdate_fr(time()); ?></i></p>', '1'),
-(15, 'en', '<p class="hidden-print"><i>Click on an image to display a full page slide show</i>&nbsp;<span class="glyphicon glyphicon-camera" aria-hidden="true"></span></p>', 0),
-(15, 'fr', '<p class="hidden-print"><i>Cliquez sur une image pour afficher un diaporama pleine page</i>&nbsp;<span class="glyphicon glyphicon-camera" aria-hidden="true"></span></p>', 0),
-(16, 'en', '<h4>What is a QRmii?</h4>\r\n<p><a href="https://qrmii.mcpalo.com/"><img src="/files/images/qrmii.png" alt="" title="QRmii - 1 URL 1 QR" /></a></p>\r\n<p>A <b>QRmii</b> is QR code which contains a short URL which is automatically redirected to a complete URL.\r\nScanning a QRmii with a smartphone directly displays the page of the original URL.</p>', 0),
-(16, 'fr', '<h4>Qu\'est-ce qu\'un QRmii&nbsp;?</h4>\r\n<p><a href="https://qrmii.mcpalo.com/"><img src="/files/images/qrmii.png" alt="" title="QRmii - 1 URL 1 QR" /></a></p>\r\n<p>Un <b>QRmii</b> est un code QR qui contient une URL courte qui est automatiquement redirigée vers une URL complète.\r\nFlasher un QRmii avec un smartphone affiche directement la page de l\'URL d\'origine.</p>', 0),
-(17, 'en', '<p class="hidden-print"><i>Click on an image to start playing the video on</i>&nbsp;<img src="/images/youtube.png" alt="" title="YouTube" /></p>', 0),
-(17, 'fr', '<p class="text-small"><i>Cliquez sur une image pour démarrer la lecture de la vidéo sur</i>&nbsp;<img src="/images/youtube.png" alt="" title="YouTube" /></p>', 0),
-(18, 'en', '<p>Download a QRmii by program in just a few lines of code.\r\nCreate a dynamic link between your services or your products and your public.\r\nA QRmii is simple, fast, reliable and fun.\r\nThe applications are infinite!</p>\r\n<p class="text-center"><a href="https://qrmii.mcpalo.com/e628ddf9"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="https://qrmii.mcpalo.com/e628ddf9" /></a> Scan me!</p>', 0),
-(18, 'fr', '<p>Téléchargez un QRmii par programme en quelques lignes de code.\r\nCréez un lien dynamique entre vos services ou vos produits et votre public.\r\nUn QRmii est simple, rapide, fiable et fun.\r\nLes applications sont infinies&nbsp;!</p>\r\n<p class="text-center"><a href="https://qrmii.mcpalo.com/e628ddf9"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="https://qrmii.mcpalo.com/e628ddf9" /></a> Flashez-moi&nbsp;!</p>', 0),
-(19, 'en', '<h1><a href="https://www.izend.org"><img src="/logos/izend.png" alt="" title="izend.org" /></a></h1>\r\n<h4>What is a QRmii?</h4>\r\n<p><a href="https://qrmii.mcpalo.com/"><img src="/files/images/qrmii.png" alt="" title="qrmii - 1 URL 1 QR" /></a></p>\r\n<p>A QRmii is QR code which contains a short URL which is automatically redirected to a complete URL.\r\nScanning a QRmii with a smartphone directly displays the page of the original URL.</p>\r\n<p><a href="https://qrmii.mcpalo.com">Visit the website!</a></p>\r\n<p class="text-center"><a href="https://qrmii.mcpalo.com/e628ddf9"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="https://qrmii.mcpalo.com/e628ddf9" /></a> Scan me!</p>', 0),
-(19, 'fr', '<h1><a href="https://www.izend.org"><img src="/logos/izend.png" alt="" title="izend.org" /></a></h1>\r\n<h4>Qu\'est-ce qu\'un QRmii ?</h4>\r\n<p><a href="https://qrmii.mcpalo.com/"><img src="/files/images/qrmii.png" alt="" title="qrmii - 1 URL 1 QR" /></a></p>\r\n<p>Un QRmii est un code QR qui contient une URL courte qui est automatiquement redirigée vers une URL complète.\r\nFlasher un QRmii avec un smartphone affiche directement la page de l\'URL d\'origine.</p>\r\n<p><a href="https://qrmii.mcpalo.com">Visitez le site web !</a></p>\r\n<p class="text-center"><a href="https://qrmii.mcpalo.com/e628ddf9"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="https://qrmii.mcpalo.com/e628ddf9" /></a> Flashez-moi&nbsp;!</p>', 0),
-(20, 'en', '<p>A QRmii is QR code which contains a short URL which is automatically redirected to a complete URL.\r\nScanning a QRmii with a smartphone directly displays the page of the original URL.</p>\r\n<p>Visit the website: <a href="https://qrmii.mcpalo.com">https://qrmii.mcpalo.com</a></p>', 0),
-(20, 'fr', '<p>Un QRmii est un code QR qui contient une URL courte qui est automatiquement redirigée vers une URL complète.\r\nFlasher un QRmii avec un smartphone affiche directement la page de l\'URL d\'origine.</p>\r\n<p>Visitez le site web : <a href="">https://qrmii.mcpalo.com</a></p>', 0);
+(1, 'en', '<p>Your <b>iZend</b> site is now operational.\r\nConsult <a href="/en/article/test">the example pages</a>.</p>', FALSE),
+(1, 'fr', '<p>Votre site <b>iZend</b> est maintenant opérationnel.\r\nConsultez <a href="/fr/article/test">les pages d\'exemples</a>.</p>', FALSE),
+(2, 'en', '<p style="width:320px;max-width:100%">\r\n<audio controls loop>\r\n<source src="/files/sounds/smoke.ogg" type="audio/ogg" />\r\n<source src="/files/sounds/smoke.m4a" type="audio/m4a" />\r\n<source src="/files/sounds/smoke.mp3" type="audio/mpeg" />\r\n</audio>\r\n</p>\r\n<?php head(\'javascript\', \'audioplayer\'); ?>\r\n<?php head(\'stylesheet\', \'audioplayer\', \'screen\'); ?>\r\n<script>\r\n$(\'audio\').audioPlayer();\r\n</script>', TRUE),
+(2, 'fr', '<p style="width:320px;max-width:100%">\r\n<audio controls loop>\r\n<source src="/files/sounds/smoke.ogg" type="audio/ogg" />\r\n<source src="/files/sounds/smoke.m4a" type="audio/m4a" />\r\n<source src="/files/sounds/smoke.mp3" type="audio/mpeg" />\r\n</audio>\r\n</p>\r\n<?php head(\'javascript\', \'audioplayer\'); ?>\r\n<?php head(\'stylesheet\', \'audioplayer\', \'screen\'); ?>\r\n<script>\r\n$(\'audio\').audioPlayer();\r\n</script>', TRUE),
+(3, 'en', '<p>Validated with\r\n<span class="browser-firefox" title="Firefox">Firefox</span>,\r\n<span class="browser-chrome" title="Chrome">Chrome</span>,\r\n<span class="browser-safari" title="Safari">Safari</span>,\r\n<span class="browser-opera" title="Opera">Opera</span>\r\nand\r\n<span class="nowrap"><span class="browser-edge" title="Edge">Edge</span>.</span>\r\n</p>\r\n<p class="hidden-print">Read <a href="https://www.izend.org">the documentation</a> on-line.</p>', FALSE),
+(3, 'fr', '<p>Validé avec\r\n<span class="browser-firefox" title="Firefox">Firefox</span>,\r\n<span class="browser-chrome" title="Chrome">Chrome</span>,\r\n<span class="browser-safari" title="Safari">Safari</span>,\r\n<span class="browser-opera" title="Opera">Opera</span>\r\net\r\n<span class="nowrap"><span class="browser-edge" title="Edge">Edge</span>.</span>\r\n</p>\r\n<p class="hidden-print">Lisez <a href="https://www.izend.org">la documentation</a> en ligne.</p>', FALSE),
+(4, 'en', '<div class="media">\r\n<div class="media-left media-top">\r\n<p><a href="https://www.izend.org"><img class="media-object" src="/logos/izend.png" alt="" title="" /></a></p>\r\n</div>\r\n<div class="media-body">\r\n<p>Lorem ipsum dolor sit amet, alterum antiopam maluisset vis eu, et brute expetenda iracundia has. Eos animal nusquam delicata ad. Cetero legendos in pri, no usu quidam utamur. Vel quodsi voluptua cu, eam ex reque audire vidisse.</p>\r\n</div>\r\n</div>\r\n<div class="panel panel-warning pull-right">\r\n<div class="panel-body bg-warning">\r\n<ol class="nav nav-pills nav-stacked text-right">\r\n<li><a href="#">Duo ridens</a></li>\r\n<li><a href="#">Tale posidonium</a></li>\r\n<li><a href="#">Cu mea ferri</a></li>\r\n</ol>\r\n</div>\r\n</div>\r\n<p>Text <b>bold</b>, <i>italics</i>, <u>underlined</u> and <s>striked</s>.</p>\r\n<h4>H4</h4>\r\n<p>Paragraph with some <code>code embedded</code> in the text.</p>\r\n<h5>H5</h5>\r\n<blockquote>\r\n<p>Et scaevola principes elaboraret mea. At usu docendi epicurei, et ferri sensibus deterruisset nec, mei solet persius dignissim te. Vix velit rationibus at. Ei eum simul suscipit, assum munere recusabo vix no.</p>\r\n<footer><cite title="iZend">iZend</cite></footer>\r\n</blockquote>\r\n<h6>H6</h6>\r\n<p>A series of commands:</p>\r\n<pre><code>$ ls -l\r\n$ pwd</code></pre>\r\n<h6>Image</h6>\r\n<p><img class="img-responsive" src="/files/images/pinit.jpg" alt="" title="www.izend.org" /></p>\r\n<h6>Table</h6>\r\n<table class="table table-striped table-auto">\r\n<thead>\r\n<tr><th>French</th><th>English</th></tr>\r\n</thead>\r\n<tbody>\r\n<tr><td>Un</td><td>One</td></tr>\r\n<tr><td>Deux</td><td>Two</td></tr>\r\n<tr><td>Trois</td><td>Three</td></tr>\r\n</tbody>\r\n</table>\r\n<h6>Tree</h6>\r\n<div class="tree-group">\r\n<b><em>/folder</em></b>\r\n<ol>\r\n  <li>\r\n    <em>folder</em>\r\n    <ol>\r\n      <li>\r\n        <em>folder</em>\r\n        <ol>\r\n          <li>file</li>\r\n          <li>file</li>\r\n        </ol>\r\n      </li>\r\n      <li>\r\n        <em>folder</em>\r\n        <ol>\r\n          <li>file</li>\r\n        </ol>\r\n      </li>\r\n    </ol>\r\n  </li>\r\n  <li>\r\n    <em>folder</em>\r\n    <ol>\r\n      <li>file</li>\r\n      <li>file</li>\r\n    </ol>\r\n  </li>\r\n  <li>file</li>\r\n</ol>\r\n</div>\r\n<h6>Columns</h6>\r\n<div class="row">\r\n<div class="col-md-4">\r\n<p>No dolor invenire adversarium nam, erat suscipit per no. Id duo summo mollis.</p>\r\n</div>\r\n<div class="col-md-4">\r\n<p>Per ut illud tempor. Ut vis laboramus voluptatibus. Vel oporteat ullamcorper id, modus decore luptatum vim ea. Nec ex brute placerat, feugiat percipitur eos ea, fabulas principes ea sit.</p>\r\n</div>\r\n<div class="col-md-4">\r\n<p><img class="img-right" src="/logos/izend.png" alt="" title="www.izend.org" />Ad eam odio evertitur neglegentur, verterem disputationi eam ex. Sed no solet homero voluptua. Mei et legendos dissentias, ea dolorem oportere vix.</p>\r\n</div>\r\n</div>', FALSE),
+(4, 'fr', '<div class="media">\r\n<div class="media-left media-top">\r\n<p><a href="https://www.izend.org"><img class="media-object" src="/logos/izend.png" alt="" title="" /></a></p>\r\n</div>\r\n<div class="media-body">\r\n<p>Lorem ipsum dolor sit amet, alterum antiopam maluisset vis eu, et brute expetenda iracundia has. Eos animal nusquam delicata ad. Cetero legendos in pri, no usu quidam utamur. Vel quodsi voluptua cu, eam ex reque audire vidisse.</p>\r\n</div>\r\n</div>\r\n<div class="panel panel-warning pull-right">\r\n<div class="panel-body bg-warning">\r\n<ol class="nav nav-pills nav-stacked text-right">\r\n<li><a href="#">Duo ridens</a></li>\r\n<li><a href="#">Tale posidonium</a></li>\r\n<li><a href="#">Cu mea ferri</a></li>\r\n</ol>\r\n</div>\r\n</div>\r\n<p>Texte en <b>gras</b>, en <i>italique</i>, <u>souligné</u> et <s>barré</s>.</p>\r\n<h4>H4</h4>\r\n<p>Paragraphe avec du <code>code inséré</code> dans le texte.</p>\r\n<h5>H5</h5>\r\n<blockquote>\r\n<p>Et scaevola principes elaboraret mea. At usu docendi epicurei, et ferri sensibus deterruisset nec, mei solet persius dignissim te. Vix velit rationibus at. Ei eum simul suscipit, assum munere recusabo vix no.</p>\r\n<footer><cite title="iZend">iZend</cite></footer>\r\n</blockquote>\r\n<h6>H6</h6>\r\n<p>Une série de commandes&nbsp;:</p>\r\n<pre><code>$ ls -l\r\n$ pwd</code></pre>\r\n<h6>Image</h6>\r\n<p><img class="img-responsive" src="/files/images/pinit.jpg" alt="" title="www.izend.org" /></p>\r\n<h6>Tableau</h6>\r\n<table class="table table-striped table-auto">\r\n<thead>\r\n<tr><th>Français</th><th>Anglais</th></tr>\r\n</thead>\r\n<tbody>\r\n<tr><td>Un</td><td>One</td></tr>\r\n<tr><td>Deux</td><td>Two</td></tr>\r\n<tr><td>Trois</td><td>Three</td></tr>\r\n</tbody>\r\n</table>\r\n<h6>Arbre</h6>\r\n<div class="tree-group">\r\n<b><em>/dossier</em></b>\r\n<ol>\r\n  <li>\r\n    <em>dossier</em>\r\n    <ol>\r\n      <li>\r\n        <em>dossier</em>\r\n        <ol>\r\n          <li>fichier</li>\r\n          <li>fichier</li>\r\n        </ol>\r\n      </li>\r\n      <li>\r\n        <em>dossier</em>\r\n        <ol>\r\n          <li>fichier</li>\r\n        </ol>\r\n      </li>\r\n    </ol>\r\n  </li>\r\n  <li>\r\n    <em>dossier</em>\r\n    <ol>\r\n      <li>fichier</li>\r\n      <li>fichier</li>\r\n    </ol>\r\n  </li>\r\n  <li>fichier</li>\r\n</ol>\r\n</div>\r\n<h6>Colonnes</h6>\r\n<div class="row">\r\n<div class="col-md-4">\r\n<p>No dolor invenire adversarium nam, erat suscipit per no. Id duo summo mollis.</p>\r\n</div>\r\n<div class="col-md-4">\r\n<p>Per ut illud tempor. Ut vis laboramus voluptatibus. Vel oporteat ullamcorper id, modus decore luptatum vim ea. Nec ex brute placerat, feugiat percipitur eos ea, fabulas principes ea sit.</p>\r\n</div>\r\n<div class="col-md-4">\r\n<p><img class="img-right" src="/logos/izend.png" alt="" title="www.izend.org" />Ad eam odio evertitur neglegentur, verterem disputationi eam ex. Sed no solet homero voluptua. Mei et legendos dissentias, ea dolorem oportere vix.</p>\r\n</div>\r\n</div>', FALSE),
+(5, 'en', '<h5>jQuery UI</h5>\r\n<h6>Calendar</h6>\r\n<div class="form-group form-inline-auto"><input type="text" size="10" class="form-control" id="calendar" title="aaaa-mm-jj" /></div>', FALSE),
+(5, 'fr', '<h5>jQuery UI</h5>\r\n<h6>Calendrier</h6>\r\n<div class="form-group form-inline-auto"><input type="text" size="10" class="form-control" id="calendar" title="aaaa-mm-jj" /></div>', FALSE),
+(6, 'en', '<?php head(\'javascript\', \'jquery-ui\'); ?>\r\n<?php head(\'stylesheet\', \'jquery-ui\', \'screen\'); ?>\r\n<script>\r\n$(\'#calendar\').datepicker({dateFormat: \'yy-mm-dd\', autoSize: true, showAnim: \'drop\', showOn: \'both\', buttonText: \'Calendar\', buttonImage: \'/images/theme/edit/calendar.png\', buttonImageOnly: true, minDate: \'today\', maxDate: \'+2m\', showOtherMonths: true, navigationAsDateFormat: true, prevText: \'MM\', nextText: \'MM\', beforeShowDay: function(date) {return [date.getDay() != 0];}});\r\n</script>', TRUE),
+(6, 'fr', '<?php head(\'javascript\', \'jquery-ui\'); ?>\r\n<?php head(\'javascript\', \'jquery.ui.datepicker-fr\'); ?>\r\n<?php head(\'stylesheet\', \'jquery-ui\', \'screen\'); ?>\r\n<script>\r\n$(\'#calendar\').datepicker({dateFormat: \'yy-mm-dd\', autoSize: true, showAnim: \'drop\', showOn: \'both\', buttonText: \'Calendrier\', buttonImage: \'/images/theme/edit/calendar.png\', buttonImageOnly: true, minDate: \'today\', maxDate: \'+2m\', showOtherMonths: true, navigationAsDateFormat: true, prevText: \'MM\', nextText: \'MM\', beforeShowDay: function(date) {return [date.getDay() != 0];}});\r\n</script>', TRUE),
+(7,	'en',	'<h5 class=\"noprint\">HTML5</h5>\r\n<h6 class=\"noprint\">Vidéo</h6>\r\n<div>\r\n<video id=\"video\" controls preload=\"none\" width=\"640\" poster=\"https://assets.codepen.io/32795/poster.png\">\r\n<source src=\"https://media.w3.org/2010/05/sintel/trailer.mp4\" type=\'video/mp4\' />\r\n<source src=\"https://media.w3.org/2010/05/sintel/trailer.webm\" type=\'video/webm\' />\r\n<source src=\"https://media.w3.org/2010/05/sintel/trailer.ogv\" type=\'video/ogg\' />\r\n</video>\r\n</div>\r\n<h6 class=\"noprint\">Audio</h6>\r\n<div>\r\n<audio controls loop>\r\n<source src=\"/files/sounds/smoke.ogg\" type=\"audio/ogg\" />\r\n<source src=\"/files/sounds/smoke.mp3\" type=\"audio/mpeg\" />\r\n</audio>\r\n</div>',	FALSE),
+(7,	'fr',	'<h5 class=\"noprint\">HTML5</h5>\r\n<h6 class=\"noprint\">Vidéo</h6>\r\n<div>\r\n<video id=\"video\" controls preload=\"none\" width=\"640\" poster=\"https://assets.codepen.io/32795/poster.png\">\r\n<source src=\"https://media.w3.org/2010/05/sintel/trailer.mp4\" type=\'video/mp4\' />\r\n<source src=\"https://media.w3.org/2010/05/sintel/trailer.webm\" type=\'video/webm\' />\r\n<source src=\"https://media.w3.org/2010/05/sintel/trailer.ogv\" type=\'video/ogg\' />\r\n</video>\r\n</div>\r\n<h6 class=\"noprint\">Audio</h6>\r\n<div>\r\n<audio controls loop>\r\n<source src=\"/files/sounds/smoke.ogg\" type=\"audio/ogg\" />\r\n<source src=\"/files/sounds/smoke.mp3\" type=\"audio/mpeg\" />\r\n</audio>\r\n</div>',	FALSE),
+(8, 'en', '<h6 class="hidden-print"><img src="/images/youtube.png" alt="" title="YouTube"/></h6>', FALSE),
+(8, 'fr', '<h6 class="hidden-print"><img src="/images/youtube.png" alt="" title="YouTube"/></h6>', FALSE),
+(11, 'en', '<h6 class="hidden-print">Download</h6>', FALSE),
+(11, 'fr', '<h6 class="hidden-print">Téléchargement</h6>', FALSE),
+(12, 'en', '<h6>File</h6>', FALSE),
+(12, 'fr', '<h6>Fichier</h6>', FALSE),
+(13, 'en', '<h6>Insertion</h6>', FALSE),
+(13, 'fr', '<h6>Insertion</h6>', FALSE),
+(14, 'en', '<h6>PHP</h6>\r\n<code>&lt;?php require_once ''dateen.php''; ?&gt;<br/>&lt;p&gt;&lt;i&gt;&lt;?php echo longdate_en(time()); ?&gt;&lt;/i&gt;&lt;/p&gt;</code>\r\n<?php require_once ''dateen.php''; ?>\r\n<p><i><?php echo longdate_en(time()); ?></i></p>', TRUE),
+(14, 'fr', '<h6>PHP</h6>\r\n<code>&lt;?php require_once ''datefr.php''; ?&gt;<br/>\r\n&lt;p&gt;&lt;i&gt;&lt;?php echo longdate_fr(time()); ?&gt;&lt;/i&gt;&lt;/p&gt;</code>\r\n<?php require_once ''datefr.php''; ?>\r\n<p><i><?php echo longdate_fr(time()); ?></i></p>', TRUE),
+(15, 'en', '<p class="hidden-print"><i>Click on an image to display a full page slide show</i>&nbsp;<span class="glyphicon glyphicon-camera" aria-hidden="true"></span></p>', FALSE),
+(15, 'fr', '<p class="hidden-print"><i>Cliquez sur une image pour afficher un diaporama pleine page</i>&nbsp;<span class="glyphicon glyphicon-camera" aria-hidden="true"></span></p>', FALSE),
+(16, 'en', '<h4>What is a QRmii?</h4>\r\n<p><a href="https://qrmii.mcpalo.com/"><img src="/files/images/qrmii.png" alt="" title="QRmii - 1 URL 1 QR" /></a></p>\r\n<p>A <b>QRmii</b> is QR code which contains a short URL which is automatically redirected to a complete URL.\r\nScanning a QRmii with a smartphone directly displays the page of the original URL.</p>', FALSE),
+(16, 'fr', '<h4>Qu\'est-ce qu\'un QRmii&nbsp;?</h4>\r\n<p><a href="https://qrmii.mcpalo.com/"><img src="/files/images/qrmii.png" alt="" title="QRmii - 1 URL 1 QR" /></a></p>\r\n<p>Un <b>QRmii</b> est un code QR qui contient une URL courte qui est automatiquement redirigée vers une URL complète.\r\nFlasher un QRmii avec un smartphone affiche directement la page de l\'URL d\'origine.</p>', FALSE),
+(17, 'en', '<p class="hidden-print"><i>Click on an image to start playing the video on</i>&nbsp;<img src="/images/youtube.png" alt="" title="YouTube" /></p>', FALSE),
+(17, 'fr', '<p class="text-small"><i>Cliquez sur une image pour démarrer la lecture de la vidéo sur</i>&nbsp;<img src="/images/youtube.png" alt="" title="YouTube" /></p>', FALSE),
+(18, 'en', '<p>Download a QRmii by program in just a few lines of code.\r\nCreate a dynamic link between your services or your products and your public.\r\nA QRmii is simple, fast, reliable and fun.\r\nThe applications are infinite!</p>\r\n<p class="text-center"><a href="https://qrmii.mcpalo.com/e628ddf9"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="https://qrmii.mcpalo.com/e628ddf9" /></a> Scan me!</p>', FALSE),
+(18, 'fr', '<p>Téléchargez un QRmii par programme en quelques lignes de code.\r\nCréez un lien dynamique entre vos services ou vos produits et votre public.\r\nUn QRmii est simple, rapide, fiable et fun.\r\nLes applications sont infinies&nbsp;!</p>\r\n<p class="text-center"><a href="https://qrmii.mcpalo.com/e628ddf9"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="https://qrmii.mcpalo.com/e628ddf9" /></a> Flashez-moi&nbsp;!</p>', FALSE),
+(19, 'en', '<h1><a href="https://www.izend.org"><img src="/logos/izend.png" alt="" title="izend.org" /></a></h1>\r\n<h4>What is a QRmii?</h4>\r\n<p><a href="https://qrmii.mcpalo.com/"><img src="/files/images/qrmii.png" alt="" title="qrmii - 1 URL 1 QR" /></a></p>\r\n<p>A QRmii is QR code which contains a short URL which is automatically redirected to a complete URL.\r\nScanning a QRmii with a smartphone directly displays the page of the original URL.</p>\r\n<p><a href="https://qrmii.mcpalo.com">Visit the website!</a></p>\r\n<p class="text-center"><a href="https://qrmii.mcpalo.com/e628ddf9"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="https://qrmii.mcpalo.com/e628ddf9" /></a> Scan me!</p>', FALSE),
+(19, 'fr', '<h1><a href="https://www.izend.org"><img src="/logos/izend.png" alt="" title="izend.org" /></a></h1>\r\n<h4>Qu\'est-ce qu\'un QRmii ?</h4>\r\n<p><a href="https://qrmii.mcpalo.com/"><img src="/files/images/qrmii.png" alt="" title="qrmii - 1 URL 1 QR" /></a></p>\r\n<p>Un QRmii est un code QR qui contient une URL courte qui est automatiquement redirigée vers une URL complète.\r\nFlasher un QRmii avec un smartphone affiche directement la page de l\'URL d\'origine.</p>\r\n<p><a href="https://qrmii.mcpalo.com">Visitez le site web !</a></p>\r\n<p class="text-center"><a href="https://qrmii.mcpalo.com/e628ddf9"><img src="/files/images/qr50.png" width="50" height="50" alt="" title="https://qrmii.mcpalo.com/e628ddf9" /></a> Flashez-moi&nbsp;!</p>', FALSE),
+(20, 'en', '<p>A QRmii is QR code which contains a short URL which is automatically redirected to a complete URL.\r\nScanning a QRmii with a smartphone directly displays the page of the original URL.</p>\r\n<p>Visit the website: <a href="https://qrmii.mcpalo.com">https://qrmii.mcpalo.com</a></p>', FALSE),
+(20, 'fr', '<p>Un QRmii est un code QR qui contient une URL courte qui est automatiquement redirigée vers une URL complète.\r\nFlasher un QRmii avec un smartphone affiche directement la page de l\'URL d\'origine.</p>\r\n<p>Visitez le site web : <a href="">https://qrmii.mcpalo.com</a></p>', FALSE);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -816,9 +817,9 @@ _SEP_;
 
 		$sql= <<<_SEP_
 INSERT INTO "{$db_prefix}thread" ("thread_id", "user_id", "thread_type", "created", "modified", "number", "visits", "nosearch", "nocloud", "nocomment", "nomorecomment", "novote", "nomorevote", "ilike", "tweet", "linkedin", "pinit", "whatsapp") VALUES
-(1, 1, 'folder', NOW(), NOW(), 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0),
-(2, 1, 'story', NOW(), NOW(), 2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1),
-(3, 1, 'newsletter', NOW(), NOW(), 3, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0);
+(1, 1, 'folder', NOW(), NOW(), TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE),
+(2, 1, 'story', NOW(), NOW(), 2, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE),
+(3, 1, 'newsletter', NOW(), NOW(), 3, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE);
 _SEP_;
 		$db_conn->exec($sql);
 
@@ -828,22 +829,22 @@ _SEP_;
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO "{$db_prefix}thread_locale" ("thread_id", "locale", "name", "title") VALUES
-(1, 'en', 'blog', 'Blog'),
-(1, 'fr', 'blog', 'Blog'),
-(2, 'en', 'test', 'Test'),
-(2, 'fr', 'test', 'Test'),
-(3, 'en', 'newsletter', 'Newsletter'),
-(3, 'fr', 'infolettre', 'Infolettre');
-_SEP_;
+INSERT INTO "{$db_prefix}thread_locale" ("thread_id", "locale", "name", "title", "abstract", "cloud", "image") VALUES
+(1, 'en', 'blog', 'Blog', NULL, NULL, NULL),
+(1, 'fr', 'blog', 'Blog', NULL, NULL, NULL),
+(2, 'en', 'test', 'Test', NULL, NULL, NULL),
+(2, 'fr', 'test', 'Test', NULL, NULL, NULL),
+(3, 'en', 'newsletter', 'Newsletter', NULL, NULL, NULL),
+(3, 'fr', 'infolettre', 'Infolettre', NULL, NULL, NULL);
+
 		$db_conn->exec($sql);
 
 		$sql= <<<_SEP_
-INSERT INTO "{$db_prefix}thread_node" ("thread_id", "node_id", "number") VALUES
-(1, 1, 1),
-(2, 2, 1),
-(2, 3, 2),
-(3, 4, 1);
+INSERT INTO "{$db_prefix}thread_node" ("thread_id", "node_id", "number", "ignored") VALUES
+(1, 1, 1, FALSE),
+(2, 2, 1, FALSE),
+(2, 3, 2, FALSE),
+(3, 4, 1, FALSE);
 _SEP_;
 		$db_conn->exec($sql);
 	}
