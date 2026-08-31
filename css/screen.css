@@ -1,7 +1,7 @@
 /**
  *
  * @copyright  2010-2026 (2017-2026) izend.org
- * @version    131 (32)
+ * @version    131 (33)
  * @link       http://www.izend.org
  */
 
@@ -15,7 +15,7 @@ body {
 h5, .h5, h6, .h6 {
 	font-weight: 700;
 }
-	
+
 h3, .h3 {
 	margin-bottom: 15px;
 }
@@ -960,13 +960,13 @@ div.tagbar {
 
 .img-left {
 	float: left !important;
-	margin-right: 10px; 
-	margin-bottom: 10px; 
+	margin-right: 10px;
+	margin-bottom: 10px;
 }
 .img-right {
 	float: right !important;
-	margin-left: 10px; 
-	margin-bottom: 10px; 
+	margin-left: 10px;
+	margin-bottom: 10px;
 }
 
 .img-240 {
@@ -1046,6 +1046,19 @@ div.tagbar {
 }
 .tree-group ol > li:last-child:after {
 	height: 8px;
+}
+
+.vignette {
+	float: right;
+	margin: 0.25em 0 0.5em 1em;
+}
+@media screen and (max-width: 480px) {
+	.vignette {
+		float: none;
+		display: block;
+		max-width: 100%;
+		margin: 1em 0 !important;
+	}
 }
 
 .comments h4 {
