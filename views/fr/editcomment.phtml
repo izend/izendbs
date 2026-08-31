@@ -24,7 +24,7 @@
 <span id="comment_limiter"><?php echo $message_maxlen; ?></span>
 </div>
 <div class="form-group form-inline-auto">
-<?php $ncols=80; $nrows=min(10, max(4, substr_count(wordwrap($message, $ncols), "\n")+1));?>
+<?php $ncols=80; $nrows=min(10, max(4, substr_count($message ? wordwrap($message, $ncols) : 0, "\n")+1));?>
 <textarea class="form-control monospace" id="comment_message" name="comment_message" cols="<?php echo $ncols; ?>" rows="<?php echo $nrows; ?>" onkeyup="return inputlimit('comment_message', 'comment_limiter', <?php echo $message_maxlen; ?>)"><?php if ($message): ?><?php echo htmlspecialchars($message, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?></textarea>
 </div>
 <p id="comment_help" class="help-block text-small">

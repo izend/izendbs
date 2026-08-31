@@ -3,7 +3,7 @@
 /**
  *
  * @copyright  2010-2026 (2016-2026) izend.org
- * @version    30 (7)
+ * @version    30 (8)
  * @link       http://www.izend.org
  */
 ?>
@@ -112,7 +112,7 @@ foreach ($node_contents as $c) {
 </span>
 </div>
 <div class="form-group form-inline-auto">
-<?php $ncols=100; $nrows=min(10, max(4, substr_count(wordwrap($content_text_text, $ncols), "\n")+1));?>
+<?php $ncols=100; $nrows=min(10, max(4, substr_count($content_text_text ? wordwrap($content_text_text, $ncols) : 0, "\n")+1));?>
 <textarea class="form-control monospace" id="content_text_text_<?php echo $i; ?>" name="content_text_text[<?php echo $i; ?>]" cols="<?php echo $ncols; ?>" rows="<?php echo $nrows; ?>"><?php if ($content_text_text): ?><?php echo htmlspecialchars($content_text_text, ENT_COMPAT, 'UTF-8'); ?><?php endif; ?></textarea>
 </div>
 <?php break; ?>
