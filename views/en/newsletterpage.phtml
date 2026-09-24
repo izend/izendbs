@@ -2,16 +2,17 @@
 
 /**
  *
- * @copyright  2012-2022 (2016-2022) izend.org
- * @version    6 (2)
+ * @copyright  2012-2026 (2016-2026) izend.org
+ * @version    7 (3)
  * @link       http://www.izend.org
  */
 ?>
 <?php require_once 'dateen.php'; ?>
-<div id="newsletterpage">
 <h3><?php echo htmlspecialchars($page_title ? $page_title : $page_id, ENT_COMPAT, 'UTF-8'); ?></h3>
-<?php if ($next_page_url or $prev_page_url): ?>
-<p>
+<p class="compact">
+<?php echo $inlanguages; ?>
+</p>
+<p class="navigation menu">
 <?php if ($prev_page_url): ?>
 &larr;&nbsp;<a href="<?php echo $prev_page_url; ?>"><?php echo htmlspecialchars($prev_page_label, ENT_COMPAT, 'UTF-8'); ?></a>
 <?php endif; ?>
@@ -22,7 +23,6 @@
 <a href="<?php echo $next_page_url; ?>"><?php echo htmlspecialchars($next_page_label, ENT_COMPAT, 'UTF-8'); ?></a>&nbsp;&rarr;
 <?php endif; ?>
 </p>
-<?php endif; ?>
 <p><?php echo longdatetime_en($page_modified); ?></p>
 <?php if ($postnews): ?>
 <?php echo $postnews; ?>
@@ -64,4 +64,3 @@ if ($missing_mail or $bad_mail) {
 $(function() {$('<?php echo $focus; ?>').focus();});
 </script>
 <?php endif; ?>
-</div>
