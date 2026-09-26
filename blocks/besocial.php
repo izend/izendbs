@@ -2,13 +2,8 @@
 
 /**
  *
-<<<<<<< HEAD
- * @copyright  2010-2019 (2019) izend.org
- * @version    10 (3)
-=======
- * @copyright  2010-2026 izend.org
- * @version    11
->>>>>>> izend
+ * @copyright  2010-2026 (2019) izend.org
+ * @version    11 (3)
  * @link       http://www.izend.org
  */
 
