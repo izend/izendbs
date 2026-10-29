@@ -38,6 +38,8 @@ h3 {background:none;text-indent:0;}
 div.row, div.column {display:inline;}
 div.row > *, div.column > * {display:block;margin:1em 0;width:auto !important;}
 div.row.tight > * {margin:0;}
+div.settings {display:inline;}
+div.settings label {text-align:left;}
 #new_thread_title_block, #new_node_title_block {display:block;}
 }
 
